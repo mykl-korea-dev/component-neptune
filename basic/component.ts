@@ -7,14 +7,14 @@ export default class Component<T> {
     constructor(component: Element, data?: T[]) {
         this.$element = component;
         this.$data = data ? [... data] : [];
-        this.getElements();
-        this.template();
+        this.setElements();
+        this.setTemplate();
         this.setEvents();
     }
 
-    getElements() {};
+    setElements() {};
 
-    template() {};
+    setTemplate() {};
 
     setEvents() {};
 

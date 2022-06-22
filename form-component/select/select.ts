@@ -10,12 +10,12 @@ export default class Select<T> extends Component<T>{
         super(component);
     }
 
-    getElements() {
+    setElements() {
         this.select = this.$element.querySelector('select') as HTMLSelectElement;
         this.options = Array.from(this.$element.querySelectorAll('option'));
     }
 
-    template() {
+    setTemplate() {
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
         template.innerHTML = `

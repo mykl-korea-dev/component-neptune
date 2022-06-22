@@ -11,11 +11,11 @@ export default class Select<T extends {name: string, value: string, text: string
     }
 
 
-    getElements() {
+    setElements() {
         this.select = this.$element.querySelector('select');
     }
 
-    template() {
+    setTemplate() {
         this.options = this.$data && [...this.$data];
         this.select?.setAttribute('name', this.options[0].name);
         this.select!.innerHTML = this.options.map(el => `<option value="${el.value}">${el.text}</option>`).join('');

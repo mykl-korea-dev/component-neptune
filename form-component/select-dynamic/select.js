@@ -29,10 +29,10 @@ var Select = /** @class */ (function (_super) {
     function Select(component, options) {
         return _super.call(this, component, options) || this;
     }
-    Select.prototype.getElements = function () {
+    Select.prototype.setElements = function () {
         this.select = this.$element.querySelector('select');
     };
-    Select.prototype.template = function () {
+    Select.prototype.setTemplate = function () {
         var _a, _b;
         this.options = this.$data && __spreadArray([], this.$data, true);
         (_a = this.select) === null || _a === void 0 ? void 0 : _a.setAttribute('name', this.options[0].name);

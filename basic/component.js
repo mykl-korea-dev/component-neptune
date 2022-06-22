@@ -11,13 +11,13 @@ var Component = /** @class */ (function () {
     function Component(component, data) {
         this.$element = component;
         this.$data = data ? __spreadArray([], data, true) : [];
-        this.getElements();
-        this.template();
+        this.setElements();
+        this.setTemplate();
         this.setEvents();
     }
-    Component.prototype.getElements = function () { };
+    Component.prototype.setElements = function () { };
     ;
-    Component.prototype.template = function () { };
+    Component.prototype.setTemplate = function () { };
     ;
     Component.prototype.setEvents = function () { };
     ;

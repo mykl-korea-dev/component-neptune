@@ -20,11 +20,11 @@ var Select = /** @class */ (function (_super) {
     function Select(component) {
         return _super.call(this, component) || this;
     }
-    Select.prototype.getElements = function () {
+    Select.prototype.setElements = function () {
         this.select = this.$element.querySelector('select');
         this.options = Array.from(this.$element.querySelectorAll('option'));
     };
-    Select.prototype.template = function () {
+    Select.prototype.setTemplate = function () {
         var _a, _b;
         var template = document.createElement('template');
         var fragment = new DocumentFragment();

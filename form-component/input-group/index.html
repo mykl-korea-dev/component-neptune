@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Group</title>
+    <link rel="stylesheet" href="./input-group.css">
+</head>
+<body>
+<div class="input-group">
+    <span class="form-label">이름</span>
+    <input class="form-control" type="text" placeholder="이름" name="name">
+</div>
+
+<div class="input-group">
+    <span class="form-label">휴대폰 번호</span>
+    <select name="first-number" class="form-control">
+        <option selected>010</option>
+        <option value="1">011</option>
+        <option value="2">012</option>
+        <option value="3">013</option>
+    </select>
+    <span class="input-group-text">-</span>
+    <input class="form-control" type="text" name="middle-number">
+    <span class="input-group-text">-</span>
+    <input class="form-control" type="text" name="middle-number">
+</div>
+
+<div class="input-group">
+    <span class="form-label">성별</span>
+        <input type="radio" name="gender" value="male" id="male">
+        <label for="male">남</label>
+        <input type="radio" name="gender" value="female" id="female">
+        <label for="female">여</label>
+</div>
+
+<div class="input-group">
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star</title>
+    <style>
+        .star > * {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+        .star-fill {
+            background: url(./images/star-fill.svg) no-repeat;
+        }
+        .star-half {
+            background: url(./images/star-half.svg) no-repeat;
+        }
+        .star-empty {
+            background: url(./images/star.svg) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="star">
+        <div class="star-item star-fill"></div>
+        <div class="star-item star-fill"></div>
+        <div class="star-item star-half"></div>
+        <div class="star-item star-empty"></div>
+        <div class="star-item star-empty"></div>
+    </div>
+
+    <div class="star ajax" data-min="0" data-max="5" data-value="2.5">
+
+    </div>
+    <script src="./star.js" type="module"></script>
+</body>
+</html>

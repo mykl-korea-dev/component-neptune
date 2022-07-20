@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav > li {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.nav > li >  a {
+    display: block;
+    padding: 5px;
+}
+
+.nav-menu {
+    background: #bdbdbd;
+    padding: 0 10px;
+}

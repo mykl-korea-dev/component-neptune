@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Pagination</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .pagination li {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-left: 2px;
+            background: lightgoldenrodyellow;
+        }
+
+        .pagination .active {
+            background: lightblue;
+        }
+    </style>
 </head>
 <body>
-$END$
+  <nav>
+    <ul class="pagination">
+        <li class="page-item active"><a href="" class="page-link">1</a></li>
+        <li class="page-item"><a href="" class="page-link">2</a></li>
+        <li class="page-item"><a href="" class="page-link">3</a></li>
+        <li class="page-item"><a href="" class="page-link">4</a></li>
+    </ul>
+  </nav>
 </body>
 </html>

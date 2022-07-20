@@ -1,0 +1,44 @@
+
+.table-wrapper {
+    width: 100%;
+    /*max-width: 600px;*/
+    /*width: 1000px;*/
+}
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    width: 200px;
+    /*min-width: 100px;*/
+    text-align: left;
+}
+
+/* table colgroup */
+colgroup col:nth-child(even) {
+    background: antiquewhite;
+}
+
+/* div로 만든 table */
+.div-wrapper {
+    width: 60%;
+    max-width: 600px;
+}
+
+.tr {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.tr > *{
+    display: inline-block;
+    flex: 1;
+}

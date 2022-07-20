@@ -27,14 +27,24 @@ var File = /** @class */ (function (_super) {
         this.button.classList.add('file-btn');
         this.button.textContent = "파일 등록";
         this.$element.appendChild(this.button);
+        var ul = document.createElement('ul');
+        this.$element.appendChild(ul);
     };
     File.prototype.setEvents = function () {
         var _this = this;
-        var _a;
+        var _a, _b;
         (_a = this.button) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
             var _a;
-            console.log('hi');
             (_a = _this.input) === null || _a === void 0 ? void 0 : _a.click();
+        });
+        (_b = this.input) === null || _b === void 0 ? void 0 : _b.addEventListener('change', function () {
+            var _a, _b, _c;
+            ((_b = (_a = _this.input) === null || _a === void 0 ? void 0 : _a.files) === null || _b === void 0 ? void 0 : _b.length) && Array.from((_c = _this.input) === null || _c === void 0 ? void 0 : _c.files).forEach(function (el) {
+                var _a, _b;
+                var li = document.createElement('li');
+                li.innerHTML = el.name;
+                (_b = (_a = _this.$element) === null || _a === void 0 ? void 0 : _a.querySelector('ul')) === null || _b === void 0 ? void 0 : _b.appendChild(li);
+            });
         });
     };
     return File;

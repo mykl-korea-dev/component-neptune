@@ -17,12 +17,23 @@ export default class File<T> extends Component<T> {
         this.button.classList.add('file-btn');
         this.button.textContent = "파일 등록"
         this.$element.appendChild(this.button);
+        const ul = document.createElement('ul')
+
+        this.$element.appendChild(ul)
     }
 
     setEvents() {
         this.button?.addEventListener('click', () => {
-            console.log('hi')
             this.input?.click();
+        })
+
+        this.input?.addEventListener('change', () => {
+            
+            this.input?.files?.length && Array.from(this.input?.files).forEach(el => {
+                const li = document.createElement('li');
+                li.innerHTML = el.name
+                this.$element?.querySelector('ul')?.appendChild(li)
+            })
         })
     }
 }

@@ -21,6 +21,16 @@ export default class Range<T> extends Component<T> {
             </div>`
         fragment.appendChild(template.content);
         this.$element?.appendChild(fragment);
+        console.log(min, max, step, value)
+        if(min &&  max && step && value) {
+            for (let i = parseInt(min, 10)+parseInt(step, 10); i < parseInt(max, 10); i += parseInt(step, 10)) {
+                const span = document.createElement('span');
+                span.classList.add('step');
+                span.style.left = `${i}%`
+                this.$element.querySelector('.slider')?.appendChild(span)
+            }
+        }
+
 
         const slider = document.querySelector('.slider') as HTMLElement;
         const range = slider?.querySelector('.range') as HTMLElement;
@@ -28,8 +38,8 @@ export default class Range<T> extends Component<T> {
         const thumbRight = slider.querySelector('.thumb.right') as HTMLElement;
         thumbLeft.style.left = `${value!}%`;
         range.style.left = `${value!}%`;
-        range.style.right = `${value!}%`;
-        thumbRight.style.right = `${value!}%`;
+        range.style.right = `${parseInt(value!, 10) -3}%`;
+        thumbRight.style.right = `${parseInt(value!, 10)  -3}%`;
     }
 
     setElements() {
@@ -49,7 +59,6 @@ export default class Range<T> extends Component<T> {
 
             const inputValue = parseInt(inputLeft.value, 10)
             const percent = ((inputValue - min) / (max-min)) * 100;
-            console.log(percent);
             thumbLeft.style.left = `${percent}%`;
             range.style.left = `${percent}%`;
         })
@@ -60,9 +69,8 @@ export default class Range<T> extends Component<T> {
 
             const inputValue = parseInt(inputRight.value, 10)
             const percent = ((inputValue - min) / (max-min)) * 100;
-            console.log(percent);
-            thumbRight.style.right = `${100 - percent}%`;
-            range.style.right = `${100 - percent}%`;
+            thumbRight.style.right = `${100 - percent - 3}%`;
+            range.style.right = `${100 - percent - 2}%`;
         })
     }
 }

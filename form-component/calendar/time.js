@@ -20,31 +20,65 @@ var Time = /** @class */ (function (_super) {
         return _super.call(this, element) || this;
     }
     Time.prototype.setTemplate = function () {
-        console.log(this.$element);
+        var toggleButton = document.createElement('button');
+        toggleButton.className = 'toggle-button';
+        toggleButton.textContent = '시간';
+        this.$element.appendChild(toggleButton);
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
-        template.innerHTML = "\n        <div class=\"time-wrapper\">\n            <div class=\"hour\">\n                <button class=\"hour-up\">Up</button>\n                <div class=\"hour-selected\">12</div>\n                <button class=\"hour-down\">Down</button>\n            </div>\n            <div class=\"minute\">\n                <button class=\"minute-up\">Up</button>\n                <div class=\"minute-selected\">00</div>\n                <button class=\"minute-down\">Down</button>\n            </div>\n        </div>\n            ";
+        template.innerHTML = "\n        <div class=\"time-wrapper\">\n            <div class=\"hour-box\">\n                <button class=\"hour-selected\">12</button>\n                <div class=\"hour\">\n                </div>\n            </div>\n            <span>:</span>\n            <div class=\"minute-box\">\n                <button class=\"minute-selected\">00</button>\n                <div class=\"minute\">\n                </div>\n            </div>\n        </div>\n            ";
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
+        var timeWrapper = this.$element.querySelector('.time-wrapper');
+        var _a = this.$element.dataset, start = _a.start, end = _a.end, min = _a.min, hour = _a.hour;
+        var _b = start.split(':').map(function (el) { return parseInt(el, 10); }), startHour = _b[0], startMin = _b[1];
+        var _c = end.split(':').map(function (el) { return parseInt(el, 10); }), endHour = _c[0], endMin = _c[1];
+        var hourDiv = document.createElement('div');
+        for (var i = startHour; i <= endHour; i += parseInt(hour, 10)) {
+            var template_1 = document.createElement('template');
+            template_1.innerHTML = "<div>".concat(this.setTwoDigits(i), "</div>");
+            hourDiv.appendChild(template_1.content);
+        }
+        timeWrapper.querySelector('.hour').innerHTML = hourDiv.innerHTML;
+        var minDiv = document.createElement('div');
+        for (var i = 0; i < 60; i += parseInt(min, 10)) {
+            var template_2 = document.createElement('template');
+            template_2.innerHTML = "<div>".concat(this.setTwoDigits(i), "</div>");
+            minDiv.appendChild(template_2.content);
+        }
+        timeWrapper.querySelector('.minute').innerHTML = minDiv.innerHTML;
     };
     Time.prototype.setEvents = function () {
+        var _a;
         var timeWrapper = this.$element.querySelector('.time-wrapper');
-        var hour = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.hour');
-        var hourUpBtn = hour === null || hour === void 0 ? void 0 : hour.querySelector('.hour-up');
-        var hourDownBtn = hour === null || hour === void 0 ? void 0 : hour.querySelector('.hour-up');
-        var hourValue = hour === null || hour === void 0 ? void 0 : hour.querySelector('.hour-selected');
-        var minute = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.minute');
-        var minuteUpBtn = minute === null || minute === void 0 ? void 0 : minute.querySelector('.minute-up');
-        var minuteDownBtn = minute === null || minute === void 0 ? void 0 : minute.querySelector('.minute-up');
-        hourUpBtn === null || hourUpBtn === void 0 ? void 0 : hourUpBtn.addEventListener('click', function () {
-            var selectedHour = parseInt(hourValue.textContent, 10);
-            selectedHour++;
-            console.log(selectedHour);
-            if (selectedHour > 24) {
-                selectedHour = 0;
-            }
-            hourValue.textContent = selectedHour.toString();
+        var hourSelector = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.hour-selected');
+        var minuteSelector = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.minute-selected');
+        var hourBox = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.hour');
+        var minuteBox = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.minute');
+        (_a = this.$element.querySelector('.toggle-button')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
+            timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.classList.toggle('show');
         });
+        hourSelector === null || hourSelector === void 0 ? void 0 : hourSelector.addEventListener('click', function (e) {
+            hourBox === null || hourBox === void 0 ? void 0 : hourBox.classList.add('show');
+        });
+        hourBox === null || hourBox === void 0 ? void 0 : hourBox.addEventListener('click', function (_a) {
+            var target = _a.target;
+            target.classList.add('selected');
+            hourSelector.textContent = target.textContent;
+            hourBox === null || hourBox === void 0 ? void 0 : hourBox.classList.remove('show');
+        });
+        minuteSelector === null || minuteSelector === void 0 ? void 0 : minuteSelector.addEventListener('click', function (e) {
+            minuteBox === null || minuteBox === void 0 ? void 0 : minuteBox.classList.add('show');
+        });
+        minuteBox === null || minuteBox === void 0 ? void 0 : minuteBox.addEventListener('click', function (_a) {
+            var target = _a.target;
+            target.classList.add('selected');
+            minuteSelector.textContent = target.textContent;
+            minuteBox === null || minuteBox === void 0 ? void 0 : minuteBox.classList.remove('show');
+        });
+    };
+    Time.prototype.setTwoDigits = function (num) {
+        return num < 10 ? '00' : num;
     };
     return Time;
 }(Component));

@@ -1,7 +1,6 @@
 import Component from "../../basic/component.js";
 
 export default class Calendar<T> extends Component<T> {
-
     year = new Date().getFullYear();
     month = new Date().getMonth()+1;
 
@@ -17,7 +16,6 @@ export default class Calendar<T> extends Component<T> {
             buttonEl.classList.add('calendar-btn');
             buttonEl.textContent = '기간'
             this.$element.appendChild(buttonEl);
-
             return;
         }
         let firstDay = new Date(this.year, this.month-1, 1, 0, 0, 0).getDay()

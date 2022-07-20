@@ -23,17 +23,17 @@ var Accordion = /** @class */ (function (_super) {
         _super.prototype.setTemplate.call(this);
     };
     Accordion.prototype.setEvents = function () {
-        // this.$element.querySelector('.accordion-toggle')?.addEventListener('click', ({target}) => {
-        //
-        // })
+        var _this = this;
         this.$element.addEventListener('click', function (_a) {
-            var _b;
+            var _b, _c;
             var target = _a.target;
             if (target.classList.contains('accordion-toggle')) {
                 var el = target.closest('.accordion-item');
-                console.log(target, el);
-                // el !== this.$element.querySelector('.accordion-body.show') && this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
-                (_b = el === null || el === void 0 ? void 0 : el.querySelector('.accordion-body')) === null || _b === void 0 ? void 0 : _b.classList.toggle('show');
+                if (!_this.$element.classList.contains('showAlways')) {
+                    (el === null || el === void 0 ? void 0 : el.querySelector('.accordion-body.show')) !== _this.$element.querySelector('.accordion-body.show')
+                        && ((_b = _this.$element.querySelector('.accordion-body.show')) === null || _b === void 0 ? void 0 : _b.classList.remove('show'));
+                }
+                (_c = el === null || el === void 0 ? void 0 : el.querySelector('.accordion-body')) === null || _c === void 0 ? void 0 : _c.classList.toggle('show');
             }
         });
     };

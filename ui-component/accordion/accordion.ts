@@ -6,15 +6,14 @@ export default class Accordion<T> extends Component<T> {
     }
 
     setEvents() {
-        // this.$element.querySelector('.accordion-toggle')?.addEventListener('click', ({target}) => {
-        //
-        // })
         this.$element.addEventListener('click', ({target}) => {
             if((target as HTMLElement).classList.contains('accordion-toggle')) {
                 const el = (target as HTMLElement).closest('.accordion-item');
-                console.log(target, el)
-                el !== this.$element.querySelector('.accordion-body.show') && this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
 
+                if(!this.$element.classList.contains('showAlways')) {
+                    el?.querySelector('.accordion-body.show') !== this.$element.querySelector('.accordion-body.show')
+                    && this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
+                }
                 el?.querySelector('.accordion-body')?.classList.toggle('show')
             }
         })

@@ -28,7 +28,7 @@ export default class File<T> extends Component<T> {
         })
 
         this.input?.addEventListener('change', () => {
-            
+
             this.input?.files?.length && Array.from(this.input?.files).forEach(el => {
                 const li = document.createElement('li');
                 li.innerHTML = el.name

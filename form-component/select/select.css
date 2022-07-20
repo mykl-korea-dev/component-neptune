@@ -1,6 +1,5 @@
 /*the container must be positioned relative:*/
 .form-select {
-    position: relative;
     font-family: Arial;
 }
 
@@ -10,6 +9,7 @@
 
 .select-selected {
     background-color: DodgerBlue;
+    position: relative;
 }
 
 /*style the arrow inside the select element:*/

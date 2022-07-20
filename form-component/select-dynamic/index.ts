@@ -14,3 +14,4 @@ function getData(url: string, callback: (data: any[]) => void) {
         new Select(document.querySelectorAll('.form-select')[i], data)
     })
 })
+

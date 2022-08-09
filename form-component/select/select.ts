@@ -2,17 +2,18 @@ import Component from "../../basic/component.js";
 import {closeAllSelect} from "../../basic/utils.js";
 
 
-export default class Select<T> extends Component<T>{
+export default class Select<T extends {name: string, value: string, text: string}> extends Component<T>{
     private select: HTMLSelectElement | null | undefined;
     private options: any[] | null | undefined;
 
-    constructor(component: Element) {
-        super(component);
+    constructor(component: Element, options: any[]) {
+        super(component, options);
     }
 
+
     setElements() {
-        this.select = this.$element.querySelector('select') as HTMLSelectElement;
-        this.options = Array.from(this.$element.querySelectorAll('option'));
+        this.select = this.$element.querySelector('select');
+        this.options = Array.from(this.select!.querySelectorAll('option'));
     }
 
     setTemplate() {
@@ -23,11 +24,10 @@ export default class Select<T> extends Component<T>{
                 ${this.select?.options[this.select.selectedIndex].textContent}
             </div>
             <div class="select-items select-hide">
-                ${this.options?.map((el: HTMLOptionElement, i: number)=> i === 0 ? '' : `<div>${el.textContent}</div>`).join('')}
+                ${this.options!.map(el => `<div>${el.text}</div>`).join('')}
             </div>
             `
         fragment.appendChild(template.content);
-
         this.$element.appendChild(fragment)
     }
 
@@ -58,6 +58,3 @@ export default class Select<T> extends Component<T>{
         })
     }
 }
-
-
-

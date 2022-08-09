@@ -2,23 +2,23 @@ import Component from "../../basic/component.js";
 import {closeAllSelect} from "../../basic/utils.js";
 
 
-export default class Select<T extends {name: string, value: string, text: string}> extends Component<T>{
+export default class Select<T extends {name: string, value: string, default: boolean}> extends Component<T>{
     private select: HTMLSelectElement | null | undefined;
     private options: any[] | null | undefined;
 
-    constructor(component: Element, options: any[]) {
-        super(component, options);
+    constructor(component: Element, data :T[]) {
+        super(component, data);
     }
 
-
     setElements() {
-        this.select = this.$element.querySelector('select');
+        // super.setElements();
+        this.select = this.$element.querySelector('select') as HTMLSelectElement;
+        console.log(this.select, this.$data);
+        this.select.innerHTML = `${this.$data.map(el => `<option value="${el.value}">${el.text}</option>`).join('')}`;
+        this.options = Array.from(this.$element.querySelectorAll('option'));
     }
 
     setTemplate() {
-        this.options = this.$data && [...this.$data];
-        this.select?.setAttribute('name', this.options[0].name);
-        this.select!.innerHTML = this.options.map(el => `<option value="${el.value}">${el.text}</option>`).join('');
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
         template.innerHTML = `
@@ -26,10 +26,11 @@ export default class Select<T extends {name: string, value: string, text: string
                 ${this.select?.options[this.select.selectedIndex].textContent}
             </div>
             <div class="select-items select-hide">
-                ${this.options.map(el => `<div>${el.text}</div>`).join('')}
+                ${this.options?.map((el: HTMLOptionElement, i: number)=> i === 0 ? '' : `<div>${el.textContent}</div>`).join('')}
             </div>
             `
         fragment.appendChild(template.content);
+
         this.$element.appendChild(fragment)
     }
 
@@ -60,6 +61,3 @@ export default class Select<T extends {name: string, value: string, text: string
         })
     }
 }
-
-
-

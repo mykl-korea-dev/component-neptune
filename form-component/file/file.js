@@ -20,6 +20,7 @@ var File = /** @class */ (function (_super) {
         return _super.call(this, element) || this;
     }
     File.prototype.setElements = function () {
+        this.dataTransfer = new DataTransfer();
         this.input = this.$element.querySelector('.form-file-input');
     };
     File.prototype.setTemplate = function () {
@@ -30,6 +31,9 @@ var File = /** @class */ (function (_super) {
         var ul = document.createElement('ul');
         this.$element.appendChild(ul);
     };
+    File.prototype.render = function () {
+        this.$element.querySelector('ul').innerHTML = Array.from(this.input.files).reverse().map(function (file, idx) { return "\n            <li>".concat(file.name, "<button type=\"button\"  class=\"deleteFileBtn\" data-idx=").concat(file.lastModified, ">\uC0AD\uC81C</button></li>\n        "); }).join('');
+    };
     File.prototype.setEvents = function () {
         var _this = this;
         var _a, _b;
@@ -38,13 +42,21 @@ var File = /** @class */ (function (_super) {
             (_a = _this.input) === null || _a === void 0 ? void 0 : _a.click();
         });
         (_b = this.input) === null || _b === void 0 ? void 0 : _b.addEventListener('change', function () {
-            var _a, _b, _c;
-            ((_b = (_a = _this.input) === null || _a === void 0 ? void 0 : _a.files) === null || _b === void 0 ? void 0 : _b.length) && Array.from((_c = _this.input) === null || _c === void 0 ? void 0 : _c.files).forEach(function (el) {
-                var _a, _b;
-                var li = document.createElement('li');
-                li.innerHTML = el.name;
-                (_b = (_a = _this.$element) === null || _a === void 0 ? void 0 : _a.querySelector('ul')) === null || _b === void 0 ? void 0 : _b.appendChild(li);
-            });
+            var _a, _b, _c, _d;
+            Array.from(_this.input.files).forEach(function (file) { var _a; return (_a = _this.dataTransfer) === null || _a === void 0 ? void 0 : _a.items.add(file); });
+            console.log((_a = _this.dataTransfer) === null || _a === void 0 ? void 0 : _a.files, (_b = _this.input) === null || _b === void 0 ? void 0 : _b.files);
+            _this.input.files = _this.dataTransfer.files;
+            console.log((_c = _this.dataTransfer) === null || _c === void 0 ? void 0 : _c.files, (_d = _this.input) === null || _d === void 0 ? void 0 : _d.files);
+            _this.render();
+        });
+        this.$element.addEventListener('click', function (_a) {
+            var _b;
+            var target = _a.target;
+            if (target.classList.contains('deleteFileBtn')) {
+                (_b = _this.dataTransfer) === null || _b === void 0 ? void 0 : _b.items.remove(Array.from(_this.dataTransfer.files).findIndex(function (file, idx) { return (file.lastModified == parseInt(target.dataset.idx, 10)); }));
+                _this.input.files = _this.dataTransfer.files;
+                _this.render();
+            }
         });
     };
     return File;

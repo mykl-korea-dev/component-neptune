@@ -1,32 +1,34 @@
 import Component from "../../basic/component.js";
 
 export default class Calendar<T> extends Component<T> {
-    year = new Date().getFullYear();
-    month = new Date().getMonth()+1;
 
-    constructor(element: Element) {
-        super(element);
-        this.setTemplate();
-        this.setEvents();
-    }
+    year = new Date().getFullYear();
+    month = new Date().getMonth() + 1;
 
     setTemplate() {
-        if(typeof this.year === "undefined") {
-            let buttonEl = document.createElement('button');
-            buttonEl.classList.add('calendar-btn');
-            buttonEl.textContent = '기간'
-            this.$element.appendChild(buttonEl);
-            return;
+        if(this.year === undefined) {
+            return `
+                <div class="clickedDate">
+                    <span>${new Date().getFullYear()}-${this.setTwoDigits(new Date().getMonth() + 1)}-${this.setTwoDigits(new Date().getDate())}</span>
+                    <button class="calendar-btn">기간</button>
+                </div>
+                <div class="week-container">
+                </div>
+            `
         }
+        console.log(this.year, this.month)
         let firstDay = new Date(this.year, this.month-1, 1, 0, 0, 0).getDay()
         let lastDate = new Date(this.year, this.month, 0, 0, 0, 0).getDate()
         let weekSeq = Math.floor((lastDate + firstDay - 1) / 7 + 1)
 
-        console.log(firstDay, weekSeq)
-
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
-        template.innerHTML = `
+
+        return `
+            <div class="clickedDate">
+                <span>${new Date().getFullYear()}-${this.setTwoDigits(new Date().getMonth() + 1)}-${this.setTwoDigits(new Date().getDate())}</span>
+                <button class="calendar-btn">기간</button>
+            </div>                
             <div class="calendar show">
                 <div class="yearMonth">
                   <div class="year">${this.year}</div>
@@ -37,13 +39,13 @@ export default class Calendar<T> extends Component<T> {
                   </div>
                 </div>
                 <div class="weekday">
-                  <div class="sunday">일</div>
+                  <div>일</div>
                   <div>월</div>
                   <div>화</div>
                   <div>수</div>
                   <div>목</div>
                   <div>금</div>
-                  <div class="saturday">토</div>
+                  <div>토</div>
                 </div>
                 ${[...Array(weekSeq)].map((_, i) =>
             `<div class="week${i}">
@@ -54,37 +56,37 @@ export default class Calendar<T> extends Component<T> {
             }
                     </div>`
         ).join('')}
-              </div>
             `
-        fragment.appendChild(template.content);
-        this.$element.appendChild(fragment)
+    }
+
+    setElements() {
+        this.$element.innerHTML = this.setTemplate();
     }
 
     setEvents() {
-        if(typeof this.year === "undefined") {
-            return;
-        }
         const parent = this.$element.parentElement
         const calendar = parent?.querySelector('.calendar');
         const calendarBtn = this.$element.querySelector('.calendar-btn');
         const calendarButtonGroup = parent?.querySelector('.calendar-button-group');
         const prevBtn = calendarButtonGroup?.querySelector('.prev');
         const nextBtn = calendarButtonGroup?.querySelector('.next');
-
+        console.log(prevBtn)
         calendarBtn?.addEventListener('click', (e) => {
-            calendar?.classList.toggle('show')
+            this.setElements()
+            this.setEvents()
         })
 
 
         prevBtn?.addEventListener('click', () => {
+            console.log(this.month)
             --this.month
             if(this.month === 0) {
                 this.month = 12
                 --this.year
             }
-            calendar?.parentNode?.removeChild(calendar);
-            this.setTemplate()
+            this.setElements()
             this.setEvents()
+
         })
 
         nextBtn?.addEventListener('click', () => {
@@ -93,8 +95,7 @@ export default class Calendar<T> extends Component<T> {
                 this.month = 1
                 ++this.year
             }
-            calendar?.parentNode?.removeChild(calendar);
-            this.setTemplate()
+            this.setElements()
             this.setEvents()
         })
 
@@ -108,5 +109,9 @@ export default class Calendar<T> extends Component<T> {
 
             }
         })
+    }
+
+    setTwoDigits(value: number) {
+        return value < 10 ? `0${value}` : value
     }
 }

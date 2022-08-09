@@ -1,9 +1,21 @@
+input[type="time"] {
+    display: none;
+}
+
+.form-time > *{
+    display: inline-block;
+}
+
+.selected-time.hide {
+    display: none;
+}
+
 .time-wrapper {
     display: none;
 }
 
 .time-wrapper.show {
-    display: flex;
+    display: inline-flex;
 }
 
 .hour-box, .minute-box {

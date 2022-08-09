@@ -13,33 +13,25 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 import Component from "../../basic/component.js";
 import { closeAllSelect } from "../../basic/utils.js";
 var Select = /** @class */ (function (_super) {
     __extends(Select, _super);
-    function Select(component, options) {
-        return _super.call(this, component, options) || this;
+    function Select(component, data) {
+        return _super.call(this, component, data) || this;
     }
     Select.prototype.setElements = function () {
+        // super.setElements();
         this.select = this.$element.querySelector('select');
+        console.log(this.select, this.$data);
+        this.select.innerHTML = "".concat(this.$data.map(function (el) { return "<option value=\"".concat(el.value, "\">").concat(el.text, "</option>"); }).join(''));
+        this.options = Array.from(this.$element.querySelectorAll('option'));
     };
     Select.prototype.setTemplate = function () {
         var _a, _b;
-        this.options = this.$data && __spreadArray([], this.$data, true);
-        (_a = this.select) === null || _a === void 0 ? void 0 : _a.setAttribute('name', this.options[0].name);
-        this.select.innerHTML = this.options.map(function (el) { return "<option value=\"".concat(el.value, "\">").concat(el.text, "</option>"); }).join('');
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
-        template.innerHTML = "\n            <div class=\"select-selected\">\n                ".concat((_b = this.select) === null || _b === void 0 ? void 0 : _b.options[this.select.selectedIndex].textContent, "\n            </div>\n            <div class=\"select-items select-hide\">\n                ").concat(this.options.map(function (el) { return "<div>".concat(el.text, "</div>"); }).join(''), "\n            </div>\n            ");
+        template.innerHTML = "\n            <div class=\"select-selected\">\n                ".concat((_a = this.select) === null || _a === void 0 ? void 0 : _a.options[this.select.selectedIndex].textContent, "\n            </div>\n            <div class=\"select-items select-hide\">\n                ").concat((_b = this.options) === null || _b === void 0 ? void 0 : _b.map(function (el, i) { return i === 0 ? '' : "<div>".concat(el.textContent, "</div>"); }).join(''), "\n            </div>\n            ");
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
     };

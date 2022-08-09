@@ -52,22 +52,14 @@
     justify-content: space-between;
 }
 
-.calendar .sunday {
-    color: red;
-}
-
-.calendar .saturday {
-    color: blue;
-}
-
 .day:hover {
     background: #bdbdbd;
 }
 
-div[class^="week"] *:first-child {
+.calendar div[class^="week"] *:first-child {
     color: red;
 }
 
-div[class^="week"] *:last-child {
+.calendar div[class^="week"] *:last-child {
     color: blue;
 }

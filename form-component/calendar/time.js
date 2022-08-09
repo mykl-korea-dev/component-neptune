@@ -20,13 +20,9 @@ var Time = /** @class */ (function (_super) {
         return _super.call(this, element) || this;
     }
     Time.prototype.setTemplate = function () {
-        var toggleButton = document.createElement('button');
-        toggleButton.className = 'toggle-button';
-        toggleButton.textContent = '시간';
-        this.$element.appendChild(toggleButton);
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
-        template.innerHTML = "\n        <div class=\"time-wrapper\">\n            <div class=\"hour-box\">\n                <button class=\"hour-selected\">12</button>\n                <div class=\"hour\">\n                </div>\n            </div>\n            <span>:</span>\n            <div class=\"minute-box\">\n                <button class=\"minute-selected\">00</button>\n                <div class=\"minute\">\n                </div>\n            </div>\n        </div>\n            ";
+        template.innerHTML = "\n        <p class=\"selected-time\"><span>".concat(new Date().getHours(), "</span> : <span>").concat(new Date().getMinutes(), "</span></p>\n        <div class=\"time-wrapper\">\n            <div class=\"hour-box\">\n                <button class=\"hour-selected\">").concat(new Date().getHours(), "</button>\n                <div class=\"hour\">\n                </div>\n            </div>\n            <span>:</span>\n            <div class=\"minute-box\">\n                <button class=\"minute-selected\">").concat(new Date().getMinutes(), "</button>\n                <div class=\"minute\">\n                </div>\n            </div>\n        </div>\n        <button class=\"toggle-button\">\uC2DC\uAC04</button>\n        ");
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
         var timeWrapper = this.$element.querySelector('.time-wrapper');
@@ -51,24 +47,22 @@ var Time = /** @class */ (function (_super) {
     Time.prototype.setEvents = function () {
         var _a;
         var timeWrapper = this.$element.querySelector('.time-wrapper');
+        var selectedTime = this.$element.querySelector('.selected-time');
         var hourSelector = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.hour-selected');
         var minuteSelector = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.minute-selected');
         var hourBox = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.hour');
         var minuteBox = timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.querySelector('.minute');
         (_a = this.$element.querySelector('.toggle-button')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
             timeWrapper === null || timeWrapper === void 0 ? void 0 : timeWrapper.classList.toggle('show');
-        });
-        hourSelector === null || hourSelector === void 0 ? void 0 : hourSelector.addEventListener('click', function (e) {
+            selectedTime === null || selectedTime === void 0 ? void 0 : selectedTime.classList.toggle('hide');
             hourBox === null || hourBox === void 0 ? void 0 : hourBox.classList.add('show');
+            minuteBox === null || minuteBox === void 0 ? void 0 : minuteBox.classList.add('show');
         });
         hourBox === null || hourBox === void 0 ? void 0 : hourBox.addEventListener('click', function (_a) {
             var target = _a.target;
             target.classList.add('selected');
             hourSelector.textContent = target.textContent;
             hourBox === null || hourBox === void 0 ? void 0 : hourBox.classList.remove('show');
-        });
-        minuteSelector === null || minuteSelector === void 0 ? void 0 : minuteSelector.addEventListener('click', function (e) {
-            minuteBox === null || minuteBox === void 0 ? void 0 : minuteBox.classList.add('show');
         });
         minuteBox === null || minuteBox === void 0 ? void 0 : minuteBox.addEventListener('click', function (_a) {
             var target = _a.target;

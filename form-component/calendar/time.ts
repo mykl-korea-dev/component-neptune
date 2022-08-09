@@ -6,30 +6,26 @@ export default class Time<T> extends Component<T> {
     }
 
     setTemplate() {
-        const toggleButton = document.createElement('button');
-        toggleButton.className = 'toggle-button';
-        toggleButton.textContent = '시간';
-
-        this.$element.appendChild(toggleButton);
-
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
 
         template.innerHTML = `
+        <p class="selected-time"><span>${new Date().getHours()}</span> : <span>${new Date().getMinutes()}</span></p>
         <div class="time-wrapper">
             <div class="hour-box">
-                <button class="hour-selected">12</button>
+                <button class="hour-selected">${new Date().getHours()}</button>
                 <div class="hour">
                 </div>
             </div>
             <span>:</span>
             <div class="minute-box">
-                <button class="minute-selected">00</button>
+                <button class="minute-selected">${new Date().getMinutes()}</button>
                 <div class="minute">
                 </div>
             </div>
         </div>
-            `
+        <button class="toggle-button">시간</button>
+        `
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
 
@@ -55,31 +51,28 @@ export default class Time<T> extends Component<T> {
             minDiv.appendChild(template.content);
         }
         timeWrapper!.querySelector('.minute')!.innerHTML = minDiv.innerHTML;
+
     }
 
     setEvents() {
         const timeWrapper = this.$element.querySelector('.time-wrapper');
+        const selectedTime = this.$element.querySelector('.selected-time');
         const hourSelector = timeWrapper?.querySelector('.hour-selected');
         const minuteSelector = timeWrapper?.querySelector('.minute-selected');
         const hourBox = timeWrapper?.querySelector('.hour');
         const minuteBox = timeWrapper?.querySelector('.minute');
 
         this.$element.querySelector('.toggle-button')?.addEventListener('click', () => {
-            timeWrapper?.classList.toggle('show')
-        })
-
-        hourSelector?.addEventListener('click', (e) => {
+            timeWrapper?.classList.toggle('show');
+            selectedTime?.classList.toggle('hide');
             hourBox?.classList.add('show');
+            minuteBox?.classList.add('show');
         })
 
         hourBox?.addEventListener('click', ({target}) => {
             (target as HTMLElement).classList.add('selected');
             hourSelector!.textContent = (target as HTMLElement).textContent;
             hourBox?.classList.remove('show');
-        })
-
-        minuteSelector?.addEventListener('click', (e) => {
-            minuteBox?.classList.add('show');
         })
 
         minuteBox?.addEventListener('click', ({target}) => {

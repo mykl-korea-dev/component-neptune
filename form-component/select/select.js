@@ -17,18 +17,18 @@ import Component from "../../basic/component.js";
 import { closeAllSelect } from "../../basic/utils.js";
 var Select = /** @class */ (function (_super) {
     __extends(Select, _super);
-    function Select(component) {
-        return _super.call(this, component) || this;
+    function Select(component, options) {
+        return _super.call(this, component, options) || this;
     }
     Select.prototype.setElements = function () {
         this.select = this.$element.querySelector('select');
-        this.options = Array.from(this.$element.querySelectorAll('option'));
+        this.options = Array.from(this.select.querySelectorAll('option'));
     };
     Select.prototype.setTemplate = function () {
-        var _a, _b;
+        var _a;
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
-        template.innerHTML = "\n            <div class=\"select-selected\">\n                ".concat((_a = this.select) === null || _a === void 0 ? void 0 : _a.options[this.select.selectedIndex].textContent, "\n            </div>\n            <div class=\"select-items select-hide\">\n                ").concat((_b = this.options) === null || _b === void 0 ? void 0 : _b.map(function (el, i) { return i === 0 ? '' : "<div>".concat(el.textContent, "</div>"); }).join(''), "\n            </div>\n            ");
+        template.innerHTML = "\n            <div class=\"select-selected\">\n                ".concat((_a = this.select) === null || _a === void 0 ? void 0 : _a.options[this.select.selectedIndex].textContent, "\n            </div>\n            <div class=\"select-items select-hide\">\n                ").concat(this.options.map(function (el) { return "<div>".concat(el.text, "</div>"); }).join(''), "\n            </div>\n            ");
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
     };

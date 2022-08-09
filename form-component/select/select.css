@@ -1,6 +1,7 @@
 /*the container must be positioned relative:*/
 .form-select {
     font-family: Arial;
+    position: relative;
 }
 
 .form-select select {

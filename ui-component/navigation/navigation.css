@@ -15,11 +15,12 @@ a {
 
 .nav {
     display: flex;
+    text-align: center;
 }
 
 .nav > li {
+    margin-right: 2px;
     padding: 5px 10px;
-    text-align: center;
 }
 
 .nav > li >  a {
@@ -28,6 +29,29 @@ a {
 }
 
 .nav-menu {
-    background: #bdbdbd;
-    padding: 0 10px;
+
+    border-top: 1px solid #000;
+    display: none;
+}
+
+.nav-menu > li{
+    padding: 5px 10px;
+
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-menu li:nth-child(even) {
+    background: #efefef;
+}
+
+.nav-menu li:nth-child(odd) {
+    background: #aaa;
+}
+
+.nav:hover .nav-menu{
+    display: block;
+}
+
+.nav:hover > li {
+    padding: 0;
 }

@@ -10,16 +10,16 @@ export default class Time<T> extends Component<T> {
         let fragment = new DocumentFragment();
 
         template.innerHTML = `
-        <p class="selected-time"><span>${new Date().getHours()}</span> : <span>${new Date().getMinutes()}</span></p>
+        <p class="selected-time"><span>${this.setTwoDigits(new Date().getHours())}</span> : <span>${this.setTwoDigits(new Date().getMinutes())}</span></p>
         <div class="time-wrapper">
             <div class="hour-box">
-                <button class="hour-selected">${new Date().getHours()}</button>
+                <button class="hour-selected">${this.setTwoDigits(new Date().getHours())}</button>
                 <div class="hour">
                 </div>
             </div>
             <span>:</span>
             <div class="minute-box">
-                <button class="minute-selected">${new Date().getMinutes()}</button>
+                <button class="minute-selected">${this.setTwoDigits(new Date().getMinutes())}</button>
                 <div class="minute">
                 </div>
             </div>
@@ -83,6 +83,6 @@ export default class Time<T> extends Component<T> {
     }
 
     setTwoDigits(num: number) {
-        return num < 10  ? '00' : num;
+        return num < 10  ? '0'+num : num;
     }
 }

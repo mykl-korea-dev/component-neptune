@@ -22,7 +22,7 @@ var Time = /** @class */ (function (_super) {
     Time.prototype.setTemplate = function () {
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
-        template.innerHTML = "\n        <p class=\"selected-time\"><span>".concat(new Date().getHours(), "</span> : <span>").concat(new Date().getMinutes(), "</span></p>\n        <div class=\"time-wrapper\">\n            <div class=\"hour-box\">\n                <button class=\"hour-selected\">").concat(new Date().getHours(), "</button>\n                <div class=\"hour\">\n                </div>\n            </div>\n            <span>:</span>\n            <div class=\"minute-box\">\n                <button class=\"minute-selected\">").concat(new Date().getMinutes(), "</button>\n                <div class=\"minute\">\n                </div>\n            </div>\n        </div>\n        <button class=\"toggle-button\">\uC2DC\uAC04</button>\n        ");
+        template.innerHTML = "\n        <p class=\"selected-time\"><span>".concat(this.setTwoDigits(new Date().getHours()), "</span> : <span>").concat(this.setTwoDigits(new Date().getMinutes()), "</span></p>\n        <div class=\"time-wrapper\">\n            <div class=\"hour-box\">\n                <button class=\"hour-selected\">").concat(this.setTwoDigits(new Date().getHours()), "</button>\n                <div class=\"hour\">\n                </div>\n            </div>\n            <span>:</span>\n            <div class=\"minute-box\">\n                <button class=\"minute-selected\">").concat(this.setTwoDigits(new Date().getMinutes()), "</button>\n                <div class=\"minute\">\n                </div>\n            </div>\n        </div>\n        <button class=\"toggle-button\">\uC2DC\uAC04</button>\n        ");
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
         var timeWrapper = this.$element.querySelector('.time-wrapper');
@@ -72,7 +72,7 @@ var Time = /** @class */ (function (_super) {
         });
     };
     Time.prototype.setTwoDigits = function (num) {
-        return num < 10 ? '00' : num;
+        return num < 10 ? '0' + num : num;
     };
     return Time;
 }(Component));

@@ -1,10 +1,6 @@
 import Component from "../../basic/component.js";
 
 export default class Accordion<T> extends Component<T> {
-    setTemplate() {
-        super.setTemplate();
-    }
-
     setEvents() {
         this.$element.addEventListener('click', ({target}) => {
             if((target as HTMLElement).classList.contains('accordion-toggle')) {

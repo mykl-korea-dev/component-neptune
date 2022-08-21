@@ -4,12 +4,19 @@ export default class Calendar<T> extends Component<T> {
 
     year = new Date().getFullYear();
     month = new Date().getMonth() + 1;
+    originTemplate = '';
 
     setTemplate() {
         if(this.year === undefined) {
             return `
                 <div class="clickedDate">
-                    <span>${new Date().getFullYear()}-${this.setTwoDigits(new Date().getMonth() + 1)}-${this.setTwoDigits(new Date().getDate())}</span>
+                    <span>
+                        <span class="selected-year">${new Date().getFullYear()}</span>
+                        -
+                        <span class="selected-month">${this.setTwoDigits(new Date().getMonth() + 1)}</span>
+                        -
+                        <span class="selected-day">${this.setTwoDigits(new Date().getDate())}</span>
+                    </span>
                     <button class="calendar-btn">기간</button>
                 </div>
                 <div class="week-container">
@@ -26,7 +33,13 @@ export default class Calendar<T> extends Component<T> {
 
         return `
             <div class="clickedDate">
-                <span>${new Date().getFullYear()}-${this.setTwoDigits(new Date().getMonth() + 1)}-${this.setTwoDigits(new Date().getDate())}</span>
+                <span>
+                    <span class="selected-year">${new Date().getFullYear()}</span>
+                    -
+                    <span class="selected-month">${this.setTwoDigits(new Date().getMonth() + 1)}</span>
+                    -
+                    <span class="selected-day">${this.setTwoDigits(new Date().getDate())}</span>
+                </span>
                 <button class="calendar-btn">기간</button>
             </div>                
             <div class="calendar show">
@@ -60,55 +73,58 @@ export default class Calendar<T> extends Component<T> {
     }
 
     setElements() {
+        if(!this.originTemplate) {
+            // this.originTemplate = this.$el
+        }
+        console.log(this.$element.innerHTML);
         this.$element.innerHTML = this.setTemplate();
     }
 
     setEvents() {
+        console.log(this.$element);
         const parent = this.$element.parentElement
-        const calendar = parent?.querySelector('.calendar');
+        console.log(parent);
         const calendarBtn = this.$element.querySelector('.calendar-btn');
-        const calendarButtonGroup = parent?.querySelector('.calendar-button-group');
-        const prevBtn = calendarButtonGroup?.querySelector('.prev');
-        const nextBtn = calendarButtonGroup?.querySelector('.next');
-        console.log(prevBtn)
-        calendarBtn?.addEventListener('click', (e) => {
-            this.setElements()
-            this.setEvents()
-        })
 
-
-        prevBtn?.addEventListener('click', () => {
-            console.log(this.month)
-            --this.month
-            if(this.month === 0) {
-                this.month = 12
-                --this.year
+        this.$element?.addEventListener('click', ({target}) => {
+            if((target as HTMLElement).classList.contains('prev')) {
+                --this.month;
+                if(this.month === 0) {
+                    this.month = 12;
+                    --this.year;
+                }
+                this.setElements();
             }
-            this.setElements()
-            this.setEvents()
 
-        })
-
-        nextBtn?.addEventListener('click', () => {
-            ++this.month
-            if(this.month === 13) {
-                this.month = 1
-                ++this.year
+            if((target as HTMLElement).classList.contains('next')) {
+                ++this.month
+                if(this.month === 13) {
+                    this.month = 1
+                    ++this.year
+                }
+                this.setElements();
             }
-            this.setElements()
-            this.setEvents()
-        })
 
-        parent?.addEventListener('click', (e) => {
-            if((e.target as Element).classList.contains('day')) {
+            if((target as HTMLElement).classList.contains('day')) {
                 const formInput = document.querySelector('.form-input') as HTMLInputElement;
-                // console.log('hi', formInput)
-                const day = (e.target as HTMLElement).textContent;
+                console.log('hi', formInput)
+                const day = (target as HTMLElement).textContent;
 
                 (formInput as HTMLInputElement).value = `${this.year}-${this.month < 10 ? `0${this.month}` : this.month}-${parseInt(day as string, 10) < 10 ? `0${day}` : day}`
-
+                this.$element.querySelector('.selected-day')!.textContent = this.setTwoDigits(parseInt(day as string, 10)).toString();
             }
+
         })
+
+        calendarBtn?.addEventListener('click', (e) => {
+            this.setElements()
+        })
+
+        // parent?.addEventListener('click', (e) => {
+        //
+        // })
+
+
     }
 
     setTwoDigits(value: number) {

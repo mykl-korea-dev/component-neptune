@@ -1,3 +1,13 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.form-time {
+    margin: 100px;
+}
+
 input[type="time"] {
     display: none;
 }
@@ -24,10 +34,9 @@ input[type="time"] {
 
 .hour, .minute {
     display: none;
-    position: relative;
-    top: 0;
+    position: absolute;
     left: 0;
-    transform: translateY(-50%);
+    /*transform: translateY(-50%);*/
     max-height: 200px;
     overflow: scroll;
 }

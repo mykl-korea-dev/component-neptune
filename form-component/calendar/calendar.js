@@ -29,11 +29,12 @@ var Calendar = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.year = new Date().getFullYear();
         _this.month = new Date().getMonth() + 1;
+        _this.originTemplate = '';
         return _this;
     }
     Calendar.prototype.setTemplate = function () {
         if (this.year === undefined) {
-            return "\n                <div class=\"clickedDate\">\n                    <span>".concat(new Date().getFullYear(), "-").concat(this.setTwoDigits(new Date().getMonth() + 1), "-").concat(this.setTwoDigits(new Date().getDate()), "</span>\n                    <button class=\"calendar-btn\">\uAE30\uAC04</button>\n                </div>\n                <div class=\"week-container\">\n                </div>\n            ");
+            return "\n                <div class=\"clickedDate\">\n                    <span>\n                        <span class=\"selected-year\">".concat(new Date().getFullYear(), "</span>\n                        -\n                        <span class=\"selected-month\">").concat(this.setTwoDigits(new Date().getMonth() + 1), "</span>\n                        -\n                        <span class=\"selected-day\">").concat(this.setTwoDigits(new Date().getDate()), "</span>\n                    </span>\n                    <button class=\"calendar-btn\">\uAE30\uAC04</button>\n                </div>\n                <div class=\"week-container\">\n                </div>\n            ");
         }
         console.log(this.year, this.month);
         var firstDay = new Date(this.year, this.month - 1, 1, 0, 0, 0).getDay();
@@ -41,7 +42,7 @@ var Calendar = /** @class */ (function (_super) {
         var weekSeq = Math.floor((lastDate + firstDay - 1) / 7 + 1);
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
-        return "\n            <div class=\"clickedDate\">\n                <span>".concat(new Date().getFullYear(), "-").concat(this.setTwoDigits(new Date().getMonth() + 1), "-").concat(this.setTwoDigits(new Date().getDate()), "</span>\n                <button class=\"calendar-btn\">\uAE30\uAC04</button>\n            </div>                \n            <div class=\"calendar show\">\n                <div class=\"yearMonth\">\n                  <div class=\"year\">").concat(this.year, "</div>\n                  <div class=\"month\">").concat(this.month, "</div>\n                  <div class=\"calendar-button-group\">\n                    <button class=\"prev\">Prev</button>\n                    <button class=\"next\">Next</button>\n                  </div>\n                </div>\n                <div class=\"weekday\">\n                  <div>\uC77C</div>\n                  <div>\uC6D4</div>\n                  <div>\uD654</div>\n                  <div>\uC218</div>\n                  <div>\uBAA9</div>\n                  <div>\uAE08</div>\n                  <div>\uD1A0</div>\n                </div>\n                ").concat(__spreadArray([], Array(weekSeq), true).map(function (_, i) {
+        return "\n            <div class=\"clickedDate\">\n                <span>\n                    <span class=\"selected-year\">".concat(new Date().getFullYear(), "</span>\n                    -\n                    <span class=\"selected-month\">").concat(this.setTwoDigits(new Date().getMonth() + 1), "</span>\n                    -\n                    <span class=\"selected-day\">").concat(this.setTwoDigits(new Date().getDate()), "</span>\n                </span>\n                <button class=\"calendar-btn\">\uAE30\uAC04</button>\n            </div>                \n            <div class=\"calendar show\">\n                <div class=\"yearMonth\">\n                  <div class=\"year\">").concat(this.year, "</div>\n                  <div class=\"month\">").concat(this.month, "</div>\n                  <div class=\"calendar-button-group\">\n                    <button class=\"prev\">Prev</button>\n                    <button class=\"next\">Next</button>\n                  </div>\n                </div>\n                <div class=\"weekday\">\n                  <div>\uC77C</div>\n                  <div>\uC6D4</div>\n                  <div>\uD654</div>\n                  <div>\uC218</div>\n                  <div>\uBAA9</div>\n                  <div>\uAE08</div>\n                  <div>\uD1A0</div>\n                </div>\n                ").concat(__spreadArray([], Array(weekSeq), true).map(function (_, i) {
             return "<div class=\"week".concat(i, "\">\n                        ").concat(__spreadArray([], Array(7), true).map(function (_, j) {
                 var date = i * 7 + j - firstDay + 1;
                 if (date < 1 || date > lastDate)
@@ -51,48 +52,51 @@ var Calendar = /** @class */ (function (_super) {
         }).join(''), "\n            ");
     };
     Calendar.prototype.setElements = function () {
+        if (!this.originTemplate) {
+            this.originTemplate = this.$el;
+        }
+        console.log(this.$element.innerHTML);
         this.$element.innerHTML = this.setTemplate();
     };
     Calendar.prototype.setEvents = function () {
         var _this = this;
+        var _a;
+        console.log(this.$element);
         var parent = this.$element.parentElement;
-        var calendar = parent === null || parent === void 0 ? void 0 : parent.querySelector('.calendar');
+        console.log(parent);
         var calendarBtn = this.$element.querySelector('.calendar-btn');
-        var calendarButtonGroup = parent === null || parent === void 0 ? void 0 : parent.querySelector('.calendar-button-group');
-        var prevBtn = calendarButtonGroup === null || calendarButtonGroup === void 0 ? void 0 : calendarButtonGroup.querySelector('.prev');
-        var nextBtn = calendarButtonGroup === null || calendarButtonGroup === void 0 ? void 0 : calendarButtonGroup.querySelector('.next');
-        console.log(prevBtn);
+        (_a = this.$element) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function (_a) {
+            var target = _a.target;
+            if (target.classList.contains('prev')) {
+                --_this.month;
+                if (_this.month === 0) {
+                    _this.month = 12;
+                    --_this.year;
+                }
+                _this.setElements();
+            }
+            if (target.classList.contains('next')) {
+                ++_this.month;
+                if (_this.month === 13) {
+                    _this.month = 1;
+                    ++_this.year;
+                }
+                _this.setElements();
+            }
+            if (target.classList.contains('day')) {
+                var formInput = document.querySelector('.form-input');
+                console.log('hi', formInput);
+                var day = target.textContent;
+                formInput.value = "".concat(_this.year, "-").concat(_this.month < 10 ? "0".concat(_this.month) : _this.month, "-").concat(parseInt(day, 10) < 10 ? "0".concat(day) : day);
+                _this.$element.querySelector('.selected-day').textContent = _this.setTwoDigits(parseInt(day, 10)).toString();
+            }
+        });
         calendarBtn === null || calendarBtn === void 0 ? void 0 : calendarBtn.addEventListener('click', function (e) {
             _this.setElements();
-            _this.setEvents();
         });
-        prevBtn === null || prevBtn === void 0 ? void 0 : prevBtn.addEventListener('click', function () {
-            console.log(_this.month);
-            --_this.month;
-            if (_this.month === 0) {
-                _this.month = 12;
-                --_this.year;
-            }
-            _this.setElements();
-            _this.setEvents();
-        });
-        nextBtn === null || nextBtn === void 0 ? void 0 : nextBtn.addEventListener('click', function () {
-            ++_this.month;
-            if (_this.month === 13) {
-                _this.month = 1;
-                ++_this.year;
-            }
-            _this.setElements();
-            _this.setEvents();
-        });
-        parent === null || parent === void 0 ? void 0 : parent.addEventListener('click', function (e) {
-            if (e.target.classList.contains('day')) {
-                var formInput = document.querySelector('.form-input');
-                // console.log('hi', formInput)
-                var day = e.target.textContent;
-                formInput.value = "".concat(_this.year, "-").concat(_this.month < 10 ? "0".concat(_this.month) : _this.month, "-").concat(parseInt(day, 10) < 10 ? "0".concat(day) : day);
-            }
-        });
+        // parent?.addEventListener('click', (e) => {
+        //
+        // })
     };
     Calendar.prototype.setTwoDigits = function (value) {
         return value < 10 ? "0".concat(value) : value;

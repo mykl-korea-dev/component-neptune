@@ -37,6 +37,7 @@ export default class File<T> extends Component<T> {
         })
 
         this.input?.addEventListener('change', () => {
+            console.log(this.input!.files![0]);
             Array.from(this.input!.files!).forEach(file => this.dataTransfer?.items.add(file));
             console.log(this.dataTransfer?.files, this.input?.files);
             this.input!.files = this.dataTransfer!.files;

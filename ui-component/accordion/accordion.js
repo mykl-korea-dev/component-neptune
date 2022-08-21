@@ -19,9 +19,6 @@ var Accordion = /** @class */ (function (_super) {
     function Accordion() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Accordion.prototype.setTemplate = function () {
-        _super.prototype.setTemplate.call(this);
-    };
     Accordion.prototype.setEvents = function () {
         var _this = this;
         this.$element.addEventListener('click', function (_a) {

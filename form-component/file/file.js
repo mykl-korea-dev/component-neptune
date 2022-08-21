@@ -43,6 +43,7 @@ var File = /** @class */ (function (_super) {
         });
         (_b = this.input) === null || _b === void 0 ? void 0 : _b.addEventListener('change', function () {
             var _a, _b, _c, _d;
+            console.log(_this.input.files[0]);
             Array.from(_this.input.files).forEach(function (file) { var _a; return (_a = _this.dataTransfer) === null || _a === void 0 ? void 0 : _a.items.add(file); });
             console.log((_a = _this.dataTransfer) === null || _a === void 0 ? void 0 : _a.files, (_b = _this.input) === null || _b === void 0 ? void 0 : _b.files);
             _this.input.files = _this.dataTransfer.files;

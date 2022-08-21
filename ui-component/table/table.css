@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .table-wrapper {
     width: 100%;
@@ -28,17 +33,60 @@ colgroup col:nth-child(even) {
 }
 
 /* div로 만든 table */
-.div-wrapper {
-    width: 60%;
-    max-width: 600px;
+/*.div-wrapper {*/
+/*    width: 60%;*/
+/*    max-width: 600px;*/
+/*}*/
+
+/*.tr {*/
+/*    display: flex;*/
+/*    border-bottom: 1px solid #ccc;*/
+/*}*/
+
+/*.tr > *{*/
+/*    display: inline-block;*/
+/*    flex: 1;*/
+/*}*/
+
+
+
+/* divTable */
+.divTable {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
 }
 
-.tr {
-    display: flex;
+.divTableHead {
+    display: table-header-group;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+.divTableTr {
+    /*display: table;*/
+    display: table-row;
+    width: 100%;
     border-bottom: 1px solid #ccc;
 }
 
-.tr > *{
-    display: inline-block;
-    flex: 1;
+.divTableTr > * {
+    display: table-cell;
 }
+
+.divTableTh {
+    font-weight: bolder;
+}
+
+.divTableTh, .divTableTd {
+    padding: 10px;
+    /*width: 200px;*/
+    /*min-width: 100px;*/
+    text-align: left;
+}
+
+/*.fill {*/
+/*    width: 100%;*/
+/*}*/

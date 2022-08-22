@@ -5,7 +5,7 @@ export default class Time<T> extends Component<T> {
         super(element);
     }
 
-    setTemplate() {
+    setElements() {
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
 

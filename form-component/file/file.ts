@@ -11,28 +11,30 @@ export default class File<T> extends Component<T> {
 
     setElements() {
         this.dataTransfer = new DataTransfer();
-
         this.input = this.$element.querySelector('.form-file-input') as HTMLInputElement;
+
+        const template = document.createElement('template');
+        const fragment = new DocumentFragment();
+        template.innerHTML = `
+            <button class="file-btn">파일 등록</button>
+            <ul></ul>
+        `
+        fragment.appendChild(template.content);
+        this.$element.appendChild(fragment);
     }
 
     setTemplate() {
-        this.button = document.createElement('button');
-        this.button.classList.add('file-btn');
-        this.button.textContent = "파일 등록"
-        this.$element.appendChild(this.button);
-        const ul = document.createElement('ul')
-
-        this.$element.appendChild(ul)
-    }
-
-    render() {
-        this.$element.querySelector('ul')!.innerHTML = Array.from(this.input!.files!).reverse().map((file, idx) => `
+        return Array.from(this.input!.files!).reverse().map((file, idx) => `
             <li>${file.name}<button type="button"  class="deleteFileBtn" data-idx=${file.lastModified}>삭제</button></li>
         `).join('');
     }
 
+    render() {
+        this.$element.querySelector('ul')!.innerHTML = this.setTemplate();
+    }
+
     setEvents() {
-        this.button?.addEventListener('click', () => {
+        this.$element.querySelector('.file-btn')?.addEventListener('click', () => {
             this.input?.click();
         })
 

@@ -22,22 +22,22 @@ var File = /** @class */ (function (_super) {
     File.prototype.setElements = function () {
         this.dataTransfer = new DataTransfer();
         this.input = this.$element.querySelector('.form-file-input');
+        var template = document.createElement('template');
+        var fragment = new DocumentFragment();
+        template.innerHTML = "\n            <button class=\"file-btn\">\uD30C\uC77C \uB4F1\uB85D</button>\n            <ul></ul>\n        ";
+        fragment.appendChild(template.content);
+        this.$element.appendChild(fragment);
     };
     File.prototype.setTemplate = function () {
-        this.button = document.createElement('button');
-        this.button.classList.add('file-btn');
-        this.button.textContent = "파일 등록";
-        this.$element.appendChild(this.button);
-        var ul = document.createElement('ul');
-        this.$element.appendChild(ul);
+        return Array.from(this.input.files).reverse().map(function (file, idx) { return "\n            <li>".concat(file.name, "<button type=\"button\"  class=\"deleteFileBtn\" data-idx=").concat(file.lastModified, ">\uC0AD\uC81C</button></li>\n        "); }).join('');
     };
     File.prototype.render = function () {
-        this.$element.querySelector('ul').innerHTML = Array.from(this.input.files).reverse().map(function (file, idx) { return "\n            <li>".concat(file.name, "<button type=\"button\"  class=\"deleteFileBtn\" data-idx=").concat(file.lastModified, ">\uC0AD\uC81C</button></li>\n        "); }).join('');
+        this.$element.querySelector('ul').innerHTML = this.setTemplate();
     };
     File.prototype.setEvents = function () {
         var _this = this;
         var _a, _b;
-        (_a = this.button) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
+        (_a = this.$element.querySelector('.file-btn')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
             var _a;
             (_a = _this.input) === null || _a === void 0 ? void 0 : _a.click();
         });

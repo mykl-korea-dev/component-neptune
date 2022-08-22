@@ -19,7 +19,7 @@ var Star = /** @class */ (function (_super) {
     function Star() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Star.prototype.setTemplate = function () {
+    Star.prototype.setElements = function () {
         var _a = this.$element.dataset, min = _a.min, max = _a.max, value = _a.value;
         var starValue = Number(value);
         var fragment = new DocumentFragment();

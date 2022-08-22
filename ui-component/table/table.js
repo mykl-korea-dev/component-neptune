@@ -19,7 +19,7 @@ var Table = /** @class */ (function (_super) {
     function Table() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Table.prototype.setTemplate = function () {
+    Table.prototype.setElements = function () {
         var originalTemplate = this.$element.innerHTML;
         var changedTemplate = originalTemplate.replace(/<(table)([^>]*)>/gm, '<div class="divTable">');
         changedTemplate = changedTemplate.replace(/<(thead)([^>]*)>/gm, '<div class="divTableHead">');

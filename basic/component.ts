@@ -1,6 +1,4 @@
 export default class Component<T> {
-    // $target;
-    // $state;
     protected $data: any[];
     protected $element: Element;
 
@@ -8,13 +6,15 @@ export default class Component<T> {
         this.$element = component;
         this.$data = data ? [... data] : [];
         this.setElements();
-        this.setTemplate();
+        this.render();
         this.setEvents();
     }
 
     setElements() {};
 
-    setTemplate() {};
+    setTemplate() { return ''};
+
+    render() {}
 
     setEvents() {};
 

@@ -1,7 +1,7 @@
 import Component from "../../basic/component.js";
 
 export default class Table<T> extends Component<T> {
-    setTemplate() {
+    setElements() {
         const originalTemplate = this.$element.innerHTML;
         let changedTemplate = originalTemplate.replace(/<(table)([^>]*)>/gm, '<div class="divTable">')
         changedTemplate = changedTemplate.replace(/<(thead)([^>]*)>/gm, '<div class="divTableHead">');

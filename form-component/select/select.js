@@ -21,11 +21,9 @@ var Select = /** @class */ (function (_super) {
         return _super.call(this, component, options) || this;
     }
     Select.prototype.setElements = function () {
+        var _a;
         this.select = this.$element.querySelector('select');
         this.options = Array.from(this.select.querySelectorAll('option'));
-    };
-    Select.prototype.setTemplate = function () {
-        var _a;
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
         template.innerHTML = "\n            <div class=\"select-selected\">\n                ".concat((_a = this.select) === null || _a === void 0 ? void 0 : _a.options[this.select.selectedIndex].textContent, "\n            </div>\n            <div class=\"select-items select-hide\">\n                ").concat(this.options.map(function (el) { return "<div>".concat(el.text, "</div>"); }).join(''), "\n            </div>\n            ");

@@ -1,7 +1,7 @@
 import Component from "../../basic/component.js";
 
 export default class Star<T> extends Component<T> {
-    setTemplate() {
+    setElements() {
         const { min , max, value } = (this.$element as HTMLElement).dataset;
         let starValue = Number(value!);
         const fragment = new DocumentFragment();

@@ -19,7 +19,7 @@ var Range = /** @class */ (function (_super) {
     function Range(element) {
         return _super.call(this, element) || this;
     }
-    Range.prototype.setTemplate = function () {
+    Range.prototype.setElements = function () {
         var _a, _b;
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
@@ -44,8 +44,6 @@ var Range = /** @class */ (function (_super) {
         range.style.left = "".concat(value, "%");
         range.style.right = "".concat(parseInt(value, 10) - 3, "%");
         thumbRight.style.right = "".concat(parseInt(value, 10) - 3, "%");
-    };
-    Range.prototype.setElements = function () {
     };
     Range.prototype.setEvents = function () {
         var slider = document.querySelector('.slider');

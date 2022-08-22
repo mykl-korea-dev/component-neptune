@@ -11,14 +11,10 @@ export default class Select<T extends {name: string, value: string, default: boo
     }
 
     setElements() {
-        // super.setElements();
         this.select = this.$element.querySelector('select') as HTMLSelectElement;
         console.log(this.select, this.$data);
         this.select.innerHTML = `${this.$data.map(el => `<option value="${el.value}">${el.text}</option>`).join('')}`;
         this.options = Array.from(this.$element.querySelectorAll('option'));
-    }
-
-    setTemplate() {
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
         template.innerHTML = `
@@ -31,7 +27,7 @@ export default class Select<T extends {name: string, value: string, default: boo
             `
         fragment.appendChild(template.content);
 
-        this.$element.appendChild(fragment)
+        this.$element.appendChild(fragment);
     }
 
     setEvents() {

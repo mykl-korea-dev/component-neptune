@@ -2,33 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui-component/progress/progress.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/basic/component.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/calendar.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/calendar/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/calendar/time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/file/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/file.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/file/file.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/file.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form-component/file/file.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/file.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/img/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/img/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/navigation/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/range.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/range.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/range.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select-dynamic/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select-dynamic/select.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select-dynamic/select.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/select.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/select.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/select.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/star.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/star.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/star.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/star.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/table.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +40,8 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,24 +63,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Bpzd7k6GqcJb0evWdx9jlswGhc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/java/componentjavapilot&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\panda\\AppData\\Local\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/panda/Desktop/java/componentjavapilot",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Errors",
+    "ts.external.directory.path": "C:\\Users\\panda\\AppData\\Local\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\form-component\input-group" />
@@ -139,7 +142,7 @@
       <workItem from="1659948293831" duration="1198000" />
       <workItem from="1660004751639" duration="34085000" />
       <workItem from="1660616247027" duration="1876000" />
-      <workItem from="1660869923428" duration="5848000" />
+      <workItem from="1660869923428" duration="13195000" />
     </task>
     <servers />
   </component>
@@ -171,8 +174,6 @@
         <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js.map" />
         <option value="$PROJECT_DIR$/basic/utils.js" />
         <option value="$PROJECT_DIR$/basic/utils.js.map" />
-        <option value="$PROJECT_DIR$/basic/component.js" />
-        <option value="$PROJECT_DIR$/basic/component.js.map" />
         <option value="$PROJECT_DIR$/form-component/calendar/time.js" />
         <option value="$PROJECT_DIR$/form-component/calendar/time.js.map" />
         <option value="$PROJECT_DIR$/ui-component/Star/star.js.map" />
@@ -185,6 +186,10 @@
         <option value="$PROJECT_DIR$/ui-component/dropdown/dropdown.js.map" />
         <option value="$PROJECT_DIR$/ui-component/table/table.js" />
         <option value="$PROJECT_DIR$/ui-component/table/table.js.map" />
+        <option value="$PROJECT_DIR$/basic/component.js" />
+        <option value="$PROJECT_DIR$/basic/component.js.map" />
+        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js" />
+        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js.map" />
       </list>
     </option>
   </component>

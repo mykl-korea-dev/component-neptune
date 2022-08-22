@@ -5,7 +5,8 @@ export default class Range<T> extends Component<T> {
         super(element);
     }
 
-    setTemplate() {
+
+    setElements() {
         const template = document.createElement('template');
         const fragment = new DocumentFragment();
         const {min, max, value, step} = (this.$element as HTMLElement).dataset
@@ -42,8 +43,7 @@ export default class Range<T> extends Component<T> {
         thumbRight.style.right = `${parseInt(value!, 10)  -3}%`;
     }
 
-    setElements() {
-    }
+
 
     setEvents() {
         const slider = document.querySelector('.slider') as HTMLElement;

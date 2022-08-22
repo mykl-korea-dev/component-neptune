@@ -19,7 +19,7 @@ var Time = /** @class */ (function (_super) {
     function Time(element) {
         return _super.call(this, element) || this;
     }
-    Time.prototype.setTemplate = function () {
+    Time.prototype.setElements = function () {
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
         template.innerHTML = "\n        <p class=\"selected-time\"><span>".concat(this.setTwoDigits(new Date().getHours()), "</span> : <span>").concat(this.setTwoDigits(new Date().getMinutes()), "</span></p>\n        <div class=\"time-wrapper\">\n            <div class=\"hour-box\">\n                <button class=\"hour-selected\">").concat(this.setTwoDigits(new Date().getHours()), "</button>\n                <div class=\"hour\">\n                </div>\n            </div>\n            <span>:</span>\n            <div class=\"minute-box\">\n                <button class=\"minute-selected\">").concat(this.setTwoDigits(new Date().getMinutes()), "</button>\n                <div class=\"minute\">\n                </div>\n            </div>\n        </div>\n        <button class=\"toggle-button\">\uC2DC\uAC04</button>\n        ");

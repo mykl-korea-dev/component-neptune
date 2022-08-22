@@ -14,9 +14,6 @@ export default class Select<T extends {name: string, value: string, text: string
     setElements() {
         this.select = this.$element.querySelector('select');
         this.options = Array.from(this.select!.querySelectorAll('option'));
-    }
-
-    setTemplate() {
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
         template.innerHTML = `
@@ -28,7 +25,7 @@ export default class Select<T extends {name: string, value: string, text: string
             </div>
             `
         fragment.appendChild(template.content);
-        this.$element.appendChild(fragment)
+        this.$element.appendChild(fragment);
     }
 
     setEvents() {

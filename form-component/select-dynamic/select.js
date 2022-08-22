@@ -21,14 +21,11 @@ var Select = /** @class */ (function (_super) {
         return _super.call(this, component, data) || this;
     }
     Select.prototype.setElements = function () {
-        // super.setElements();
+        var _a, _b;
         this.select = this.$element.querySelector('select');
         console.log(this.select, this.$data);
         this.select.innerHTML = "".concat(this.$data.map(function (el) { return "<option value=\"".concat(el.value, "\">").concat(el.text, "</option>"); }).join(''));
         this.options = Array.from(this.$element.querySelectorAll('option'));
-    };
-    Select.prototype.setTemplate = function () {
-        var _a, _b;
         var template = document.createElement('template');
         var fragment = new DocumentFragment();
         template.innerHTML = "\n            <div class=\"select-selected\">\n                ".concat((_a = this.select) === null || _a === void 0 ? void 0 : _a.options[this.select.selectedIndex].textContent, "\n            </div>\n            <div class=\"select-items select-hide\">\n                ").concat((_b = this.options) === null || _b === void 0 ? void 0 : _b.map(function (el, i) { return i === 0 ? '' : "<div>".concat(el.textContent, "</div>"); }).join(''), "\n            </div>\n            ");

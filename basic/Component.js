@@ -6,13 +6,15 @@ export default class Component {
         this.$element = element;
         this.$data = [... data];
         this.setElements();
-        this.setTemplate();
+        this.render();
         this.setEvents();
     }
 
     setElements() {};
 
-    setTemplate() {};
+    setTemplate() { return '' };
+
+    render() {}
 
     setEvents() {};
 

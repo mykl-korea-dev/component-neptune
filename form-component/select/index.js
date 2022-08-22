@@ -1,3 +1,4 @@
-import Select from "./select.js";
-document.querySelectorAll('.form-select').forEach(function (el) { return new Select(el, []); });
-//# sourceMappingURL=index.js.map
+import Select from "./Select.js";
+
+
+document.querySelectorAll('.form-select').forEach(el => new Select(el, []));

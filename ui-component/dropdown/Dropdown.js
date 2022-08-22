@@ -1,13 +1,13 @@
-import Component from "../../basic/component.js";
+import Component from "../../basic/Component.js";
 
-export default class Dropdown<T> extends Component<T> {
+export default class Dropdown extends Component {
     setEvents() {
         this.$element.querySelector('.dropdown-toggle')?.addEventListener('mouseover', ({target}) => {
-            (this.$element.querySelector('.dropdown-menu')! as HTMLElement).style.opacity = '1';
+            this.$element.querySelector('.dropdown-menu').style.opacity = '1';
         })
 
         this.$element.querySelector('.dropdown-toggle')?.addEventListener('mouseout', ({target}) => {
-            (this.$element.querySelector('.dropdown-menu')! as HTMLElement).style.opacity = '0';
+            this.$element.querySelector('.dropdown-menu').style.opacity = '0';
         })
     }
 }

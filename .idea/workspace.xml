@@ -3,12 +3,65 @@
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/component.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/Component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/Time.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/file.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/file.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/file.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/Range.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select-dynamic/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/select.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/select.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/select.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/textarea/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/textarea/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/textarea/textarea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/textarea/textarea.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/textarea/textarea.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/textarea/Textarea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/Accordion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/accordion/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/progress/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/progress/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/star.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/star.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/star.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/Star.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/table.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/table.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,17 +83,27 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/component-set/Card/card.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dist/Calendar.js.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dist/Select.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dist/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/calendar/Time.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/calendar.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/calendar/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/time.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/calendar/time.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/input-group/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/range/Range.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.ts" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/select.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/select/Select.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/select/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/select/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Bpzd7k6GqcJb0evWdx9jlswGhc" />
   <component name="ProjectLevelVcsManager">
@@ -59,7 +122,8 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/java/componentjavapilot&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\panda\\AppData\\Local\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -70,7 +134,13 @@
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\component-set" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.Component.js">
+    <configuration name="Calendar.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/form-component/calendar/Calendar.js" working-dir="$PROJECT_DIR$/form-component/calendar">
+      <method v="2" />
+    </configuration>
+    <configuration name="Component.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/basic/Component.js" working-dir="$PROJECT_DIR$/basic">
+      <method v="2" />
+    </configuration>
     <configuration name="data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -83,6 +153,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.Component.js" />
+        <item itemvalue="Node.js.Calendar.js" />
         <item itemvalue="npm.data" />
       </list>
     </recent_temporary>
@@ -123,6 +195,9 @@
       <workItem from="1660004751639" duration="34085000" />
       <workItem from="1660616247027" duration="1876000" />
       <workItem from="1660869923428" duration="5848000" />
+      <workItem from="1661146250102" duration="1393000" />
+      <workItem from="1661148721840" duration="1920000" />
+      <workItem from="1661150664842" duration="73000" />
     </task>
     <servers />
   </component>
@@ -130,39 +205,14 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/select.js" />
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/select.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/index.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/file/file.js" />
-        <option value="$PROJECT_DIR$/form-component/file/file.js.map" />
-        <option value="$PROJECT_DIR$/form-component/textarea/textarea.js" />
-        <option value="$PROJECT_DIR$/form-component/textarea/textarea.js.map" />
-        <option value="$PROJECT_DIR$/form-component/file/index.js" />
-        <option value="$PROJECT_DIR$/form-component/file/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/range/index.js" />
-        <option value="$PROJECT_DIR$/form-component/range/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/range/range.js" />
-        <option value="$PROJECT_DIR$/form-component/range/range.js.map" />
-        <option value="$PROJECT_DIR$/form-component/select/select.js" />
-        <option value="$PROJECT_DIR$/form-component/select/select.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js.map" />
-        <option value="$PROJECT_DIR$/form-component/select/index.js" />
-        <option value="$PROJECT_DIR$/form-component/select/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js" />
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/time.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/time.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/Star/star.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/Star/star.js" />
-        <option value="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/accordion/accordion.js" />
-        <option value="$PROJECT_DIR$/ui-component/progress/progress.js" />
-        <option value="$PROJECT_DIR$/ui-component/progress/progress.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/dropdown/dropdown.js" />
-        <option value="$PROJECT_DIR$/ui-component/dropdown/dropdown.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/table/table.js" />
+        <option value="$PROJECT_DIR$/form-component/calendar/Time.js" />
+        <option value="$PROJECT_DIR$/form-component/calendar/Calendar.js" />
+        <option value="$PROJECT_DIR$/form-component/file/File.js" />
+        <option value="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" />
+        <option value="$PROJECT_DIR$/ui-component/star/Star.js" />
+        <option value="$PROJECT_DIR$/ui-component/progress/Progress.js" />
+        <option value="$PROJECT_DIR$/ui-component/table/Table.js" />
+        <option value="$PROJECT_DIR$/form-component/select-dynamic/Select.js" />
         <option value="$PROJECT_DIR$/ui-component/table/table.js.map" />
       </list>
     </option>

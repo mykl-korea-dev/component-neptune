@@ -1,3 +1,3 @@
-import Range from "./range.js";
-document.querySelectorAll('.form-range').forEach(function (el) { return new Range(el); });
-//# sourceMappingURL=index.js.map
+import Range from "./Range.js";
+
+document.querySelectorAll('.form-range').forEach(el => new Range(el));

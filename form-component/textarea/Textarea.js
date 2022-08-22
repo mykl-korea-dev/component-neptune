@@ -1,15 +1,14 @@
-import Component from "../../basic/component.js";
-export default class Textarea<T> extends Component<T> {
-    constructor(element: Element) {
+import Component from "../../basic/Component.js";
+export default class Textarea extends Component{
+    constructor(element) {
         super(element);
     }
 
     setEvents() {
-
-        const textarea = this.$element.querySelector('.textarea-smart') as HTMLTextAreaElement;
+        const textarea = this.$element.querySelector('.textarea-smart');
         textarea?.addEventListener('keyup', () => {
             // @ts-ignore
-            textarea?.style.height = 'auto';
+            textarea.style.height = 'auto';
             textarea.style.height = `${textarea.scrollHeight}px`
         })
 

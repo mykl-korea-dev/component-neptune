@@ -1,11 +1,7 @@
-import Component from "../../basic/component.js";
+import Component from "../../basic/Component.js";
 
-export default class Time<T> extends Component<T> {
-    constructor(element: Element) {
-        super(element);
-    }
-
-    setTemplate() {
+export default class Time extends Component {
+    setElements() {
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
 
@@ -31,26 +27,26 @@ export default class Time<T> extends Component<T> {
 
         const timeWrapper = this.$element.querySelector('.time-wrapper');
 
-        const { start, end, min, hour } = (this.$element as HTMLElement).dataset;
-        const [startHour, startMin] = start!.split(':').map(el => parseInt(el, 10));
-        let [endHour, endMin] = end!.split(':').map(el => parseInt(el, 10));
+        const { start, end, min, hour } = this.$element.dataset;
+        const [startHour, startMin] = start.split(':').map(el => parseInt(el, 10));
+        let [endHour, endMin] = end.split(':').map(el => parseInt(el, 10));
 
         const hourDiv = document.createElement('div');
-        for (let i = startHour; i <= endHour; i += parseInt(hour!, 10)) {
+        for (let i = startHour; i <= endHour; i += parseInt(hour, 10)) {
             const template = document.createElement('template');
             template.innerHTML = `<div>${this.setTwoDigits(i)}</div>`
             hourDiv.appendChild(template.content);
         }
-        timeWrapper!.querySelector('.hour')!.innerHTML = hourDiv.innerHTML;
+        timeWrapper.querySelector('.hour').innerHTML = hourDiv.innerHTML;
 
         const minDiv = document.createElement('div');
 
-        for (let i = 0; i < 60; i += parseInt(min!, 10)) {
+        for (let i = 0; i < 60; i += parseInt(min, 10)) {
             const template = document.createElement('template');
             template.innerHTML = `<div>${this.setTwoDigits(i)}</div>`
             minDiv.appendChild(template.content);
         }
-        timeWrapper!.querySelector('.minute')!.innerHTML = minDiv.innerHTML;
+        timeWrapper.querySelector('.minute').innerHTML = minDiv.innerHTML;
 
     }
 
@@ -70,19 +66,19 @@ export default class Time<T> extends Component<T> {
         })
 
         hourBox?.addEventListener('click', ({target}) => {
-            (target as HTMLElement).classList.add('selected');
-            hourSelector!.textContent = (target as HTMLElement).textContent;
+            target.classList.add('selected');
+            hourSelector.textContent = target.textContent;
             hourBox?.classList.remove('show');
         })
 
         minuteBox?.addEventListener('click', ({target}) => {
-            (target as HTMLElement).classList.add('selected');
-            minuteSelector!.textContent = (target as HTMLElement).textContent;
+            target.classList.add('selected');
+            minuteSelector.textContent = target.textContent;
             minuteBox?.classList.remove('show');
         })
     }
 
-    setTwoDigits(num: number) {
+    setTwoDigits(num) {
         return num < 10  ? '0'+num : num;
     }
 }

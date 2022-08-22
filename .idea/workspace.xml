@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui-component/progress/progress.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/calendar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/file.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/file.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/file.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/file.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/img/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/img/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/navigation/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/table.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +39,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Bpzd7k6GqcJb0evWdx9jlswGhc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -193,7 +172,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/utils.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/table.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,10 +152,6 @@
         <option value="$PROJECT_DIR$/form-component/select/index.js.map" />
         <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js" />
         <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js.map" />
-        <option value="$PROJECT_DIR$/basic/utils.js" />
-        <option value="$PROJECT_DIR$/basic/utils.js.map" />
-        <option value="$PROJECT_DIR$/basic/component.js" />
-        <option value="$PROJECT_DIR$/basic/component.js.map" />
         <option value="$PROJECT_DIR$/form-component/calendar/time.js" />
         <option value="$PROJECT_DIR$/form-component/calendar/time.js.map" />
         <option value="$PROJECT_DIR$/ui-component/Star/star.js.map" />

@@ -51,7 +51,7 @@ export default class Calendar extends Component {
             `<div class="week${i}">
                     ${[...Array(7)].map((_, j) => {
                 const date = i * 7 + j - firstDay + 1;
-                if(date < 1 || date > lastDate) return `<div class="day"></div>`
+                if(date < 1 || date > lastDate) return `<div></div>`
                 return `<div class="day">${date}</div>`}).join('')
             }
                 </div>`
@@ -82,17 +82,18 @@ export default class Calendar extends Component {
                 this.render();
             }
 
-            if(target.classList.contains('day')) {
-                const formInput = document.querySelector('.form-input');
-                console.log('hi', formInput)
-                const day = target.textContent;
-
-                formInput.value = `${this.year}-${this.month < 10 ? `0${this.month}` : this.month}-${parseInt(day, 10) < 10 ? `0${day}` : day}`
-                this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(parseInt(day, 10)).toString();
-            }
-
             if(target.classList.contains('calendar-btn')) {
                 this.$element.querySelector('.calendar')?.classList.toggle('show');
+            }
+
+            if(target.classList.contains('day')) {
+                const year = this.$element.querySelector('.year').textContent;
+                const month = this.$element.querySelector('.month').textContent;
+                const day = target.textContent;
+                this.$element.querySelector('.selected-year').textContent = year;
+                this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
+                this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(day);
+                this.$element.querySelector('.form-calendar-input').value = `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`;
             }
 
         })
@@ -103,4 +104,3 @@ export default class Calendar extends Component {
     }
 }
 
-// new Calendar(document.querySelector('.form-calendar'));

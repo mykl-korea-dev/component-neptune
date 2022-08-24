@@ -13,8 +13,8 @@ export default class Range extends Component {
             <div class="slider">
                 <div class="track"></div>
                 <div class="range"></div>
-                <div class="thumb left"></div>
-                <div class="thumb right"></div>
+                <div class="thumb left"><span class="thumb-min">1</span></div>
+                <div class="thumb right"><span class="thumb-max">2</span></div>
             </div>`
         fragment.appendChild(template.content);
         this.$element?.appendChild(fragment);
@@ -33,6 +33,8 @@ export default class Range extends Component {
         const range = slider?.querySelector('.range');
         const thumbLeft = slider.querySelector('.slider .thumb.left');
         const thumbRight = slider.querySelector('.thumb.right');
+        slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
+        slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
         thumbLeft.style.left = `${value}%`;
         range.style.left = `${value}%`;
         range.style.right = `${parseInt(value, 10) -3}%`;
@@ -55,6 +57,8 @@ export default class Range extends Component {
             const percent = ((inputValue - min) / (max-min)) * 100;
             thumbLeft.style.left = `${percent}%`;
             range.style.left = `${percent}%`;
+            slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
+
         })
 
         inputRight?.addEventListener('input', (e) => {
@@ -65,6 +69,7 @@ export default class Range extends Component {
             const percent = ((inputValue - min) / (max-min)) * 100;
             thumbRight.style.right = `${100 - percent - 3}%`;
             range.style.right = `${100 - percent - 2}%`;
+            slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
         })
     }
 }

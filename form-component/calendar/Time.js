@@ -6,21 +6,18 @@ export default class Time extends Component {
         let fragment = new DocumentFragment();
 
         template.innerHTML = `
-        <p class="selected-time"><span>${this.setTwoDigits(new Date().getHours())}</span> : <span>${this.setTwoDigits(new Date().getMinutes())}</span></p>
+        <p class="selected-time"><span class="selected-hour">${this.setTwoDigits(new Date().getHours())}</span> : <span class="selected-minute">${this.setTwoDigits(new Date().getMinutes())}</span></p>
+        <button class="toggle-button">시간</button>
         <div class="time-wrapper">
             <div class="hour-box">
-                <button class="hour-selected">${this.setTwoDigits(new Date().getHours())}</button>
                 <div class="hour">
                 </div>
             </div>
-            <span>:</span>
             <div class="minute-box">
-                <button class="minute-selected">${this.setTwoDigits(new Date().getMinutes())}</button>
                 <div class="minute">
                 </div>
             </div>
         </div>
-        <button class="toggle-button">시간</button>
         `
         fragment.appendChild(template.content);
         this.$element.appendChild(fragment);
@@ -52,29 +49,31 @@ export default class Time extends Component {
 
     setEvents() {
         const timeWrapper = this.$element.querySelector('.time-wrapper');
-        const selectedTime = this.$element.querySelector('.selected-time');
-        const hourSelector = timeWrapper?.querySelector('.hour-selected');
-        const minuteSelector = timeWrapper?.querySelector('.minute-selected');
         const hourBox = timeWrapper?.querySelector('.hour');
         const minuteBox = timeWrapper?.querySelector('.minute');
 
         this.$element.querySelector('.toggle-button')?.addEventListener('click', () => {
+            this.$element.querySelectorAll('.selected')?.forEach(el => el.classList.remove('selected'));
             timeWrapper?.classList.toggle('show');
-            selectedTime?.classList.toggle('hide');
-            hourBox?.classList.add('show');
-            minuteBox?.classList.add('show');
+
         })
 
         hourBox?.addEventListener('click', ({target}) => {
-            target.classList.add('selected');
-            hourSelector.textContent = target.textContent;
-            hourBox?.classList.remove('show');
+            hourBox.querySelector('.selected')?.classList.remove('selected');
+            if (target !== hourBox) {
+                target.classList.add('selected');
+                this.$element.querySelector('.selected-hour').textContent = target.textContent;
+                this.$element.querySelector('.form-time-input').value = `${this.setTwoDigits(target.textContent)}:${this.$element.querySelector('.selected-minute').textContent}`
+            }
         })
 
         minuteBox?.addEventListener('click', ({target}) => {
-            target.classList.add('selected');
-            minuteSelector.textContent = target.textContent;
-            minuteBox?.classList.remove('show');
+            minuteBox.querySelector('.selected')?.classList.remove('selected');
+            if (target !== minuteBox) {
+                target.classList.add('selected');
+                this.$element.querySelector('.selected-minute').textContent = target.textContent;
+                this.$element.querySelector('.form-time-input').value = `${this.$element.querySelector('.selected-hour').textContent}:${target.textContent}`
+            }
         })
     }
 

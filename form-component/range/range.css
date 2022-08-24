@@ -8,6 +8,7 @@
     height: 10px;
     border-radius: 15px;
     z-index: 1;
+    margin-bottom: 20px;
 }
 
 .slider .track {
@@ -50,6 +51,11 @@
 .slider .thumb.right {
     top: 50%;
     transform: translateY(-50%);
+}
+
+.slider .thumb span {
+    position: absolute;
+    top: 100%;
 }
 
 input[type="range"] {

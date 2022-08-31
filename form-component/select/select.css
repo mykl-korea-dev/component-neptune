@@ -4,16 +4,23 @@
     position: relative;
 }
 
-.form-select select {
+.form-select select{
     display: none; /*hide original SELECT element:*/
+}
+
+.select-group {
+    position: relative;
 }
 
 .select-selected {
     background-color: DodgerBlue;
     position: relative;
+    width: 200px;
+    /* 추가 */
+    display: inline-block;
 }
 
-/*style the arrow inside the select element:*/
+/*style the arrow inside the selectAjax element:*/
 .select-selected:after {
     position: absolute;
     content: "";
@@ -25,7 +32,7 @@
     border-color: #fff transparent transparent transparent;
 }
 
-/*point the arrow upwards when the select box is open (active):*/
+/*point the arrow upwards when the selectAjax box is open (active):*/
 .select-selected.select-arrow-active:after {
     border-color: transparent transparent #fff transparent;
     top: 7px;
@@ -49,9 +56,10 @@
     left: 0;
     right: 0;
     z-index: 99;
+    width: 200px;
 }
 
-/*hide the items when the select box is closed:*/
+/*hide the items when the selectAjax box is closed:*/
 .select-hide {
     display: none;
 }

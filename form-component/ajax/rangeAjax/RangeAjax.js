@@ -1,8 +1,9 @@
-import Component from "../../basic/Component.js";
+import Component from "../../../basic/Component.js";
+import {getData} from "../../../basic/utils.js";
 
-export default class Range extends Component {
+export default class RangeAjax extends Component {
     setElements() {
-        const {min: strMin, max: strMax, minValue: strMinVal, maxValue: strMaxVal, step: strStep} = this.$element.dataset;
+        const {min: strMin, max: strMax, minValue: strMinVal, maxValue: strMaxVal, step: strStep} = this.$data;
         const [min, max, minValue, maxValue, step] = [strMin, strMax, strMinVal, strMaxVal, strStep].map(val => parseInt(val, 10));
         this.$element.innerHTML = `
             <input type="range" class="input-left" name="max" min=${min} max=${max} value=${minValue} step=${step}>
@@ -14,7 +15,7 @@ export default class Range extends Component {
                 <div class="thumb left"><span class="thumb-min"></span></div>
                 <div class="thumb right"><span class="thumb-max"></span></div>
             </div>`;
-        
+
         const totalSize = (max - min) / step
         if((min >= 0) &&  max && step && minValue) {
             for (let i = 1; i < totalSize; i += 1) {
@@ -74,3 +75,5 @@ export default class Range extends Component {
     }
 }
 
+getData('http://localhost:3000/range', (data) =>
+    new RangeAjax(document.querySelector('.form-range-ajax'), data));

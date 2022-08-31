@@ -18,8 +18,8 @@ function getData(url, callback) {
 
 
 function closeAllSelect(element) {
-  /*a function that will close all select boxes in the document,
-  except the current select box:*/
+  /*a function that will close all selectAjax boxes in the document,
+  except the current selectAjax box:*/
   var selectDivEl;
   var selectDivElLength;
   var selectedDivEl;
@@ -34,13 +34,13 @@ function closeAllSelect(element) {
     if (element == selectedDivEl[i]) {
       arrNo.push(i);
     } else {
-      selectedDivEl[i].classList.remove("select-arrow-active");
+      selectedDivEl[i].classList.remove("selectAjax-arrow-active");
     }
   }
 
   for (var _i = 0; _i < selectDivElLength; _i++) {
     if (arrNo.indexOf(_i)) {
-      selectDivEl[_i].classList.add("select-hide");
+      selectDivEl[_i].classList.add("selectAjax-hide");
     }
   }
 }

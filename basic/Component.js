@@ -4,7 +4,7 @@ export default class Component {
 
     constructor(element, data = []) {
         this.$element = element;
-        this.$data = [... data];
+        this.$data = data;
         this.setElements();
         this.render();
         this.setEvents();

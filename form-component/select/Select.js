@@ -3,7 +3,7 @@ import { closeAllSelect } from "../../basic/utils.js";
 
 export default class Select extends Component{
     setElements() {
-        this.select = this.$element.querySelector('select');
+        this.select = this.$element.querySelector('selectAjax');
         this.options = Array.from(this.select.querySelectorAll('option'));
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
@@ -22,14 +22,14 @@ export default class Select extends Component{
     }
 
     setEvents() {
-        const selectedDiv = this.$element.querySelector('.select-selected');
-        const selectDiv = this.$element.querySelector('.select-items');
+        const selectedDiv = this.$element.querySelector('.selectAjax-selected');
+        const selectDiv = this.$element.querySelector('.selectAjax-items');
 
         document.addEventListener('click', (e) => closeAllSelect(e.target));
 
         selectedDiv?.addEventListener('click', function () {
-            selectDiv?.classList.toggle('select-hide');
-            selectedDiv?.classList.toggle('select-arrow-active');
+            selectDiv?.classList.toggle('selectAjax-hide');
+            selectedDiv?.classList.toggle('selectAjax-arrow-active');
         })
 
         selectDiv?.addEventListener('click', (e) => {
@@ -40,8 +40,8 @@ export default class Select extends Component{
                     this.select.selectedIndex = i;
                     selectedDiv.textContent = target.textContent;
                     target.classList.add('same-as-selected');
-                    selectDiv?.classList.toggle('select-hide');
-                    selectedDiv?.classList.toggle('select-arrow-active');
+                    selectDiv?.classList.toggle('selectAjax-hide');
+                    selectedDiv?.classList.toggle('selectAjax-arrow-active');
                     break;
                 }
             }

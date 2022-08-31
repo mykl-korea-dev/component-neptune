@@ -15,9 +15,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
 
-var _utils = require("../../basic/utils.js");
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -133,70 +133,36 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Select = /*#__PURE__*/function (_Component) {
-  _inherits(Select, _Component);
+var RadioAjax = /*#__PURE__*/function (_Component) {
+  _inherits(RadioAjax, _Component);
 
-  var _super = _createSuper(Select);
+  var _super = _createSuper(RadioAjax);
 
-  function Select() {
-    _classCallCheck(this, Select);
+  function RadioAjax() {
+    _classCallCheck(this, RadioAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Select, [{
-    key: "setElements",
-    value: function setElements() {
-      var _this$select;
-
-      this.select = this.$element.querySelector('selectAjax');
-      this.options = Array.from(this.select.querySelectorAll('option'));
-      var template = document.createElement('template');
-      var fragment = new DocumentFragment();
-      template.innerHTML = "\n            <div>\n                <div class=\"select-selected\">\n                    ".concat((_this$select = this.select) === null || _this$select === void 0 ? void 0 : _this$select.options[this.select.selectedIndex].textContent, "\n                </div>\n                <div class=\"select-items select-hide\">\n                    ").concat(this.options.map(function (el) {
-        return "<div>".concat(el.text, "</div>");
-      }).join(''), "\n                </div>\n            </div>\n            ");
-      fragment.appendChild(template.content);
-      this.$element.appendChild(fragment);
+  _createClass(RadioAjax, [{
+    key: "setTemplate",
+    value: function setTemplate() {
+      return this.$data.map(function (data) {
+        return "\n            <input class=\"form-radio-input\" type=\"radio\" id=".concat(data.id, " value=").concat(data.id, ">\n            <label class=\"form-radio-label\" for=\"").concat(data.id, "\">").concat(data.value, "</label>\n        ");
+      }).join('');
     }
   }, {
-    key: "setEvents",
-    value: function setEvents() {
-      var _this = this;
-
-      var selectedDiv = this.$element.querySelector('.selectAjax-selected');
-      var selectDiv = this.$element.querySelector('.selectAjax-items');
-      document.addEventListener('click', function (e) {
-        return (0, _utils.closeAllSelect)(e.target);
-      });
-      selectedDiv === null || selectedDiv === void 0 ? void 0 : selectedDiv.addEventListener('click', function () {
-        selectDiv === null || selectDiv === void 0 ? void 0 : selectDiv.classList.toggle('selectAjax-hide');
-        selectedDiv === null || selectedDiv === void 0 ? void 0 : selectedDiv.classList.toggle('selectAjax-arrow-active');
-      });
-      selectDiv === null || selectDiv === void 0 ? void 0 : selectDiv.addEventListener('click', function (e) {
-        var _this$$element$queryS;
-
-        (_this$$element$queryS = _this.$element.querySelector('.same-as-selected')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.removeAttribute('class');
-        var target = e.target;
-
-        for (var i = 0; i < _this.options.length; i++) {
-          var _this$select2;
-
-          if (((_this$select2 = _this.select) === null || _this$select2 === void 0 ? void 0 : _this$select2.options[i].innerHTML) === (target === null || target === void 0 ? void 0 : target.textContent)) {
-            _this.select.selectedIndex = i;
-            selectedDiv.textContent = target.textContent;
-            target.classList.add('same-as-selected');
-            selectDiv === null || selectDiv === void 0 ? void 0 : selectDiv.classList.toggle('selectAjax-hide');
-            selectedDiv === null || selectedDiv === void 0 ? void 0 : selectedDiv.classList.toggle('selectAjax-arrow-active');
-            break;
-          }
-        }
-      });
+    key: "render",
+    value: function render() {
+      this.$element.innerHTML = this.setTemplate();
     }
   }]);
 
-  return Select;
+  return RadioAjax;
 }(_Component2["default"]);
 
-exports["default"] = Select;
-//# sourceMappingURL=Select.js.map
+exports["default"] = RadioAjax;
+(0, _utils.getData)('http://localhost:3000/checkbox', function (data) {
+  return new RadioAjax(document.querySelector('.form-check-ajax'), data);
+});
+//# sourceMappingURL=RadioAjax.js.map

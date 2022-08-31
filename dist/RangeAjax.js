@@ -15,7 +15,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
+
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -192,26 +194,26 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Range = /*#__PURE__*/function (_Component) {
-  _inherits(Range, _Component);
+var RangeAjax = /*#__PURE__*/function (_Component) {
+  _inherits(RangeAjax, _Component);
 
-  var _super = _createSuper(Range);
+  var _super = _createSuper(RangeAjax);
 
-  function Range() {
-    _classCallCheck(this, Range);
+  function RangeAjax() {
+    _classCallCheck(this, RangeAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Range, [{
+  _createClass(RangeAjax, [{
     key: "setElements",
     value: function setElements() {
-      var _this$$element$datase = this.$element.dataset,
-          strMin = _this$$element$datase.min,
-          strMax = _this$$element$datase.max,
-          strMinVal = _this$$element$datase.minValue,
-          strMaxVal = _this$$element$datase.maxValue,
-          strStep = _this$$element$datase.step;
+      var _this$$data = this.$data,
+          strMin = _this$$data.min,
+          strMax = _this$$data.max,
+          strMinVal = _this$$data.minValue,
+          strMaxVal = _this$$data.maxValue,
+          strStep = _this$$data.step;
 
       var _map = [strMin, strMax, strMinVal, strMaxVal, strStep].map(function (val) {
         return parseInt(val, 10);
@@ -288,8 +290,11 @@ var Range = /*#__PURE__*/function (_Component) {
     }
   }]);
 
-  return Range;
+  return RangeAjax;
 }(_Component2["default"]);
 
-exports["default"] = Range;
-//# sourceMappingURL=Range.js.map
+exports["default"] = RangeAjax;
+(0, _utils.getData)('http://localhost:3000/range', function (data) {
+  return new RangeAjax(document.querySelector('.form-range-ajax'), data);
+});
+//# sourceMappingURL=RangeAjax.js.map

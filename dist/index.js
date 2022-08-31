@@ -1,8 +1,6 @@
 "use strict";
 
-var _Select = _interopRequireDefault(require("./Select.js"));
-
-var _utils = require("../../../basic/utils.js");
+var _Range = _interopRequireDefault(require("./Range.js"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -10,9 +8,7 @@ function _interopRequireDefault(obj) {
   };
 }
 
-['http://localhost:3000/select', 'http://localhost:3000/select2'].forEach(function (url, i) {
-  (0, _utils.getData)(url, function (data) {
-    new _Select["default"](document.querySelectorAll('.form-select')[i], data);
-  });
+document.querySelectorAll('.form-range').forEach(function (el) {
+  return new _Range["default"](el);
 });
 //# sourceMappingURL=index.js.map

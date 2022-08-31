@@ -15,9 +15,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
 
-var _utils = require("../../basic/utils.js");
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -133,28 +133,32 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Select = /*#__PURE__*/function (_Component) {
-  _inherits(Select, _Component);
+var SelectAjax = /*#__PURE__*/function (_Component) {
+  _inherits(SelectAjax, _Component);
 
-  var _super = _createSuper(Select);
+  var _super = _createSuper(SelectAjax);
 
-  function Select() {
-    _classCallCheck(this, Select);
+  function SelectAjax() {
+    _classCallCheck(this, SelectAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Select, [{
+  _createClass(SelectAjax, [{
     key: "setElements",
     value: function setElements() {
-      var _this$select;
+      var _this$select, _this$options;
 
       this.select = this.$element.querySelector('selectAjax');
-      this.options = Array.from(this.select.querySelectorAll('option'));
+      console.log(this.select, this.$data);
+      this.select.innerHTML = "".concat(this.$data.map(function (el) {
+        return "<option value=\"".concat(el.value, "\">").concat(el.text, "</option>");
+      }).join(''));
+      this.options = Array.from(this.$element.querySelectorAll('option'));
       var template = document.createElement('template');
       var fragment = new DocumentFragment();
-      template.innerHTML = "\n            <div>\n                <div class=\"select-selected\">\n                    ".concat((_this$select = this.select) === null || _this$select === void 0 ? void 0 : _this$select.options[this.select.selectedIndex].textContent, "\n                </div>\n                <div class=\"select-items select-hide\">\n                    ").concat(this.options.map(function (el) {
-        return "<div>".concat(el.text, "</div>");
+      template.innerHTML = "\n            <div class=\"select-group\">\n                <div class=\"select-selected\">\n                    ".concat((_this$select = this.select) === null || _this$select === void 0 ? void 0 : _this$select.options[this.select.selectedIndex].textContent, "\n                </div>\n                <div class=\"select-items select-hide\">\n                    ").concat((_this$options = this.options) === null || _this$options === void 0 ? void 0 : _this$options.map(function (el, i) {
+        return i === 0 ? '' : "<div>".concat(el.textContent, "</div>");
       }).join(''), "\n                </div>\n            </div>\n            ");
       fragment.appendChild(template.content);
       this.$element.appendChild(fragment);
@@ -195,8 +199,8 @@ var Select = /*#__PURE__*/function (_Component) {
     }
   }]);
 
-  return Select;
+  return SelectAjax;
 }(_Component2["default"]);
 
-exports["default"] = Select;
-//# sourceMappingURL=Select.js.map
+exports["default"] = SelectAjax;
+//# sourceMappingURL=SelectAjax.js.map

@@ -6,7 +6,7 @@ export default class Dropdown extends Component {
             this.$element.querySelector('.dropdown-menu').style.opacity = '1';
         })
 
-        this.$element.querySelector('.dropdown-toggle')?.addEventListener('mouseout', ({target}) => {
+        this.$element.addEventListener('mouseleave', () => {
             this.$element.querySelector('.dropdown-menu').style.opacity = '0';
         })
     }

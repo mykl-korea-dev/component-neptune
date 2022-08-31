@@ -1,3 +1,13 @@
+export function getData(url, callback) {
+    fetch(url)
+        .then(data => data.json())
+        .then(data => {
+            callback(data)
+        })
+        .catch(err => console.log(err.message))
+}
+
+// Select
 export function closeAllSelect(element) {
     /*a function that will close all select boxes in the document,
     except the current select box:*/

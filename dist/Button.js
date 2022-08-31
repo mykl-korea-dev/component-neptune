@@ -15,9 +15,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
-
-var _utils = require("../../../basic/utils.js");
+var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -133,74 +131,30 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Select = /*#__PURE__*/function (_Component) {
-  _inherits(Select, _Component);
+var ButtonLink = /*#__PURE__*/function (_Component) {
+  _inherits(ButtonLink, _Component);
 
-  var _super = _createSuper(Select);
+  var _super = _createSuper(ButtonLink);
 
-  function Select() {
-    _classCallCheck(this, Select);
+  function ButtonLink() {
+    _classCallCheck(this, ButtonLink);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Select, [{
+  _createClass(ButtonLink, [{
     key: "setElements",
     value: function setElements() {
-      var _this$select, _this$options;
-
-      this.select = this.$element.querySelector('select');
-      console.log(this.select, this.$data);
-      this.select.innerHTML = "".concat(this.$data.map(function (el) {
-        return "<option value=\"".concat(el.value, "\">").concat(el.text, "</option>");
-      }).join(''));
-      this.options = Array.from(this.$element.querySelectorAll('option'));
-      var template = document.createElement('template');
-      var fragment = new DocumentFragment();
-      template.innerHTML = "\n            <div>\n                <div class=\"select-selected\">\n                    ".concat((_this$select = this.select) === null || _this$select === void 0 ? void 0 : _this$select.options[this.select.selectedIndex].textContent, "\n                </div>\n                <div class=\"select-items select-hide\">\n                    ").concat((_this$options = this.options) === null || _this$options === void 0 ? void 0 : _this$options.map(function (el, i) {
-        return i === 0 ? '' : "<div>".concat(el.textContent, "</div>");
-      }).join(''), "\n                </div>\n            </div>\n            ");
-      fragment.appendChild(template.content);
-      this.$element.appendChild(fragment);
-    }
-  }, {
-    key: "setEvents",
-    value: function setEvents() {
-      var _this = this;
-
-      var selectedDiv = this.$element.querySelector('.select-selected');
-      var selectDiv = this.$element.querySelector('.select-items');
-      document.addEventListener('click', function (e) {
-        return (0, _utils.closeAllSelect)(e.target);
-      });
-      selectedDiv === null || selectedDiv === void 0 ? void 0 : selectedDiv.addEventListener('click', function () {
-        selectDiv === null || selectDiv === void 0 ? void 0 : selectDiv.classList.toggle('select-hide');
-        selectedDiv === null || selectedDiv === void 0 ? void 0 : selectedDiv.classList.toggle('select-arrow-active');
-      });
-      selectDiv === null || selectDiv === void 0 ? void 0 : selectDiv.addEventListener('click', function (e) {
-        var _this$$element$queryS;
-
-        (_this$$element$queryS = _this.$element.querySelector('.same-as-selected')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.removeAttribute('class');
-        var target = e.target;
-
-        for (var i = 0; i < _this.options.length; i++) {
-          var _this$select2;
-
-          if (((_this$select2 = _this.select) === null || _this$select2 === void 0 ? void 0 : _this$select2.options[i].innerHTML) === (target === null || target === void 0 ? void 0 : target.textContent)) {
-            _this.select.selectedIndex = i;
-            selectedDiv.textContent = target.textContent;
-            target.classList.add('same-as-selected');
-            selectDiv === null || selectDiv === void 0 ? void 0 : selectDiv.classList.toggle('select-hide');
-            selectedDiv === null || selectedDiv === void 0 ? void 0 : selectedDiv.classList.toggle('select-arrow-active');
-            break;
-          }
-        }
-      });
+      var button = document.createElement("button");
+      button.textContent = this.$element.textContent;
+      button.classList.add('btn');
+      this.$element.insertAdjacentElement('afterend', button);
     }
   }]);
 
-  return Select;
+  return ButtonLink;
 }(_Component2["default"]);
 
-exports["default"] = Select;
-//# sourceMappingURL=Select.js.map
+exports["default"] = ButtonLink;
+new ButtonLink(document.querySelector('a.btn'));
+//# sourceMappingURL=Button.js.map

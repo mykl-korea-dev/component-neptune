@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Star</title>
     <style>
-        .star > * {
+        .star > *, .star-ajax > * {
+            display: inline-block;
+        }
+        .star-group > * {
+            vertical-align: middle;
             display: inline-block;
             width: 20px;
             height: 20px;
@@ -21,15 +25,15 @@
     </style>
 </head>
 <body>
-    <div class="star">
-        <div class="star-item star-fill"></div>
-        <div class="star-item star-fill"></div>
-        <div class="star-item star-half"></div>
-        <div class="star-item star-empty"></div>
-        <div class="star-item star-empty"></div>
+    <div class="star eval" data-min="0" data-max="5" data-value="2.8">
+<!--        <div class="star-item star-fill"></div>-->
+<!--        <div class="star-item star-fill"></div>-->
+<!--        <div class="star-item star-half"></div>-->
+<!--        <div class="star-item star-empty"></div>-->
+<!--        <div class="star-item star-empty"></div>-->
     </div>
 
-    <div class="star ajax" data-min="0" data-max="5" data-value="2.5">
+    <div class="star-ajax eval" data-min="0" data-max="5" data-value="2.5">
 
     </div>
     <script src="./Star.js" type="module"></script>

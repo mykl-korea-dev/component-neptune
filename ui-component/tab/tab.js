@@ -1,8 +1,21 @@
-const tabNav = document.querySelector('.nav-tabs');
+import Component from "../../basic/Component.js";
 
-tabNav.addEventListener('click', ({target}) => {
-    const id = target.getAttribute('href');
-    document.querySelectorAll('.tab-list').forEach(el => el.style.display = 'none');
-    console.log(id)
-    document.querySelector(id).style.display = 'block';
-})
+export default class Tab extends Component {
+    setElements() {
+        const activeId = this.$element.querySelector('.active').dataset.id;
+        this.$element.querySelector(activeId).style.display = "block";
+    }
+
+    setEvents() {
+        this.$element.addEventListener('click', ({target}) => {
+            if (!target.classList.contains('tab-item')) {
+                return;
+            }
+            const id = target.dataset.id;
+            this.$element.querySelectorAll('.tab-list').forEach(el => el.style.display = 'none');
+            this.$element.querySelector(id).style.display = 'block';
+            this.$element.querySelector('.active').classList.remove('active')
+            target.classList.toggle('active');
+        })
+    }
+}

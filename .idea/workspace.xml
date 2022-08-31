@@ -2,66 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/form-component/ajax/select/select-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/Component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/tab.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/calendar.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/Time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/file.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/file.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/file.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/file/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/range.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/range.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/range.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/Range.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select-dynamic/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/select.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/select.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/select.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/Select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/textarea/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/textarea/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/textarea/textarea.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/textarea/textarea.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/textarea/textarea.ts" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/textarea/Textarea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/Accordion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/accordion/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Range.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Range.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Range.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Range.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Select.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/Range.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/Range.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/range.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/range.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/select/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/select/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/select/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select-dynamic/select.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/select/select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/button/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/button/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/button/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/button/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-component/dropdown/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/img/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/img/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/navigation/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/pagination/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/pagination/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/process/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/process/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/progress/Progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/progress/Progress.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-component/progress/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/progress/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/star/Star.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/Star.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-component/star/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/star/star.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/star/star.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/star/star.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/star/Star.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/tab/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/tab/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/tab/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/tab/tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/Table.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-component/table/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/table.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/table/table.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/table/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/table/table.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,9 +50,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -86,13 +64,13 @@
     <setting file="file://$PROJECT_DIR$/dist/Calendar.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dist/Select.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dist/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/ajax/select/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/ajax/select/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/Time.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/calendar.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/time.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/input-group/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/range/Range.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/Select.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.js" root0="FORCE_HIGHLIGHTING" />
@@ -113,23 +91,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/java/componentjavapilot&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\panda\\AppData\\Local\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/panda/Desktop/mykl/component-neptune/ui-component/emotion/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "web-ide.project.structure",
+    "ts.external.directory.path": "C:\\Users\\panda\\AppData\\Local\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\ui-component\emotion\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\form-component\ajax" />
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\form-component\input-group" />
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\component-set" />
     </key>
@@ -197,7 +179,7 @@
       <workItem from="1660869923428" duration="5848000" />
       <workItem from="1661146250102" duration="1393000" />
       <workItem from="1661148721840" duration="1920000" />
-      <workItem from="1661150664842" duration="73000" />
+      <workItem from="1661150664842" duration="70705000" />
     </task>
     <servers />
   </component>

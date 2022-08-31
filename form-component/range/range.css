@@ -7,8 +7,9 @@
     position: relative;
     height: 10px;
     border-radius: 15px;
-    z-index: 1;
+    /*z-index: 1;*/
     margin-bottom: 20px;
+    z-index: -3;
 }
 
 .slider .track {
@@ -19,7 +20,8 @@
     right: 0;
     border-radius: 15px;
     background: #bdbdbd;
-    z-index: 1;
+    /*z-index: 1;*/
+    z-index: -3;
 }
 
 .slider .range {
@@ -30,7 +32,8 @@
     right: 25%;
     border-radius: 15px;
     background: cadetblue;
-    z-index: 2;
+    /*z-index: 2;*/
+    z-index: -2;
 }
 
 .slider .thumb {
@@ -38,7 +41,7 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    z-index: 5;
+    /*z-index: 5;*/
     background: cadetblue;
 }
 
@@ -70,7 +73,7 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    /* 겹쳐진 두 thumb를 모두 활성화 */
+    /* 겹쳐진 두 thumb를 모두 활성화 s*/
     pointer-events: all;
     width: 15px;
     height: 15px;
@@ -88,5 +91,6 @@ input[type="range"]::-webkit-slider-thumb {
     width: 10px;
     height: 10px;
     background: antiquewhite;
-    z-index: 3;
+    z-index: -1;
+    /*z-index: 3;*/
 }

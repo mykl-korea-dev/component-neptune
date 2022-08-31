@@ -4,109 +4,97 @@
     <meta charset="UTF-8">
     <title>Navigation</title>
     <link rel="stylesheet" href="./navigation.css">
+    <link rel="stylesheet" href="../dropdown/dropdown.css">
 </head>
 <body>
     <nav class="navbar">
         <ul class="nav">
             <li>
                 <a href="#">Home</a>
-                <ul class="nav-menu">
-                    <li>Home</li>
-                    <li>Home2</li>
-                    <li>Home3</li>
-                    <li>Home4</li>
-                    <li>Home5</li>
-                </ul>
+<!--                <ul class="nav-menu">-->
+<!--                    <li>Home</li>-->
+<!--                    <li>Home2</li>-->
+<!--                    <li>Home3</li>-->
+<!--                    <li>Home4</li>-->
+<!--                    <li>Home5</li>-->
+<!--                </ul>-->
             </li>
             <li>
                 <a href="#">AAA</a>
-                <ul class="nav-menu">
-                    <li>AAA1</li>
-                    <li>AAA2</li>
-                    <li>AAA3</li>
-                    <li>AAA4</li>
-                </ul>
+<!--                <ul class="nav-menu">-->
+<!--                    <li>AAA1</li>-->
+<!--                    <li>AAA2</li>-->
+<!--                    <li>AAA3</li>-->
+<!--                    <li>AAA4</li>-->
+<!--                </ul>-->
             </li>
             <li>
                 <a href="#">BBB</a>
-                <ul class="nav-menu">
-                    <li>BBB1</li>
-                    <li>BBB2</li>
-                    <li>BBB3</li>
-                    <li>BBB4</li>
-                </ul>
+<!--                <ul class="nav-menu">-->
+<!--                    <li>BBB1</li>-->
+<!--                    <li>BBB2</li>-->
+<!--                    <li>BBB3</li>-->
+<!--                    <li>BBB4</li>-->
+<!--                </ul>-->
             </li>
             <li>
                 <a href="#">CCC</a>
-                <ul class="nav-menu">
-                    <li>CCC1</li>
-                    <li>CCC2</li>
-                    <li>CCC3</li>
-                    <li>CCC4</li>
-                </ul>
+<!--                <ul class="nav-menu">-->
+<!--                    <li>CCC1</li>-->
+<!--                    <li>CCC2</li>-->
+<!--                    <li>CCC3</li>-->
+<!--                    <li>CCC4</li>-->
+<!--                </ul>-->
             </li>
             <li>
                 <a href="#">DDD</a>
-                <ul class="nav-menu">
-                    <li>DDD1</li>
-                    <li>DDD2</li>
-                    <li>DDD3</li>
-                    <li>DDD4</li>
-                </ul>
+<!--                <ul class="nav-menu">-->
+<!--                    <li>DDD1</li>-->
+<!--                    <li>DDD2</li>-->
+<!--                    <li>DDD3</li>-->
+<!--                    <li>DDD4</li>-->
+<!--                </ul>-->
             </li>
         </ul>
     </nav>
 
-
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+    <nav class="navbar">
+        <a href="../dropdown/index.html" class="nav-brand">
+            <img src="https://via.placeholder.com/50x30" alt="">
+            Navbar
+        </a>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#"  class="dropdown-toggle">정보검색</a>
+                <ul class="dropdown-menu">
+                    <li  class="dropdown-item">
+                        <a href="#">학교/학과 정보</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                    <li  class="dropdown-item">
+                        <a href="#">자격증 정보</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li  class="dropdown-item">
+                        <a href="#">직업 정보</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                    <li  class="dropdown-item">
+                        <a href="#">전문가 정보</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>
+        </ul>
     </nav>
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-        </li>
-    </ul>
+    <script type="module">
+        import Dropdown from'../dropdown/Dropdown.js';
+        new Dropdown(document.querySelector('.dropdown'));
+    </script>
 </body>
 </html>

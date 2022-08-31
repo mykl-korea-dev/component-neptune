@@ -8,11 +8,13 @@ export default class Select extends Component{
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
         template.innerHTML = `
-            <div class="select-selected">
-                ${this.select?.options[this.select.selectedIndex].textContent}
-            </div>
-            <div class="select-items select-hide">
-                ${this.options.map(el => `<div>${el.text}</div>`).join('')}
+            <div>
+                <div class="select-selected">
+                    ${this.select?.options[this.select.selectedIndex].textContent}
+                </div>
+                <div class="select-items select-hide">
+                    ${this.options.map(el => `<div>${el.text}</div>`).join('')}
+                </div>
             </div>
             `
         fragment.appendChild(template.content);

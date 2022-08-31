@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+a.btn {
+    display: none;
+}
+
 .btn {
     display: block;
     width: 10rem;

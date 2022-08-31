@@ -1,5 +1,5 @@
-import Component from "../../basic/Component.js";
-import { closeAllSelect } from "../../basic/utils.js";
+import Component from "../../../basic/Component.js";
+import { closeAllSelect } from "../../../basic/utils.js";
 
 
 export default class Select extends Component{
@@ -11,11 +11,13 @@ export default class Select extends Component{
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
         template.innerHTML = `
-            <div class="select-selected">
-                ${this.select?.options[this.select.selectedIndex].textContent}
-            </div>
-            <div class="select-items select-hide">
-                ${this.options?.map((el, i)=> i === 0 ? '' : `<div>${el.textContent}</div>`).join('')}
+            <div>
+                <div class="select-selected">
+                    ${this.select?.options[this.select.selectedIndex].textContent}
+                </div>
+                <div class="select-items select-hide">
+                    ${this.options?.map((el, i)=> i === 0 ? '' : `<div>${el.textContent}</div>`).join('')}
+                </div>
             </div>
             `
         fragment.appendChild(template.content);

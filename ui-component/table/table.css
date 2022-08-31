@@ -1,92 +1,108 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.table-wrapper {
-    width: 100%;
-    /*max-width: 600px;*/
-    /*width: 1000px;*/
-}
-
-
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-tr {
-    border-bottom: 1px solid #ccc;
-}
-
-th, td {
-    padding: 10px;
-    width: 200px;
-    /*min-width: 100px;*/
-    text-align: left;
-}
-
-/* table colgroup */
-colgroup col:nth-child(even) {
-    background: antiquewhite;
-}
-
-/* div로 만든 table */
-/*.div-wrapper {*/
-/*    width: 60%;*/
-/*    max-width: 600px;*/
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
 /*}*/
 
-/*.tr {*/
-/*    display: flex;*/
+/*.table-wrapper {*/
+/*    width: 100%;*/
+/*    !*max-width: 600px;*!*/
+/*    !*width: 1000px;*!*/
+/*}*/
+
+
+/*.table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*}*/
+
+/*tr {*/
 /*    border-bottom: 1px solid #ccc;*/
 /*}*/
 
-/*.tr > *{*/
-/*    display: inline-block;*/
-/*    flex: 1;*/
+/*th, td {*/
+/*    padding: 10px;*/
+/*    width: 200px;*/
+/*    !*min-width: 100px;*!*/
+/*    text-align: left;*/
 /*}*/
 
+/*!* table colgroup *!*/
+/*colgroup col:nth-child(even) {*/
+/*    background: antiquewhite;*/
+/*}*/
+
+/*!* div로 만든 table *!*/
+/*!*.div-wrapper {*!*/
+/*!*    width: 60%;*!*/
+/*!*    max-width: 600px;*!*/
+/*!*}*!*/
+
+/*!*.tr {*!*/
+/*!*    display: flex;*!*/
+/*!*    border-bottom: 1px solid #ccc;*!*/
+/*!*}*!*/
+
+/*!*.tr > *{*!*/
+/*!*    display: inline-block;*!*/
+/*!*    flex: 1;*!*/
+/*!*}*!*/
 
 
-/* divTable */
-.divTable {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-}
 
-.divTableHead {
-    display: table-header-group;
-}
-
-.divTableBody {
-    display: table-row-group;
-}
-
-.divTableTr {
-    /*display: table;*/
-    display: table-row;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-}
-
-.divTableTr > * {
-    display: table-cell;
-}
-
-.divTableTh {
-    font-weight: bolder;
-}
-
-.divTableTh, .divTableTd {
-    padding: 10px;
-    /*width: 200px;*/
-    /*min-width: 100px;*/
-    text-align: left;
-}
-
-/*.fill {*/
+/*!* divTable *!*/
+/*.divTable {*/
+/*    display: table;*/
+/*    table-layout: fixed;*/
 /*    width: 100%;*/
 /*}*/
+
+/*.divTableHead {*/
+/*    display: table-header-group;*/
+/*}*/
+
+/*.divTableBody {*/
+/*    display: table-row-group;*/
+/*}*/
+
+/*.divTableTr {*/
+/*    !*display: table;*!*/
+/*    display: table-row;*/
+/*    width: 100%;*/
+/*    border-bottom: 1px solid #ccc;*/
+/*}*/
+
+/*.divTableTr > * {*/
+/*    display: table-cell;*/
+/*}*/
+
+/*.divTableTh {*/
+/*    font-weight: bolder;*/
+/*}*/
+
+/*.divTableTh, .divTableTd {*/
+/*    padding: 10px;*/
+/*    !*width: 200px;*!*/
+/*    !*min-width: 100px;*!*/
+/*    text-align: left;*/
+/*}*/
+
+/*!*.fill {*!*/
+/*!*    width: 100%;*!*/
+/*!*}*!*/
+
+/* flex */
+.table, .table thead, .table tbody, .table tfoot {
+    display: flex;
+    flex-direction: column;
+}
+
+.table tr {
+    display: flex;
+    flex-direction: row;
+}
+
+.table tr th, .table tr td {
+    flex: 1;
+    text-align: center;
+}

@@ -15,12 +15,49 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
+
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
     "default": obj
   };
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -131,36 +168,45 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Process = /*#__PURE__*/function (_Component) {
-  _inherits(Process, _Component);
+var PaginationAjax = /*#__PURE__*/function (_Component) {
+  _inherits(PaginationAjax, _Component);
 
-  var _super = _createSuper(Process);
+  var _super = _createSuper(PaginationAjax);
 
-  function Process() {
-    _classCallCheck(this, Process);
+  function PaginationAjax() {
+    _classCallCheck(this, PaginationAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Process, [{
-    key: "setEvents",
-    value: function setEvents() {
-      var _this = this;
-
-      this.$element.addEventListener('click', function (_ref) {
-        var _this$$element$queryS;
-
-        var target = _ref.target; // console.log(target);
-
-        (_this$$element$queryS = _this.$element.querySelector('.active')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.classList.remove('active');
-        target.classList.add('active');
-      });
+  _createClass(PaginationAjax, [{
+    key: "setTemplate",
+    value: function setTemplate() {
+      var url = window.location.href.replace(/&page=.*/, '');
+      var _this$$data = this.$data,
+          totalCount = _this$$data.totalCount,
+          start = _this$$data.start,
+          end = _this$$data.end,
+          prev = _this$$data.prev,
+          next = _this$$data.next,
+          displayPageNum = _this$$data.displayPageNum,
+          currentPage = _this$$data.currentPage;
+      return "\n            <li class=\"page-item><a href=\"".concat(url, "&page=\"").concat(prev ? currentPage - 1 : 1, "\">\uC774\uC804</li>\n            ").concat(_toConsumableArray(new Array(end - start)).map(function (page, i) {
+        return "\n                <li class=\"page-item ".concat(start + i == currentPage ? "active" : "", "\">\n                    <a href=\"").concat(url, "&page=").concat(page + i, "\">").concat(start + i, "</a>\n                </li>\n            ");
+      }).join(''), "\n            <li class=\"page-item><a href=\"").concat(url, "&page=\"").concat(next ? currentPage + 1 : currentPage, "\">\uB2E4\uC74C</li>            \n        ");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.$element.innerHTML = this.setTemplate();
     }
   }]);
 
-  return Process;
+  return PaginationAjax;
 }(_Component2["default"]);
 
-exports["default"] = Process;
-new Process(document.querySelector('.processAjax'));
-//# sourceMappingURL=Process.js.map
+exports["default"] = PaginationAjax;
+(0, _utils.getData)("http://localhost:3000/pagination", function (data) {
+  return new PaginationAjax(document.querySelector('.pagination-ajax'), data);
+});
+//# sourceMappingURL=paginationAjax.js.map

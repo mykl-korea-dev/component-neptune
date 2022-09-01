@@ -1,4 +1,4 @@
-.progress {
+.progress, .progress-ajax {
     background: #bdbdbd;
     height: 50px;
 }

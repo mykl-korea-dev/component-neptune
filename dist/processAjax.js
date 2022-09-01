@@ -15,7 +15,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
+
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -131,18 +133,30 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Process = /*#__PURE__*/function (_Component) {
-  _inherits(Process, _Component);
+var ProcessAjax = /*#__PURE__*/function (_Component) {
+  _inherits(ProcessAjax, _Component);
 
-  var _super = _createSuper(Process);
+  var _super = _createSuper(ProcessAjax);
 
-  function Process() {
-    _classCallCheck(this, Process);
+  function ProcessAjax() {
+    _classCallCheck(this, ProcessAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Process, [{
+  _createClass(ProcessAjax, [{
+    key: "setTemplate",
+    value: function setTemplate() {
+      return this.$data.map(function (data) {
+        return "\n            <span class=\"process-item ".concat(data.active ? "active" : "", "\">").concat(data.text, "</span>\n        ");
+      }).join('');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.$element.innerHTML = this.setTemplate();
+    }
+  }, {
     key: "setEvents",
     value: function setEvents() {
       var _this = this;
@@ -158,9 +172,11 @@ var Process = /*#__PURE__*/function (_Component) {
     }
   }]);
 
-  return Process;
+  return ProcessAjax;
 }(_Component2["default"]);
 
-exports["default"] = Process;
-new Process(document.querySelector('.processAjax'));
-//# sourceMappingURL=Process.js.map
+exports["default"] = ProcessAjax;
+(0, _utils.getData)("http://localhost:3000/process", function (data) {
+  return new ProcessAjax(document.querySelector('.process-ajax'), data);
+});
+//# sourceMappingURL=processAjax.js.map

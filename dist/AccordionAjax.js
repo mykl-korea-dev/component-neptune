@@ -15,7 +15,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
+
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -131,36 +133,62 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Process = /*#__PURE__*/function (_Component) {
-  _inherits(Process, _Component);
+var AccordionAjax = /*#__PURE__*/function (_Component) {
+  _inherits(AccordionAjax, _Component);
 
-  var _super = _createSuper(Process);
+  var _super = _createSuper(AccordionAjax);
 
-  function Process() {
-    _classCallCheck(this, Process);
+  function AccordionAjax() {
+    _classCallCheck(this, AccordionAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Process, [{
+  _createClass(AccordionAjax, [{
+    key: "setTemplate",
+    value: function setTemplate() {
+      console.log(this.$data);
+      return this.$data.map(function (list) {
+        return "\n            <div class=\"accordion-item\">\n                <h2 class=\"accordion-header\">\n                    <button class=\"accordion-toggle\">".concat(list.title, "</button>\n                </h2>\n                <ul class=\"accordion-body\">\n                    ").concat(list.items.map(function (item) {
+          return "\n                        <li class=\"accordion-body-item\">".concat(item.link ? "<a href=".concat(item.link, ">").concat(item.text, "</a>") : item.text, "</li>\n                    ");
+        }).join(''), "\n                </ul>\n            </div>\n        ");
+      }).join('');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.$element.innerHTML = this.setTemplate();
+    }
+  }, {
     key: "setEvents",
     value: function setEvents() {
       var _this = this;
 
       this.$element.addEventListener('click', function (_ref) {
-        var _this$$element$queryS;
+        var target = _ref.target;
 
-        var target = _ref.target; // console.log(target);
+        if (target.classList.contains('accordion-toggle')) {
+          var _el$querySelector;
 
-        (_this$$element$queryS = _this.$element.querySelector('.active')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.classList.remove('active');
-        target.classList.add('active');
+          var el = target.closest('.accordion-item');
+
+          if (!_this.$element.classList.contains('showAlways')) {
+            var _this$$element$queryS;
+
+            (el === null || el === void 0 ? void 0 : el.querySelector('.accordion-body.show')) !== _this.$element.querySelector('.accordion-body.show') && ((_this$$element$queryS = _this.$element.querySelector('.accordion-body.show')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.classList.remove('show'));
+          }
+
+          el === null || el === void 0 ? void 0 : (_el$querySelector = el.querySelector('.accordion-body')) === null || _el$querySelector === void 0 ? void 0 : _el$querySelector.classList.toggle('show');
+        }
       });
     }
   }]);
 
-  return Process;
+  return AccordionAjax;
 }(_Component2["default"]);
 
-exports["default"] = Process;
-new Process(document.querySelector('.processAjax'));
-//# sourceMappingURL=Process.js.map
+exports["default"] = AccordionAjax;
+(0, _utils.getData)('http://localhost:3000/accordion', function (data) {
+  return new AccordionAjax(document.querySelector('.accordion-ajax'), data);
+});
+//# sourceMappingURL=AccordionAjax.js.map

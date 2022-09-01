@@ -3,33 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/Component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Component.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Component.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Range.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Range.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Range.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Range.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Select.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/ajax/select/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/selectAjax/SelectAjax.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/ajax/select/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/selectAjax/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/ajax/select/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/selectAjax/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/ajax/select/select-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/selectAjax/select-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/ajax/select/select.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/selectAjax/select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/Range.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/Range.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/range/range.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/range.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/Select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/select/select.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Process.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Process.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Process.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Process.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/process/Process.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/process/Process.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/progress/progress.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/progress/progress.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +19,8 @@
       <list>
         <option value="CSS File" />
         <option value="TypeScript File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -170,7 +148,7 @@
       <workItem from="1660869923428" duration="5848000" />
       <workItem from="1661146250102" duration="1393000" />
       <workItem from="1661148721840" duration="1920000" />
-      <workItem from="1661150664842" duration="79205000" />
+      <workItem from="1661150664842" duration="86759000" />
     </task>
     <servers />
   </component>

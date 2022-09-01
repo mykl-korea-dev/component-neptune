@@ -27,7 +27,7 @@ a {
     /*background: lightblue;*/
     padding: 5px 10px;
 }
-.dropdown {
+.dropdown, .dropdown-ajax {
     position: relative;
     /*width: max-content;*/
     margin-bottom: 20px;

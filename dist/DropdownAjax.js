@@ -15,7 +15,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("../../../basic/Component.js"));
+
+var _utils = require("../../../basic/utils.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -131,36 +133,58 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-var Process = /*#__PURE__*/function (_Component) {
-  _inherits(Process, _Component);
+var DropdownAjax = /*#__PURE__*/function (_Component) {
+  _inherits(DropdownAjax, _Component);
 
-  var _super = _createSuper(Process);
+  var _super = _createSuper(DropdownAjax);
 
-  function Process() {
-    _classCallCheck(this, Process);
+  function DropdownAjax() {
+    _classCallCheck(this, DropdownAjax);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Process, [{
+  _createClass(DropdownAjax, [{
+    key: "setTemplate",
+    value: function setTemplate() {
+      var _this$$data = this.$data,
+          title = _this$$data.title,
+          titleUrl = _this$$data.titleUrl,
+          items = _this$$data.items;
+      return "\n            <a href=\"".concat(titleUrl, "\" class=\"dropdown-toggle\">").concat(title, "</a>\n            <ul class=\"dropdown-menu\">\n                ").concat(items.map(function (item) {
+        return "\n                    <li class=\"dropdown-item\">\n                        <a href=\"".concat(item.itemUrl, "\">").concat(item.value, "</a>\n                    </li>\n                ");
+      }).join(''), "\n            </ul>\n        ");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.$element.innerHTML = this.setTemplate();
+    }
+  }, {
     key: "setEvents",
     value: function setEvents() {
-      var _this = this;
+      var _this$$element$queryS,
+          _this = this;
 
-      this.$element.addEventListener('click', function (_ref) {
-        var _this$$element$queryS;
-
-        var target = _ref.target; // console.log(target);
-
-        (_this$$element$queryS = _this.$element.querySelector('.active')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.classList.remove('active');
-        target.classList.add('active');
+      (_this$$element$queryS = this.$element.querySelector('.dropdown-toggle')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.addEventListener('mouseover', function (_ref) {
+        var target = _ref.target;
+        _this.$element.querySelector('.dropdown-menu').style.opacity = '1';
+        _this.$element.querySelector('.dropdown-menu').style.visibility = 'visible';
+      });
+      this.$element.addEventListener('mouseleave', function () {
+        _this.$element.querySelector('.dropdown-menu').style.opacity = '0';
+        setTimeout(function () {
+          return _this.$element.querySelector('.dropdown-menu').style.visibility = 'hidden';
+        }, 500);
       });
     }
   }]);
 
-  return Process;
+  return DropdownAjax;
 }(_Component2["default"]);
 
-exports["default"] = Process;
-new Process(document.querySelector('.processAjax'));
-//# sourceMappingURL=Process.js.map
+exports["default"] = DropdownAjax;
+(0, _utils.getData)('http://localhost:3000/dropdown', function (data) {
+  return new DropdownAjax(document.querySelector('.dropdown-ajax'), data);
+});
+//# sourceMappingURL=DropdownAjax.js.map

@@ -10,4 +10,4 @@ export default class Process extends Component {
     }
 }
 
-new Process(document.querySelector('.process'));
+new Process(document.querySelector('.processAjax'));

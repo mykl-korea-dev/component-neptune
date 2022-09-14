@@ -1,4 +1,4 @@
-import Component from "../../basic/Component.js";
+import Component from "./Component.js";
 
 export default class Range extends Component {
     setElements() {
@@ -14,14 +14,15 @@ export default class Range extends Component {
                 <div class="thumb left"><span class="thumb-min"></span></div>
                 <div class="thumb right"><span class="thumb-max"></span></div>
             </div>`;
-        
-        const totalSize = (max - min) / step
+
+        const [ rangeWidth, thumbWidth ] = [this.$element, this.$element.querySelector('.thumb')].map(el => el.getBoundingClientRect().width);
+        const trackWidth = rangeWidth - thumbWidth;
+        const totalSize = (max - min) / step;
         if((min >= 0) &&  max && step && minValue) {
             for (let i = 1; i < totalSize; i += 1) {
                 const span = document.createElement('span');
                 span.classList.add('step');
-                console.log(max, min, step, (max - min) / step * i)
-                span.style.left = `${(max - min) / step * i}%`
+                span.style.left = `${trackWidth * ((max - min) / step * i)/ 100}px`;
                 this.$element.querySelector('.slider')?.appendChild(span)
             }
         }
@@ -32,17 +33,15 @@ export default class Range extends Component {
         const thumbRight = slider.querySelector('.thumb.right');
         slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
         slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
-        thumbLeft.style.left = `${(max - min) / step * (minValue / step)}%`;
-        range.style.left = `${(max - min) / step * (minValue / step)}%`;
-        range.style.right = `${(max - min) / step * ((max - maxValue) / step)}%`;
-        thumbRight.style.left = `${(max - min) / step * (maxValue / step)}%`;
-        // range.style.right = `${parseInt(minValue, 10) -3}%`;
-        // thumbRight.style.right = `${parseInt(minValue, 10)  -3}%`;
-        // range.style.right = `${parseInt(max, 10) - parseInt(maxValue, 10)}%`;
-        // thumbRight.style.right = `${parseInt(max, 10) - parseInt(maxValue, 10)}%`;
+        thumbLeft.style.left = `${trackWidth * ((max - min) / step * (minValue / step)) / 100}px`;
+        range.style.left = `${trackWidth * ((max - min) / step * (minValue / step)) / 100}px`;
+        range.style.right = `${trackWidth * ((max - min) / step * ((max - maxValue) / step)) / 100}px`;
+        thumbRight.style.left = `${trackWidth * ((max - min) / step * (maxValue / step)) / 100}px`;
     }
 
     setEvents() {
+        const [ rangeWidth, thumbWidth ] = [this.$element, this.$element.querySelector('.thumb')].map(el => el.getBoundingClientRect().width);
+        const trackWidth = rangeWidth - thumbWidth;
         const slider = this.$element.querySelector('.slider');
         const range = slider?.querySelector('.range');
         const thumbLeft = slider.querySelector('.slider .thumb.left');
@@ -50,27 +49,35 @@ export default class Range extends Component {
         const inputLeft = this.$element.querySelector('.input-left');
         const inputRight = this.$element.querySelector('.input-right');
         inputLeft?.addEventListener('input', () => {
-            const [min, max] = [parseInt(inputLeft.min), parseInt(inputLeft.max)];
+            const [min, max, step] = [parseInt(inputLeft.min), parseInt(inputLeft.max), parseInt(inputLeft.step)];
             inputLeft.value = Math.min(parseInt(inputLeft.value), parseInt(inputRight.value) - parseInt(inputLeft.step)).toString();
 
             const inputValue = parseInt(inputLeft.value, 10)
-            const percent = ((inputValue - min) / (max-min)) * 100;
-            thumbLeft.style.left = `${percent}%`;
-            range.style.left = `${percent}%`;
+            thumbLeft.style.left = `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
+            range.style.left = `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
             slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
 
         })
 
         inputRight?.addEventListener('input', () => {
-            const [min, max] = [parseInt(inputRight.min), parseInt(inputRight.max)];
+            const [min, max, step] = [parseInt(inputRight.min), parseInt(inputRight.max), parseInt(inputRight.step)];
             inputRight.value = Math.max(parseInt(inputRight.value), parseInt(inputLeft.value) + parseInt(inputRight.step)).toString();
 
             const inputValue = parseInt(inputRight.value, 10)
-            const percent = ((inputValue - min) / (max-min)) * 100;
-            thumbRight.style.left = `${percent}%`;
-            range.style.right = `${100 - percent}%`;
+            thumbRight.style.left = `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
+            range.style.right = `${trackWidth - (trackWidth * ((max - min) / step * (inputValue / step)) / 100)}px`;
             slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
         })
+    }
+
+    setThumbLeft() {
+        const [ rangeWidth, thumbWidth ] = [this.$element, this.$element.querySelector('.thumb')].map(el => el.getBoundingClientRect().width);
+        const trackWidth = rangeWidth - thumbWidth;
+        return `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
+    }
+
+    setThumbRight() {
+
     }
 }
 

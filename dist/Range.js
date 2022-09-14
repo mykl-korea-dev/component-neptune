@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _Component2 = _interopRequireDefault(require("../../basic/Component.js"));
+var _Component2 = _interopRequireDefault(require("./Component.js"));
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -224,6 +224,15 @@ var Range = /*#__PURE__*/function (_Component) {
           step = _map2[4];
 
       this.$element.innerHTML = "\n            <input type=\"range\" class=\"input-left\" name=\"max\" min=".concat(min, " max=").concat(max, " value=").concat(minValue, " step=").concat(step, ">\n            <input type=\"range\" class=\"input-right\" name=\"max\" min=").concat(min, " max=").concat(max, " value=").concat(maxValue, " step=").concat(step, ">\n\n            <div class=\"slider\">\n                <div class=\"track\"></div>\n                <div class=\"range\"></div>\n                <div class=\"thumb left\"><span class=\"thumb-min\"></span></div>\n                <div class=\"thumb right\"><span class=\"thumb-max\"></span></div>\n            </div>");
+
+      var _map3 = [this.$element, this.$element.querySelector('.thumb')].map(function (el) {
+        return el.getBoundingClientRect().width;
+      }),
+          _map4 = _slicedToArray(_map3, 2),
+          rangeWidth = _map4[0],
+          thumbWidth = _map4[1];
+
+      var trackWidth = rangeWidth - thumbWidth;
       var totalSize = (max - min) / step;
 
       if (min >= 0 && max && step && minValue) {
@@ -232,8 +241,7 @@ var Range = /*#__PURE__*/function (_Component) {
 
           var span = document.createElement('span');
           span.classList.add('step');
-          console.log(max, min, step, (max - min) / step * i);
-          span.style.left = "".concat((max - min) / step * i, "%");
+          span.style.left = "".concat(trackWidth * ((max - min) / step * i) / 100, "px");
           (_this$$element$queryS = this.$element.querySelector('.slider')) === null || _this$$element$queryS === void 0 ? void 0 : _this$$element$queryS.appendChild(span);
         }
       }
@@ -244,19 +252,24 @@ var Range = /*#__PURE__*/function (_Component) {
       var thumbRight = slider.querySelector('.thumb.right');
       slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
       slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
-      thumbLeft.style.left = "".concat((max - min) / step * (minValue / step), "%");
-      range.style.left = "".concat((max - min) / step * (minValue / step), "%");
-      range.style.right = "".concat((max - min) / step * ((max - maxValue) / step), "%");
-      thumbRight.style.left = "".concat((max - min) / step * (maxValue / step), "%"); // range.style.right = `${parseInt(minValue, 10) -3}%`;
-      // thumbRight.style.right = `${parseInt(minValue, 10)  -3}%`;
-      // range.style.right = `${parseInt(max, 10) - parseInt(maxValue, 10)}%`;
-      // thumbRight.style.right = `${parseInt(max, 10) - parseInt(maxValue, 10)}%`;
+      thumbLeft.style.left = "".concat(trackWidth * ((max - min) / step * (minValue / step)) / 100, "px");
+      range.style.left = "".concat(trackWidth * ((max - min) / step * (minValue / step)) / 100, "px");
+      range.style.right = "".concat(trackWidth * ((max - min) / step * ((max - maxValue) / step)) / 100, "px");
+      thumbRight.style.left = "".concat(trackWidth * ((max - min) / step * (maxValue / step)) / 100, "px");
     }
   }, {
     key: "setEvents",
     value: function setEvents() {
       var _this = this;
 
+      var _map5 = [this.$element, this.$element.querySelector('.thumb')].map(function (el) {
+        return el.getBoundingClientRect().width;
+      }),
+          _map6 = _slicedToArray(_map5, 2),
+          rangeWidth = _map6[0],
+          thumbWidth = _map6[1];
+
+      var trackWidth = rangeWidth - thumbWidth;
       var slider = this.$element.querySelector('.slider');
       var range = slider === null || slider === void 0 ? void 0 : slider.querySelector('.range');
       var thumbLeft = slider.querySelector('.slider .thumb.left');
@@ -264,28 +277,44 @@ var Range = /*#__PURE__*/function (_Component) {
       var inputLeft = this.$element.querySelector('.input-left');
       var inputRight = this.$element.querySelector('.input-right');
       inputLeft === null || inputLeft === void 0 ? void 0 : inputLeft.addEventListener('input', function () {
-        var _ref = [parseInt(inputLeft.min), parseInt(inputLeft.max)],
+        var _ref = [parseInt(inputLeft.min), parseInt(inputLeft.max), parseInt(inputLeft.step)],
             min = _ref[0],
-            max = _ref[1];
+            max = _ref[1],
+            step = _ref[2];
         inputLeft.value = Math.min(parseInt(inputLeft.value), parseInt(inputRight.value) - parseInt(inputLeft.step)).toString();
         var inputValue = parseInt(inputLeft.value, 10);
-        var percent = (inputValue - min) / (max - min) * 100;
-        thumbLeft.style.left = "".concat(percent, "%");
-        range.style.left = "".concat(percent, "%");
+        thumbLeft.style.left = "".concat(trackWidth * ((max - min) / step * (inputValue / step)) / 100, "px");
+        range.style.left = "".concat(trackWidth * ((max - min) / step * (inputValue / step)) / 100, "px");
         slider.querySelector('.thumb-min').textContent = _this.$element.querySelector(".input-left").value;
       });
       inputRight === null || inputRight === void 0 ? void 0 : inputRight.addEventListener('input', function () {
-        var _ref2 = [parseInt(inputRight.min), parseInt(inputRight.max)],
+        var _ref2 = [parseInt(inputRight.min), parseInt(inputRight.max), parseInt(inputRight.step)],
             min = _ref2[0],
-            max = _ref2[1];
+            max = _ref2[1],
+            step = _ref2[2];
         inputRight.value = Math.max(parseInt(inputRight.value), parseInt(inputLeft.value) + parseInt(inputRight.step)).toString();
         var inputValue = parseInt(inputRight.value, 10);
-        var percent = (inputValue - min) / (max - min) * 100;
-        thumbRight.style.left = "".concat(percent, "%");
-        range.style.right = "".concat(100 - percent, "%");
+        thumbRight.style.left = "".concat(trackWidth * ((max - min) / step * (inputValue / step)) / 100, "px");
+        range.style.right = "".concat(trackWidth - trackWidth * ((max - min) / step * (inputValue / step)) / 100, "px");
         slider.querySelector('.thumb-max').textContent = _this.$element.querySelector(".input-right").value;
       });
     }
+  }, {
+    key: "setThumbLeft",
+    value: function setThumbLeft() {
+      var _map7 = [this.$element, this.$element.querySelector('.thumb')].map(function (el) {
+        return el.getBoundingClientRect().width;
+      }),
+          _map8 = _slicedToArray(_map7, 2),
+          rangeWidth = _map8[0],
+          thumbWidth = _map8[1];
+
+      var trackWidth = rangeWidth - thumbWidth;
+      return "".concat(trackWidth * ((max - min) / step * (inputValue / step)) / 100, "px");
+    }
+  }, {
+    key: "setThumbRight",
+    value: function setThumbRight() {}
   }]);
 
   return Range;

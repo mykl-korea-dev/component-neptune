@@ -143,12 +143,19 @@ var ButtonLink = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(ButtonLink, [{
-    key: "setElements",
-    value: function setElements() {
-      var button = document.createElement("button");
-      button.textContent = this.$element.textContent;
-      button.classList.add('btn');
-      this.$element.insertAdjacentElement('afterend', button);
+    key: "setEvents",
+    value: function setEvents() {
+      var _this = this;
+
+      this.$element.addEventListener("click", function () {
+        if (_this.$element.dataset.target) {
+          var openNewWindow = window.open("about:blank"); // const openNewWindow = window.open("about:blank",'', 'width=400, height=400, scrollbars=no, resizable=no, toolbars=no, menubar=no');
+
+          openNewWindow.location.href = _this.$element.dataset.link;
+        } else {
+          window.location = _this.$element.dataset.link;
+        }
+      });
     }
   }]);
 
@@ -156,5 +163,7 @@ var ButtonLink = /*#__PURE__*/function (_Component) {
 }(_Component2["default"]);
 
 exports["default"] = ButtonLink;
-new ButtonLink(document.querySelector('a.btn'));
+document.querySelectorAll('.btn[data-link]').forEach(function (el) {
+  return new ButtonLink(el);
+});
 //# sourceMappingURL=Button.js.map

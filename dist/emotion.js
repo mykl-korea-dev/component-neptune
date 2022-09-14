@@ -157,20 +157,36 @@ var Emotion = /*#__PURE__*/function (_Component) {
     value: function setEvents() {
       var _this = this;
 
-      this.$element.querySelector('.clicked-emotion').addEventListener('click', function () {
-        _this.$element.querySelector('.emotion-group').style.display = "block";
-      });
+      var regex = /emotion-good|emotion-sad|emotion-like|emotion-bad|emotion-thumbsUp|emotion-thumbsDown/g;
       this.$element.querySelector('.emotion-group').addEventListener('click', function (_ref) {
         var target = _ref.target;
-        var regex = /emotion-good|emotion-sad|emotion-like|emotion-bad|emotion-thumbsUp|emotion-thumbsDown/g;
 
         var clickedEl = _this.$element.querySelector('.clicked-emotion');
 
         clickedEl.className = clickedEl.className.replace(regex, '');
         clickedEl.classList.add(target.classList);
-        clickedEl.textContent = '';
+        clickedEl.innerHTML = "<span class=\"remove-emotion\">x</span>";
+
+        var _clickedEl$getBoundin = clickedEl.getBoundingClientRect(),
+            width = _clickedEl$getBoundin.width;
+
+        _this.$element.querySelector('.remove-emotion').style.left = Number(width) + 10 + 'px';
         clickedEl.style.verticalAlign = "middle";
         _this.$element.querySelector('.emotion-group').style.display = "none";
+      });
+      this.$element.addEventListener('click', function (_ref2) {
+        var target = _ref2.target;
+
+        if (target.classList.contains('clicked-emotion')) {
+          _this.$element.querySelector('.emotion-group').style.display = "block";
+        }
+
+        if (target.classList.contains('remove-emotion')) {
+          var clickedEl = _this.$element.querySelector('.clicked-emotion');
+
+          clickedEl.className = clickedEl.className.replace(regex, '');
+          clickedEl.textContent = "+";
+        }
       });
     }
   }]);

@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <title>Emotion</title>
     <style>
+        .emotion {
+            position: relative;
+        }
+
         .clicked-emotion {
             width: 20px;
             height: 20px;
         }
+
+        .remove-emotion {
+            position: absolute;
+            top: 0;
+        }
+
         .emotion-group {
             display: none;
         }
 
-         .emotion-group > * {
+        .emotion-group > * {
             display: inline-block;
             width: 20px;
             height: 20px;
@@ -23,6 +33,7 @@
         .emotion-group > *:hover {
             background-color: #bdbdbd;
         }
+
         .emotion-good {
             background: url("./images/emoji-smile.svg") no-repeat center;
         }
@@ -45,6 +56,7 @@
 </head>
 <body>
 <div class="emotion"></div>
+
 <script src="./emotion.js" type="module"></script>
 </body>
 </html>

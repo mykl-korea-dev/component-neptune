@@ -1,13 +1,16 @@
 import Component from "../../basic/Component.js";
 
 export default class ButtonLink extends Component {
-    setElements() {
-        const button = document.createElement("button");
-        button.textContent = this.$element.textContent;
-        button.classList.add('btn');
-        this.$element.insertAdjacentElement('afterend', button);
+    setEvents() {
+        this.$element.addEventListener("click", () => {
+            if(this.$element.dataset.target) {
+                const openNewWindow = window.open("about:blank");
+                // const openNewWindow = window.open("about:blank",'', 'width=400, height=400, scrollbars=no, resizable=no, toolbars=no, menubar=no');
+                openNewWindow.location.href = this.$element.dataset.link;
+            } else {
+                window.location = this.$element.dataset.link;
+            }
+        })
     }
-
 }
-
-new ButtonLink(document.querySelector('a.btn'));
+document.querySelectorAll('.btn[data-link]').forEach(el => new ButtonLink(el));

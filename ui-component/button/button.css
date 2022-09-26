@@ -1,31 +1,68 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-a.btn {
-    display: none;
-}
-
 .btn {
-    display: block;
-    width: 10rem;
-    height: 1.5rem;
-    background: #fff;
-    color: #000;
-    text-align: center;
-    border: none;
-    font-size: 1rem;
     cursor: pointer;
-    font-family: sans-serif;
+
+    /* 추후 변경 가능 */
+    min-width: 100px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    /* 한글, 영어 높이 동일 하게 됨*/
+    line-height: 2;
 }
 
 .btn:hover {
-    background: #bdbdbd;
+    opacity: 0.8;
+}
+
+.btn[disabled] {
+    cursor: initial;
+    opacity: 0.5;
 }
 
 .btn[disabled]:hover {
-    background: #fff;
-    cursor: initial;
+    opacity: 0.5;
+}
+
+/* Size */
+.btn.btn-lg {
+    min-width: 200px;
+    line-height: 3;
+}
+
+.btn.btn-sm {
+    min-width: 70px;
+    line-height: 1;
+}
+
+/* Color */
+.btn.btn-primary {
+    background: var(--primary);
+}
+
+.btn.btn-secondary {
+    background: var(--secondary);
+}
+
+.btn.btn-success {
+    background: var(--success);
+}
+
+.btn.btn-danger {
+    background: var(--danger);
+}
+
+.btn.btn-warning {
+    background: var(--warning);
+}
+
+.btn.btn-info {
+    background: var(--info);
+}
+
+.btn.btn-light {
+    background: var(--light);
+}
+
+.btn.btn-dark {
+    background: var(--dark);
+    color: #bdbdbd;
 }

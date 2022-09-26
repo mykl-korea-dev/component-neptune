@@ -7,20 +7,21 @@ export default class Dropdown extends Component {
             this.$element.querySelectorAll('.dropdown-menu').forEach(el => {
                 // const {height} = el.getBoundingClientRect();
 
-                el.style.opacity = '1';
-                el.style.visibility = 'visible';
+                // el.style.opacity = '1';
+                // el.style.visibility = 'visible';
                 // maxHeight = maxHeight < height ? height: maxHeight;
-                this.$element.style.background="lightgoldenrodyellow";
-
+                // this.$element.style.background="lightgoldenrodyellow";
+                el.classList.add('show');
             })
             // this.$element.style.height = maxHeight + 'px'
         })
 
         this.$element.addEventListener('mouseleave', () => {
             this.$element.querySelectorAll('.dropdown-menu').forEach(el => {
-                el.style.opacity = '0';
-                setTimeout(() => el.style.visibility = 'hidden', 500);
-                this.$element.style.background="";
+                // el.style.opacity = '0';
+                // setTimeout(() => el.style.visibility = 'hidden', 500);
+                // this.$element.style.background="";
+                el.classList.remove('show');
 
             })
 

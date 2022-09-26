@@ -13,8 +13,19 @@ a {
     color: #000;
 }
 
+.navbar {
+    display: flex;
+}
+
 .nav-brand {
-    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    white-space: nowrap;
+    /*display: inline-block;*/
 }
 
 .nav-brand img {

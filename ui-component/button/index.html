@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>button</title>
+    <link rel="stylesheet" href="../../basic/common.css">
     <link rel="stylesheet" href="./button.css">
 </head>
 <body>
-    <button type="button" class="btn" disabled>Button</button>
-    <button class="btn" data-link="https://naver.com/">링크</button>
-    <button class="btn" data-link="https://naver.com/" data-target="true">링크</button>
-    <a href="../dropdown/index.html" class="btn">Button</a>
-<!--    <input type="button" class="btn" value="Button">-->
+    <button type="button" class="btn btn-primary btn-sm" disabled>button</button>
+    <button type="button" class="btn btn-success" data-href="https://naver.com/">네이버 이동</button>
+    <button class="btn btn-dark" data-href="https://google.com/" data-target="true" data-attr="width=400, height=400">구글 새창</button>
+    <button class="btn btn-dark" data-href="https://developer.mozilla.org/ko/" data-history="true">history</button>
+    <button type="button" class="btn btn-info btn-lg" data-href="https://naver.com/" data-history="true">긴글넣어보려고하는버튼</button>
+    <button type="button" class="btn btn-success" data-href="https://naver.com/" >writetoEnglish</button>
+    <button type="button" class="btn" onclick={window.history.back()}>history.back</button>
     <script src="./Button.js" type="module"></script>
 </body>
 </html>

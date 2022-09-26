@@ -10,15 +10,17 @@ export default class Star extends Component {
         const starGroupEl = document.createElement('div');
         starGroupEl.classList.add('star-group');
         for (let i = parseInt(min, 10); i < parseInt(max, 10); i++) {
-            const template = document.createElement('template');
+            // const template = document.createElement('template');
             // const fragment = new DocumentFragment();
-
-            template.innerHTML = `
+            const div = document.createElement('div');
+            div.innerHTML = `
                 ${starValue >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
                 ${starValue >= 0.5 && starValue < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
                 ${starValue < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
             `
-            starGroupEl.appendChild(template.content);
+            starGroupEl.innerHTML += div.innerHTML;
+            // starGroupEl.appendChild(template.content);
+            // starGroupEl.appendChild(div);
             starValue -= 1;
         }
         this.$element.appendChild(starGroupEl);

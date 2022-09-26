@@ -1,20 +1,6 @@
 import Component from "../../basic/Component.js";
 
 export default class ImageSlide extends Component {
-    setElements() {
-        const { height } = this.$element.querySelector('.slider-group li').getBoundingClientRect();
-        console.log(height);
-        this.$element.querySelector('.slider-group').style.height = height + 'px';
-
-        let prevWidth = 0;
-        this.$element.querySelectorAll('.slider-group li').forEach((el, i) => {
-            const { width } = el.getBoundingClientRect();
-            el.style.transform = `translateX(${prevWidth + (i * 10)}px)`;
-            prevWidth += width;
-            // console.log(prevWidth);
-        })
-    }
-
     setEvents() {
         this.$element.querySelector('.prev').addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
         this.$element.querySelector('.next').addEventListener('click', () => {
@@ -25,7 +11,7 @@ export default class ImageSlide extends Component {
                 return;
             }
 
-            this.$element.querySelectorAll('.slider-group li').forEach((el, i) => {
+            this.$element.querySelectorAll('.slide-item').forEach((el, i) => {
                 const currentPosX = el.style.transform.replace(/translateX\(|px\)/gi, "");
                 el.style.transform = `translateX(${Number(currentPosX) - Number(groupWidth)}px)`;
             })
@@ -57,11 +43,12 @@ export default class ImageSlide extends Component {
     clickPrevBtn() {
         const firstImage = this.$element.querySelector('.slider-group').firstElementChild;
         const { width: firstImgWidth , x: firstImgX } = firstImage.getBoundingClientRect();
+        console.log(firstImgX, firstImgWidth, firstImgX)
         if(firstImgX <= firstImgWidth && firstImgX >= 0) {
             return;
         }
         const { width: groupWidth } = this.$element.querySelector('.slider-group').getBoundingClientRect();
-        this.$element.querySelectorAll('.slider-group li').forEach((el, i) => {
+        this.$element.querySelectorAll('.slide-item').forEach((el, i) => {
             const currentPosX = el.style.transform.replace(/translateX\(|px\)/gi, "");
             el.style.transform = `translateX(${Number(currentPosX) + Number(groupWidth)}px)`;
         })
@@ -69,4 +56,4 @@ export default class ImageSlide extends Component {
 
 }
 
-document.querySelectorAll('.slider').forEach(el => new ImageSlide(el));
+document.querySelectorAll('.image-slider').forEach(el => new ImageSlide(el));

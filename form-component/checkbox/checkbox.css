@@ -1,9 +1,7 @@
-.form-check {
-    display: flex;
-    gap: 0.5rem;
+[class^="check-group"] .form-check {
+    display: inline-block;
 }
 
-.form-label {
-    width: 30%;
-    max-width: 100px;
+[class^="check-group"].check-vertical .form-check {
+    display: block;
 }

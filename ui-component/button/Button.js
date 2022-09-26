@@ -3,14 +3,17 @@ import Component from "../../basic/Component.js";
 export default class ButtonLink extends Component {
     setEvents() {
         this.$element.addEventListener("click", () => {
-            if(this.$element.dataset.target) {
-                const openNewWindow = window.open("about:blank");
-                // const openNewWindow = window.open("about:blank",'', 'width=400, height=400, scrollbars=no, resizable=no, toolbars=no, menubar=no');
-                openNewWindow.location.href = this.$element.dataset.link;
-            } else {
-                window.location = this.$element.dataset.link;
+            const { target: _target, href, attr, history } = this.$element.dataset;
+            if(_target) {
+                const openNewWindow = window.open("about:blank",'', attr);
+                openNewWindow.location.href = href;
+            } else if(history) {
+                window.location.replace(href);
+            }else {
+                href && (window.location = href);
             }
+            console.log(window.location.history);
         })
     }
 }
-document.querySelectorAll('.btn[data-link]').forEach(el => new ButtonLink(el));
+document.querySelectorAll('.btn[data-href]').forEach(el => new ButtonLink(el));

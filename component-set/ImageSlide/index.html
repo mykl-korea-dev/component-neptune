@@ -8,27 +8,42 @@
     * {
         box-sizing: border-box;
     }
-    ul {
-        margin: 20px auto;
+
+    .slider-group {
+        margin: 0px auto;
         padding: 0;
         list-style: none;
         width: 100%;
-        position: relative;
+        /*position: relative;*/
         overflow: hidden;
-        /*height: 160px;*/
+        white-space: nowrap;
+
+        /* 자식 요소의 여백 제거 */
+        font-size: 0;
+        letter-spacing: 0;
+        word-spacing: 0;
+
     }
 
-    ul:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
 
-    li {
+    .slide-item {
         /*float: left;*/
-        position: absolute;
+        display: inline-block;
+
+        /*position: absolute;*/
         transition: transform 0.5s;
+        vertical-align: top;
+
+        font-size: initial;
+        letter-spacing: initial;
+        word-spacing: initial;
     }
+
+    .p10 {
+        padding: 10px;
+    }
+
+
 </style>
 <body>
     <div class="slider">
@@ -38,32 +53,55 @@
             <button type="button" class="next">다음</button>
         </div>
         <ul class="slider-group">
-          <li>
+          <li class="slide-item p10">
               <img src="https://via.placeholder.com/1200x160">
+              <div>
+                  <span>한식조리기능사취득과정(실기)</span>
+                  <img src="https://via.placehoder.com/70" alt="">
+                  <div>
+                      <span>1번</span>
+                      <span>2번</span>
+                  </div>
+              </div>
           </li>
-          <li>
+          <li class="slide-item p10">
+              <div>
+                  <h2>제목</h2>
+                  <img src="https://via.placehoder.com/70" alt="">
+                  <div>
+                      <span>1번</span>
+                      <span>2번</span>
+                  </div>
+              </div>
+          </li>
+          <li class="slide-item p10">
+              <div>
+                  <h2>제목</h2>
+                  <img src="https://via.placeholder.com/70" alt="">
+                  <div>
+                      <span>1번</span>
+                      <span>2번</span>
+                  </div>
+              </div>
+          </li>
+          <li class="slide-item p10">
               <img src="https://via.placeholder.com/160">
           </li>
-          <li>
+          <li class="slide-item p10">
               <img src="https://via.placeholder.com/160">
           </li>
-          <li>
+          <li class="slide-item p10">
               <img src="https://via.placeholder.com/160">
           </li>
-          <li>
+          <li class="slide-item p10">
               <img src="https://via.placeholder.com/160">
           </li>
-          <li>
-              <img src="https://via.placeholder.com/160">
-          </li>
-          <li>
-              <img src="https://via.placeholder.com/160">
-          </li>
-          <li>
+          <li class="slide-item p10">
               <img src="https://via.placeholder.com/160">
           </li>
         </ul>
     </div>
+
     <script src="./ImageSlide.js" type="module"></script>
 </body>
 </html>

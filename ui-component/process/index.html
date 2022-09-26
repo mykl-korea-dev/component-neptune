@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Process</title>
-    <style>
-        .active {
-            background: #bdbdbd;
-        }
-    </style>
+    <link rel="stylesheet" href="../../basic/common.css">
+    <link rel="stylesheet" href="../button/button.css">
+    <link rel="stylesheet" href="./process.css">
 </head>
 <body>
   <div class="process">
-    <span class="process-item">Process1</span>
-    <span class="process-item">Process2</span>
-    <span class="process-item">Process3</span>
-    <span class="process-item">Process4</span>
+    <span class="process-item done">Process1</span>
+    <span class="process-item done">Process2</span>
+    <span class="process-item active">Process3</span>
+    <span class="process-item disabled">Process4</span>
+      <div class="button-box">
+          <button class="prev">이전</button>
+          <button class="next">다음</button>
+      </div>
   </div>
+
   <script src="./Process.js" type="module"></script>
 </body>
+
 </html>

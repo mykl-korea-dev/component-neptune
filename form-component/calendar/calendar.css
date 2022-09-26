@@ -1,3 +1,6 @@
+/*.form-calendar {*/
+/*    margin: 10px;*/
+/*}*/
 .form-calendar-input {
     display: none;
 }
@@ -21,31 +24,31 @@
     text-align: center;
 }
 
-.calendar .yearMonth {
+.calendar .year-month {
     position: relative;
     height: 70px;
     width: 100%;
 }
 
-.calendar .yearMonth > * {
+.calendar .year-month > * {
     position: absolute;
 
 }
 
-.calendar .yearMonth .year {
+.calendar .year-month .year {
     width: 100%;
     text-align: center;
     border-bottom: 1px solid #ccc;
     padding: 5px;
 }
 
-.calendar .yearMonth .month {
+.calendar .year-month .month {
     top: 35px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.calendar .yearMonth .calendar-button-group {
+.calendar .year-month .calendar-button-group {
     width: 100%;
     top: 35px;
     display: flex;

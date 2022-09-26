@@ -1,0 +1,7 @@
+[class^="radio-group"] .form-radio {
+    display: inline-block;
+}
+
+[class^="radio-group"] .form-radio .form-check {
+    display: block;
+}

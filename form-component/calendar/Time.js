@@ -2,60 +2,37 @@ import Component from "../../basic/Component.js";
 
 export default class Time extends Component {
     setElements() {
-        let template = document.createElement('template');
-        let fragment = new DocumentFragment();
+        let div = document.createElement('div');
+        const { step } = this.$element.dataset;
+        [this.currentHour, this.currentMin] = [new Date().getHours(), new Date().getMinutes()];
+        const {closeHour, closeMinute} = this.getCloseTime(new Date().getHours(), new Date().getMinutes());
 
-        const { start, end, min, hour } = this.$element.dataset;
-        const [startHour, startMin] = start.split(':').map(el => parseInt(el, 10));
-        let [endHour, endMin] = end.split(':').map(el => parseInt(el, 10));
-
-        template.innerHTML = `
-        <p class="selected-time"><span class="selected-hour">${this.setTwoDigits(startHour)}</span> : <span class="selected-minute">${this.setTwoDigits(startMin)}</span></p>
-        <button class="toggle-button">시간</button>
-        <div class="time-wrapper">
-            <div class="hour-box">
-                <div class="hour">
+        div.innerHTML = `
+            <span class="selected-time">
+                ${Number(closeHour) <= 12 ? '오전' : '오후'} ${this.setInTwelve(closeHour)}:${closeMinute}
+            </span>
+            <button class="toggle-button">시간</button>
+            <div class="time-wrapper">
+                <div class="day-night">
+                    <span ${Number(closeHour) <= 12 ? 'class="time-mark"':''}>오전</span>
+                    <span ${Number(closeHour) >= 12 ? 'class="time-mark"':''}>오후</span>
                 </div>
+                <div class="time-box"></div>
             </div>
-            <div class="minute-box">
-                <div class="minute">
-                </div>
-            </div>
-        </div>
         `
-        fragment.appendChild(template.content);
-        this.$element.appendChild(fragment);
 
-        const timeWrapper = this.$element.querySelector('.time-wrapper');
+        this.$element.appendChild(div);
+        const timeWrapper = this.$element.querySelector('.time-box');
 
-
-        const hourDiv = document.createElement('div');
-        for (let i = startHour; i <= endHour; i += parseInt(hour, 10)) {
-            const template = document.createElement('template');
-            template.innerHTML = `<div>${this.setTwoDigits(i)}</div>`
-            hourDiv.appendChild(template.content);
-        }
-        timeWrapper.querySelector('.hour').innerHTML = hourDiv.innerHTML;
-
-        const minDiv = document.createElement('div');
-
-        const minLength = Math.floor(60 / parseInt(min, 10));
-        let minMin = parseInt(startMin, 10);
-        for (let i = 0; i < minLength; i++) {
-            if(minMin > 60) {
-                minMin -= 60;
-                break;
+        for (let i = 1; i <= 12; i++) {
+            for (let j = 0; j < 60; j += parseInt(step, 10)) {
+                const timeDiv = document.createElement('div');
+                timeDiv.classList.add('time-group');
+                (Number(this.setInTwelve(closeHour)) === i && Number(closeMinute) === j) && timeDiv.classList.add('time-mark')
+                timeDiv.innerHTML = `${this.setTwoDigits(i)}:${this.setTwoDigits(j)}`;
+                timeWrapper.appendChild(timeDiv);
             }
-
-            minMin += parseInt(min, 10);
         }
-        for (let i = minMin; i < 60; i += parseInt(min, 10)) {
-            const template = document.createElement('template');
-            template.innerHTML = `<div>${this.setTwoDigits(i)}</div>`
-            minDiv.appendChild(template.content);
-        }
-        timeWrapper.querySelector('.minute').innerHTML = minDiv.innerHTML;
-
     }
 
     setEvents() {
@@ -66,29 +43,67 @@ export default class Time extends Component {
         this.$element.querySelector('.toggle-button')?.addEventListener('click', () => {
             this.$element.querySelectorAll('.selected')?.forEach(el => el.classList.remove('selected'));
             timeWrapper?.classList.toggle('show');
-
+            const timeBoxEl = timeWrapper.querySelector('.time-box');
+            const [firstEl, markEl] = [timeBoxEl.firstChild, timeBoxEl.querySelector('.time-mark')]
+            const [firstY, markY] = [firstEl.getBoundingClientRect().y, markEl.getBoundingClientRect().top];
+            // 가장 상단 위치
+            // timeWrapper.querySelector('.time-box').scrollTop = markY - firstY;
+            // 중간 위치
+            timeWrapper.querySelector('.time-box').scrollTop = markY - firstY - timeBoxEl.getBoundingClientRect().height / 2;
         })
 
-        hourBox?.addEventListener('click', ({target}) => {
-            hourBox.querySelector('.selected')?.classList.remove('selected');
-            if (target !== hourBox) {
-                target.classList.add('selected');
-                this.$element.querySelector('.selected-hour').textContent = target.textContent;
-                this.$element.querySelector('.form-time-input').value = `${this.setTwoDigits(target.textContent)}:${this.$element.querySelector('.selected-minute').textContent}`
+        this.$element.querySelector('.time-box').addEventListener('click', ({target}) => {
+            if(target.classList.contains('time-group')) {
+                this.$element.querySelector('.time-box .time-mark').classList.remove('time-mark');
+                target.classList.add('time-mark');
+                const [selectedHour, selectedMinute] = target.textContent.split(':');
+                const twelveHour = this.$element.querySelector('.day-night .time-mark').textContent === '오전' ? selectedHour : Number(selectedHour) + 12;
+                this.$element.querySelector('.form-time-input').value = `${twelveHour}:${selectedMinute}`;
+                this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
             }
         })
 
-        minuteBox?.addEventListener('click', ({target}) => {
-            minuteBox.querySelector('.selected')?.classList.remove('selected');
-            if (target !== minuteBox) {
-                target.classList.add('selected');
-                this.$element.querySelector('.selected-minute').textContent = target.textContent;
-                this.$element.querySelector('.form-time-input').value = `${this.$element.querySelector('.selected-hour').textContent}:${target.textContent}`
-            }
+        this.$element.querySelector('.day-night').addEventListener('click', ({target}) => {
+            this.$element.querySelector('.day-night .time-mark').classList.remove('time-mark');
+            target.classList.add('time-mark');
+            const [selectedHour, selectedMinute] = this.$element.querySelector('.time-box .time-mark').textContent.split(':');
+            const twelveHour = this.$element.querySelector('.day-night .time-mark').textContent === '오전' ? selectedHour : Number(selectedHour) + 12;
+            this.$element.querySelector('.form-time-input').value = `${twelveHour}:${selectedMinute}`;
+            this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
         })
     }
 
     setTwoDigits(num) {
         return num < 10  ? '0'+num : num;
+    }
+
+    setInTwelve(num) {
+        return num > 12 ? this.setTwoDigits(num - 12) : this.setTwoDigits(num);
+    }
+
+    /**
+     * 현재 시간과 설정한 분에 가까운 시, 분 반환
+     * @param currentHour
+     * @param currentMinute
+     * @returns {{closeHour, closeMinute}|string}
+     */
+    getCloseTime(currentHour, currentMinute) {
+        const { step } = this.$element.dataset;
+        const minArr = [...new Array(Math.floor(60 / step))].map((v, i) => i === 0 && currentMinute > 30 ? 60 : i * step);
+        if(minArr.findIndex(v => v === currentMinute) >= 0) {
+            return ({ closeHour: this.setTwoDigits(currentHour), closeMinute: this.setTwoDigits(currentMinute)})
+            return this.setTwoDigits(currentMinute);
+        }
+        const getMin = Math.min(...minArr.map(v => Math.abs(currentMinute - v)));
+        let closeMin = minArr.find((v) => Math.abs(currentMinute - v) === getMin);
+
+        if(closeMin < currentMinute) {
+            closeMin += Number(step);
+        }
+        if(closeMin >= 60) {
+            closeMin -= 60;
+            currentHour++;
+        }
+        return ({ closeHour: this.setTwoDigits(currentHour), closeMinute: this.setTwoDigits(closeMin) });
     }
 }

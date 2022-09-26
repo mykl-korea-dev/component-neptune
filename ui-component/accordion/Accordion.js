@@ -2,7 +2,9 @@ import Component from "../../basic/Component.js";
 
 export default class Accordion extends Component {
     setEvents() {
-        this.$element.addEventListener('click', ({target}) => {
+        this.$element.addEventListener('click', (e) => {
+            const {target} = e;
+            e.stopPropagation();
             if(target.classList.contains('accordion-toggle')) {
                 const el = target.closest('.accordion-item');
 

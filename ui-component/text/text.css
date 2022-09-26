@@ -1,0 +1,117 @@
+/* 위치 */
+.text-start {
+    text-align: left;
+    text-align: -moz-left;
+    text-align: -webkit-left;
+}
+
+.text-center {
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+
+.text-end {
+    text-align: right;
+    text-align: -moz-right;
+    text-align: -webkit-right;
+}
+
+/* 글자 높이 간격 */
+.lh-sm {
+    line-height: 1.25;
+}
+
+.lh-md {
+    line-height: 1.5;
+}
+
+.lh-lg {
+    line-height: 2;
+}
+
+/* 글자 색상 */
+.text-primary {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.text-warning {
+    color: var(--warning);
+}
+
+.text-info {
+    color: var(--info);
+}
+
+.text-light {
+    color: var(--light);
+}
+
+.text-dark {
+    color: var(--dark);
+}
+
+/* 글자 크기 */
+.fs-1 {
+    font-size: 2.5rem;
+}
+
+.fs-2 {
+    font-size: 2rem;
+}
+
+.fs-3 {
+    font-size: 1.75rem;
+}
+
+.fs-4 {
+    font-size: 1.5rem;
+}
+
+.fs-5 {
+    font-size: 1.25rem;
+}
+
+.fs-6 {
+    font-size: 1rem;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+.fw-bolder {
+    font-weight: bolder;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+.fw-normal {
+    font-weight: 400;
+}
+
+.fw-light {
+    font-weight: 300;
+}
+
+.fw-lighter {
+    font-weight: lighter;
+}
+
+.fst-italic {
+    font-style: italic;
+}

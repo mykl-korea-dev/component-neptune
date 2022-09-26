@@ -9,7 +9,7 @@ export default class Calendar extends Component {
         const template = document.createElement('template');
         const fragment = new DocumentFragment();
         template.innerHTML = `
-            <div class="clickedDate">
+            <div class="clicked-date">
                 <span>
                     <span class="selected-year">${new Date().getFullYear()}</span>
                     -
@@ -31,7 +31,7 @@ export default class Calendar extends Component {
         let lastDate = new Date(this.year, this.month, 0, 0, 0, 0).getDate();
         let weekSeq = Math.floor((lastDate + firstDay - 1) / 7 + 1);
         return `
-        <div class="yearMonth">
+        <div class="year-month">
               <div class="year">${this.year}</div>
               <div class="month">${this.month}</div>
               <div class="calendar-button-group">

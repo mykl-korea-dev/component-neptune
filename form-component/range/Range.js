@@ -1,4 +1,4 @@
-import Component from "./Component.js";
+import Component from "../../basic/Component.js";
 
 export default class Range extends Component {
     setElements() {

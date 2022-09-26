@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>radio</title>
+    <link rel="stylesheet" href="./radio.css">
 </head>
 <body>
-<div class="input-group">
+<div class="form-group">
     <span class="form-label">성별</span>
+<!--    <div class="form-radio">-->
+<!--        <label class="form-radio-label">-->
+<!--            <input class="form-radio-input" type="radio" name="gender1">-->
+<!--            남-->
+<!--        </label>-->
+<!--        <label class="form-radio-label">-->
+<!--            <input class="form-radio-input" type="radio" name="gender1">-->
+<!--            여-->
+<!--        </label>-->
+<!--    </div>-->
     <div class="radio-group">
-        <label class="radio-label">
-            <input class="form-radio" type="radio" name="gender1">
-            남
-        </label>
-        <label class="radio-label">
-            <input class="form-radio" type="radio" name="gender1" checked>
-            여
-        </label>
+        <div class="form-radio">
+            <input class="form-radio-input" type="radio" name="gender2" id="male">
+            <label class="form-radio-label" for="male">남</label>
+        </div>
+        <div class="form-radio">
+            <input class="form-radio-input" type="radio" name="gender2" id="female" checked>
+            <label class="form-radio-label" for="female">여</label>
+        </div>
     </div>
 
-    <div class="radio-group">
-        <input class="form-radio" type="radio" name="gender2" id="male">
-        <label class="radio-label" for="male">
-            남
-        </label>
-        <input class="form-radio" type="radio" name="gender2" id="female" checked>
-        <label class="radio-label" for="female">
-            여
-        </label>
+    <div class="radio-group radio-vertical">
+        <div class="form-radio">
+            <input class="form-radio-input" type="radio" name="gender2" id="male">
+            <label class="form-radio-label" for="male">남</label>
+        </div>
+        <div class="form-radio">
+            <input class="form-radio-input" type="radio" name="gender2" id="female" checked>
+            <label class="form-radio-label" for="female">여</label>
+        </div>
     </div>
 </div>
 </body>

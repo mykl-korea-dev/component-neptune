@@ -1,0 +1,17 @@
+.process .process-item {
+    background: var(--secondary);
+    padding: 10px;
+
+}
+
+.process-item.active {
+    background: var(--primary);
+}
+
+.process-item.disabled {
+    background: var(--light);
+}
+
+.process-item.done {
+    background: var(--success);
+}

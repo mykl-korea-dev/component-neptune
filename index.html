@@ -34,6 +34,10 @@
         <option value="12">Volvo</option>
     </select>
 </div>
+<div class="form-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">
+    <input class="input-left" name="range">
+    <input class="input-right" name="range">
+</div>
 <div>
     <span class="form-label">예상 투자 비용 범위</span>
     <div class="form-range" data-min="0" data-max="100" data-min-value="20" data-max-value="80" data-step="10">
@@ -41,7 +45,43 @@
         <input type="range" class="input-right">
     </div>
 </div>
+
+<div class="tabs">
+    <nav class="tab">
+        <li data-id="#tab5" class="tab-item active">소개</li>
+        <li data-id="#tab6" class="tab-item">포트폴리오</li>
+    </nav>
+
+</div>
+<div class="star eval">
+
+</div>
 <!--<script src="./dist/mykl-ui-components.js"></script>-->
-<script src="./dist/index.js"></script>
+<script src="./dist/mykl_ui.js"></script>
+<script src="./dist/mykl_expanded.js"></script>
+<script>
+    // document.querySelectorAll('.form-range').forEach(el => Mykl.Range(el));
+    // document.querySelectorAll('.star').forEach(el => Mykl.Star(el));
+    function getData(url, callback) {
+        fetch(url)
+            .then(data => data.json())
+            .then(data => {
+                callback(data);
+            })
+            .catch(err => console.log(err.message))
+    }
+
+    getData('http://localhost:3000/lorem', (data) => {
+        data.map((v, i) => {
+            const div = document.createElement('div');
+            div.classList.add('tab-list');
+            div.id = document.querySelectorAll('.tabs .tab-item')[i].dataset.id.replace('#','');
+            div.innerHTML = v;
+            document.querySelector('.tabs').appendChild(div);
+            MYKL.Tab(document.querySelector('.tabs'));
+
+        })
+    })
+</script>
 </body>
 </html>

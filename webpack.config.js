@@ -9,9 +9,9 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: "./index",
+    entry: { mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded'},
     output: {
-        filename: "index.js",
+        filename: '[name].js',
         path: path.resolve(__dirname, "dist"),
         publicPath: "./dist",
         clean: true
@@ -36,14 +36,41 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: './images/'
+                        },
+                    },
                     // 'style-loader',
                     'css-loader',
-                    // 'postcss-loader',
+                    'postcss-loader',
                     // 'sass-loader'
                 ],
+
                 exclude: /node_modules\/(?!(axios|@redux-saga|redux-logger))/
             },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                loader: "file-loader",
+                options: {
+                    // publicPath: "",
+                    outputPath: './images/',
+                    name: "[name].[ext]",
+                },
+            },
+            // {
+            //     test: /\.(png|jpe?g|gif|svg)$/,
+            //     use: {
+            //         loader: 'url-loader',
+            //         options: {
+            //             // publicPath: './images/',
+            //             outputPath: './images/',
+            //             name: '[name].[ext]',
+            //             limit: 5000
+            //         }
+            //     }
+            // }
         ]
     },
     // optimization: {

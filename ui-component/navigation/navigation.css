@@ -15,6 +15,10 @@ a {
 
 .navbar {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .nav-brand {
@@ -33,12 +37,14 @@ a {
     vertical-align: middle;
 }
 
-.nav-brand + .nav {
-    display: inline-flex;
+.nav-toggle {
+    display: none;
 }
+
 .nav {
     display: flex;
     text-align: center;
+    margin-right: auto;
 }
 
 .nav > li {
@@ -52,7 +58,6 @@ a {
 }
 
 .nav-menu {
-
     border-top: 1px solid #000;
     display: none;
 }
@@ -63,18 +68,55 @@ a {
     border-bottom: 1px solid #ccc;
 }
 
-/*.nav-menu li:nth-child(even) {*/
-/*    background: #efefef;*/
-/*}*/
+@media all and (max-width: 938px) {
+    .navbar {
+        justify-content: space-between;
+    }
 
-/*.nav-menu li:nth-child(odd) {*/
-/*    background: #aaa;*/
-/*}*/
+    .nav-toggle {
+        display: block;
+        padding: 5px;
+    }
 
-/*.nav:hover .nav-menu{*/
-/*    display: block;*/
-/*}*/
+    .nav-hamburger {
+        position: relative;
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: #000;
+    }
 
-/*.nav:hover > li {*/
-/*    padding: 0;*/
-/*}*/
+    .nav-hamburger::before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        top: -4px;
+        left: 0;
+    }
+
+    .nav-hamburger::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+    }
+
+    .nav {
+        display: none;
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .nav.show {
+        display: block;
+    }
+}

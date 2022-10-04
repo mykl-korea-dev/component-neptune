@@ -16,4 +16,4 @@ export default class ButtonLink extends Component {
         })
     }
 }
-document.querySelectorAll('.btn[data-href]').forEach(el => new ButtonLink(el));
+// document.querySelectorAll('.btn[data-href]').forEach(el => new ButtonLink(el));

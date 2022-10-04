@@ -1,0 +1,7 @@
+.auto-complete.selected {
+    background: #bdbdbd;
+}
+
+.auto-complete-group.disabled {
+    display: none;
+}

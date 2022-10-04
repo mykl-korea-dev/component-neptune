@@ -94,5 +94,5 @@ export default class Star extends Component {
 
 }
 
-document.querySelectorAll('.star').forEach(el => new Star(el));
-document.querySelectorAll('.star-ajax').forEach(el =>  new Star(el));
+// document.querySelectorAll('.star').forEach(el => new Star(el));
+// document.querySelectorAll('.star-ajax').forEach(el =>  new Star(el));

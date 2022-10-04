@@ -50,4 +50,4 @@ export default class Emotion extends Component {
     }
 }
 
-document.querySelectorAll('.emotion').forEach(el => new Emotion(el));
+// document.querySelectorAll('.emotion').forEach(el => new Emotion(el));

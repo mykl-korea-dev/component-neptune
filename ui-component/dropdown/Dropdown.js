@@ -29,4 +29,4 @@ export default class Dropdown extends Component {
     }
 }
 
-document.querySelectorAll('.dropdown').forEach(el => new Dropdown(el));
+// document.querySelectorAll('.dropdown').forEach(el => new Dropdown(el));

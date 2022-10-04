@@ -18,4 +18,4 @@ export default class Accordion extends Component {
     }
 }
 
-document.querySelectorAll(".accordion").forEach(el => new Accordion(el));
+// document.querySelectorAll(".accordion").forEach(el => new Accordion(el));

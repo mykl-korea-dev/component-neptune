@@ -28,5 +28,5 @@ export default class Progress extends Component {
     }
 }
 
-new Progress(document.querySelector('.progress'));
+// new Progress(document.querySelector('.progress'));
 

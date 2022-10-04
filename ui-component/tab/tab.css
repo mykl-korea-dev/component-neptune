@@ -1,0 +1,41 @@
+.tabs {
+    margin-top: 10px;
+}
+
+.tab-item {
+    display: inline-block;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.tab-item[title]:hover {
+    display: none;
+}
+
+.tab-item.active {
+    background: lightblue;
+}
+
+.tab-list {
+    display: none;
+}
+
+@media all and (max-width: 768px) {
+    .tab {
+        display: flex;
+    }
+
+    .tab-item {
+        flex: 1;
+        flex-shrink: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .tab-item.active {
+        min-width: fit-content;
+        text-overflow: initial;
+    }
+}

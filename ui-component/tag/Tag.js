@@ -91,4 +91,4 @@ export default class Tag extends Component {
     }
 }
 
-new Tag(document.querySelector('.tag'));
+// new Tag(document.querySelector('.tag'));

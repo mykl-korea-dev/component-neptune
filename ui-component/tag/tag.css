@@ -1,0 +1,47 @@
+.tag-input-box {
+}
+
+.tag-input-box::before {
+    content: '#';
+    color: #b7b7b7;
+}
+
+.tag-input-box .tag-input {
+    border: none;
+    padding: 0;
+    font-size: 13px;
+    width: 200px;
+}
+
+.tag-input-box.focus {
+    display: inline-block;
+    width: auto;
+    padding: 0 9px;
+    border-radius: 4px;
+    line-height: 32px;
+    box-sizing: border-box;
+    background: #eff0f2;
+    color: #000;
+}
+
+.tag-input-box.focus .tag-input {
+    background: #eff0f2;
+    width: 9px;
+}
+
+.tag-item {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.tag-item .tag-text {
+    display: block;
+    height: 30px;
+    padding: 0 9px;
+    border-radius: 4px;
+    line-height: 32px;
+    box-sizing: border-box;
+    background: #eff0f2;
+    color: #000;
+    font-style: normal;
+}

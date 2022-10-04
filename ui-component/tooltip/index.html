@@ -3,97 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Tooltip</title>
+    <link rel="stylesheet" href="./tooltip.css">
 </head>
 <style>
-    .tooltip {
-        margin: 20px;
-        position: relative;
-        display: inline-block;
-    }
 
-    .tooltip-icon {
-        display: block;
-        background: url('../star/images/star-fill.svg') no-repeat center center;
-        width: 20px;
-        height: 20px;
-    }
-
-    .tooltip-text {
-        display: block;
-    }
-
-    .tooltip-content {
-        position: absolute;
-        display: none;
-        padding: 10px;
-        background: black;
-        color: white;
-    }
-
-    .tooltip:hover  .tooltip-content {
-        min-width: 200px;
-        display: block;
-    }
-
-    .tooltip-right {
-        top: 50%;
-        left: calc(100% + 10px);
-        transform: translateY(-50%);
-    }
-
-    .tooltip-right::after {
-        content: ' ';
-        position: absolute;
-        border: 5px solid;
-        border-color:  transparent black transparent transparent;
-        top: 50%;
-        left: -10px;
-        transform: translateY(-50%);
-    }
-
-    .tooltip-left {
-        top: 50%;
-        right: calc(100% + 10px);
-        transform: translateY(-50%);
-    }
-
-    .tooltip-left::after {
-        content: ' ';
-        position: absolute;
-        border: 5px solid;
-        border-color:  transparent transparent transparent black;
-        top: 50%;
-        right: -10px;
-        transform: translateY(-50%);
-    }
-
-    .tooltip-top {
-        bottom: calc(100% + 10px);
-        left: 15%;
-    }
-
-    .tooltip-top::after {
-        content: ' ';
-        position: absolute;
-        border: 5px solid;
-        border-color:  black transparent transparent transparent;
-        bottom: -10px;
-        left: 5px;
-    }
-
-    .tooltip-bottom {
-        top: calc(100% + 10px);
-        left: 15%;
-    }
-
-    .tooltip-bottom::after {
-        content: ' ';
-        position: absolute;
-        border: 5px solid;
-        border-color:  transparent transparent black transparent;
-        top: -10px;
-        left: 5px;
-    }
 </style>
 <body>
 <!--    <div class="tooltip">-->

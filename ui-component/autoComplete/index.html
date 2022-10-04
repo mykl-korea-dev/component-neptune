@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>autoComplete</title>
-    <style>
-        .auto-complete.selected {
-            background: #bdbdbd;
-        }
-
-        .auto-complete-group.disabled {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./autoComplete.css">
+    <link rel="stylesheet" href="../../form-component/form-group/form-group.css">
 </head>
 <body>
-    <div class="auto-completes">
-        <input type="text" name="" id="" class="search-input">
-        <div class="auto-complete-group"></div>
+    <div class="form-group">
+        <label for="major" class="form-label">전공</label>
+        <div>
+            <div class="auto-completes form-control">
+                <input type="text" name="" id="major" class="search-input">
+                <div class="auto-complete-group"></div>
+                <button type="button" class="add-item">추가</button>
+                <button type="button" class="remove-item">삭제</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="auto-completes">
+            <input type="text" name="" id="" class="search-input">
+            <div class="auto-complete-group"></div>
+        </div>
     </div>
     <script src="./AutoComplete.js" type="module"></script>
 </body>

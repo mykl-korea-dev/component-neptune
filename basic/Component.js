@@ -5,7 +5,11 @@ export default class Component {
     constructor(element, data = []) {
         this.$element = element;
         this.$data = data;
-        this.setElements();
+        try {
+            this.setElements();
+        } catch (e) {
+            console.log(e, element);
+        }
         this.render();
         this.setEvents();
     }

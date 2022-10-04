@@ -1,8 +1,8 @@
-export function getData(url, callback) {
+export function getData(url, el, callback) {
     fetch(url)
         .then(data => data.json())
         .then(data => {
-            callback(data)
+            callback(el, data)
         })
         .catch(err => console.log(err.message))
 }

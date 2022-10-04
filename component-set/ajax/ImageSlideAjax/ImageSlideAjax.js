@@ -1,6 +1,17 @@
-import Component from "../../basic/Component.js";
+import Component from "../../../basic/Component.js";
+import {getData} from "../../../basic/utils.js";
+import {setItem} from "../../../extended-component/slideitem/SlideItem.js";
 
-export default class ImageSlide extends Component {
+export default class ImageSlideAjax extends Component {
+    setTemplate() {
+        return [...Object.keys(this.$data)].map((el) => `<li class="slide-item"></li>`).join("");
+    }
+
+    render() {
+        this.$element.querySelector('.slider-group').innerHTML = this.setTemplate();
+        this.$element.querySelectorAll('.slide-item').forEach(el => el.appendChild(setItem(this.$data.data)));
+    }
+
     setEvents() {
         this.$element.querySelector('.prev').addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
         this.$element.querySelector('.next').addEventListener('click', () => {
@@ -43,7 +54,6 @@ export default class ImageSlide extends Component {
     clickPrevBtn() {
         const firstImage = this.$element.querySelector('.slider-group').firstElementChild;
         const { width: firstImgWidth , x: firstImgX } = firstImage.getBoundingClientRect();
-        console.log(firstImgX, firstImgWidth, firstImgX)
         if(firstImgX <= firstImgWidth && firstImgX >= 0) {
             return;
         }
@@ -56,4 +66,4 @@ export default class ImageSlide extends Component {
 
 }
 
-document.querySelectorAll('.image-slide').forEach(el => new ImageSlide(el));
+getData("http://localhost:3000/imageSlide", (data) =>  new ImageSlideAjax(document.querySelector('.image-slide-ajax'), {data, type: 'type2'}));

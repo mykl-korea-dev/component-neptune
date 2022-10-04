@@ -6,7 +6,8 @@
     width: 40%;
     border: 1px solid #343434;
     border-radius: 20px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    position: relative;
 }
 
 .card > * {
@@ -20,6 +21,16 @@
 
 .card-header {
     background: #bdbdbd;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-header.second {
+    position: absolute;
+    background: #fff;
+    border: none;
+    left: 20px;
+    transform: translateY(-50%);
 }
 
 /*.card-body {*/

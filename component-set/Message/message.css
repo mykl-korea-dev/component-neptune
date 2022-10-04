@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.message-bar {
+    border: 1px solid #000000;
+    padding: 5px 30px 5px 10px;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.message-icon {
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn-check {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.context-message .message {
+    display: none;
+}
+
+.context-message .message.show {
+    display: block;
+}
+
+.justify {
+    display: flex;
+    align-items: center;
+}
+
+/*.message {}*/

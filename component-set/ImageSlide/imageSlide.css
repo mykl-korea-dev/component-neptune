@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+/*.slider-group {*/
+/*    margin: 0px auto;*/
+/*    padding: 0;*/
+/*    list-style: none;*/
+/*    width: 100%;*/
+/*    !*position: relative;*!*/
+/*    overflow: hidden;*/
+/*    white-space: nowrap;*/
+
+/*    !* 자식 요소의 여백 제거 *!*/
+/*    font-size: 0;*/
+/*    letter-spacing: 0;*/
+/*    word-spacing: 0;*/
+
+/*}*/
+
+
+.slider-group {
+    display: flex;
+    overflow: hidden;
+}
+
+.slide-item {
+    /*float: left;*/
+    display: inline-block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    /*position: absolute;*/
+    transition: transform 0.5s;
+    vertical-align: top;
+
+    font-size: initial;
+    letter-spacing: initial;
+    word-spacing: initial;
+}
+
+.p10 {
+    padding: 10px;
+}
+

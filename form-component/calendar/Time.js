@@ -1,4 +1,5 @@
 import Component from "../../basic/Component.js";
+// import './time.css';
 
 export default class Time extends Component {
     setElements() {

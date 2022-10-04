@@ -1,16 +1,19 @@
 import Component from "../../basic/Component.js";
 import { closeAllSelect } from "../../basic/utils.js";
-import "./select.css";
+// import "./select.css";
 
 export default class Select extends Component{
     setElements() {
         this.select = this.$element.querySelector('select');
         const className = this.select.className;
         this.options = Array.from(this.select.querySelectorAll('option'));
-        let template = document.createElement('template');
-        let fragment = new DocumentFragment();
-        template.innerHTML = `
-            <div class="${className}">
+        const div = document.createElement('div');
+        // let template = document.createElement('template');
+        // let fragment = new DocumentFragment();
+        console.log(className);
+        className && div.classList.add(className);
+        div.innerHTML = `
+            <div class="select-group">
                 <div class="select-selected">
                     ${this.select?.options[this.select.selectedIndex].textContent}
                 </div>
@@ -19,8 +22,8 @@ export default class Select extends Component{
                 </div>
             </div>
             `
-        fragment.appendChild(template.content);
-        this.$element.appendChild(fragment)
+        // fragment.appendChild(template.content);
+        this.$element.appendChild(div)
     }
 
     setEvents() {

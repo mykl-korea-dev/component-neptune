@@ -15,4 +15,4 @@ export default class Textarea extends Component{
     }
 }
 
-document.querySelectorAll('.form-textarea').forEach(el => new Textarea(el))
+// document.querySelectorAll('.form-textarea').forEach(el => new Textarea(el))

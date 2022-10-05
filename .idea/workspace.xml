@@ -13,10 +13,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="TypeScript File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -29,12 +29,7 @@
     <setting file="file://$PROJECT_DIR$/form-component/calendar/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/time.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/time.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/calendar/time.ts" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/input-group/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/range/range.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/index.ts" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select-dynamic/select.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/select.js" root0="FORCE_HIGHLIGHTING" />
@@ -43,6 +38,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Bpzd7k6GqcJb0evWdx9jlswGhc" />
   <component name="ProjectLevelVcsManager">
@@ -58,21 +56,38 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/java/componentjavapilot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/mykl/component-neptune/dist&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\panda\\AppData\\Local\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\dist" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\slideitem\expert" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\slideitem\job" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\slideitem\certificate" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\form-component\input-group" />
-      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\component-set" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\match" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\match\duty" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\ability\poolLists" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\slideitem" />
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\form-component\ajax" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.Calendar.js">
+    <configuration name="Calendar.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/form-component/calendar/Calendar.js" working-dir="$PROJECT_DIR$/form-component/calendar">
+      <method v="2" />
+    </configuration>
+    <configuration name="Component.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/basic/Component.js" working-dir="$PROJECT_DIR$/basic">
+      <method v="2" />
+    </configuration>
     <configuration name="data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -85,6 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.Calendar.js" />
+        <item itemvalue="Node.js.Component.js" />
         <item itemvalue="npm.data" />
       </list>
     </recent_temporary>
@@ -124,7 +141,22 @@
       <workItem from="1659948293831" duration="1198000" />
       <workItem from="1660004751639" duration="34085000" />
       <workItem from="1660616247027" duration="1876000" />
-      <workItem from="1660869923428" duration="13195000" />
+      <workItem from="1660869923428" duration="5848000" />
+      <workItem from="1661146250102" duration="1393000" />
+      <workItem from="1661148721840" duration="1920000" />
+      <workItem from="1661150664842" duration="88355000" />
+      <workItem from="1662007372155" duration="36000" />
+      <workItem from="1662007420921" duration="14354000" />
+      <workItem from="1662424247608" duration="13081000" />
+      <workItem from="1662594497302" duration="677000" />
+      <workItem from="1662605236975" duration="16131000" />
+      <workItem from="1663202293235" duration="30144000" />
+      <workItem from="1663547881383" duration="115022000" />
+      <workItem from="1664498486825" duration="24516000" />
+      <workItem from="1664528338050" duration="3948000" />
+      <workItem from="1664845237123" duration="6678000" />
+      <workItem from="1664930254854" duration="2017000" />
+      <workItem from="1664938417795" duration="2792000" />
     </task>
     <servers />
   </component>
@@ -132,46 +164,23 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/select.js" />
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/select.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/index.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/file/file.js" />
-        <option value="$PROJECT_DIR$/form-component/file/file.js.map" />
-        <option value="$PROJECT_DIR$/form-component/textarea/textarea.js" />
-        <option value="$PROJECT_DIR$/form-component/textarea/textarea.js.map" />
-        <option value="$PROJECT_DIR$/form-component/file/index.js" />
-        <option value="$PROJECT_DIR$/form-component/file/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/range/index.js" />
-        <option value="$PROJECT_DIR$/form-component/range/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/range/range.js" />
-        <option value="$PROJECT_DIR$/form-component/range/range.js.map" />
-        <option value="$PROJECT_DIR$/form-component/select/select.js" />
-        <option value="$PROJECT_DIR$/form-component/select/select.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js.map" />
-        <option value="$PROJECT_DIR$/form-component/select/index.js" />
-        <option value="$PROJECT_DIR$/form-component/select/index.js.map" />
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js" />
-        <option value="$PROJECT_DIR$/form-component/select-dynamic/index.js.map" />
+        <option value="$PROJECT_DIR$/form-component/calendar/Time.js" />
+        <option value="$PROJECT_DIR$/form-component/calendar/Calendar.js" />
+        <option value="$PROJECT_DIR$/form-component/file/File.js" />
+        <option value="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" />
+        <option value="$PROJECT_DIR$/ui-component/star/Star.js" />
+        <option value="$PROJECT_DIR$/ui-component/progress/Progress.js" />
+        <option value="$PROJECT_DIR$/ui-component/table/Table.js" />
         <option value="$PROJECT_DIR$/basic/utils.js" />
-        <option value="$PROJECT_DIR$/basic/utils.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/time.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/time.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/Star/star.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/Star/star.js" />
-        <option value="$PROJECT_DIR$/ui-component/accordion/accordion.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/accordion/accordion.js" />
-        <option value="$PROJECT_DIR$/ui-component/progress/progress.js" />
-        <option value="$PROJECT_DIR$/ui-component/progress/progress.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/dropdown/dropdown.js" />
-        <option value="$PROJECT_DIR$/ui-component/dropdown/dropdown.js.map" />
-        <option value="$PROJECT_DIR$/ui-component/table/table.js" />
-        <option value="$PROJECT_DIR$/ui-component/table/table.js.map" />
         <option value="$PROJECT_DIR$/basic/component.js" />
-        <option value="$PROJECT_DIR$/basic/component.js.map" />
-        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/calendar.js.map" />
+        <option value="$PROJECT_DIR$/ui-component/accordion/accordion.js" />
+        <option value="$PROJECT_DIR$/form-component/file/index.js" />
+        <option value="$PROJECT_DIR$/form-component/range/range.js" />
+        <option value="$PROJECT_DIR$/form-component/range/index.js" />
+        <option value="$PROJECT_DIR$/form-component/select/select.js" />
+        <option value="$PROJECT_DIR$/form-component/select/index.js" />
+        <option value="$PROJECT_DIR$/form-component/calendar/index.js" />
+        <option value="$PROJECT_DIR$/form-component/textarea/textarea.js" />
       </list>
     </option>
   </component>
@@ -180,7 +189,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

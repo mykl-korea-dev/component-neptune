@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/Component.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/Component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/Card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/Card/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/ImageSlide/ImageSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/ImageSlide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/ImageSlide/imageSlide.css" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/imageSlide.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/ImageSlide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/ajax/ImageSlideAjax/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/ajax/ImageSlideAjax/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/component-set/Card/card.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/component-set/card/card.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/Time.js" root0="FORCE_HIGHLIGHTING" />
@@ -163,7 +164,8 @@
       <workItem from="1663547881383" duration="115022000" />
       <workItem from="1664498486825" duration="24516000" />
       <workItem from="1664528338050" duration="3948000" />
-      <workItem from="1664845237123" duration="4364000" />
+      <workItem from="1664845237123" duration="6678000" />
+      <workItem from="1664930254854" duration="2017000" />
     </task>
     <servers />
   </component>

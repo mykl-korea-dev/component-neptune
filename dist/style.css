@@ -799,22 +799,22 @@ a {
 }
 
 .emotion-good {
-    background: url(./images/emoji-smile.svg) no-repeat center;
+    background: url(./images/e1d8b0a9af0e8a96e0d1.svg) no-repeat center;
 }
 .emotion-sad {
-    background: url(./images/emoji-frown.svg) no-repeat center;
+    background: url(./images/1bf67bce17b822c0cf58.svg) no-repeat center;
 }
 .emotion-like {
-    background: url(./images/emoji-heart-eyes.svg) no-repeat center;
+    background: url(./images/19bce52425a94ff4fc02.svg) no-repeat center;
 }
 .emotion-bad {
-    background: url(./images/emoji-angry.svg) no-repeat center;
+    background: url(./images/822b08a87daadf25b5f9.svg) no-repeat center;
 }
 .emotion-thumbsUp {
-    background: url(./images/emoji-thumbs-up.svg) no-repeat center;
+    background: url(./images/debbcf5e706e77b839c2.svg) no-repeat center;
 }
 .emotion-thumbsDown {
-    background: url(./images/emoji-thumbs-down.svg) no-repeat center;
+    background: url(./images/bdf797bfbdd7ac63e796.svg) no-repeat center;
 }
 figure {
     border: thin #c0c0c0 solid;
@@ -1406,7 +1406,7 @@ a {
 
 .tooltip-icon {
     display: block;
-    background: url(./images/emoji-angry.svg) no-repeat center center;
+    background: url(./images/emoji-frown.svg) no-repeat center center;
     width: 20px;
     height: 20px;
 }

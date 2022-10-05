@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/Card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/Card/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/ImageSlide/ImageSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/ImageSlide.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/ImageSlide/imageSlide.css" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/imageSlide.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/ImageSlide/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/ajax/ImageSlideAjax/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/ajax/ImageSlideAjax/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

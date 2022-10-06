@@ -47,6 +47,16 @@ import './ui-component/tag/tag.css';
 import './ui-component/text/text.css';
 import './ui-component/tooltip/tooltip.css';
 
+if ('NodeList' in window && !NodeList.prototype.forEach) {
+    console.info('polyfill for IE11');
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
 let MYKL = {
     // form -----------------------------------------------------
     Calender: function (el) {

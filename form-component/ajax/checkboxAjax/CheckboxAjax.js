@@ -14,4 +14,4 @@ export default class CheckboxAjax extends Component{
     }
 }
 
-getData('http://localhost:3000/checkbox', (data) => new CheckboxAjax(document.querySelector('.form-check-ajax'), data));
+// getData('http://localhost:3000/checkbox', (data) => new CheckboxAjax(document.querySelector('.form-check-ajax'), data));

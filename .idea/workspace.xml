@@ -3,6 +3,114 @@
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Accordion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Accordion.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/AccordionAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/AccordionAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/AutoComplete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/AutoComplete.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Button.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Calendar2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Calendar2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/CheckboxAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/CheckboxAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Component.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Component2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Component2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/DropdownAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/DropdownAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ImageSlide.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ImageSlide.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ImageSlideAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ImageSlideAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Modal.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Navigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Navigation.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/PaginationAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/PaginationAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Process.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Process.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ProcessAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ProcessAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ProgressAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ProgressAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/RadioAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/RadioAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Range.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/RangeAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/RangeAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/SelectAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/SelectAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/SlideItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/SlideItem.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/StarAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/StarAjax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Tag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Tag.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Textarea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Textarea.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Tooltip.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/babel.config.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/certificate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/certificate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/education.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/education.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/emotion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/emotion.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/expert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/expert.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/images/star-fill.svg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/images/star-fill.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/images/star-half.svg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/images/star-half.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/images/star.svg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/images/star.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/job.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/job.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/major.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/major.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl-ajax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl-ajax.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl-default.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl-default.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl-expanded.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl-expanded.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl_ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mykl_ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl_ui.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mykl_ui.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl_ui.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mykl_ui.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/postcss.config.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/select.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/select.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/style.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tab.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/utils.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/webpack.config.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/ajax/checkboxAjax/CheckboxAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/checkboxAjax/CheckboxAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/ajax/radioAjax/RadioAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/radioAjax/RadioAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/ajax/rangeAjax/RangeAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/rangeAjax/RangeAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/ajax/selectAjax/SelectAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/ajax/selectAjax/SelectAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mykl-ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-ajax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mykl-default.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/accordionAjax/AccordionAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/accordionAjax/AccordionAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/dropdownAjax/DropdownAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/dropdownAjax/DropdownAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/paginationAjax/PaginationAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/paginationAjax/PaginationAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/processAjax/ProcessAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/processAjax/ProcessAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/progressAjax/ProgressAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/progressAjax/ProgressAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +122,8 @@
       <list>
         <option value="TypeScript File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>

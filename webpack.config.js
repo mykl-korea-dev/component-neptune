@@ -9,7 +9,7 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: { mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded'},
+    entry: { polyfill: "./polyfill", mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded', mykl_ajax: './mykl-ajax'},
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, "dist"),
@@ -20,7 +20,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./index.html"
         }),
-        new MiniCssExtractPlugin({filename: "style.css"})
+        new MiniCssExtractPlugin({filename: "[name]_style.css"})
     ],
     target: ['web', 'es5'],
     module: {

@@ -20,4 +20,4 @@ export default class ProcessAjax extends Component {
     }
 }
 
-getData("http://localhost:3000/process", (data) => new ProcessAjax(document.querySelector('.process-ajax'), data));
+// getData("http://localhost:3000/process", (data) => new ProcessAjax(document.querySelector('.process-ajax'), data));

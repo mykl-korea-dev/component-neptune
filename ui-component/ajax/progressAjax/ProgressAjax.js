@@ -30,5 +30,5 @@ export default class ProgressAjax extends Component {
     }
 }
 
-getData("http://localhost:3000/progress", (data) => new ProgressAjax(document.querySelector('.progress-ajax'), data));
+// getData("http://localhost:3000/progress", (data) => new ProgressAjax(document.querySelector('.progress-ajax'), data));
 

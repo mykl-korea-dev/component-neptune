@@ -71,5 +71,5 @@ export default class StarAjax extends Component {
 
 }
 
-getData("http://localhost:3000/progress", (data) => new StarAjax(document.querySelector('.star-ajax'), data));
+// getData("http://localhost:3000/progress", (data) => new StarAjax(document.querySelector('.star-ajax'), data));
 

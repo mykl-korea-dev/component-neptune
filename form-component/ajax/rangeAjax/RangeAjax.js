@@ -82,5 +82,5 @@ export default class RangeAjax extends Component {
     }
 }
 
-getData('http://localhost:3000/range', (data) =>
-    new RangeAjax(document.querySelector('.form-range-ajax'), data));
+// getData('http://localhost:3000/range', (data) =>
+//     new RangeAjax(document.querySelector('.form-range-ajax'), data));

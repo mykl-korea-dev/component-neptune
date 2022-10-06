@@ -33,4 +33,4 @@ export default class DropdownAjax extends Component {
     }
 }
 
-getData('http://localhost:3000/dropdown', (data) => new DropdownAjax(document.querySelector('.dropdown-ajax'), data));
+// getData('http://localhost:3000/dropdown', (data) => new DropdownAjax(document.querySelector('.dropdown-ajax'), data));

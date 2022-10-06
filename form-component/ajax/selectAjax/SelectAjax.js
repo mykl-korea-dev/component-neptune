@@ -4,9 +4,9 @@ import { closeAllSelect } from "../../../basic/utils.js";
 
 export default class SelectAjax extends Component{
     setElements() {
-        this.select = this.$element.querySelector('selectAjax');
+        this.select = this.$element.querySelector('select');
         console.log(this.select, this.$data);
-        this.select.innerHTML = `${this.$data.map(el => `<option value="${el.value}">${el.text}</option>`).join('')}`;
+        this.select.innerHTML = `${this.$data.map(el => `<option value="${el.id}">${el.text || el.value}</option>`).join('')}`;
         this.options = Array.from(this.$element.querySelectorAll('option'));
         let template = document.createElement('template');
         let fragment = new DocumentFragment();
@@ -26,14 +26,14 @@ export default class SelectAjax extends Component{
     }
 
     setEvents() {
-        const selectedDiv = this.$element.querySelector('.selectAjax-selected');
-        const selectDiv = this.$element.querySelector('.selectAjax-items');
+        const selectedDiv = this.$element.querySelector('.select-selected');
+        const selectDiv = this.$element.querySelector('.select-items');
 
         document.addEventListener('click', (e) => closeAllSelect(e.target))
 
         selectedDiv?.addEventListener('click', function () {
-            selectDiv?.classList.toggle('selectAjax-hide');
-            selectedDiv?.classList.toggle('selectAjax-arrow-active');
+            selectDiv?.classList.toggle('select-hide');
+            selectedDiv?.classList.toggle('select-arrow-active');
         })
 
         selectDiv?.addEventListener('click', (e) => {
@@ -44,8 +44,8 @@ export default class SelectAjax extends Component{
                     this.select.selectedIndex = i;
                     selectedDiv.textContent = target.textContent;
                     target.classList.add('same-as-selected');
-                    selectDiv?.classList.toggle('selectAjax-hide');
-                    selectedDiv?.classList.toggle('selectAjax-arrow-active');
+                    selectDiv?.classList.toggle('select-hide');
+                    selectedDiv?.classList.toggle('select-arrow-active');
                     break;
                 }
             }

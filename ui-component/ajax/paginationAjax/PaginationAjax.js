@@ -21,5 +21,5 @@ export default class PaginationAjax extends Component {
     }
 }
 
-getData("http://localhost:3000/pagination", (data) => new PaginationAjax(document.querySelector('.pagination-ajax'), data));
+// getData("http://localhost:3000/pagination", (data) => new PaginationAjax(document.querySelector('.pagination-ajax'), data));
 

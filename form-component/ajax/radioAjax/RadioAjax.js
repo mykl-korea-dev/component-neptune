@@ -17,4 +17,4 @@ export default class RadioAjax extends Component{
     }
 }
 
-getData('http://localhost:3000/checkbox', (data) => new RadioAjax(document.querySelector('.radio-group-ajax'), data));
+// getData('http://localhost:3000/checkbox', (data) => new RadioAjax(document.querySelector('.radio-group-ajax'), data));

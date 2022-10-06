@@ -37,4 +37,4 @@ export default class AccordionAjax extends Component {
     }
 }
 
-getData('http://localhost:3000/accordion', (data) => new AccordionAjax(document.querySelector('.accordion-ajax'), data));
+// getData('http://localhost:3000/accordion', (data) => new AccordionAjax(document.querySelector('.accordion-ajax'), data));

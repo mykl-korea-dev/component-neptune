@@ -1,8 +1,8 @@
-export function getData(url, el, callback) {
+export function getData(url, callback) {
     fetch(url)
         .then(data => data.json())
         .then(data => {
-            callback(el, data)
+            callback(data)
         })
         .catch(err => console.log(err.message))
 }
@@ -36,3 +36,4 @@ export function closeAllSelect(element) {
         }
     }
 }
+

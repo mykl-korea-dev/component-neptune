@@ -1013,13 +1013,13 @@ a {
     height: 20px;
 }
 .star-fill {
-    background: url(./images/star-fill.svg) no-repeat;
+    background: url(./images/89779269834c3c4e7a06.svg) no-repeat;
 }
 .star-half {
-    background: url(./images/star-half.svg) no-repeat;
+    background: url(./images/f87caea9ba0a22d65cd6.svg) no-repeat;
 }
 .star-empty {
-    background: url(./images/star.svg) no-repeat;
+    background: url(./images/258c053888f0090c9f9d.svg) no-repeat;
 }
 * {
     box-sizing: border-box;
@@ -1406,7 +1406,7 @@ a {
 
 .tooltip-icon {
     display: block;
-    background: url(./images/emoji-frown.svg) no-repeat center center;
+    background: url(./images/89779269834c3c4e7a06.svg) no-repeat center center;
     width: 20px;
     height: 20px;
 }
@@ -1488,4 +1488,4 @@ a {
     left: 5px;
 }
 
-/*# sourceMappingURL=style.css.map*/
+/*# sourceMappingURL=mykl_ui_style.css.map*/

@@ -3,7 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/basic/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/calendar/time.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/calendar/time.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/checkbox/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/checkbox/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/file/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/file/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/form-group/form-group.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/form-group/form-group.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/form-group/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/form-group/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/input/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/input/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/radio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/radio/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/range/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/range/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/select/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/select/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/textarea/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/textarea/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/accordion/accordion.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/accordion/accordion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/dropdown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/img/img.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/img/img.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/img/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/img/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/navigation/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/navigation/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/navigation/navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/pagination/pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/pagination/pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/step/step.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/step/step.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +43,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/component-set/card/card.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/ajax/rangeAjax/RangeAjax.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/Time.js" root0="FORCE_HIGHLIGHTING" />
@@ -36,8 +57,15 @@
     <setting file="file://$PROJECT_DIR$/form-component/select/Select.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package-lock.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ui-component/ajax/accordionAjax/AccordionAjax.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ui-component/ajax/dropdownAjax/DropdownAjax.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ui-component/ajax/paginationAjax/PaginationAjax.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ui-component/ajax/processAjax/ProcessAjax.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ui-component/ajax/progressAjax/ProgressAjax.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +87,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/mykl/component-neptune/dist&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/Desktop/TEMP/threejs1&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
@@ -159,6 +187,8 @@
       <workItem from="1664528338050" duration="3948000" />
       <workItem from="1664845237123" duration="6678000" />
       <workItem from="1664930254854" duration="2017000" />
+      <workItem from="1665041695027" duration="641000" />
+      <workItem from="1665103407435" duration="4774000" />
     </task>
     <servers />
   </component>

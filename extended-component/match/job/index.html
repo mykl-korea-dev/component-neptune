@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../../../dist/style.css">
     <style>
         p {
             margin: 0;
@@ -28,15 +27,14 @@
         }
 
     </style>
-    <link rel="stylesheet" href="../../../dist/style.css">
-
+    <link rel="stylesheet" href="../../../basic/common.css">
+    <link rel="stylesheet" href="../../../dist/mykl_ui_style.css">
 </head>
 <body>
     <div class="match-job">
         <div class="match-job-body">
             <p class="fs-3">인공지능 플랫폼 요구사항 분석</p>
             <p>인공지능플랫폼구축</p>
-
             <p>인공지능 플랫폼 요구사항 분석이란 인공지능 플랫폼 구축을 위한 요구사항을 정의하고 이를 명세화한 후 검증하는 능력이다.</p>
         </div>
         <div class="match-job-footer">
@@ -48,5 +46,19 @@
             </ul>
         </div>
     </div>
+
+    <div class="tabs" id="job">
+        <nav class="tab">
+            <a href="#all" class="tab-item active">전체보기</a>
+            <a href="#one" class="tab-item">과장이상</a>
+            <a href="#two" class="tab-item">주임-대리</a>
+            <a href="#three" class="tab-item">수습-사원</a>
+        </nav>
+        <ul class="tab-list" id="all"></ul>
+        <ul class="tab-list" id="one"></ul>
+        <ul class="tab-list" id="two"></ul>
+        <ul class="tab-list" id="three"></ul>
+    </div>
+    <script src="./Job.js" type="module"></script>
 </body>
 </html>

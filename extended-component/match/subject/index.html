@@ -7,31 +7,30 @@
         p {
             margin: 0;
         }
-        .match-duty {
+        .match-subject {
             display: flex;
             align-items: center;
         }
 
-        .match-duty-body {
+        .match-subject-body {
             display: flex;
             flex-direction: column;
         }
 
-        .match-duty-footer {
+        .match-subject-footer {
             display: flex;
             flex-direction: column;
             align-self: flex-start;
             align-items: flex-end;
         }
-
     </style>
-    <link rel="stylesheet" href="../../../dist/style.css">
-
+    <link rel="stylesheet" href="../../../basic/common.css">
+    <link rel="stylesheet" href="../../../dist/mykl_ui_style.css">
 </head>
 <body>
-    <div class="match-duty">
+    <div class="match-subject">
         <div><img src="https://via.placeholder.com/120" alt=""></div>
-        <div class="match-duty-body">
+        <div class="match-subject-body">
             <p>한식조리기능사취득과정(실기)</p>
             <p>자은쿡요리전문학원</p>
 
@@ -39,12 +38,17 @@
             <span>052-292-3567</span>
             <span>울산광역시 북구 송정11길 14</span>
         </div>
-        <div class="match-duty-footer">
+        <div class="match-subject-footer">
             <span>한식조리</span>
             <span>훈련일수: 25일</span>
             <span>훈련시간: 100시간</span>
             <span>훈련비용: 79500</span>
         </div>
     </div>
+
+    <ul class="match-subject-group" id="subject">
+
+    </ul>
+    <script src="./Subject.js" type="module"></script>
 </body>
 </html>

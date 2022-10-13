@@ -68,12 +68,12 @@
 input[type="range"] {
     position: absolute;
     /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
-    pointer-events: none;
-    -webkit-appearance: none;
+    /*pointer-events: none;*/
+    /*-webkit-appearance: none;*/
     z-index: 2;
     height: 10px;
     width: 100%;
-    opacity: 0;
+    /*opacity: 0;*/
 }
 
 input[type="range"]::-ms-thumb {

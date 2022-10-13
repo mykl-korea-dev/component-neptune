@@ -37,6 +37,7 @@ export default class Range extends Component {
         range.style.left = `${trackWidth * ((max - min) / step * (minValue / step)) / 100}px`;
         range.style.right = `${trackWidth * ((max - min) / step * ((max - maxValue) / step)) / 100}px`;
         thumbRight.style.left = `${trackWidth * ((max - min) / step * (maxValue / step)) / 100}px`;
+        this.locked = false;
     }
 
     setEvents() {
@@ -48,6 +49,7 @@ export default class Range extends Component {
         const thumbRight = slider.querySelector('.thumb.right');
         const inputLeft = this.$element.querySelector('.input-left');
         const inputRight = this.$element.querySelector('.input-right');
+
         inputLeft?.addEventListener('input', () => {
             const [min, max, step] = [Number(inputLeft.min), Number(inputLeft.max), Number(inputLeft.step)];
             inputLeft.value = Math.min(Number(inputLeft.value), Number(inputRight.value) - Number(inputLeft.step)).toString();
@@ -68,6 +70,102 @@ export default class Range extends Component {
             range.style.right = `${trackWidth - (trackWidth * ((max - min) / step * (inputValue / step)) / 100)}px`;
             slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
         })
+        //
+        // inputLeft?.addEventListener('change', (event) => {
+        //     // this.locked = true;
+        //
+        //     const bounds = event.target.getBoundingClientRect();
+        //     const x = event.clientX - bounds.left;
+        //     console.log('left', bounds.left, event, event.clientX, x, thumbLeft.style.left);
+        //     const thumbWidth = thumbRight.getBoundingClientRect().width;
+        //     console.log(parseInt(thumbLeft.style.left, 10) + parseInt(thumbWidth, 10));
+        //
+        //     if(x > parseInt(thumbLeft.style.left, 10) + parseInt(thumbWidth, 10)) {
+        //         inputLeft.style.zIndex = 20;
+        //         inputRight.style.zIndex = 21;
+        //     } else {
+        //         inputLeft.style.zIndex = 21;
+        //         inputRight.style.zIndex = 20;
+        //     }
+        // })
+        //
+        inputRight?.addEventListener('mousedown', (event) => {
+            // this.locked = true;
+
+            const bounds = event.target.getBoundingClientRect();
+            const x = event.clientX - bounds.left;
+            console.log('right', bounds, bounds.left, event, event.clientX, x, thumbRight.style.left)
+
+            if(x < parseInt(thumbRight.style.left, 10)) {
+                inputLeft.style.zIndex = 21;
+                inputRight.style.zIndex = 20;
+            } else {
+                inputLeft.style.zIndex = 20;
+                inputRight.style.zIndex = 21;
+            }
+        })
+        //
+        // inputLeft?.addEventListener('mousemove', () => {
+        //     if(this.locked) {
+        //         return;
+        //     }
+        //     // console.log(this.locked)
+        //     console.log('left mousemove')
+        //     const [min, max, step] = [Number(inputLeft.min), Number(inputLeft.max), Number(inputLeft.step)];
+        //     inputLeft.value = Math.min(Number(inputLeft.value), Number(inputRight.value) - Number(inputLeft.step)).toString();
+        //
+        //     const inputValue = Number(inputLeft.value, 10)
+        //     thumbLeft.style.left = `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
+        //     range.style.left = `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
+        //     slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
+        //
+        //     // this.locked = true;
+        //     // const bounds = event.target.getBoundingClientRect();
+        //     // const x = event.target.clientLeft - bounds.left;
+        //     // console.log(bounds.left, event, event.target.clientLeft, x)
+        //     //
+        //     // if(x <= thumbLeft.left) {
+        //     //     inputLeft.style.zIndex = 21;
+        //     //     inputRight.style.zIndex = 20;
+        //     // } else {
+        //     //     inputLeft.style.zIndex = 20;
+        //     //     inputRight.style.zIndex = 21;
+        //     // }
+        //
+        // })
+        //
+        // inputRight?.addEventListener('mousemove', (event) => {
+        //     if(this.locked) {
+        //         return;
+        //     }
+        //     // console.log(this.locked)
+        //     console.log('right mousemove')
+        //
+        //     const [min, max, step] = [Number(inputRight.min), Number(inputRight.max), Number(inputRight.step)];
+        //     inputRight.value = Math.max(Number(inputRight.value), Number(inputLeft.value) + Number(inputRight.step)).toString();
+        //
+        //
+        //     const inputValue = Number(inputRight.value, 10)
+        //     thumbRight.style.left = `${trackWidth * ((max - min) / step * (inputValue / step)) / 100}px`;
+        //     range.style.right = `${trackWidth - (trackWidth * ((max - min) / step * (inputValue / step)) / 100)}px`;
+        //     slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
+        // })
+        // // inputLeft?.addEventListener('mouseleave', () => {
+        // //     this.locked = true;
+        // // })
+        // //
+        // // inputRight?.addEventListener('mouseleave', () => {
+        // //     this.locked = true;
+        // // })
+        //
+        //
+        // inputLeft?.addEventListener('mouseup', () => {
+        //     this.locked = true;
+        // })
+        //
+        // inputRight?.addEventListener('mouseup', () => {
+        //     this.locked = true;
+        // })
     }
 
     setThumbLeft() {

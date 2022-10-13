@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
 
 module.exports = {
     devtool: "source-map",
@@ -9,7 +10,7 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: { polyfill: "./polyfill", mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded', mykl_ajax: './mykl-ajax'},
+    entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded', mykl_ajax: './mykl-ajax'},
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, "dist"),
@@ -20,7 +21,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./index.html"
         }),
-        new MiniCssExtractPlugin({filename: "[name]_style.css"})
+        new MiniCssExtractPlugin({filename: "[name]_style.css"}),
     ],
     target: ['web', 'es5'],
     module: {

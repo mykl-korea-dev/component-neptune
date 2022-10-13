@@ -41,6 +41,14 @@ let MYKL = {
     },
     StarAjax: function (url, el) {
         getData(url, (data) => new StarAjax(el, data))
+    },
+    // 삭제 => 예시 사용해보기 위함
+    TabAjax: function (url, el) {
+        // console.log(el);
+        getData(url, (data) => el.querySelectorAll('.tab-list').forEach((node, i) => {
+            // console.log(node, data[i])
+            node.innerHTML = data[i]
+        }));
     }
 }
 

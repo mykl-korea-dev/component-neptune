@@ -1,16 +1,37 @@
-// import Accordion from "./ui-component/accordion/Accordion.js";
-// import AutoComplete from "./ui-component/autoComplete/AutoComplete.js";
-// import ButtonLink from "./ui-component/button/Button.js";
-// import Dropdown from "./ui-component/dropdown/Dropdown.js";
-// import Emotion from "./ui-component/emotion/Emotion.js";
-// import Navigation from "./ui-component/navigation/Navigation.js";
-// import Progress from "./ui-component/progress/Progress.js";
-// import Star from "./ui-component/star/Star.js";
-// import Tab from "./ui-component/tab/tab.js";
-//
-// let Mykl = {
-//
-//
-// }
-//
-// window.Mykl = {...window.Mykl, ...Mykl};
+// import ImageSlide from "./component-set/imageSlide/ImageSlide.js";
+import MajorSlide from "./extended-component/slideitem/major/major.js";
+import JobSlide from "./extended-component/slideitem/job/job.js";
+import ExpertSlide from "./extended-component/slideitem/expert/expert.js";
+import EducationSlide from "./extended-component/slideitem/education/education.js";
+import CertificateSlide from "./extended-component/slideitem/certificate/certificate.js";
+import {getData} from "./basic/utils.js";
+
+let MYKL = {
+    MajorSlide: function (url, id) {
+        getData(url, (data) =>
+            new MajorSlide(document.querySelector(`#${id}`), data)
+        );
+    },
+    JobSlide: function(url, id) {
+        getData(url, (data) =>
+            new JobSlide(document.querySelector(`#${id}`), data)
+        );
+    },
+    ExpertSlide: function(url, id) {
+        getData(url, (data) =>
+            new ExpertSlide(document.querySelector(`#${id}`), data)
+        );
+    },
+    EducationSlide: function(url, id) {
+        getData(url, (data) =>
+            new EducationSlide(document.querySelector(`#${id}`), data)
+        );
+    },
+    CertificateSlide: function(url, id) {
+        getData(url, (data) =>
+            new CertificateSlide(document.querySelector(`#${id}`), data)
+        );
+    },
+}
+
+window.MYKL = {...window.MYKL, ...MYKL};

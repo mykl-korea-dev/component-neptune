@@ -1,6 +1,10 @@
 import Component from "../../basic/Component.js";
 
 export default class ImageSlide extends Component {
+    setElements() {
+        console.log("imageSlide");
+    }
+
     setEvents() {
         this.$element.querySelector('.prev').addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
         this.$element.querySelector('.next').addEventListener('click', () => {
@@ -56,4 +60,4 @@ export default class ImageSlide extends Component {
 
 }
 
-document.querySelectorAll('.image-slide').forEach(el => new ImageSlide(el));
+// document.querySelectorAll('.image-slide').forEach(el => new ImageSlide(el));

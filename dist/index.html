@@ -1,27 +1,29 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><link rel="stylesheet" href="./dist/mykl_ui_style.css"><script defer="defer" src="./dist/polyfill.js"></script><script defer="defer" src="./dist/mykl_ui.js"></script><script defer="defer" src="./dist/mykl_expanded.js"></script><script defer="defer" src="./dist/mykl_ajax.js"></script><link href="./dist/mykl_ui_style.css" rel="stylesheet"><link href="./dist/mykl_ajax_style.css" rel="stylesheet"></head><body><div class="form-file"><input type="file" class="form-file-input" multiple="multiple"></div><div class="form-file"><input type="file" class="form-file-input"></div><div class="form-select" style="width:200px;"><select><option value="0">Select car:</option><option value="1">Audi</option><option value="2">BMW</option><option value="3">Citroen</option><option value="4">Ford</option><option value="5">Honda</option><option value="6">Jaguar</option><option value="7">Land Rover</option><option value="8">Mercedes</option><option value="9">Mini</option><option value="10">Nissan</option><option value="11">Toyota</option><option value="12">Volvo</option></select></div><div class="form-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5"><input class="input-left" name="range"> <input class="input-right" name="range"></div><div><span class="form-label">예상 투자 비용 범위</span><div class="form-range" data-min="0" data-max="100" data-min-value="20" data-max-value="80" data-step="10"><input type="range" class="input-left"> <input type="range" class="input-right"></div></div><div class="tabs-ajax" id="hi"><nav class="tab"><a href="#tab5" class="tab-item active">소개</a> <a href="#tab6" class="tab-item">포트폴리오</a></nav></div><div class="star eval"></div><div class="form-group"><span class="form-label">Label</span><div class="form-radio" id="radio" data-name="name"></div></div><script src="./dist/polyfill.js"></script><script src="./dist/mykl_ui.js"></script><script src="./dist/mykl_expanded.js"></script><script src="./dist/mykl_ajax.js"></script><script>// MYKL.Tab('http://localhost:3000/lorem', document.querySelector('#hi'));
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><link rel="stylesheet" href="./basic/common.css"><link rel="stylesheet" href="./dist/mykl_ajax_style.css"><link rel="stylesheet" href="./dist/mykl_ui_style.css"><script defer="defer" src="./dist/polyfill.js"></script><script defer="defer" src="./dist/mykl_ui.js"></script><script defer="defer" src="./dist/mykl_expanded.js"></script><script defer="defer" src="./dist/mykl_ajax.js"></script><link href="./dist/mykl_ui_style.css" rel="stylesheet"><link href="./dist/mykl_ajax_style.css" rel="stylesheet"></head><body><div class="form-file"><input type="file" class="form-file-input" multiple="multiple"></div><div class="form-file"><input type="file" class="form-file-input"></div><div class="form-select" style="width:200px;"><select><option value="0">Select car:</option><option value="1">Audi</option><option value="2">BMW</option><option value="3">Citroen</option><option value="4">Ford</option><option value="5">Honda</option><option value="6">Jaguar</option><option value="7">Land Rover</option><option value="8">Mercedes</option><option value="9">Mini</option><option value="10">Nissan</option><option value="11">Toyota</option><option value="12">Volvo</option></select></div><div class="form-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5"><input class="input-left" name="range"> <input class="input-right" name="range"></div><div><span class="form-label">예상 투자 비용 범위</span><div class="form-range" data-min="0" data-max="100" data-min-value="20" data-max-value="80" data-step="10"><input type="range" class="input-left"> <input type="range" class="input-right"></div></div><div class="tabs-ajax" id="hi"><nav class="tab"><a href="#tab5" class="tab-item active">소개</a> <a href="#tab6" class="tab-item">포트폴리오</a></nav><div id="tab5" class="tab-list"></div><div id="tab6" class="tab-list"></div></div><script src="./dist/polyfill.js"></script><script src="./dist/mykl_ui.js"></script><script src="./dist/mykl_expanded.js"></script><script src="./dist/mykl_ajax.js"></script><script>MYKL.Tab(document.getElementById('hi'));
+    MYKL.TabAjax('http://localhost:3000/lorem', document.getElementById('hi'));
+    // MYKL.Tab('http://localhost:3000/lorem', document.querySelector('#hi'));
     // document.querySelectorAll('.form-range').forEach(el => Mykl.Range(el));
     // document.querySelectorAll('.star').forEach(el => Mykl.Star(el));
-    function getData(url, callback) {
-        fetch(url)
-            .then(data => data.json())
-            .then(data => {
-                callback(data);
-            })
-            .catch(err => console.log(err.message))
-    }
-
-    getData('http://localhost:3000/lorem', (data) => {
-        data.map((v, i) => {
-            const elId = document.querySelector('#hi');
-            const div = document.createElement('div');
-            div.classList.add('tab-list');
-            div.id = elId.querySelectorAll('.tab-item')[i].getAttribute('href').replace('#','');
-            console.log(div.id)
-            div.innerHTML = v;
-            elId.appendChild(div);
-            MYKL.Tab(elId);
-
-        })
-    })
-
-    MYKL.RadioAjax('http://localhost:3000/checkbox', document.querySelector('#radio'));</script></body></html>
+    // function getData(url, callback) {
+    //     fetch(url)
+    //         .then(data => data.json())
+    //         .then(data => {
+    //             callback(data);
+    //         })
+    //         .catch(err => console.log(err.message))
+    // }
+    //
+    // getData('http://localhost:3000/lorem', (data) => {
+    //     data.map((v, i) => {
+    //         const elId = document.querySelector('#hi');
+    //         const div = document.createElement('div');
+    //         div.classList.add('tab-list');
+    //         div.id = elId.querySelectorAll('.tab-item')[i].getAttribute('href').replace('#','');
+    //         console.log(div.id)
+    //         div.innerHTML = v;
+    //         elId.appendChild(div);
+    //         MYKL.Tab(elId);
+    //
+    //     })
+    // })
+    //
+    // MYKL.RadioAjax('http://localhost:3000/checkbox', document.querySelector('#radio'));</script></body></html>

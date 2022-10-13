@@ -1,6 +1,6 @@
 import Component from "../../../basic/Component.js";
 import Tab from "../../../ui-component/tab/tab.js";
-import {getData} from "../../../basic/utils.js";
+import {getData} from "../../../basic/utils.js"
 
 export default class Subject extends Component {
     setTemplate() {

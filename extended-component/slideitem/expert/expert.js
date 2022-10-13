@@ -15,8 +15,8 @@ export default class Expert extends Component {
     }
 
     render() {
-        this.$element.innerHTML = this.setTemplate();
+        this.$element.querySelector('.slider-group').innerHTML = this.setTemplate();
     }
 }
 
-getData("http://localhost:3000/imageSlide", (data) => new Expert(document.querySelector('#expert .slider-group'), data.expert));
+// getData("http://localhost:3000/imageSlide", (data) => new Expert(document.querySelector('#expert'), data.expert));

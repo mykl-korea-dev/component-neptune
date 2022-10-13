@@ -5,7 +5,8 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <link rel="stylesheet" href="../../../dist/style.css">
+    <link rel="stylesheet" href="../../../basic/common.css">
+    <link rel="stylesheet" href="../../../dist/mykl_ui_style.css">
     <style>
     </style>
 </head>
@@ -100,7 +101,7 @@
   <script src="../../../dist/mykl_ui.js"></script>
   <script>
       // Mykl.Tab();
-      document.querySelectorAll('.tabs').forEach(el => Mykl.Tab(el));
+      document.querySelectorAll('.tabs').forEach(el => MYKL.Tab(el));
       const canvas = document.querySelector('#myChart');
       const ctx = canvas.getContext('2d');
 

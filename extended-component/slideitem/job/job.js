@@ -14,8 +14,8 @@ export default class Job extends Component {
     }
 
     render() {
-        this.$element.innerHTML = this.setTemplate();
+        this.$element.querySelector('.slider-group').innerHTML = this.setTemplate();
     }
 }
 
-getData("http://localhost:3000/imageSlide", (data) => new Job(document.querySelector('#job .slider-group'), data.job));
+// getData("http://localhost:3000/imageSlide", (data) => new Job(document.querySelector('#job'), data.job));

@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>structure</title>
+    <link rel="stylesheet" href="../../../component-set/imageSlide/imageSlide.css">
     <link rel="stylesheet" href="../slideItem.css">
 </head>
 <style>
     ul {
         margin: 0;
+    }
+    .slider-group {
+        margin-top: 10px
     }
 </style>
 <body>
@@ -18,5 +22,15 @@
     <span>대표이사</span>
     <span>강석진</span>
 </div>
+
+<div id="expert" class="image-slide">
+    <div class="button-box">
+        <button type="button" class="prev">이전</button>
+        <button type="button" class="next">다음</button>
+    </div>
+    <ul class="slider-group">
+    </ul>
+</div>
+<script src="./expert.js" type="module"></script>
 </body>
 </html>

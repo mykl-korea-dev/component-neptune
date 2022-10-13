@@ -48,11 +48,11 @@ export default class Major extends Component {
     }
 }
 
-getData("http://localhost:3000/imageSlide", (data) => {
-    console.log(data);
-    new Major(document.querySelector('#major'), data.major);
-    // new ImageSlide(document.querySelector( '.image-slide'));
-});
+// getData("http://localhost:3000/imageSlide", (data) => {
+//     console.log(data);
+//     new Major(document.querySelector('#major'), data.major);
+//     // new ImageSlide(document.querySelector( '.image-slide'));
+// });
 
 // 방법2
 // document.querySelector('#major .prev').addEventListener('click', () => {

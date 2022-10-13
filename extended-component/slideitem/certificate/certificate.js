@@ -14,8 +14,8 @@ export default class Certificate extends Component {
     }
 
     render() {
-        this.$element.innerHTML = this.setTemplate();
+        this.$element.querySelector('.slider-group').innerHTML = this.setTemplate();
     }
 }
 
-getData("http://localhost:3000/imageSlide", (data) => new Certificate(document.querySelector('#certificate .slider-group'), data.certificate));
+// getData("http://localhost:3000/imageSlide", (data) => new Certificate(document.querySelector('#certificate'), data.certificate));

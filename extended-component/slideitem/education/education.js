@@ -15,8 +15,8 @@ export default class Education extends Component {
     }
 
     render() {
-        this.$element.innerHTML = this.setTemplate();
+        this.$element.querySelector('.slider-group').innerHTML = this.setTemplate();
     }
 }
 
-getData("http://localhost:3000/imageSlide", (data) => new Education(document.querySelector('#education .slider-group'), data.education));
+// getData("http://localhost:3000/imageSlide", (data) => new Education(document.querySelector('#education'), data.education));

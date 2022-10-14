@@ -6,9 +6,9 @@ export default class Subject extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="match-subject">
-                <div><img src="https://via.placeholder.com/120" alt=""></div>
+                <div><img src="${data.imageUrl}" alt=""></div>
                 <div class="match-subject-body">
-                    <p class="title">${data.title}</p>
+                    <p class="fs-3">${data.title}</p>
                     <p>${data.academy}</p>
         
                     <a href="${data.link}">${data.link}</a>
@@ -16,10 +16,10 @@ export default class Subject extends Component {
                     <span>${data.location}</span>
                 </div>
                 <div class="match-subject-footer">
-                    <span>한식조리</span>
-                    <span>훈련일수: 25일</span>
-                    <span>훈련시간: 100시간</span>
-                    <span>훈련비용: 79500</span>
+                    <span>${data.department}</span>
+                    <span>훈련일수: ${data.term}</span>
+                    <span>훈련시간: ${data.time}</span>
+                    <span>훈련비용: ${data.price}</span>
                 </div>
             </li>
         `).join('');
@@ -32,9 +32,9 @@ export default class Subject extends Component {
 
 // new Tab(document.querySelector('#subjects'));
 
-getData("http://localhost:3000/subject", (data) => {
-    new Subject(document.querySelector('#subject'), data);
-    // new Tab(document.querySelector('#subjects'));
-});
+// getData("http://localhost:3000/subject", (data) => {
+//     new Subject(document.querySelector('#subject'), data);
+//     // new Tab(document.querySelector('#subjects'));
+// });
 
 

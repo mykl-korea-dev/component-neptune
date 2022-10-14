@@ -6,7 +6,7 @@ export default class ShcoolnMajor extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="match-certificate">
-                <div><img src="https://via.placeholder.com/120" alt=""></div>
+                <div><img src="${data.imageUrl}" alt=""></div>
                 <div class="match-certificate-body">
                     <p class="fs-4">${data.title}</p>
         
@@ -24,7 +24,7 @@ render() {
 }
 
 
-getData("http://localhost:3000/certificate", (data) => {
-    new ShcoolnMajor(document.querySelector('#certificate'), data);
-    // new Tab(document.querySelector('#subjects'));
-});
+// getData("http://localhost:3000/certificate", (data) => {
+//     new ShcoolnMajor(document.querySelector('#certificate'), data);
+//     // new Tab(document.querySelector('#subjects'));
+// });

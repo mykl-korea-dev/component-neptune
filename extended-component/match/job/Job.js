@@ -7,16 +7,16 @@ export default class Job extends Component {
         return this.$data.map(data => `
             <li class="match-job">
                 <div class="match-job-body">
-                    <p class="fs-3">${data.name}</p>
-                    <p>${data.sort}</p>
+                    <p class="fs-3">${data.title}</p>
+                    <p>${data.subTitle}</p>
                     <p>${data.description}</p>
                 </div>
                 <div class="match-job-footer">
-                    <span>수준: 6</span>
+                    <span>${data.level}</span>
                     <ul>
-                        <li>20.정보통신</li>
-                        <li>01.정보기술</li>
-                        <li>07.인공지능</li>
+                        <li>${data.depth1}</li>
+                        <li>${data.depth2}</li>
+                        <li>${data.depth3}</li>
                     </ul>
                 </div>
             </li>
@@ -28,16 +28,16 @@ export default class Job extends Component {
     }
 }
 
-new Tab(document.querySelector('#job'));
-
-getData("http://localhost:3000/job", (data) => {
-    new Job(document.querySelector('#all'), data.all);
-    // new Tab(document.querySelector('#subjects'));
-});
-
-getData("http://localhost:3000/job", (data) => {
-    console.log(data);
-    new Job(document.querySelector('#one'), data.one);
-    // new Tab(document.querySelector('#subjects'));
-});
+// new Tab(document.querySelector('#job'));
+//
+// getData("http://localhost:3000/job", (data) => {
+//     new Job(document.querySelector('#all'), data.all);
+//     // new Tab(document.querySelector('#subjects'));
+// });
+//
+// getData("http://localhost:3000/job", (data) => {
+//     console.log(data);
+//     new Job(document.querySelector('#one'), data.one);
+//     // new Tab(document.querySelector('#subjects'));
+// });
 

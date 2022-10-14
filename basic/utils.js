@@ -37,3 +37,22 @@ export function closeAllSelect(element) {
     }
 }
 
+export function throttle(func, delay) {
+    let lastFunc;
+    let lastRan;
+    return function(...args) {
+        const context = this;
+        if(!lastRan) {
+            func.call(context, ...args);
+            lastRan = Date.now();
+        } else {
+            if (lastRan) clearTimeout(lastFunc);
+            lastFunc = setTimeout(function() {
+                if((Date.now() - lastRan) >= delay) {
+                    func.call(context, ...args);
+                    lastRan = Date.now();
+                }
+            }, delay - (Date.now() - lastRan));
+        }
+    }
+}

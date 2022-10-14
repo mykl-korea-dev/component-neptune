@@ -2,7 +2,7 @@ import Component from "../../../basic/Component.js";
 import Tab from "../../../ui-component/tab/tab.js";
 import {getData} from "../../../basic/utils.js";
 
-export default class ShcoolnMajor extends Component {
+export default class School extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="match-school">
@@ -16,9 +16,9 @@ export default class ShcoolnMajor extends Component {
                     <span>${data.location}</span>
                 </div>
                 <div class="match-school-footer">
-                    <span>국립</span>
-                    <span>일반대학</span>
-                    <span>주간</span>
+                    <span>${data.public}</span>
+                    <span>${data.sort}</span>
+                    <span>${data.time}</span>
                 </div>
             </li>
         `).join('');
@@ -29,16 +29,16 @@ export default class ShcoolnMajor extends Component {
     }
 }
 
-new Tab(document.querySelector('#subjects'));
-
-getData("http://localhost:3000/school", (data) => {
-    new ShcoolnMajor(document.querySelector('#all'), data.all);
-    // new Tab(document.querySelector('#subjects'));
-});
-
-getData("http://localhost:3000/school", (data) => {
-    console.log(data);
-    new ShcoolnMajor(document.querySelector('#one'), data.one);
-    // new Tab(document.querySelector('#subjects'));
-});
+// new Tab(document.querySelector('#subjects'));
+//
+// getData("http://localhost:3000/school", (data) => {
+//     new School(document.querySelector('#all'), data.all);
+//     // new Tab(document.querySelector('#subjects'));
+// });
+//
+// getData("http://localhost:3000/school", (data) => {
+//     console.log(data);
+//     new School(document.querySelector('#one'), data.one);
+//     // new Tab(document.querySelector('#subjects'));
+// });
 

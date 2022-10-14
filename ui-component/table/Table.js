@@ -108,5 +108,5 @@ export default class Table extends Component {
     }
 
 }
-document.querySelectorAll('.table-box').forEach(el => new Table(el))
-document.querySelectorAll('.table').forEach(el => new Table(el));
+// document.querySelectorAll('.table-box').forEach(el => new Table(el))
+// document.querySelectorAll('.table').forEach(el => new Table(el));

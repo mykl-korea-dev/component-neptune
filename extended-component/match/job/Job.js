@@ -8,7 +8,7 @@ export default class Job extends Component {
             <li class="match-job">
                 <div class="match-job-body">
                     <p class="fs-3">${data.title}</p>
-                    <p>${data.subTitle}</p>
+                    <p>${data.subtitle}</p>
                     <p>${data.description}</p>
                 </div>
                 <div class="match-job-footer">

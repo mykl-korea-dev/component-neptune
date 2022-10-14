@@ -11,7 +11,7 @@ export default class Subject extends Component {
                     <p class="fs-3">${data.title}</p>
                     <p>${data.academy}</p>
         
-                    <a href="${data.link}">${data.link}</a>
+                    <a href="${data.linkUrl}">${data.linkName}</a>
                     <span>${data.phone}</span>
                     <span>${data.location}</span>
                 </div>

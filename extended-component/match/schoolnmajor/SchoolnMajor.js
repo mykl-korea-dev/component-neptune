@@ -6,7 +6,7 @@ export default class School extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="match-school">
-                <div><img src="https://via.placeholder.com/120" alt=""></div>
+                <div><img src="${data.imageUrl}" alt=""></div>
                 <div class="match-school-body">
                     <p class="title">${data.school}</p>
                     <p>${data.major}</p>

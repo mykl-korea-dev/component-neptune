@@ -11,7 +11,7 @@ import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
 
 import "./form-component/ajax/selectAjax/select.css";
 
-let MYKL = {
+let MYKLAjax = {
     // form -----------------------------
     CheckboxAjax: function (url, el) {
         // getData('http://localhost:3000/checkbox', (data) => new CheckboxAjax(document.querySelector('.form-check-ajax'), data));
@@ -52,4 +52,4 @@ let MYKL = {
     }
 }
 
-window.MYKL = {...window.MYKL, ...MYKL};
+window.MYKL = {...window.MYKL, ...MYKLAjax};

@@ -57,7 +57,7 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
     };
 }
 
-let MYKL = {
+const MYKLBasic = {
     // form -----------------------------------------------------
     Calender: function (el) {
         return new Calendar(el);
@@ -116,7 +116,7 @@ let MYKL = {
     },
 }
 
-window.MYKL = {...window.MYKL, ...MYKL};
+window.MYKL = {...window.MYKL, ...MYKLBasic};
 
 document.querySelectorAll('.form-calendar').forEach(el => MYKL.Calender(el));
 document.querySelectorAll('.form-file').forEach(el => MYKL.File(el));

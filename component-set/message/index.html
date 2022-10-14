@@ -19,7 +19,7 @@
     </div>
 
 <!-- inline layer -->
-    <div class="inline-layer modal">
+    <div class="message-alert modal">
         <button class="modal-btn">제출</button>
         <div class="modal-dialog">
             <div class="modal-content">
@@ -46,25 +46,74 @@
 <!-- context message -->
     <div class="context-message">
         <input type="text">
-        <div class="message">중복되는 값은 입력할 수 없습니다.</div>
+        <div class="message" style="color: red">※ 중복되는 값은 입력할 수 없습니다.</div>
     </div>
 <script src="../modal/Modal.js" type="module"></script>
-<script type="module">
-    import Component from "../../basic/Component.js";
-    function getFunc(el, callback) {
-        new ContextMessage(el, callback)
-    }
+<script src="./ContextMessage.js" type="module"></script>
+<!--<script type="module">-->
+<!--    import Component from "../../basic/Component.js";-->
+<!--    function getFunc(el, callback) {-->
+<!--        new ContextMessage(el, callback)-->
+<!--    }-->
 
-    class ContextMessage extends Component {
-        setEvents() {
-            this.$element.querySelector('input').addEventListener('keyup', this.$data.bind(this))
-        }
-    }
+<!--    class ContextMessage extends Component {-->
+<!--        setEvents() {-->
+<!--            this.$element.querySelector('input').addEventListener('keyup', this.$data.bind(this))-->
+<!--        }-->
+<!--    }-->
 
-    getFunc(document.querySelector('.context-message'), function() {
-        const reg = /^hi$/;
-        (reg.test(this.$element.querySelector("input").value)) ? (this.$element.querySelector('.message').classList.add('show')) : (this.$element.querySelector('.message.show')?.classList.remove('show'));
-    })
-</script>
+<!--    getFunc(document.querySelector('.context-message'), function() {-->
+<!--        const reg = /^hi$/;-->
+<!--        (reg.test(this.$element.querySelector("input").value)) ? (this.$element.querySelector('.message').classList.add('show')) : (this.$element.querySelector('.message.show')?.classList.remove('show'));-->
+<!--    })-->
+<!--</script>-->
+<table>
+    <thead>
+        <tr>
+            <th>1</th>
+            <th>1</th>
+            <th>1</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>11</th>
+                        <th>11</th>
+                        <th>11</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>31</td>
+                        <td>31</td>
+                        <td>31</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>31</td>
+                        <td>31</td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>3</td>
+        <td>3</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

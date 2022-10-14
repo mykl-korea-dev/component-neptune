@@ -12,6 +12,7 @@ module.exports = {
                 ],
                 autoprefixer: { grid: 'autoplace' },
             }
-        ]
+        ],
+        require('autoprefixer')
     ]
 }

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     devtool: "source-map",
@@ -22,6 +22,7 @@ module.exports = {
             template: "./index.html"
         }),
         new MiniCssExtractPlugin({filename: "[name]_style.css"}),
+        autoprefixer
     ],
     target: ['web', 'es5'],
     module: {

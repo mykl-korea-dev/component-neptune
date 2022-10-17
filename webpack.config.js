@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+// const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
@@ -13,6 +13,7 @@ module.exports = {
     entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded', mykl_ajax: './mykl-ajax'},
     output: {
         filename: '[name].js',
+        assetModuleFilename: 'images/[name][ext]',
         path: path.resolve(__dirname, "dist"),
         publicPath: "./dist",
         clean: true
@@ -41,7 +42,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: './images/'
+                            publicPath: './'
                         },
                     },
                     // 'style-loader',
@@ -52,27 +53,6 @@ module.exports = {
 
                 exclude: /node_modules\/(?!(axios|@redux-saga|redux-logger))/
             },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/,
-                loader: "file-loader",
-                options: {
-                    // publicPath: "",
-                    outputPath: './images/',
-                    name: "[name].[ext]",
-                },
-            },
-            // {
-            //     test: /\.(png|jpe?g|gif|svg)$/,
-            //     use: {
-            //         loader: 'url-loader',
-            //         options: {
-            //             // publicPath: './images/',
-            //             outputPath: './images/',
-            //             name: '[name].[ext]',
-            //             limit: 5000
-            //         }
-            //     }
-            // }
         ]
     },
     // optimization: {

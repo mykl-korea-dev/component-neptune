@@ -1,7 +1,15 @@
-.auto-complete.selected {
+.auto-complete-list .selected {
     background: #bdbdbd;
 }
 
-.auto-complete-group.disabled {
+.auto-complete-list {
     display: none;
 }
+
+.auto-complete-item.active .auto-complete-list.show {
+    display: block;
+}
+
+/*.auto-complete-list.disabled {*/
+/*    display: none;*/
+/*}*/

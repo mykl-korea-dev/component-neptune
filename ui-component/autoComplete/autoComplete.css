@@ -1,15 +1,11 @@
-.auto-complete-list .selected {
+.mykl-auto-complete .auto-complete.selected {
     background: #bdbdbd;
 }
 
-.auto-complete-list {
+.mykl-auto-complete .auto-complete-list {
     display: none;
 }
 
-.auto-complete-item.active .auto-complete-list.show {
+.mykl-auto-complete .auto-complete-item.active .auto-complete-list.show {
     display: block;
 }
-
-/*.auto-complete-list.disabled {*/
-/*    display: none;*/
-/*}*/

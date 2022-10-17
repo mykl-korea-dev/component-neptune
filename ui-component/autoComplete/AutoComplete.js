@@ -1,4 +1,5 @@
 import Component from "../../basic/Component.js";
+import {getDataset} from "../../basic/utils.js";
 // 1. keydown 이벤트 발생 시 API 목록 가져오기
 // 2. ArrowDown 누르면 목록 리스트 중 아래로 이동
 // 2-1. 최하단 목록 시 누르면 기본 입력 값
@@ -16,6 +17,7 @@ import Component from "../../basic/Component.js";
 class AutoCompleteItem extends Component {
     setElements() {
         this.originVal = null;
+        this.currentValue = null;
         this.$element.querySelector('input').setAttribute('autocomplete', 'off');
     }
 
@@ -26,13 +28,12 @@ class AutoCompleteItem extends Component {
             this.closeAllAutoComplete();
             this.$element.classList.add('active');
             this.$element.querySelector('.auto-complete-list').classList.add('show');
-            this.$element.querySelector('.selected')?.classList.remove('selected');
         })
 
         this.$element.querySelector('.btn-direct').addEventListener('click', () => {
+            this.$element.querySelector('input').value = this.currentValue || this.originVal;
             this.inputBlur();
-            this.$element.querySelector('input').value = this.originVal;
-            this.$element.querySelector('.auto-complete-list').classList.remove('show');
+            // this.$element.querySelector('.auto-complete-list').classList.remove('show');
         })
 
         this.$element.querySelector('.btn-remove')?.addEventListener('click', () => {
@@ -41,21 +42,42 @@ class AutoCompleteItem extends Component {
             (childCount > 1) && (this.$element.remove());
         })
 
-        // this.$element.querySelector('.auto-complete-list')?.addEventListener('mouseover', () => {
-        //
-        // })
+        this.$element.querySelector('.auto-complete-list')?.addEventListener('mouseover', (e) => {
+            this.$element.querySelector('.selected')?.classList.remove('selected');
+            const target = e.composedPath().find(el => el.classList.contains('auto-complete'));
+            target.classList.add('selected');
+        })
+
+        this.$element.querySelector('.auto-complete-list')?.addEventListener('click', () => {
+            this.currentValue = getDataset(this.$element.querySelector('.selected'), 'val');
+            this.$element.querySelector('input').value = this.currentValue;
+            this.inputBlur();
+        })
+
+        document.addEventListener('click', ({target}) => {
+            if(!this.$element.classList.contains('active') || target.tagName === "INPUT") {
+                return;
+            }
+            this.currentValue = getDataset(this.$element.querySelector('.selected'), 'val') || this.currentValue;
+            this.$element.querySelector('input').value = this.currentValue || '';
+            this.inputBlur();
+        })
+
     }
 
     keyDownHandler(e) {
-        console.log('hi');
+        // console.log(e.key, e.keyCode, e.code, e.key == 'Down', e.key === 'Down', e.keyCode === 229, e.keyCode != 229, e.keyCode !== 229);
         this.$element.querySelector('.auto-complete-list').classList.add('show');
-        if(e.key === 'Process' && (e.code ==='ArrowDown' || e.code === 'ArrowUp')) {
+        if((e.key === 'Process' && (e.code ==='ArrowDown' || e.code === 'ArrowUp'))) {
             return
         }
 
         let selectedEl = this.$element.querySelector('.auto-complete-list .selected');
 
-        if(e.code === 'ArrowDown') {
+        if(e.code === 'ArrowDown' || (e.key === 'Down')) {
+            if(e.keyCode === 229) {
+                return;
+            }
             if(selectedEl) {
                 selectedEl.classList.remove('selected');
                 selectedEl = selectedEl.nextElementSibling;
@@ -64,11 +86,11 @@ class AutoCompleteItem extends Component {
                 selectedEl = this.$element.querySelector('.auto-complete-list').firstElementChild;
                 selectedEl?.classList.add('selected');
             }
-            this.$element.querySelector('input').value = selectedEl ? this.$element.querySelector('.auto-complete.selected')?.dataset.val : this.originVal;
+            this.$element.querySelector('input').value = selectedEl ? getDataset(this.$element.querySelector('.auto-complete.selected'), 'val') : this.originVal;
             return;
         }
 
-        if(e.code === 'ArrowUp') {
+        if(e.code === 'ArrowUp' || e.key === 'Up') {
             if(selectedEl) {
                 selectedEl?.classList.remove('selected');
                 selectedEl = selectedEl.previousElementSibling;
@@ -77,7 +99,7 @@ class AutoCompleteItem extends Component {
                 selectedEl = this.$element.querySelector('.auto-complete-list').lastElementChild;
                 selectedEl?.classList.add('selected');
             }
-            this.$element.querySelector('input').value = selectedEl ? this.$element.querySelector('.auto-complete.selected')?.dataset.val : this.originVal;
+            this.$element.querySelector('input').value = selectedEl ? getDataset(this.$element.querySelector('.auto-complete.selected'), 'val') : this.originVal;
             return;
         }
 
@@ -85,8 +107,8 @@ class AutoCompleteItem extends Component {
             if(!selectedEl) {
                 return;
             }
-            this.$element.querySelector('input').value = selectedEl.dataset.val;
-            this.$element.querySelector('.auto-complete-list').classList.remove('show');
+            this.currentValue = getDataset(selectedEl, 'val');
+            this.$element.querySelector('input').value = this.currentValue;
             this.inputBlur();
             return;
         }
@@ -112,6 +134,8 @@ class AutoCompleteItem extends Component {
     inputBlur() {
         this.$element.querySelector('input').blur();
         this.$element.classList.remove('active');
+        this.$element.querySelector('.show')?.classList.remove('show');
+        this.$element.querySelector('.selected')?.classList.remove('selected');
     }
 }
 
@@ -131,7 +155,7 @@ export default class AutoComplete extends Component {
 
                 const currentEl = this.$element.querySelector('.auto-complete-item.active') || this.$element.querySelector('.auto-complete-item');
                 const selectedEl = currentEl?.querySelector('.selected');
-                currentEl.querySelector('input').value = selectedEl ? selectedEl.dataset.val : currentEl.classList.contains('active') ? '' : currentEl.querySelector('input').value;
+                currentEl.querySelector('input').value = selectedEl ? getDataset(selectedEl, 'val') : currentEl.classList.contains('active') ? '' : currentEl.querySelector('input').value;
 
                 currentEl.classList.remove('active');
                 currentEl.querySelector('.auto-complete-list.show')?.classList.remove('show');

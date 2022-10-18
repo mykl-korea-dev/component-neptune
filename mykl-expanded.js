@@ -17,45 +17,45 @@ import './extended-component/match/certificate/certificate.css';
 
 let MYKLExpanded = {
     MajorSlide: function (url, el) {
-        getData(url, (data) => new MajorSlide(el, data));
+        return getData(url, (data) => new MajorSlide(el, data));
     },
     JobSlide: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new JobSlide(el, data)
         );
     },
     ExpertSlide: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new ExpertSlide(el, data)
         );
     },
     EducationSlide: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new EducationSlide(el, data)
         );
     },
     CertificateSlide: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new CertificateSlide(el, data)
         );
     },
     MatchSubject: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new MatchSubject(el, data)
         );
     },
     MatchSchool: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new School(el, data)
         );
     },
     MatchJob: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new Job(el, data)
         )
     },
     MatchCertificate: function(url, el) {
-        getData(url, (data) =>
+        return getData(url, (data) =>
             new Certificate(el, data)
         )
     }

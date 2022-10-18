@@ -6,8 +6,8 @@ export default class ImageSlide extends Component {
     }
 
     setEvents() {
-        this.$element.querySelector('.prev').addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
-        this.$element.querySelector('.next').addEventListener('click', () => {
+        this.$element.querySelector('.prev')?.addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
+        this.$element.querySelector('.next')?.addEventListener('click', () => {
             const { width: groupWidth } = this.$element.querySelector('.slider-group').getBoundingClientRect();
             const lastImage = this.$element.querySelector('.slider-group').lastElementChild;
             const { width: lastImgWidth , x: lastImgX } = lastImage.getBoundingClientRect();

@@ -47,15 +47,8 @@ import './ui-component/tag/tag.css';
 import './ui-component/text/text.css';
 import './ui-component/tooltip/tooltip.css';
 
-if ('NodeList' in window && !NodeList.prototype.forEach) {
-    console.info('polyfill for IE11');
-    NodeList.prototype.forEach = function (callback, thisArg) {
-        thisArg = thisArg || window;
-        for (var i = 0; i < this.length; i++) {
-            callback.call(thisArg, this[i], i, this);
-        }
-    };
-}
+import ContextMessage from "./component-set/message/ContextMessage.js";
+import './component-set/message/message.css';
 
 const MYKLBasic = {
     // form -----------------------------------------------------
@@ -114,6 +107,9 @@ const MYKLBasic = {
     Tooltip: function (el) {
         return new Tooltip(el);
     },
+    ContextMessage: function (el, callback) {
+        return new ContextMessage(el, callback)
+    }
 }
 
 window.MYKL = {...window.MYKL, ...MYKLBasic};
@@ -124,14 +120,14 @@ document.querySelectorAll('.form-range').forEach(el => MYKL.Range(el));
 document.querySelectorAll('.form-select').forEach(el => MYKL.Select(el));
 document.querySelectorAll('.form-textarea').forEach(el => MYKL.Textarea(el));
 document.querySelectorAll('.accordion').forEach(el => MYKL.Accordion(el));
-document.querySelectorAll('.auto-completes').forEach(el => MYKL.AutoComplete(el));
+document.querySelectorAll('.mykl-auto-complete').forEach(el => MYKL.AutoComplete(el));
 document.querySelectorAll('.btn[data-href]').forEach(el => MYKL.ButtonLink(el));
 document.querySelectorAll('.dropdown').forEach(el => MYKL.Dropdown(el));
-document.querySelectorAll('.emotion').forEach(el => MYKL.Emotion(el));
+document.querySelectorAll('.mykl-emotion').forEach(el => MYKL.Emotion(el));
 document.querySelectorAll('.navbar').forEach(el => MYKL.Navigation(el));
 document.querySelectorAll('.process').forEach(el => MYKL.Process(el));
 document.querySelectorAll('.progress').forEach(el => MYKL.Progress(el));
-document.querySelectorAll('.star').forEach(el => MYKL.Star(el));
+document.querySelectorAll('.mykl-star').forEach(el => MYKL.Star(el));
 document.querySelectorAll('.tabs').forEach(el => MYKL.Tab(el));
 document.querySelectorAll('.table').forEach(el => MYKL.Table(el));
 document.querySelectorAll('.tooltip').forEach(el => MYKL.Tooltip(el));

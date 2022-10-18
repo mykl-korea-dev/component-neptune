@@ -56,3 +56,25 @@ export function throttle(func, delay) {
         }
     }
 }
+
+export function getDataset(element, name) {
+    if(!element) {
+        return null;
+    }
+
+    if(element.dataset) {
+        return element.dataset[name] || '';
+    } else if(element.getAttribute) {
+        return element.getAttribute(`data-${spinalCase(name)}`) || '';
+    }
+}
+
+export function spinalCase(str) {
+    // Create a variable for the white space and underscores.
+    const regex = /\s+|_+/g;
+
+    // Replace low-upper case to low-space-uppercase
+    str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+    // Replace space and underscore with -
+    return str.replace(regex, "-").toLowerCase();
+}

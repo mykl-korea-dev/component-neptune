@@ -5,10 +5,11 @@ export default class Accordion extends Component {
         this.$element.addEventListener('click', (e) => {
             const {target} = e;
             e.stopPropagation();
-            if(target.classList.contains('accordion-toggle')) {
-                const el = target.closest('.accordion-item');
 
-                if(!this.$element.classList.contains('showAlways')) {
+            if(target.classList.contains('accordion-toggle')) {
+                const el = e.composedPath().find(el => el.classList.contains('accordion-item'));
+
+                if(!this.$element.classList.contains('show-always')) {
                     el?.querySelector('.accordion-body.show') !== this.$element.querySelector('.accordion-body.show')
                     && this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
                 }
@@ -18,4 +19,4 @@ export default class Accordion extends Component {
     }
 }
 
-// document.querySelectorAll(".accordion").forEach(el => new Accordion(el));
+// document.querySelectorAll(".mykl-accordion").forEach(el => new Accordion(el));

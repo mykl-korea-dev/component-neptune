@@ -1,12 +1,13 @@
-.star > *, .star-ajax > * {
+.mykl-star .star-group {
     display: inline-block;
 }
-.star-group > * {
+.mykl-star .star-item {
     vertical-align: middle;
     display: inline-block;
     width: 20px;
     height: 20px;
 }
+
 .star-fill {
     background: url(./images/star-fill.svg) no-repeat;
 }

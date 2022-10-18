@@ -1,33 +1,33 @@
 import Component from "../../basic/Component.js";
+import {getDataset} from "../../basic/utils.js";
 
 export default class Star extends Component {
     setElements() {
-        const min = this.$element.dataset.min || 0;
-        const max = this.$element.dataset.max || 5;
-        const value = this.$element.dataset.value || 0;
+        const strMin = getDataset(this.$element, "min") || 0;
+        const strMax = getDataset(this.$element, "max") || 5;
+        const strValue = getDataset(this.$element, "value") || 0;
+        this.isRate = getDataset(this.$element, "rate") === 'true';
 
-        let starValue = Number(value);
+        const [min, max] = [strMin, strMax].map(v => parseFloat(v));
+        let value = parseFloat(strValue);
+
         const starGroupEl = document.createElement('div');
         starGroupEl.classList.add('star-group');
         for (let i = parseInt(min, 10); i < parseInt(max, 10); i++) {
-            // const template = document.createElement('template');
-            // const fragment = new DocumentFragment();
             const div = document.createElement('div');
             div.innerHTML = `
-                ${starValue >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
-                ${starValue >= 0.5 && starValue < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
-                ${starValue < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
+                ${value >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
+                ${value >= 0.5 && value < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
+                ${value < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
             `
             starGroupEl.innerHTML += div.innerHTML;
-            // starGroupEl.appendChild(template.content);
-            // starGroupEl.appendChild(div);
-            starValue -= 1;
+            value -= 1;
         }
         this.$element.appendChild(starGroupEl);
 
-        if(this.$element.classList.contains('eval')) {
+        if(this.isRate) {
             const button = document.createElement('button');
-            button.classList.add("reset-btn");
+            button.classList.add("btn-reset");
             button.textContent = "취소";
             this.$element.appendChild(button);
 
@@ -38,12 +38,12 @@ export default class Star extends Component {
 
     setEvents() {
         this.$element.addEventListener('mousemove', (e) => {
-            if(!this.$element.classList.contains('eval') || this.lockedStar) {
+            if(!this.isRate || this.lockedStar) {
                 return;
             }
 
             const { offsetX, target } = e;
-            const index = parseInt(target.dataset.point, 10) - 1;
+            const index = parseInt(getDataset(target, "point"), 10) - 1;
             const { width } = target.getClientRects()[0];
             const isOverHalf = offsetX > width / 2;
 
@@ -51,8 +51,12 @@ export default class Star extends Component {
         })
 
         this.$element.addEventListener('click', (e) => {
+            if(!this.isRate) {
+                return;
+            }
+
             const { target } = e;
-            if(target.classList.contains("reset-btn")) {
+            if(target.classList.contains("btn-reset")) {
                 this.$element.querySelector('.checked')?.classList.remove("checked");
                 this.lockedStar = false;
             }
@@ -65,15 +69,13 @@ export default class Star extends Component {
                     this.$element.querySelector('.checked')?.classList.remove("checked");
                     target.classList.add('checked');
                     const { offsetX } = e;
-                    const index = parseInt(target.dataset.point, 10) - 1;
+                    const index = parseInt(getDataset(target, "point"), 10) - 1;
                     const { width } = target.getClientRects()[0];
                     const isOverHalf = offsetX > width / 2;
 
                     this.renderStar({clientIndex: index,  isOverHalf});
                     this.lockedStar = true;
-
                 }
-
             }
         })
     }
@@ -94,5 +96,5 @@ export default class Star extends Component {
 
 }
 
-document.querySelectorAll('.star').forEach(el => new Star(el));
-document.querySelectorAll('.star-ajax').forEach(el =>  new Star(el));
+// document.querySelectorAll('.mykl-star').forEach(el => new Star(el));
+// document.querySelectorAll('.mykl-star-ajax').forEach(el =>  new Star(el));

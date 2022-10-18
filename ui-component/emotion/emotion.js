@@ -1,53 +1,59 @@
 import Component from "../../basic/Component.js";
 
-export default class Emotion extends Component {
+class EmotionButton extends Component{
     setTemplate() {
-        return `   
-            <div class="clicked-emotion">+</div> 
-            <div class="emotion-group">
-                <div class="emotion-good"></div>
-                <div class="emotion-sad"></div>
-                <div class="emotion-like"></div>
-                <div class="emotion-bad"></div>
-                <div class="emotion-thumbsUp"></div>
-                <div class="emotion-thumbsDown"></div>
-            </div>
-        `
+        return this.$data ? `<button class="btn-emotion emotion-add" type="button">+</button>` : `<button class="btn-emotion emotion-reset" type="button">x</button>`;
     }
 
     render() {
         this.$element.innerHTML = this.setTemplate();
     }
+}
+
+export default class Emotion extends Component {
+    setTemplate() {
+        return `   
+            <div class="clicked-emotion"></div> 
+            <div class="emotion-group">
+                <div class="emotion-item emotion-good">good</div>
+                <div class="emotion-item emotion-sad">sad</div>
+                <div class="emotion-item emotion-like">like</div>
+                <div class="emotion-item emotion-bad">bad</div>
+                <div class="emotion-item emotion-thumbsUp">thumbsUp</div>
+                <div class="emotion-item emotion-thumbsDown">thumbsDown</div>
+            </div>
+        `
+    }
+
+    render() {
+        this.state = true;
+        this.$element.innerHTML = this.setTemplate();
+        new EmotionButton(this.$element.querySelector('.clicked-emotion'), this.state);
+    }
 
     setEvents() {
-        const regex = /emotion-good|emotion-sad|emotion-like|emotion-bad|emotion-thumbsUp|emotion-thumbsDown/g;
+        this.$element.addEventListener('click', ({target}) => {
+            if(target.classList.contains('btn-emotion')) {
+                this.state = !this.state
+                new EmotionButton(this.$element.querySelector('.clicked-emotion'), this.state);
+            }
 
-        this.$element.querySelector('.emotion-group').addEventListener('click', ({target}) => {
-            const clickedEl = this.$element.querySelector('.clicked-emotion');
-            clickedEl.className = clickedEl.className.replace(regex, '');
-            clickedEl.classList.add(target.classList);
-            clickedEl.innerHTML = `<span class="remove-emotion">x</span>`;
-            const { width } = clickedEl.getBoundingClientRect();
-            this.$element.querySelector('.remove-emotion').style.left = Number(width) + 10 + 'px';
-            clickedEl.style.verticalAlign = "middle";
-            this.$element.querySelector('.emotion-group').style.display = "none";
+            if(target.classList.contains('emotion-add')) {
+                this.$element.querySelector('.emotion-group').classList.add('show');
+            }
+
+            if(target.classList.contains('emotion-reset')) {
+                this.$element.querySelector('.emotion-group').classList.remove('show');
+            }
         })
 
-        this.$element.addEventListener('click', ({target}) => {
-            if(target.classList.contains('clicked-emotion')) {
-                this.$element.querySelector('.emotion-group').style.display = "block";
-            }
-
-
-            if(target.classList.contains('remove-emotion')) {
-                const clickedEl = this.$element.querySelector('.clicked-emotion');
-                clickedEl.className = clickedEl.className.replace(regex, '');
-                clickedEl.textContent = "+";
-            }
-
-
+        this.$element.querySelector('.emotion-group').addEventListener('click', ({target}) => {
+            const emotions = this.$element.querySelector('.emotion-group').children;
+            const clickedEl = [...emotions].find(el => el === target).cloneNode(true);
+            this.$element.querySelector('.clicked-emotion').insertAdjacentElement('afterbegin', clickedEl);
+            this.$element.querySelector('.emotion-group').classList.remove('show');
         })
     }
 }
 
-// document.querySelectorAll('.emotion').forEach(el => new Emotion(el));
+document.querySelectorAll('.mykl-emotion').forEach(el => new Emotion(el));

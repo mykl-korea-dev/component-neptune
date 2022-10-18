@@ -2,9 +2,10 @@ import Component from "../../basic/Component.js";
 
 export default class Tab extends Component {
     setElements() {
-        // const activeId = this.$element.querySelector('.active').dataset.id || this.$element.querySelector('.active').getAttribute('href');
-        const activeId = this.$element.querySelector('.active').getAttribute('href');
-        this.$element.querySelector(activeId).style.display = "block";
+        const activeEl = this.$element.querySelector('.active') || this.$element.querySelector('.tab-item');
+        !activeEl.classList.contains('active') && activeEl.classList.add('active');
+        const activeId = activeEl.getAttribute('href');
+        this.$element.querySelector(activeId).classList.add('show');
     }
 
     setEvents() {
@@ -12,13 +13,15 @@ export default class Tab extends Component {
             e.preventDefault();
             e.stopPropagation();
             const { target } = e;
+
             if (!target.classList.contains('tab-item')) {
                 return;
             }
-            // const id = target.dataset.id || target.getAttribute('href');
+
             const id = target.getAttribute('href');
-            this.$element.querySelectorAll('.tab-list').forEach(el => ([...this.$element.children].findIndex(child => child == el) != -1) && (el.style.display = 'none'));
-            this.$element.querySelector(id).style.display = 'block';
+
+            this.$element.querySelector('.tab-content.show').classList.remove('show');
+            this.$element.querySelector(id).classList.add('show');
 
             this.$element.querySelector('.active').classList.remove('active')
             target.classList.toggle('active');
@@ -26,4 +29,4 @@ export default class Tab extends Component {
     }
 }
 
-// document.querySelectorAll('.tabs').forEach(el => new Tab(el));
+// document.querySelectorAll('.mykl-tab').forEach(el => new Tab(el));

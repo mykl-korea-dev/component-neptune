@@ -1,20 +1,25 @@
 import Component from "../../basic/Component.js";
+import {getDataset} from "../../basic/utils.js";
 
 export default class Progress extends Component {
     setElements() {
-        // const {min, max, value} = progress.dataset;
-        // progress.style.width = `${(parseInt(max, 10)-parseInt(min, 10)) * 5}px`;
-        // progressBar.style.width = `${parseInt(value, 10) / (parseInt(max, 10)-parseInt(min, 10))* 100}%`;
+        const [strMin, strMax, strValue] = ['min', 'max', 'value'].map(v => getDataset(this.$element, v));
+        const min = parseFloat(strMin) || 0;
+        const max = parseFloat(strMax) || 100;
+        const value = parseFloat(strValue) || null;
 
-        const {min, max, value} = this.$element.dataset;
-        // this.$element.style.width = `${(parseInt(max, 10)-parseInt(min, 10)) * 5}px`;
+        if(!value) {
+            throw new Error('data-value is not defined');
+        }
+
         this.$element.style.width = `100%`;
-        this.$element.querySelector('.progress-bar').style.width = `${Number(value) / (Number(max)-Number(min))* 100}%`;
+        this.$element.querySelector('.progress-bar').style.width = `${(value / (max-min))* 100}%`;
     }
 
     setTemplate() {
-        const {value} = this.$element.dataset;
-        return `<span class="progress-value">${parseFloat(value).toFixed(1)}</span>`
+        const value = parseFloat(getDataset(this.$element, 'value')).toFixed(1);
+        const [intValue, checkFirstFloat] = value.split('.');
+        return `<span class="progress-value">${checkFirstFloat == 0 ? intValue : value}</span>`
     }
 
     render() {
@@ -23,10 +28,9 @@ export default class Progress extends Component {
         if(barWidth + valueWidth >= progressWidth) {
             this.$element.querySelector('.progress-value').style.left = 'auto';
             this.$element.querySelector('.progress-value').style.right = 0;
-
         }
     }
 }
 
-// new Progress(document.querySelector('.progress'));
+document.querySelectorAll('.mykl-progress').forEach(el => new Progress(el));
 

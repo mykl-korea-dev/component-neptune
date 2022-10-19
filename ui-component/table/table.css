@@ -1,16 +1,12 @@
-.table {
+.mykl-table {
     width: 100%;
-    margin: 20px auto;
     border-collapse: collapse;
 }
 
-.table td, .table th {
+.mykl-table td, .mykl-table th {
     border: 1px solid #000;
 }
-.table tbody tr:nth-child(odd) {
-    background: indianred;
-}
 
-.collapse {
+.mobile-collapse {
     visibility: collapse;
 }

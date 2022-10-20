@@ -5,9 +5,13 @@ export default class Textarea extends Component{
     }
 
     setEvents() {
-        const textarea = this.$element.querySelector('.textarea-smart');
+        const textarea = this.$element;
+        console.log(textarea)
+        textarea?.addEventListener('keydown', () => {
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`
+        })
         textarea?.addEventListener('keyup', () => {
-            // @ts-ignore
             textarea.style.height = 'auto';
             textarea.style.height = `${textarea.scrollHeight}px`
         })
@@ -15,4 +19,4 @@ export default class Textarea extends Component{
     }
 }
 
-// document.querySelectorAll('.form-textarea').forEach(el => new Textarea(el))
+document.querySelectorAll('.mykl-form-textarea.textarea-smart').forEach(el => new Textarea(el))

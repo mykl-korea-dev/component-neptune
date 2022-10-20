@@ -1,15 +1,24 @@
-.textarea{
+.mykl-form-textarea{
     resize: none;
 }
 
-.textarea-vertical {
+.mykl-form-textarea.textarea-vertical {
     resize: vertical;
 }
 
-.textarea-horizontal {
+.mykl-form-textarea.textarea-horizontal {
     resize: horizontal;
 }
 
-.textarea-auto {
+.mykl-form-textarea.textarea-auto {
     resize: both;
+}
+
+.mykl-form-textarea.textarea-smart {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.mykl-form-textarea.textarea-smart::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }

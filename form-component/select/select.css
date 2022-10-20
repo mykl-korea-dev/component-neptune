@@ -1,23 +1,26 @@
 /*the container must be positioned relative:*/
-.form-select {
-    font-family: Arial;
+.mykl-select {
+    /*font-family: Arial;*/
     position: relative;
 }
 
-.form-select select{
+.mykl-select select{
     display: none; /*hide original SELECT element:*/
 }
 
 .select-group {
     position: relative;
+    /*overflow: hidden;*/
 }
 
 .select-selected {
     background-color: DodgerBlue;
     position: relative;
-    width: 200px;
+    /*width: 200px;*/
     /* 추가 */
     display: inline-block;
+    /*float: left;*/
+    width: 100%;
 }
 
 /*style the arrow inside the selectAjax element:*/
@@ -56,7 +59,7 @@
     left: 0;
     right: 0;
     z-index: 99;
-    width: 200px;
+    /*width: 200px;*/
 }
 
 /*hide the items when the selectAjax box is closed:*/

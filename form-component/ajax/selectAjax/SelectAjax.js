@@ -1,5 +1,5 @@
 import Component from "../../../basic/Component.js";
-import { closeAllSelect } from "../../../basic/utils.js";
+// import { closeAllSelect } from "../../../basic/utils.js";
 
 
 export default class SelectAjax extends Component{
@@ -29,7 +29,7 @@ export default class SelectAjax extends Component{
         const selectedDiv = this.$element.querySelector('.select-selected');
         const selectDiv = this.$element.querySelector('.select-items');
 
-        document.addEventListener('click', (e) => closeAllSelect(e.target))
+        // document.addEventListener('click', (e) => closeAllSelect(e.target))
 
         selectedDiv?.addEventListener('click', function () {
             selectDiv?.classList.toggle('select-hide');

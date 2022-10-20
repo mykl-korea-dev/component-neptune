@@ -1,24 +1,24 @@
-.mykl-form-textarea{
+.mykl-textarea {
     resize: none;
 }
 
-.mykl-form-textarea.textarea-vertical {
+.mykl-textarea.textarea-vertical {
     resize: vertical;
 }
 
-.mykl-form-textarea.textarea-horizontal {
+.mykl-textarea.textarea-horizontal {
     resize: horizontal;
 }
 
-.mykl-form-textarea.textarea-auto {
+.mykl-textarea.textarea-auto {
     resize: both;
 }
 
-.mykl-form-textarea.textarea-smart {
+.mykl-textarea.textarea-smart {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
 
-.mykl-form-textarea.textarea-smart::-webkit-scrollbar {
+.mykl-textarea.textarea-smart::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
 }

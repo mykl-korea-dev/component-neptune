@@ -19,4 +19,4 @@ export default class Textarea extends Component{
     }
 }
 
-document.querySelectorAll('.mykl-form-textarea.textarea-smart').forEach(el => new Textarea(el))
+document.querySelectorAll('.mykl-textarea.textarea-smart').forEach(el => new Textarea(el))

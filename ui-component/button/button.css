@@ -1,4 +1,4 @@
-.btn {
+.mykl-btn {
     cursor: pointer;
 
     /* 추후 변경 가능 */
@@ -9,60 +9,60 @@
     line-height: 2;
 }
 
-.btn:hover {
+.mykl-btn:hover {
     opacity: 0.8;
 }
 
-.btn[disabled] {
+.mykl-btn[disabled] {
     cursor: initial;
     opacity: 0.5;
 }
 
-.btn[disabled]:hover {
+.mykl-btn[disabled]:hover {
     opacity: 0.5;
 }
 
 /* Size */
-.btn.btn-lg {
+.mykl-btn.btn-lg {
     min-width: 200px;
     line-height: 3;
 }
 
-.btn.btn-sm {
+.mykl-btn.btn-sm {
     min-width: 70px;
     line-height: 1;
 }
 
 /* Color */
-.btn.btn-primary {
+.mykl-btn.btn-primary {
     background: var(--primary);
 }
 
-.btn.btn-secondary {
+.mykl-btn.btn-secondary {
     background: var(--secondary);
 }
 
-.btn.btn-success {
+.mykl-btn.btn-success {
     background: var(--success);
 }
 
-.btn.btn-danger {
+.mykl-btn.btn-danger {
     background: var(--danger);
 }
 
-.btn.btn-warning {
+.mykl-btn.btn-warning {
     background: var(--warning);
 }
 
-.btn.btn-info {
+.mykl-btn.btn-info {
     background: var(--info);
 }
 
-.btn.btn-light {
+.mykl-btn.btn-light {
     background: var(--light);
 }
 
-.btn.btn-dark {
+.mykl-btn.btn-dark {
     background: var(--dark);
     color: #bdbdbd;
 }

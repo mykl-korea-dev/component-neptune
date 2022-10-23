@@ -1,4 +1,4 @@
-.form-range, .form-range-ajax {
+.mykl-range, .form-range-ajax {
     position: relative;
     /*width: 100%;*/
     width: 400px;
@@ -115,7 +115,7 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
 }
 
-.form-range .step {
+.mykl-range .step {
     position: absolute;
     display: block;
     width: 1px;

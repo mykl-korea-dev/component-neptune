@@ -159,4 +159,5 @@ export default class Range extends Component {
     }
 }
 
+// document.querySelectorAll('.mykl-range').forEach(el => new Range(el));
 

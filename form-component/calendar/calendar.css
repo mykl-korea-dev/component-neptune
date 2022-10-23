@@ -1,54 +1,51 @@
-/*.form-calendar {*/
-/*    margin: 10px;*/
-/*}*/
-.form-calendar-input {
+.calendar-input {
     display: none;
 }
 
-.calendar {
+.calendar-container {
     display: none;
     width: 60%;
     flex-direction: column;
 }
 
-.calendar.show {
+.calendar-container.show {
     display: flex;
 }
 
-.calendar div[class^="week"] {
+.calendar-container div[class^="week"] {
     display: flex;
 }
 
-.calendar div[class^="week"] > div {
+.calendar-container div[class^="week"] > div {
     flex: 1;
     text-align: center;
 }
 
-.calendar .year-month {
+.calendar-container .year-month {
     position: relative;
     height: 70px;
     width: 100%;
 }
 
-.calendar .year-month > * {
+.calendar-container .year-month > * {
     position: absolute;
 
 }
 
-.calendar .year-month .year {
+.calendar-container .year-month .year {
     width: 100%;
     text-align: center;
     border-bottom: 1px solid #ccc;
     padding: 5px;
 }
 
-.calendar .year-month .month {
+.calendar-container .year-month .month {
     top: 35px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.calendar .year-month .calendar-button-group {
+.calendar-container .year-month .calendar-button-group {
     width: 100%;
     top: 35px;
     display: flex;
@@ -59,10 +56,10 @@
     background: #bdbdbd;
 }
 
-.calendar div[class^="week"] *:first-child {
+.calendar-container div[class^="week"] *:first-child {
     color: red;
 }
 
-.calendar div[class^="week"] *:last-child {
+.calendar-container div[class^="week"] *:last-child {
     color: blue;
 }

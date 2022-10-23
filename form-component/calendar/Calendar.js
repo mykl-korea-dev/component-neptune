@@ -1,5 +1,4 @@
 import Component from "../../basic/Component.js";
-// import '../calendar/calendar.css';
 
 export default class Calendar extends Component {
     setElements() {
@@ -7,9 +6,8 @@ export default class Calendar extends Component {
         this.month = new Date().getMonth() + 1;
         this.state = {}
 
-        const template = document.createElement('template');
-        const fragment = new DocumentFragment();
-        template.innerHTML = `
+        const div = document.createElement('div');
+        div.innerHTML = `
             <div class="clicked-date">
                 <span>
                     <span class="selected-year">${new Date().getFullYear()}</span>
@@ -20,11 +18,10 @@ export default class Calendar extends Component {
                 </span>
                 <button class="calendar-btn">기간</button>
             </div>                
-            <div class="calendar">
+            <div class="calendar-container">
             </div>
         `
-        fragment.appendChild(template.content);
-        this.$element.appendChild(fragment);
+        this.$element.innerHTML += div.innerHTML;
     }
 
     setTemplate() {
@@ -36,8 +33,8 @@ export default class Calendar extends Component {
               <div class="year">${this.year}</div>
               <div class="month">${this.month}</div>
               <div class="calendar-button-group">
-                <button class="prev">Prev</button>
-                <button class="next">Next</button>
+                <button class="prev" type="button">Prev</button>
+                <button class="next" type="button">Next</button>
               </div>
             </div>
             <div class="weekday">
@@ -63,8 +60,8 @@ export default class Calendar extends Component {
     render() {
         if(this.state[`${this.year}-${this.month}`]) {
             this.holiArr = [...this.state[`${this.year}-${this.month}`]];
-            console.log(this.holiArr, this.state)
-            this.$element.querySelector('.calendar').innerHTML = this.setTemplate();
+            console.log(this.holiArr, this.state, this.$element.querySelector('.calendar-container'))
+            this.$element.querySelector('.calendar-container').innerHTML = this.setTemplate();
             this.holiArr.map(day => this.$element.querySelectorAll('.day')[+day - 1].style.color = "red");
         } else {
             fetch(`http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo?solYear=${this.year}&solMonth=${this.setTwoDigits(this.month)}&_type=json&ServiceKey=T9vZVWD4DUCcBZITtVWmnhlD5hkaLI%2BVQcpHsxNuUdqSYscKbqO6KWnV0PQAgFIvV89g%2BjEirNcPf60sC7C2CA%3D%3D`)
@@ -78,7 +75,8 @@ export default class Calendar extends Component {
                             this.holiArr =  data.response.body.items.item.isHoliday === 'Y' ? [data.response.body.items.item.locdate.toString().substring(6, 8)]: [];
                         }
                         this.state[`${this.year}-${this.month}`] = this.holiArr;
-                        this.$element.querySelector('.calendar').innerHTML = this.setTemplate();
+                    console.log(this.holiArr, this.state, this.$element.querySelector('.calendar-container'))
+                    this.$element.querySelector('.calendar-container').innerHTML = this.setTemplate();
                         this.holiArr.map(day => this.$element.querySelectorAll('.day')[+day - 1].style.color = "red");
                     }
                 );
@@ -89,6 +87,9 @@ export default class Calendar extends Component {
     }
 
     setEvents() {
+        document.addEventListener('click', (e) => {
+            (e.composedPath().find(el => el === this.$element) === undefined) && this.$element.querySelector('.calendar-container.show')?.classList.remove('show')
+        })
         this.$element?.addEventListener('click', ({target}) => {
             if(target.classList.contains('prev')) {
                 --this.month;
@@ -109,7 +110,10 @@ export default class Calendar extends Component {
             }
 
             if(target.classList.contains('calendar-btn')) {
-                this.$element.querySelector('.calendar')?.classList.toggle('show');
+                this.year = this.$element.querySelector('.selected-year').textContent;
+                this.month = this.$element.querySelector('.selected-month').textContent;
+                this.$element.querySelector('.calendar-container')?.classList.toggle('show');
+                this.render();
             }
 
             if(target.classList.contains('day')) {
@@ -119,7 +123,7 @@ export default class Calendar extends Component {
                 this.$element.querySelector('.selected-year').textContent = year;
                 this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
                 this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(day);
-                this.$element.querySelector('.form-calendar-input').value = `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`;
+                this.$element.querySelector('.calendar-input').value = `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`;
             }
 
         })
@@ -130,3 +134,4 @@ export default class Calendar extends Component {
     }
 }
 
+// document.querySelectorAll('.mykl-calendar').forEach(el => new Calendar(el));

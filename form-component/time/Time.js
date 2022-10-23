@@ -1,12 +1,13 @@
 import Component from "../../basic/Component.js";
-// import './time.css';
+import {getDataset} from "../../basic/utils.js";
 
 export default class Time extends Component {
     setElements() {
         let div = document.createElement('div');
-        const { step } = this.$element.dataset;
+        div.classList.add('time-container');
+        const step = getDataset(this.$element, 'step');
         [this.currentHour, this.currentMin] = [new Date().getHours(), new Date().getMinutes()];
-        const {closeHour, closeMinute} = this.getCloseTime(new Date().getHours(), new Date().getMinutes());
+        const {closeHour, closeMinute} = this.getCloseTime(this.currentHour, this.currentMin);
 
         div.innerHTML = `
             <span class="selected-time">
@@ -38,8 +39,6 @@ export default class Time extends Component {
 
     setEvents() {
         const timeWrapper = this.$element.querySelector('.time-wrapper');
-        const hourBox = timeWrapper?.querySelector('.hour');
-        const minuteBox = timeWrapper?.querySelector('.minute');
 
         this.$element.querySelector('.toggle-button')?.addEventListener('click', () => {
             this.$element.querySelectorAll('.selected')?.forEach(el => el.classList.remove('selected'));
@@ -59,23 +58,31 @@ export default class Time extends Component {
                 target.classList.add('time-mark');
                 const [selectedHour, selectedMinute] = target.textContent.split(':');
                 const twelveHour = this.$element.querySelector('.day-night .time-mark').textContent === '오전' ? selectedHour : Number(selectedHour) + 12;
-                this.$element.querySelector('.form-time-input').value = `${twelveHour}:${selectedMinute}`;
+                this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`;
                 this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
             }
         })
 
         this.$element.querySelector('.day-night').addEventListener('click', ({target}) => {
+            if(target === this.$element.querySelector('.day-night')) {
+                return;
+            }
             this.$element.querySelector('.day-night .time-mark').classList.remove('time-mark');
             target.classList.add('time-mark');
             const [selectedHour, selectedMinute] = this.$element.querySelector('.time-box .time-mark').textContent.split(':');
             const twelveHour = this.$element.querySelector('.day-night .time-mark').textContent === '오전' ? selectedHour : Number(selectedHour) + 12;
-            this.$element.querySelector('.form-time-input').value = `${twelveHour}:${selectedMinute}`;
-            this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
+            this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`;
+            this.$element.querySelector('.selected-time').textContent = `${target.textContent} ${this.$element.querySelector('.time-box .time-mark').textContent} `
+        })
+
+        document.addEventListener('click', (e) => {
+            (e.composedPath().find(el => el === this.$element) === undefined) && this.$element.querySelector('.time-wrapper.show')?.classList.remove('show')
         })
     }
 
     setTwoDigits(num) {
-        return num < 10  ? '0'+num : num;
+        const intNum = Number(num)
+        return intNum < 10  ? '0'+intNum : intNum;
     }
 
     setInTwelve(num) {
@@ -108,3 +115,5 @@ export default class Time extends Component {
         return ({ closeHour: this.setTwoDigits(currentHour), closeMinute: this.setTwoDigits(closeMin) });
     }
 }
+
+// document.querySelectorAll('.mykl-time').forEach(el => new Time(el))

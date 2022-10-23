@@ -1,13 +1,5 @@
-input[type="time"] {
+.time-input {
     display: none;
-}
-
-.form-time {
-    margin: 10px;
-}
-
-.form-time > *{
-    display: inline-block;
 }
 
 .time-wrapper {

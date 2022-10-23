@@ -4,18 +4,14 @@ export default class File extends Component {
     setElements() {
         // this.dataTransfer = new DataTransfer();
         this.uplodatedFiles = [];
-        this.input = this.$element.querySelector('.form-file-input');
-        // const template = document.createElement('template');
-        // const fragment = new DocumentFragment();
+        this.input = this.$element.querySelector('.file-input');
 
         const div = document.createElement('div');
         div.innerHTML = `
             <button type="button" class="file-btn">파일등록</button>
             <ul class="uploaded-list"></ul>
         `
-        // fragment.appendChild(template.content);
-        // this.$element.appendChild(fragment);
-        this.$element.appendChild(div);
+        this.$element.innerHTML += div.innerHTML;
     }
 
     setTemplate() {
@@ -26,7 +22,7 @@ export default class File extends Component {
 
     render() {
         this.$element.querySelector('ul').innerHTML = this.setTemplate();
-        console.log(this.input);
+        // console.log(this.input);
     }
 
     setEvents() {
@@ -66,13 +62,9 @@ export default class File extends Component {
 
             this.uplodatedFiles.push(data);
 
-            // const fragment = new DocumentFragment();
-            // const template = document.createElement('template');
             const li = document.createElement('li');
             li.innerHTML = `<a href="#">${file.name}</a><button type="button"  class="delete-file-btn" data-idx=${file.lastModified}>삭제</button>`;
 
-            // fragment.appendChild(template.content);
-            // this.$element.querySelector(".uploaded-list").insertBefore(fragment, this.$element.querySelector(".uploaded-list").firstChild);
             this.$element.querySelector(".uploaded-list").insertBefore(li, this.$element.querySelector(".uploaded-list").firstChild);
 
         } catch (e){
@@ -80,3 +72,5 @@ export default class File extends Component {
         }
     }
 }
+
+// document.querySelectorAll('.mykl-file').forEach(el=> new File(el));

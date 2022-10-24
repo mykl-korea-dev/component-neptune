@@ -1,7 +1,7 @@
-[class^="radio-group"] .form-radio {
+.radio-group .mykl-radio {
     display: inline-block;
 }
 
-[class^="radio-group"] .form-radio .form-check {
+.radio-group.radio-vertical .mykl-radio {
     display: block;
 }

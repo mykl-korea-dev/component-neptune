@@ -9,16 +9,17 @@
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/basic/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/imageSlide/ImageSlide.js" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/imageSlide/ImageSlide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/checkbox/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/checkbox/checkbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/checkbox/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/checkbox/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/input/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/input/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/radio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/radio/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form-component/radio/radio.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/radio/radio.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mykl-default.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-default.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mykl-expanded.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-expanded.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polyfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/polyfill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/tag/Tag.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/tag/Tag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/tag/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/tag/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/tag/tag.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/tag/tag.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +30,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,15 +45,13 @@
     <setting file="file://$PROJECT_DIR$/form-component/ajax/rangeAjax/RangeAjax.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/calendar/Time.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/calendar.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/calendar/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/calendar/time.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/form-group/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/range/Range.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/Select.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/select/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/select/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/time/Time.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/form-component/time/time.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package-lock.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
@@ -101,11 +100,11 @@
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\dist" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\form-component\time" />
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\match\schoolnmajor" />
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\match" />
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\match\duty" />
       <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\ability\poolLists" />
-      <recent name="C:\Users\panda\Desktop\mykl\component-neptune\extended-component\slideitem" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Calendar.js">
@@ -193,6 +192,7 @@
       <workItem from="1665675061657" duration="15000" />
       <workItem from="1665709000230" duration="20000" />
       <workItem from="1665709060963" duration="72076000" />
+      <workItem from="1666227647858" duration="29865000" />
     </task>
     <servers />
   </component>
@@ -200,13 +200,12 @@
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/form-component/calendar/Time.js" />
-        <option value="$PROJECT_DIR$/form-component/calendar/Calendar.js" />
-        <option value="$PROJECT_DIR$/form-component/file/File.js" />
-        <option value="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" />
         <option value="$PROJECT_DIR$/ui-component/star/Star.js" />
-        <option value="$PROJECT_DIR$/ui-component/progress/Progress.js" />
         <option value="$PROJECT_DIR$/ui-component/table/Table.js" />
+        <option value="$PROJECT_DIR$/form-component/file/File.js" />
+        <option value="$PROJECT_DIR$/ui-component/progress/Progress.js" />
+        <option value="$PROJECT_DIR$/form-component/calendar/Calendar.js" />
+        <option value="$PROJECT_DIR$/ui-component/dropdown/Dropdown.js" />
       </list>
     </option>
   </component>

@@ -1,7 +1,7 @@
-[class^="check-group"] .form-check {
+.check-group .mykl-check {
     display: inline-block;
 }
 
-[class^="check-group"].check-vertical .form-check {
+.check-group.check-vertical .mykl-check {
     display: block;
 }

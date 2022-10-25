@@ -1,10 +1,10 @@
-.pagination li {
+.mykl-pagination li {
     display: inline-block;
     padding: 5px 10px;
     margin-left: 2px;
     background: lightgoldenrodyellow;
 }
 
-.pagination .active {
+.mykl-pagination .active {
     background: lightblue;
 }

@@ -3,33 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Star</title>
-    <style>
-        .star > *, .star-ajax > * {
-            display: inline-block;
-        }
-        .star-group > * {
-            vertical-align: middle;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-        }
-        .star-fill {
-            background: url(../../star/images/star-fill.svg) no-repeat;
-        }
-        .star-half {
-            background: url(../../star/images/star-half.svg) no-repeat;
-        }
-        .star-empty {
-            background: url(../../star/images/star.svg) no-repeat;
-        }
-    </style>
+    <link rel="stylesheet" href="../../star/star.css">
 </head>
 <body>
-<div class="star eval">
+<!--<div class="star-ajax">-->
 
-</div>
+<!--</div>-->
 
-<div class="star-ajax eval" data-min="0" data-max="5" data-value="2.5">
+<div class="star-ajax" data-rate="true">
 
 </div>
 <script src="./StarAjax.js" type="module"></script>

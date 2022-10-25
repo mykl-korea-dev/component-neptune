@@ -111,4 +111,4 @@ export default class Tag extends Component {
     }
 }
 
-new Tag(document.querySelector('.mykl-tag'));
+// new Tag(document.querySelector('.mykl-tag'));

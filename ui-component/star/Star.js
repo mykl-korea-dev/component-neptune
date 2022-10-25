@@ -24,6 +24,7 @@ export default class Star extends Component {
             value -= 1;
         }
         this.$element.appendChild(starGroupEl);
+        this.lockedStar = false;
 
         if(this.isRate) {
             const button = document.createElement('button');
@@ -32,8 +33,8 @@ export default class Star extends Component {
             this.$element.appendChild(button);
 
             const input = document.createElement('input');
+            this.lockedStar = true;
         }
-        this.lockedStar = false;
     }
 
     setEvents() {

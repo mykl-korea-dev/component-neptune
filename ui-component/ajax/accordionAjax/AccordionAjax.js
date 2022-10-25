@@ -1,9 +1,11 @@
 import Component from "../../../basic/Component.js";
 import {getData} from "../../../basic/utils.js";
+import Accordion from "../../accordion/Accordion.js";
 
-export default class AccordionAjax extends Component {
+export default class AccordionAjax extends Accordion {
     setTemplate() {
         console.log(this.$data)
+        this.$element.classList.add("mykl-accordion");
         return this.$data.map(list => `
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -22,19 +24,7 @@ export default class AccordionAjax extends Component {
         this.$element.innerHTML = this.setTemplate();
     }
 
-    setEvents() {
-        this.$element.addEventListener('click', ({target}) => {
-            if(target.classList.contains('accordion-toggle')) {
-                const el = target.closest('.accordion-item');
 
-                if(!this.$element.classList.contains('showAlways')) {
-                    el?.querySelector('.accordion-body.show') !== this.$element.querySelector('.accordion-body.show')
-                    && this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
-                }
-                el?.querySelector('.accordion-body')?.classList.toggle('show');
-            }
-        })
-    }
 }
 
 // getData('http://localhost:3000/accordion', (data) => new AccordionAjax(document.querySelector('.accordion-ajax'), data));

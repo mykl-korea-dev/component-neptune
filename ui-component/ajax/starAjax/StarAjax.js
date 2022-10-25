@@ -1,71 +1,41 @@
 import Component from "../../../basic/Component.js";
-import {getData} from "../../../basic/utils.js";
+import {getData, getDataset} from "../../../basic/utils.js";
+import Star from "../../star/Star.js";
 
-export default class StarAjax extends Component {
+export default class StarAjax extends Star {
     setElements() {
-        const { min , max, value } = this.$data;
-        let starValue = Number(value);
+        this.$element.classList.add("mykl-star");
+        let { min , max, value } = this.$data;
+        min = Number(min) || 0;
+        max = Number(max) || 5;
+        value = Number(value) || 0;
+        this.isRate = getDataset(this.$element, "rate") === 'true';
+
         const starGroupEl = document.createElement('div');
         starGroupEl.classList.add('star-group');
         for (let i = parseInt(min, 10); i < parseInt(max, 10); i++) {
-            // const template = document.createElement('template');
-            // const fragment = new DocumentFragment();
             const div = document.createElement('div');
             div.innerHTML = `
-                ${starValue >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
-                ${starValue >= 0.5 && starValue < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
-                ${starValue < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
+                ${value >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
+                ${value >= 0.5 && value < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
+                ${value < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
             `
             starGroupEl.innerHTML += div.innerHTML;
-            // starGroupEl.appendChild(template.content);
-            // starGroupEl.appendChild(div);
-            starValue -= 1;
+            value -= 1;
         }
-        this.$element.appendChild(starGroupEl);
 
-        if(this.$element.classList.contains('eval')) {
+        this.$element.appendChild(starGroupEl);
+        this.lockedStar = false;
+
+        if(this.isRate) {
             const button = document.createElement('button');
-            button.classList.add("reset-btn");
+            button.classList.add("btn-reset");
             button.textContent = "취소";
             this.$element.appendChild(button);
-        }
-        this.lockedStar = false;
-    }
 
-    setEvents() {
-        this.$element.addEventListener('mousemove', (e) => {
-            if(!this.$element.classList.contains('eval') || this.lockedStar) {
-                return;
-            }
-
-            const { offsetX, target } = e;
-            const index = parseInt(target.dataset.point, 10) - 1;
-            const { width } = target.getClientRects()[0];
-            const isOverHalf = offsetX > width / 2;
-
-            this.renderStar({clientIndex: index,  isOverHalf});
-        })
-
-        this.$element.addEventListener('click', ({target}) => {
+            const input = document.createElement('input');
             this.lockedStar = true;
-
-            if(target.classList.contains("reset-btn")) {
-                this.lockedStar = false;
-            }
-        })
-    }
-
-    renderStar(payload={}) {
-        const { clientIndex = -1, isOverHalf = false } = payload;
-        const regex = /star-fill|star-half|star-empty/g;
-
-        [...this.$element.querySelectorAll('.star-item')].forEach((el, idx) => {
-            el.className = idx < clientIndex ? el.className.replace(regex, 'star-fill') : el.className.replace(regex, 'star-empty')
-
-            if (clientIndex === idx) {
-                el.className = isOverHalf ? el.className.replace(regex, 'star-fill') : el.className.replace(regex, 'star-half')
-            }
-        })
+        }
     }
 
 

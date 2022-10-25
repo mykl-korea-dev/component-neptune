@@ -12,7 +12,7 @@ module.exports = {
     },
     entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded', mykl_ajax: './mykl-ajax'},
     output: {
-        filename: '[name].js',
+        filename: 'js/[name].js',
         assetModuleFilename: 'images/[name][ext]',
         path: path.resolve(__dirname, "dist"),
         publicPath: "./dist",
@@ -22,7 +22,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./index.html"
         }),
-        new MiniCssExtractPlugin({filename: "[name]_style.css"}),
+        new MiniCssExtractPlugin({
+            filename: "css/[name]_style.css"
+        }),
         autoprefixer
     ],
     target: ['web', 'es5'],

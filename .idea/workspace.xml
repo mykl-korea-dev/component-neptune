@@ -9,14 +9,10 @@
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component-set/card/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mykl-ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-ajax.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mykl-default.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl_ui_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mykl_ui_style.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

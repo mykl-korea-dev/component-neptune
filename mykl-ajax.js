@@ -8,39 +8,42 @@ import DropdownAjax from "./ui-component/ajax/dropdownAjax/DropdownAjax.js";
 import ProcessAjax from "./ui-component/ajax/processAjax/ProcessAjax.js";
 import ProgressAjax from "./ui-component/ajax/progressAjax/ProgressAjax.js";
 import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
-
-import "./form-component/ajax/selectAjax/select.css";
+import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js";
 
 let MYKLAjax = {
+    // setComponents
+    SetComponents: getData,
     // form -----------------------------
-    CheckboxAjax: function (url, el) {
-        // getData('http://localhost:3000/checkbox', (data) => new CheckboxAjax(document.querySelector('.form-check-ajax'), data));
-        getData(url, (data) => new CheckboxAjax(el, data))
+    CheckboxAjax: function (el, data) {
+        return new CheckboxAjax(el, data)
     },
-    RadioAjax: function (url, el) {
-        getData(url, (data) => new RadioAjax(el, data))
+    RadioAjax: function (el, data) {
+        return new RadioAjax(el, data)
     },
-    RangeAjax: function (url, el) {
-        getData(url, (data => new RangeAjax(el, data)))
+    RangeAjax: function (el, data) {
+        return new RangeAjax(el, data)
     },
-    SelectAjax: function (url, el) {
-        getData(url, (data) => new SelectAjax(el, data))
+    SelectAjax: function (el, data) {
+        return new SelectAjax(el, data)
     },
     // ui -----------------------------
-    AccordionAjax: function (url, el) {
-        getData(url, (data) => new AccordionAjax(el, data))
+    AccordionAjax: function (el, data) {
+        return new AccordionAjax(el, data)
     },
-    DropdownAjax: function (url, el) {
-        getData(url, (data) => new DropdownAjax(el, data))
+    DropdownAjax: function (el, data) {
+        return new DropdownAjax(el, data)
     },
-    ProcessAjax: function (url, el) {
-        getData(url, (data) => new ProcessAjax(el, data))
+    PaginationAjax: function (el, data) {
+        return new PaginationAjax(el, data)
     },
-    ProgressAjax: function (url, el) {
-        getData(url, (data) => new ProgressAjax(el, data))
+    ProcessAjax: function (el, data) {
+        return new ProcessAjax(el, data)
     },
-    StarAjax: function (url, el) {
-        getData(url, (data) => new StarAjax(el, data))
+    ProgressAjax: function (el, data) {
+        return new ProgressAjax(el, data)
+    },
+    StarAjax: function (el, data) {
+        return new StarAjax(el, data)
     },
     // 삭제 => 예시 사용해보기 위함
     TabAjax: function (url, el) {

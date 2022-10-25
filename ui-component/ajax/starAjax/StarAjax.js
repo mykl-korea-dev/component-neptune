@@ -42,4 +42,3 @@ export default class StarAjax extends Star {
 }
 
 // getData("http://localhost:3000/progress", (data) => new StarAjax(document.querySelector('.star-ajax'), data));
-

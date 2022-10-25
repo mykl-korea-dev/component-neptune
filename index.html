@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./basic/common.css">
-    <link rel="stylesheet" href="./dist/mykl_ajax_style.css">
+<!--    <link rel="stylesheet" href="./dist/mykl_ajax_style.css">-->
     <link rel="stylesheet" href="./dist/mykl_ui_style.css">
 </head>
 <body>
@@ -375,11 +375,11 @@
 <button type="button" class="mykl-btn btn-success" data-href="https://naver.com/" >writetoEnglish</button>
 <button type="button" class="mykl-btn" onclick={window.history.back()}>history.back</button>
 
-<textarea name="name" id="" cols="30" rows="10" placeholder="입력" class="mykl-textarea"></textarea>
-<textarea name="name" id="" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-vertical"></textarea>
-<textarea name="name" id="" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-horizontal"></textarea>
-<textarea name="name" id="" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-auto"></textarea>
-<textarea name="name" id="" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-smart"></textarea>
+<textarea name="name" id="#1" cols="30" rows="10" placeholder="입력" class="mykl-textarea"></textarea>
+<textarea name="name" id="#2" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-vertical"></textarea>
+<textarea name="name" id="#3" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-horizontal"></textarea>
+<textarea name="name" id="#4" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-auto"></textarea>
+<textarea name="name" id="#5" cols="30" rows="10" placeholder="입력" class="mykl-textarea textarea-smart"></textarea>
 
 <div class="mykl-select" style="width:200px;">
     <select>
@@ -399,7 +399,7 @@
     </select>
 </div>
 <div class="form-group">
-    <label for="" class="form-label">Label</label>
+    <label class="form-label">Label</label>
 
     <div class="mykl-select" style="width:200px;">
         <select>
@@ -495,52 +495,68 @@
         <label class="radio-label" for="female">여</label>
     </div>
 </div>
-<!--<div class="star eval">-->
 
-<!--</div>-->
+<div class="form-check-ajax" data-name="check">
+</div>
+<div class="radio-group-ajax form-group" data-name="radio">
+</div>
 
-<!--<div class="form-group">-->
-<!--    <span class="form-label">Label</span>-->
-<!--    <div class="form-radio" id="radio" data-name="name">-->
+<div class="form-range-ajax">
+    <input type="range" class="input-left">
+    <input type="range" class="input-right">
+</div>
 
-<!--    </div>-->
-<!--</div>-->
-<!--<script src="./dist/mykl-ui-components.js"></script>-->
+<div class="form-select" style="width:200px;">
+    <select>
+    </select>
+</div>
+
+<div class="accordion-ajax">
+</div>
+
+<div class="dropdown-ajax">
+
+</div>
+
+<nav>
+    <ul class="pagination-ajax"></ul>
+</nav>
+
+<div class="process-ajax">
+</div>
+
+<div class="progress-ajax">
+    <div class="progress-bar"></div>
+</div>
+
+<div class="star-ajax" data-rate="true">
+
+</div>
+
 <script src="./dist/polyfill.js"></script>
 <script src="./dist/mykl_ui.js"></script>
 <script src="./dist/mykl_expanded.js"></script>
 <script src="./dist/mykl_ajax.js"></script>
 <script>
-    // console.log(MYKL)
-    // MYKL.Tab(document.getElementById('hi'));
-    // MYKL.TabAjax('http://localhost:3000/lorem', document.getElementById('hi'));
-    // MYKL.Tab('http://localhost:3000/lorem', document.querySelector('#hi'));
-    // document.querySelectorAll('.form-range').forEach(el => Mykl.Range(el));
-    // document.querySelectorAll('.star').forEach(el => Mykl.Star(el));
-    // function getData(url, callback) {
-    //     fetch(url)
-    //         .then(data => data.json())
-    //         .then(data => {
-    //             callback(data);
-    //         })
-    //         .catch(err => console.log(err.message))
-    // }
-    //
-    // getData('http://localhost:3000/lorem', (data) => {
-    //     data.map((v, i) => {
-    //         const elId = document.querySelector('#hi');
-    //         const div = document.createElement('div');
-    //         div.classList.add('tab-list');
-    //         div.id = elId.querySelectorAll('.tab-item')[i].getAttribute('href').replace('#','');
-    //         console.log(div.id)
-    //         div.innerHTML = v;
-    //         elId.appendChild(div);
-    //         MYKL.Tab(elId);
-    //
-    //     })
-    // })
-    //
-    // MYKL.RadioAjax('http://localhost:3000/checkbox', document.querySelector('#radio'));
+<!-- form -->
+//     MYKL.CheckboxAjax('http://localhost:3000/checkbox', document.querySelector(".form-check-ajax"));
+//     MYKL.RadioAjax('http://localhost:3000/checkbox', document.querySelector(".radio-group-ajax"));
+//     MYKL.RangeAjax('http://localhost:3000/range', document.querySelector(".form-range-ajax"));
+//     MYKL.SelectAjax('http://localhost:3000/select', document.querySelector(".form-select"));
+//
+// // ui
+//     MYKL.AccordionAjax('http://localhost:3000/accordion', document.querySelector(".accordion-ajax"));
+//     MYKL.DropdownAjax('http://localhost:3000/dropdown', document.querySelector(".dropdown-ajax"));
+//     MYKL.PaginationAjax('http://localhost:3000/pagination', document.querySelector('.pagination-ajax'));
+//     MYKL.ProgressAjax('http://localhost:3000/progress', document.querySelector('.progress-ajax'));
+//     MYKL.StarAjax('http://localhost:3000/progress', document.querySelector('.star-ajax'));
+
+    MYKL.SetComponents('http://localhost:3000/progress', (data) => {
+        MYKL.ProgressAjax(document.querySelector('.progress-ajax'), data);
+        MYKL.StarAjax(document.querySelector('.star-ajax'), data);
+        MYKL.PaginationAjax(document.querySelector('.star-ajax'));
+        MYKL.PaginationAjax(document.querySelector('.star-ajax'));
+    })
 </script>
 </body>
 </html>

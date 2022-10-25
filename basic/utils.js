@@ -1,9 +1,7 @@
 export function getData(url, callback) {
-    fetch(url)
+    return fetch(url)
         .then(data => data.json())
-        .then(data => {
-            callback(data)
-        })
+        .then(data => callback(data))
         .catch(err => console.log(err.message))
 }
 

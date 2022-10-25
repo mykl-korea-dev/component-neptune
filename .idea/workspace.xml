@@ -9,17 +9,14 @@
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/basic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/checkbox/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/checkbox/checkbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/checkbox/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/checkbox/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/input/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/input/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/radio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/radio/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-component/radio/radio.css" beforeDir="false" afterPath="$PROJECT_DIR$/form-component/radio/radio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/card/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component-set/card/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/component-set/card/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mykl-ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mykl-default.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-default.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mykl-expanded.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-expanded.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-component/dropdown/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/dropdown/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui-component/ajax/starAjax/StarAjax.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,7 +41,6 @@
     <setting file="file://$PROJECT_DIR$/component-set/card/card.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/rangeAjax/RangeAjax.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/form-component/ajax/selectAjax/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/calendar/calendar.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/form-group/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/form-component/range/Range.js" root0="FORCE_HIGHLIGHTING" />

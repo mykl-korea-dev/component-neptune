@@ -1,11 +1,15 @@
 import Component from "../../../basic/Component.js";
-import {getData} from "../../../basic/utils.js";
+import {getData, getDataset} from "../../../basic/utils.js";
 
 export default class CheckboxAjax extends Component{
     setTemplate() {
+        const name = getDataset(this.$element, "name");
+
         return this.$data.map(data => `
-            <input class="form-check-input" type="checkbox" id=${data.id} value=${data.id}>
-            <label class="form-check-label" for="${data.id}">${data.value}</label>
+            <div class="mykl-check">
+                <input class="check-input" type="checkbox" id="check-${data.id}" ${name ? "name=" + name : ''} value="${data.id}">
+                <label class="check-label" for="check-${data.id}">${data.value}</label>
+            </div>
         `).join('');
     }
 

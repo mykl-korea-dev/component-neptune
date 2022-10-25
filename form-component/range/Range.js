@@ -1,14 +1,9 @@
 import Component from "../../basic/Component.js";
+import {getDataset} from "../../basic/utils.js";
 
 export default class Range extends Component {
     setElements() {
-        // const {min: strMin, max: strMax, minValue: strMinVal, maxValue: strMaxVal, step: strStep} = this.$element.dataset;
-        // let [min, max, minValue, maxValue, step] = [strMin, strMax, strMinVal, strMaxVal, strStep].map(val => Number(val));
-        // for (let i in [min, max, minValue, maxValue, step]) {
-        //     return `str${i}` = this.getDataset(this.$element, i);
-        //
-        // }
-        let [min, max, minValue, maxValue, step] = ["min", "max", "minValue", "maxValue", "step"].map(val => Number(this.getDataset(this.$element, val)));
+        let [min, max, minValue, maxValue, step] = ["min", "max", "minValue", "maxValue", "step"].map(val => Number(getDataset(this.$element, val)));
 
         console.log(min, max, minValue, maxValue, step);
         this.$element.innerHTML = `
@@ -117,11 +112,10 @@ export default class Range extends Component {
 
     findClosestRange(e) {
         const { width } = this.$element.getBoundingClientRect();
-        const slider = this.$element.querySelector('.slider');
         const inputLeft = this.$element.querySelector('.input-left');
         const inputRight = this.$element.querySelector('.input-right');
 
-        const max = this.getDataset(this.$element, 'max');
+        const max = getDataset(this.$element, 'max');
         const bounds = e.target.getBoundingClientRect();
         const x = e.clientX - bounds.left;
         const minValue = inputLeft.value;
@@ -140,23 +134,6 @@ export default class Range extends Component {
         }
     }
 
-    getDataset(element, name) {
-        if(element.dataset) {
-            return element.dataset[name] || '';
-        } else if(element.getAttribute) {
-            return element.getAttribute(`data-${this.spinalCase(name)}`) || '';
-        }
-    }
-
-    spinalCase(str) {
-        // Create a variable for the white space and underscores.
-        const regex = /\s+|_+/g;
-
-        // Replace low-upper case to low-space-uppercase
-        str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
-        // Replace space and underscore with -
-        return str.replace(regex, "-").toLowerCase();
-    }
 }
 
 // document.querySelectorAll('.mykl-range').forEach(el => new Range(el));

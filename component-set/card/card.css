@@ -10,6 +10,14 @@
     position: relative;
 }
 
+.card-center {
+    text-align: center;
+}
+
+.card-center .card-header {
+    text-align: initial;
+}
+
 .card > * {
     padding: 10px;
     border-bottom: 1px solid #343434;

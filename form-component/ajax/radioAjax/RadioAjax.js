@@ -1,13 +1,14 @@
 import Component from "../../../basic/Component.js";
-import {getData} from "../../../basic/utils.js";
+import {getData, getDataset} from "../../../basic/utils.js";
 
 export default class RadioAjax extends Component{
     setTemplate() {
-        const { name } = this.$element.dataset;
+        const name = getDataset(this.$element, "name");
+
         return this.$data.map(data => `
-            <div class="form-radio">
-                <input class="form-radio-input" type="radio" ${name ? "name=" + name : ''} id=${data.id} value=${data.id}>
-                <label class="form-radio-label" for="${data.id}">${data.value}</label>
+            <div class="mykl-radio">
+                <input class="radio-input" type="radio" ${name ? "name=" + name : ''} id="radio-${data.id}" value="${data.id}">
+                <label class="radio-label" for="radio-${data.id}">${data.value}</label>
             </div>
         `).join('');
     }

@@ -67,13 +67,10 @@
     "value": 4
   },
   "pagination": {
-    "totalCount": 10,
-    "start": 1,
-    "end": 9,
-    "prev": false,
-    "next": true,
-    "displayPageNum": 10,
-    "currentPage": 1
+    "currentPage": 2,
+    "totalCount": 113,
+    "pageCount": 5,
+    "limit": 5
   },
   "dropdown": {
     "title": "정보검색",

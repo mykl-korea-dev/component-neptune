@@ -1,7 +1,8 @@
 import Component from "../../../basic/Component.js";
 import {getData} from "../../../basic/utils.js";
+import Dropdown from "../../dropdown/Dropdown.js";
 
-export default class DropdownAjax extends Component {
+export default class DropdownAjax extends Dropdown {
     setTemplate() {
         const { title, titleUrl, items } = this.$data;
         return `
@@ -18,18 +19,6 @@ export default class DropdownAjax extends Component {
 
     render() {
         this.$element.innerHTML = this.setTemplate();
-    }
-
-    setEvents() {
-        this.$element.querySelector('.dropdown-toggle')?.addEventListener('mouseover', ({target}) => {
-            this.$element.querySelector('.dropdown-menu').style.opacity = '1';
-            this.$element.querySelector('.dropdown-menu').style.visibility = 'visible';
-        })
-
-        this.$element.addEventListener('mouseleave', () => {
-            this.$element.querySelector('.dropdown-menu').style.opacity = '0';
-            setTimeout(() => this.$element.querySelector('.dropdown-menu').style.visibility = 'hidden', 500);
-        })
     }
 }
 

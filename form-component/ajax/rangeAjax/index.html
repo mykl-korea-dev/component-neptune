@@ -9,11 +9,21 @@
 <body>
 <div>
   <span class="form-label">예상 투자 비용 범위</span>
+  <div class="mykl-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">
+    <input class="input-left" name="range">
+    <input class="input-right" name="range">
+  </div>
   <div class="form-range-ajax">
     <input type="range" class="input-left">
     <input type="range" class="input-right">
   </div>
+
+  <div class="mykl-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">
+    <input class="input-left" name="range">
+    <input class="input-right" name="range">
+  </div>
 </div>
+<script src="../../../dist/mykl_ui.js "></script>
 <script src="./RangeAjax.js" type="module"></script>
 </body>
 </html>

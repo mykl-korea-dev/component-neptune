@@ -127,3 +127,4 @@ document.querySelectorAll('.process').forEach(el => MYKL.Process(el));
 document.querySelectorAll('.mykl-progress').forEach(el => MYKL.Progress(el));
 document.querySelectorAll('.mykl-star').forEach(el => MYKL.Star(el));
 document.querySelectorAll('.mykl-tab').forEach(el => MYKL.Tab(el));
+document.querySelectorAll('.mykl-tag').forEach(el => MYKL.Tag(el));

@@ -1,0 +1,31 @@
+.flex-wrapper {
+    display: flex;
+}
+
+.mykl-media {
+    display: flex;
+    /*flex: 1;*/
+    /*max-width: 200px;*/
+}
+
+.media-column {
+    flex-direction: column;
+}
+
+.media-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.media-reverse {
+    flex-direction: row-reverse;
+}
+
+.media-column.media-reverse {
+    flex-direction: column-reverse;
+}
+
+.media-last {
+    margin-top: auto;
+}

@@ -1,17 +1,20 @@
 import Component from "../../../basic/Component.js";
-// import { closeAllSelect } from "../../../basic/utils.js";
+import Select from "../../select/Select.js";
+import {getData} from "../../../basic/utils.js";
 
 
-export default class SelectAjax extends Component{
+export default class SelectAjax extends Select {
     setElements() {
+        this.$element.classList.add("mykl-select");
         this.select = this.$element.querySelector('select');
+        const className = this.select.className;
+
         console.log(this.select, this.$data);
         this.select.innerHTML = `${this.$data.map(el => `<option value="${el.id}">${el.text || el.value}</option>`).join('')}`;
         this.options = Array.from(this.$element.querySelectorAll('option'));
-        let template = document.createElement('template');
-        let fragment = new DocumentFragment();
-        template.innerHTML = `
-            <div class="select-group">
+        const div = document.createElement('div');
+        className && div.classList.add(className);
+        div.innerHTML = `
                 <div class="select-selected">
                     ${this.select?.options[this.select.selectedIndex].textContent}
                 </div>
@@ -20,35 +23,12 @@ export default class SelectAjax extends Component{
                 </div>
             </div>
             `
-        fragment.appendChild(template.content);
+        this.$element.innerHTML += div.innerHTML;
 
-        this.$element.appendChild(fragment);
-    }
-
-    setEvents() {
-        const selectedDiv = this.$element.querySelector('.select-selected');
-        const selectDiv = this.$element.querySelector('.select-items');
-
-        // document.addEventListener('click', (e) => closeAllSelect(e.target))
-
-        selectedDiv?.addEventListener('click', function () {
-            selectDiv?.classList.toggle('select-hide');
-            selectedDiv?.classList.toggle('select-arrow-active');
-        })
-
-        selectDiv?.addEventListener('click', (e) => {
-            this.$element.querySelector('.same-as-selected')?.removeAttribute('class');
-            const target = e.target;
-            for (let i = 0; i < this.options.length; i++) {
-                if(this.select?.options[i].innerHTML === target?.textContent) {
-                    this.select.selectedIndex = i;
-                    selectedDiv.textContent = target.textContent;
-                    target.classList.add('same-as-selected');
-                    selectDiv?.classList.toggle('select-hide');
-                    selectedDiv?.classList.toggle('select-arrow-active');
-                    break;
-                }
-            }
-        })
     }
 }
+
+// getData('http://localhost:3000/select', (data) => {
+//     new SelectAjax(document.querySelector('.form-select'), data)
+// })
+

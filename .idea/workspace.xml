@@ -9,10 +9,10 @@
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEMP/evaluationState/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/mykl_ui_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/mykl_ui_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/mykl_ui_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/mykl_ui_style.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extended-component/ability/poolLists/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/extended-component/ability/poolLists/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mykl-expanded.js" beforeDir="false" afterPath="$PROJECT_DIR$/mykl-expanded.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +185,7 @@
       <workItem from="1665709000230" duration="20000" />
       <workItem from="1665709060963" duration="72076000" />
       <workItem from="1666227647858" duration="29865000" />
+      <workItem from="1666837816125" duration="5991000" />
     </task>
     <servers />
   </component>

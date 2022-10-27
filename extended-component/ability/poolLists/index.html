@@ -5,8 +5,8 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <link rel="stylesheet" href="../../../basic/common.css">
-    <link rel="stylesheet" href="../../../dist/mykl_ui_style.css">
+<!--    <link rel="stylesheet" href="../../../basic/common.css">-->
+<!--    <link rel="stylesheet" href="../../../dist/mykl_ui_style.css">-->
     <style>
     </style>
 </head>
@@ -98,10 +98,10 @@
 
 
   </div>
-  <script src="../../../dist/mykl_ui.js"></script>
+<!--  <script src="../../../dist/mykl_ui.js"></script>-->
   <script>
       // Mykl.Tab();
-      document.querySelectorAll('.tabs').forEach(el => MYKL.Tab(el));
+      // document.querySelectorAll('.tabs').forEach(el => MYKL.Tab(el));
       const canvas = document.querySelector('#myChart');
       const ctx = canvas.getContext('2d');
 
@@ -144,6 +144,68 @@
           }
       }
       const myChart = new Chart(ctx, config);
+
+  </script>
+  <script>
+      class Init {
+          constructor() {
+              this.initData = {};
+              const url = "https://6f07b93d-8541-4869-91c1-b98e18900991.mock.pstmn.io/ability/duty";
+              const regex = "https://6f07b93d-8541-4869-91c1-b98e18900991.mock.pstmn.io";
+              const splitUrl = url.split(regex);
+
+              splitUrl[0] = regex;
+              splitUrl[1] = "/api" + splitUrl[1] + "/exts";
+              this.initUrl = splitUrl[1];
+              this.getInitData();
+              // this.getInitObj(this.initUrl);
+          }
+
+          async getInitObj(url) {
+              const regex = "https://6f07b93d-8541-4869-91c1-b98e18900991.mock.pstmn.io";
+              const fetchUrl = regex + url;
+
+              const res = await fetch(fetchUrl);
+              const data = await res.json();
+              console.log('url::::::', url);
+              for (const item in data) {
+                  // console.log(key)
+                  if(/^[ext_]/gm.test(item)) {
+                      const getKey = this.changeUnderBarToUrl(data[item]);
+                      // console.log(item, getKey)
+                      this.initData[getKey] = await this.getInitObj(data[item]);
+                      // console.log(this.initData)
+                  } else {
+                      return data;
+                  }
+              }
+
+          }
+
+          changeUnderBarToUrl(url) {
+              const splitUrl = url.split("/").join("_");
+              const resultUrl = /^_/gm.test(splitUrl) ? splitUrl.slice(1) : splitUrl;
+              return resultUrl;
+          }
+
+          async getInitData() {
+              await this.getInitObj(this.initUrl);
+              console.log(this.initData);
+              return this.initData;
+          }
+      }
+      // const newItem = new Init();
+      // newItem.getInitData().then(data => console.log(data));
+      (async () => {
+          const initPage = await new Init().getInitData();
+          console.log(initPage);
+          // return initPage;
+      })();
+      // const initPage = async function () {
+      //     // await new Init();
+      // };
+      // const a = initPage();
+      // console.log(a.initData)
 
   </script>
 </body>

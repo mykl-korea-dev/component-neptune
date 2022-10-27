@@ -15,5 +15,16 @@
 
 ### 사용방법
 1. 각 프로젝트에 해당하는 브랜치 선택
-2. dist 폴더의 mykl_\[name\].js, mykl_\[name\]_style.css 다운
-3. 컴포넌트 문서와 사용가이드를 따라 컴포넌트 작성
+2. dist 폴더 내의 css, js, images 다운
+3. html 문서에 css, js 추가하는 코드 추가
+   - 예시
+       ```html
+       <!-- head 태그 내부 -->
+       <link rel="stylesheet" href="~css경로/mykl_ui_style.css" >
+   
+       <!-- body 종료 태그 앞 -->
+       ...
+      <script src="~js경로/mykl_default.js"></script>
+      </body>
+       ```
+4. 컴포넌트 문서와 사용가이드를 따라 컴포넌트 작성

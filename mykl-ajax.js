@@ -9,49 +9,45 @@ import ProcessAjax from "./ui-component/ajax/processAjax/ProcessAjax.js";
 import ProgressAjax from "./ui-component/ajax/progressAjax/ProgressAjax.js";
 import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
 import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js";
+import TabAjax from "./ui-component/ajax/tabAjax/TabAjax.js";
 
 let MYKLAjax = {
     // setComponents
     SetComponents: getData,
     // form -----------------------------
-    CheckboxAjax: function (el, data) {
-        return new CheckboxAjax(el, data)
+    CheckboxAjax: function (selector, data) {
+        return new CheckboxAjax(document.querySelector(selector), data)
     },
-    RadioAjax: function (el, data) {
-        return new RadioAjax(el, data)
+    RadioAjax: function (selector, data) {
+        return new RadioAjax(document.querySelector(selector), data)
     },
-    RangeAjax: function (el, data) {
-        return new RangeAjax(el, data)
+    RangeAjax: function (selector, data) {
+        return new RangeAjax(document.querySelector(selector), data)
     },
-    SelectAjax: function (el, data) {
-        return new SelectAjax(el, data)
+    SelectAjax: function (selector, data) {
+        return new SelectAjax(document.querySelector(selector), data)
     },
     // ui -----------------------------
-    AccordionAjax: function (el, data) {
-        return new AccordionAjax(el, data)
+    AccordionAjax: function (selector, data) {
+        return new AccordionAjax(document.querySelector(selector), data)
     },
-    DropdownAjax: function (el, data) {
-        return new DropdownAjax(el, data)
+    DropdownAjax: function (selector, data) {
+        return new DropdownAjax(document.querySelector(selector), data)
     },
-    PaginationAjax: function (el, data) {
-        return new PaginationAjax(el, data)
+    PaginationAjax: function (selector, data) {
+        return new PaginationAjax(document.querySelector(selector), data)
     },
-    ProcessAjax: function (el, data) {
-        return new ProcessAjax(el, data)
+    ProcessAjax: function (selector, data) {
+        return new ProcessAjax(document.querySelector(selector), data)
     },
-    ProgressAjax: function (el, data) {
-        return new ProgressAjax(el, data)
+    ProgressAjax: function (selector, data) {
+        return new ProgressAjax(document.querySelector(selector), data)
     },
-    StarAjax: function (el, data) {
-        return new StarAjax(el, data)
+    StarAjax: function (selector, data) {
+        return new StarAjax(document.querySelector(selector), data)
     },
-    // 삭제 => 예시 사용해보기 위함
-    TabAjax: function (url, el) {
-        // console.log(el);
-        getData(url, (data) => el.querySelectorAll('.tab-list').forEach((node, i) => {
-            // console.log(node, data[i])
-            node.innerHTML = data[i]
-        }));
+    TabAjax: function (selector, data) {
+        return new TabAjax(document.querySelector(selector), data)
     }
 }
 

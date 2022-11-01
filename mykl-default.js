@@ -48,6 +48,9 @@ import './ui-component/tooltip/tooltip.css';
 
 import ContextMessage from "./component-set/message/ContextMessage.js";
 import './component-set/message/message.css';
+import './component-set/card/card.css';
+
+import "./polyfill.js";
 
 const MYKLBasic = {
     // form -----------------------------------------------------

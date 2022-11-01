@@ -10,7 +10,7 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: "./mykl-default", mykl_expanded: './mykl-expanded', mykl_ajax: './mykl-ajax'},
+    entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: [ "./mykl-default", "./mykl-ajax"], mykl_expanded: './mykl-expanded' },
     output: {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[name][ext]',
@@ -20,6 +20,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            // template: "./index.html"
             template: "./index.html"
         }),
         new MiniCssExtractPlugin({

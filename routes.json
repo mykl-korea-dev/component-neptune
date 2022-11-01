@@ -1,12 +1,6 @@
 {
-  "/api/ability/duty/exts": {
-      "ext_api_ability_duty": [
-          "/api/ability/duty"
-      ]
-  },
-  "/api/ability/duty": {
-    "ability_sn": 1,
-    "ability_name": "역량명",
-    "ability_content": "역량소개"
-  }
+    "/api/ability/duty/exts": "/exts",
+    "/api/ability/duty": "/api_ability_duty",
+    "/api/ability/common": "/api_ability_common",
+    "/api/ability/common/rs": "/api_ability_common_rs"
 }

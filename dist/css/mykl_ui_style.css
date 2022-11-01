@@ -1540,5 +1540,55 @@ figcaption {
 }
 
 /*.message {}*/
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.card {
+    width: 40%;
+    border: 1px solid #343434;
+    border-radius: 20px;
+    /*overflow: hidden;*/
+    position: relative;
+}
+
+.card-center {
+    text-align: center;
+}
+
+.card-center .card-header {
+    text-align: left;
+    text-align: initial;
+}
+
+.card > * {
+    padding: 10px;
+    border-bottom: 1px solid #343434;
+}
+
+.card > *:last-child {
+    border-bottom: none;
+}
+
+.card-header {
+    background: #bdbdbd;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-style-A .card-header {
+    position: absolute;
+    background: #fff;
+    border: none;
+    left: 20px;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+/*.card-body {*/
+/*    border-top: 1px solid #bdbdbd;*/
+/*}*/
 
 /*# sourceMappingURL=mykl_ui_style.css.map*/

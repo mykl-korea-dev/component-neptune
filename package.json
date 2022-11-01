@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "data": "json-server data.json --port 3000",
+    "data": "json-server data.json --port 3000 --routes routes.json",
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server"
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "chart.js": "^3.9.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "whatwg-fetch": "^3.6.2"
   },

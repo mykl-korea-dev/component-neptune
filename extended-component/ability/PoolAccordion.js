@@ -1,6 +1,6 @@
 // import { store } from "../index.js";
 // import Component from "../../../basic/Component.js";
-import Accordion from "../../../ui-component/accordion/Accordion.js";
+import Accordion from "../../ui-component/accordion/Accordion.js";
 
 export default class PoolAccordion extends Accordion {
     setTemplate() {

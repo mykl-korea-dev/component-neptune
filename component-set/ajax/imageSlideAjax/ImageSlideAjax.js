@@ -66,4 +66,4 @@ export default class ImageSlideAjax extends Component {
 
 }
 
-getData("http://localhost:3000/imageSlide", (data) =>  new ImageSlideAjax(document.querySelector('.image-slide-ajax'), {data, type: 'type2'}));
+// getData("http://localhost:3000/imageSlide", (data) =>  new ImageSlideAjax(document.querySelector('.image-slide-ajax'), {data, type: 'type2'}));

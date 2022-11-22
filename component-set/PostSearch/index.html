@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../form-component/select/select.css">
+    <link rel="stylesheet" href="../../form-component/calendar/calendar.css">
+
+</head>
+<body>
+    <div class="mykl-postSearch" data-startDate="start-date" data-endDate="start-end">
+        <div class="mykl-select">
+            <select name="post">
+                <option value="0">123</option>
+                <option value="1">123</option>
+                <option value="2">123</option>
+                <option value="3">123</option>
+            </select>
+        </div>
+        <div id="mykl-postSearch-range">
+            <select name="post2">
+<!--                <option value="post_id">post_name</option>-->
+<!--                <option value="post_id">post_name</option>-->
+<!--                <option value="post_id">post_name</option>-->
+<!--                <option value="post_id">post_name</option>-->
+            </select>
+        </div>
+        <input type="text" name="value">
+    </div>
+    <script type="module">
+        import SelectAjax from "../../form-component/ajax/selectAjax/SelectAjax.js";
+
+        document.querySelectorAll('.mykl-select').forEach(el => new Select(el));
+
+        import Select from "../../form-component/select/Select.js";
+        import PostSearch from "./PostSearch.js";
+        import {getData} from "../../basic/utils.js";
+        getData('http://localhost:3000/select', (data) => new SelectAjax(document.querySelector('#mykl-postSearch-range'), data))
+        new PostSearch(document.querySelector('.mykl-postSearch'));
+        // new Select(document.querySelector('#mykl-postSearch-range'));
+
+    </script>
+</body>
+</html>

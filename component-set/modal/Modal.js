@@ -26,4 +26,4 @@ export default class Modal extends Component {
     }
 }
 
-new Modal(document.querySelector('.modal'));
+// new Modal(document.querySelector('.modal'));

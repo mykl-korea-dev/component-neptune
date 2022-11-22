@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Media</title>
-    <link rel="stylesheet" href="./meida.css">
+    <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="../../basic/common.css">
+<!--    <link rel="stylesheet" href="../../dist/css/mykl_ui_style.css"/>-->
+    <link rel="stylesheet" href="../../ui-component/tooltip/tooltip.css">
+
 </head>
 <body>
-    <div class="flex-wrapper">
-        <div class="mykl-media media-column">
-            <div class="media-image">
+    <div class="mykl-media media-vertical">
+        <div class="media-cover">
+            <img src="https://via.placeholder.com/200" alt="">
+            <div class="mykl-tooltip">
+                <span class="tooltip-icon"><img src="../../images/tool_tip_icon1.png"></span>
+                <div class="tooltip-content ">이것은 툴팁입니다.</div>
+            </div>
+            <span class="media-cover-text">기반역량</span>
+        </div>
+        <button class="mykl-btn btn-primary btn-full">진단하기</button>
+    </div>
+    <div class="mykl-media">
+        <div class="media-cover">
+            <img src="https://via.placeholder.com/200" alt="">
+        </div>
+        <div class="media-body">
+            <div>
+                <p class="title">${data.organization_name}</p>
+                <p>${data.department_name}</p>
+            </div>
+            <div class="temp-cover">
+                <div class="temp">
+                    <a href="">${data.department_url}</a>
+                    <span>${data.department_tel}</span>
+                    <span>${data.department_address}</span>
+                </div>
+
+                <div class="temp">
+                    <span>${data.operation_name}</span>
+                    <span>${data.providers_name}</span>
+                    <span>${data.timedivision_name}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mykl-media">
+        <div class="media-cover">
+            <img src="https://via.placeholder.com/200" alt="">
+            <div class="mykl-tooltip">
+                <span class="tooltip-icon"><img src="../../images/tool_tip_icon1.png"></span>
+                <div class="tooltip-content ">이것은 툴팁입니다.</div>
+            </div>
+            <span class="media-cover-text">기반역량</span>
+        </div>
+        <button class="mykl-btn btn-primary btn-full">진단하기</button>
+    </div>
+    <div class="mykl-group group-horizontal">
+        <div class="mykl-media media-vertical">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <h5>한식조리기능사취득과정(실기)</h5>
@@ -17,8 +66,8 @@
             <span>울산광역시 북구 송정11길 14</span>
             <span class="media-last">한식 조리</span>
         </div>
-        <div class="mykl-media media-column">
-            <div class="media-image">
+        <div class="mykl-media media-vertical">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <h5>요양보호사 국가자격취득과정(주간반, 야간반)</h5>
@@ -26,8 +75,8 @@
             <span>울산광역시 남구 중앙로 송정11길 14</span>
             <span class="media-last">요양지</span>
         </div>
-        <div class="mykl-media media-column">
-            <div class="media-image">
+        <div class="mykl-media media-vertical">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <h5>한식조리기능사취득과정(실기)</h5>
@@ -36,8 +85,8 @@
             <span class="media-last">한식 조리</span>
         </div>
 
-        <div class="mykl-media media-column">
-            <div class="media-image">
+        <div class="mykl-media media-vertical">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <div><span>간호학과</span><span><a href="#">학과정보</a></span></div>
@@ -48,8 +97,8 @@
             </ul>
         </div>
 
-        <div class="mykl-media media-column">
-            <div class="media-image">
+        <div class="mykl-media media-vertical">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <span>용접기능장</span>
@@ -57,8 +106,8 @@
             <span><a href="#">시행기관 자격정보</a></span>
         </div>
 
-        <div class="mykl-media media-column">
-            <div class="media-image">
+        <div class="mykl-media media-vertical">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <span>공직개발원조사업관리</span>
@@ -72,7 +121,7 @@
 
     <div class="mykl-card">
         <div class="mykl-media">
-            <div class="media-image">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
             <div>
@@ -95,7 +144,7 @@
                     <input type="text">
                 </div>
             </div>
-            <div class="media-image">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
         </div>
@@ -103,7 +152,7 @@
     </div>
     <div class="mykl-card">
         <div class="mykl-media media-reverse">
-            <div class="media-image">
+            <div class="media-cover">
                 <img src="https://via.placeholder.com/200" alt="">
             </div>
 

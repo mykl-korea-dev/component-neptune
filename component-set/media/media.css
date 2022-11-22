@@ -1,0 +1,44 @@
+.group-horizontal .mykl-media {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.mykl-media > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.media-vertical {
+    max-width: 215px;
+}
+
+.media-vertical > * {
+    margin: 14px 0 0 0;
+    display: block;
+}
+
+.media-cover {
+    position: relative;
+    text-align: center;
+}
+
+.media-cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.flex-wrapper {
+    display: flex;
+}
+
+.media-cover .mykl-tooltip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+}

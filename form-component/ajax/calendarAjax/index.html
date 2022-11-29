@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../calendar/calendar.css">
+</head>
+<body>
+<div id="form">
+    <div id="calendar">
+        <input type="date" name="calendar" class="calendar-input">
+    </div>
+    <button type="button" class="form-submit-btn">제출</button>
+</div>
+<script type="module">
+  import CalendarAjax from "./CalendarAjax.js";
+  import {getData} from "../../../basic/utils.js";
+  import FormAjax from "../formAjax.js";
+  console.log(document.querySelector("#calendar"));
+  getData('http://localhost:8080/calendar', (date) => {
+      new CalendarAjax(document.querySelector("#calendar"), {date: date["date"]});
+  })
+
+  new FormAjax(document.querySelector('#form'), {url: 'http://localhost:8080/calendar'})
+</script>
+</body>
+</html>

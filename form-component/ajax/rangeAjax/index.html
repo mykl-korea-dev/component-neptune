@@ -3,27 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>Range</title>
+  <link rel="stylesheet" href="../../../basic/common.css">
   <link rel="stylesheet" href="../../range/range.css">
-
 </head>
 <body>
 <div>
   <span class="form-label">예상 투자 비용 범위</span>
-  <div class="mykl-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">
-    <input class="input-left" name="range">
-    <input class="input-right" name="range">
-  </div>
-  <div class="form-range-ajax">
-    <input type="range" class="input-left">
-    <input type="range" class="input-right">
+<!--  <div data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">-->
+<!--    <input class="input-left" name="range">-->
+<!--    <input class="input-right" name="range">-->
+<!--  </div>-->
+  <div id="form">
+    <div class="form-range-ajax">
+      <input type="range" class="input-left" name="min" min="min" max="max" step="step" value="minValue">
+      <input type="range" class="input-right" name="max" value="maxValue">
+    </div>
+    <button class="form-submit-btn">
+      제출
+    </button>
   </div>
 
-  <div class="mykl-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">
-    <input class="input-left" name="range">
-    <input class="input-right" name="range">
-  </div>
+<!--  <div data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">-->
+<!--    <input class="input-left" name="range">-->
+<!--    <input class="input-right" name="range">-->
+<!--  </div>-->
 </div>
-<script src="../../../dist/mykl_ui.js "></script>
-<script src="./RangeAjax.js" type="module"></script>
+<!--<script src="../../../dist/mykl_ui.js "></script>-->
+<script type="module">
+  import {getData} from "../../../basic/utils.js";
+  import RangeAjax from "./RangeAjax.js";
+  import FormAjax from "../formAjax.js";
+
+  // getData('http://localhost:3000/range', (data) =>
+  //     new RangeAjax(document.querySelector('.form-range-ajax'), data));
+
+  getData('http://localhost:8080/range', (data) => {
+    console.log(data);
+    new RangeAjax(document.querySelector('.form-range-ajax'), data)
+  });
+
+  new FormAjax(document.querySelector('#form'), {url: "http://localhost:8080/range"});
+
+</script>
 </body>
 </html>

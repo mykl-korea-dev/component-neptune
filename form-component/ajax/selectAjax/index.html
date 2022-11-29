@@ -11,43 +11,57 @@
 
 <body>
 
-<h2>Custom Select</h2>
+<!-- { id: value , id: value,  id: value }-->
+<div id="form">
+    <div id="select1">
+        <select name="select1">
+            <option value="">선택하세요</option>
+        </select>
+    </div>
 
-<!--surround the selectAjax box with a "custom-selectAjax" DIV element. Remember to set the width:-->
-<div class="form-select" style="width:200px;">
-    <select>
-<!--        <option value="0">Select car:</option>-->
-<!--        <option value="1">Audi</option>-->
-<!--        <option value="2">BMW</option>-->
-<!--        <option value="3">Citroen</option>-->
-<!--        <option value="4">Ford</option>-->
-<!--        <option value="5">Honda</option>-->
-<!--        <option value="6">Jaguar</option>-->
-<!--        <option value="7">Land Rover</option>-->
-<!--        <option value="8">Mercedes</option>-->
-<!--        <option value="9">Mini</option>-->
-<!--        <option value="10">Nissan</option>-->
-<!--        <option value="11">Toyota</option>-->
-<!--        <option value="12">Volvo</option>-->
-    </select>
+    <div id="select2">
+        <select name="select2">
+            <option value=""></option>
+        </select>
+    </div>
+
+    <!-- [{ id: 0, value: 123, checked: true }, { id: 2, value: 4, checked: true }] -->
+    <div id="select5">
+        <select name="select5">
+            <option value="">선택하세요</option>
+            <option value="id" selected="selected__true">value</option>
+        </select>
+    </div>
+
+    <div id="select6">
+        <select name="select6">
+            <option value="id" selected="selected__true">value</option>
+        </select>
+    </div>
+    <button type="button" class="form-submit-btn">제출</button>
 </div>
 
-<!--<div class="form-select" style="width:200px;">-->
-<!--    <select>-->
-<!--&lt;!&ndash;        <option value="0">Select car:</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="1">Audi</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="2">BMW</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="3">Citroen</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="4">Ford</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="5">Honda</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="6">Jaguar</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="7">Land Rover</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="8">Mercedes</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="9">Mini</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="10">Nissan</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="11">Toyota</option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <option value="12">Volvo</option>&ndash;&gt;-->
-<!--    </select>-->
-<!--</div>-->
+<script type="module">
+    import SelectAjax from './SelectAjax.js';
+    import {getData} from "../../../basic/utils.js";
+    import FormAjax from "../formAjax.js";
+    getData('http://localhost:8080/select', (data) => {
+        new SelectAjax(document.querySelector('#select1'), data)
+    })
+
+    getData('http://localhost:8080/select', (data) => {
+        new SelectAjax(document.querySelector('#select2'), data)
+    })
+
+    getData('http://localhost:8080/selectList2', (data) => {
+        new SelectAjax(document.querySelector('#select5'), data)
+    })
+
+    getData('http://localhost:8080/selectList2', (data) => {
+        new SelectAjax(document.querySelector('#select6'), data)
+    })
+
+    new FormAjax(document.querySelector('#form'), {url: 'http://localhost:8080/select'});
+</script>
 </body>
 </html>

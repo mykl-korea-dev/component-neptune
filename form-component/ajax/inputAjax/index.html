@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Ajax</title>
+</head>
+<body>
+<!-- post -->
+    <div id="inputWrapper">
+        <input type="text" id="inputPost" name="input" value="">
+        <button type="button" class="form-submit-btn">버튼</button>
+    </div>
+  <input type="text" id="inputGet" name="input" value="">
+  <input type="text" id="inputGet2" name="" value="">
+  <input type="text" id="inputUpdate" name="input" value="">
+  <input type="text" id="inputDelete" name="input" value="">
+  <script type="module">
+    // import FormAjax from "./formAjax.js";
+    //
+    // new FormAjax()
+    import {getData} from "../../../basic/utils.js";
+    import InputAjax from "./InputAjax.js";
+    import FormAjax from "../formAjax.js";
+    // document.querySelector('#submit').addEventListener('click', () => {
+    //     fetch('http://localhost:8080/input', {
+    //         method: 'POST',
+    //         headers: {"content-type": "application/json;charset=utf-8"},
+    //         body: JSON.stringify({[document.querySelector('#inputPost').name] : document.querySelector('#inputPost').value})
+    //     }).then(res => res.text()).then(data => {
+    //         const a = JSON.parse(data);
+    //         console.log(data, typeof a, a);
+    //     })
+    // })
+
+    new FormAjax(document.querySelector('#inputWrapper'), { url: "http://localhost:8080/input"})
+
+            // new FormAjax("http://localhost:8080/input", ())
+    getData('http://localhost:8080/input', (data) => {
+        new InputAjax(document.querySelector('#inputPost'), data);
+        // document.querySelector('#inputGet').value = document.querySelector('#inputGet').getAttribute('value') ? document.querySelector('#inputGet').getAttribute('value') : data[document.querySelector('#inputGet').getAttribute('name')];
+        // console.log(data);
+    })
+
+    getData('http://localhost:8080/input', (data) => {
+        new InputAjax(document.querySelector('#inputGet2'), data);
+        // document.querySelector('#inputGet2').value = data[document.querySelector('#inputGet2').getAttribute('value')];
+        console.log(data);
+    })
+  </script>
+</body>
+</html>

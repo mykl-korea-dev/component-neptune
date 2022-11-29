@@ -3,38 +3,41 @@ import {getDataset} from "../../basic/utils.js";
 
 export default class Time extends Component {
     setElements() {
-        let div = document.createElement('div');
-        div.classList.add('time-container');
-        const step = getDataset(this.$element, 'step');
         [this.currentHour, this.currentMin] = [new Date().getHours(), new Date().getMinutes()];
-        const {closeHour, closeMinute} = this.getCloseTime(this.currentHour, this.currentMin);
+        const div = document.createElement('div');
+        div.classList.add('time-container');
+        this.$element.appendChild(div);
+    }
 
-        div.innerHTML = `
+    setTemplate() {
+        const {closeHour, closeMinute} = this.getCloseTime(this.currentHour, this.currentMin);
+        const step = getDataset(this.$element, 'step');
+        this.$element.querySelector('input').value = `${this.setInTwelve(closeHour)}:${closeMinute.toString().padStart(2, '0')}`;
+        return `
             <span class="selected-time">
-                ${Number(closeHour) <= 12 ? '오전' : '오후'} ${this.setInTwelve(closeHour)}:${closeMinute}
+                ${(Number(closeHour) === 24 || Number(closeHour) < 12) ? '오전' : '오후'} ${this.setInTwelve(closeHour)}:${closeMinute}
             </span>
             <button type="button" class="toggle-button">시간</button>
             <div class="time-wrapper">
                 <div class="day-night">
-                    <span ${Number(closeHour) <= 12 ? 'class="time-mark"':''}>오전</span>
-                    <span ${Number(closeHour) >= 12 ? 'class="time-mark"':''}>오후</span>
+                    <span ${(Number(closeHour) === 24 || Number(closeHour) < 12) ? 'class="time-mark"':''}>오전</span>
+                    <span ${(Number(closeHour) >= 12 && Number(closeHour) < 24) ? 'class="time-mark"':''}>오후</span>
                 </div>
-                <div class="time-box"></div>
+                <div class="time-box">
+                    ${[...new Array(12)].map((v, i) => {
+                        return [...new Array(60/+step)].map((sv, j) => `
+                            <div class="time-group ${(+this.setInTwelve(closeHour) === (i+1) && Number(closeMinute) === (j * +step)) ? "time-mark" : ''}">
+                               ${this.setTwoDigits(i+1)}:${this.setTwoDigits(j * +step)}
+                            </div>
+                        `).join("")
+                    }).join("")}
+                </div>
             </div>
         `
+    }
 
-        this.$element.appendChild(div);
-        const timeWrapper = this.$element.querySelector('.time-box');
-
-        for (let i = 1; i <= 12; i++) {
-            for (let j = 0; j < 60; j += parseInt(step, 10)) {
-                const timeDiv = document.createElement('div');
-                timeDiv.classList.add('time-group');
-                (Number(this.setInTwelve(closeHour)) === i && Number(closeMinute) === j) && timeDiv.classList.add('time-mark')
-                timeDiv.innerHTML = `${this.setTwoDigits(i)}:${this.setTwoDigits(j)}`;
-                timeWrapper.appendChild(timeDiv);
-            }
-        }
+    render() {
+        this.$element.querySelector('.time-container').innerHTML = this.setTemplate();
     }
 
     setEvents() {
@@ -44,12 +47,13 @@ export default class Time extends Component {
             this.$element.querySelectorAll('.selected')?.forEach(el => el.classList.remove('selected'));
             timeWrapper?.classList.toggle('show');
             const timeBoxEl = timeWrapper.querySelector('.time-box');
-            const [firstEl, markEl] = [timeBoxEl.firstChild, timeBoxEl.querySelector('.time-mark')]
+            const [firstEl, markEl] = [timeBoxEl.firstElementChild, timeBoxEl.querySelector('.time-mark')];
+
             const [firstY, markY] = [firstEl.getBoundingClientRect().y, markEl.getBoundingClientRect().top];
             // 가장 상단 위치
             // timeWrapper.querySelector('.time-box').scrollTop = markY - firstY;
             // 중간 위치
-            timeWrapper.querySelector('.time-box').scrollTop = markY - firstY - timeBoxEl.getBoundingClientRect().height / 2;
+             timeWrapper.querySelector('.time-box').scrollTop = markY - firstY - timeBoxEl.getBoundingClientRect().height / 2;
         })
 
         this.$element.querySelector('.time-box').addEventListener('click', ({target}) => {
@@ -57,8 +61,9 @@ export default class Time extends Component {
                 this.$element.querySelector('.time-box .time-mark').classList.remove('time-mark');
                 target.classList.add('time-mark');
                 const [selectedHour, selectedMinute] = target.textContent.split(':');
-                const twelveHour = this.$element.querySelector('.day-night .time-mark').textContent === '오전' ? selectedHour : Number(selectedHour) + 12;
-                this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`;
+                const twelveHour = this.setInTwenty(this.$element.querySelector('.day-night .time-mark').textContent, selectedHour);
+                console.log(twelveHour, selectedHour.trim() == 12)
+                this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`.trim();
                 this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
             }
         })
@@ -70,8 +75,8 @@ export default class Time extends Component {
             this.$element.querySelector('.day-night .time-mark').classList.remove('time-mark');
             target.classList.add('time-mark');
             const [selectedHour, selectedMinute] = this.$element.querySelector('.time-box .time-mark').textContent.split(':');
-            const twelveHour = this.$element.querySelector('.day-night .time-mark').textContent === '오전' ? selectedHour : Number(selectedHour) + 12;
-            this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`;
+            const twelveHour = this.setInTwenty(this.$element.querySelector('.day-night .time-mark').textContent, selectedHour);
+            this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`.trim();
             this.$element.querySelector('.selected-time').textContent = `${target.textContent} ${this.$element.querySelector('.time-box .time-mark').textContent} `
         })
 
@@ -86,7 +91,27 @@ export default class Time extends Component {
     }
 
     setInTwelve(num) {
-        return num > 12 ? this.setTwoDigits(num - 12) : this.setTwoDigits(num);
+        if(num <= 12) {
+            return this.setTwoDigits(num)
+        } else {
+            return this.setTwoDigits(num - 12);
+        }
+    }
+
+    setInTwenty(day, time) {
+        if(day === "오전") {
+            if(+time == 12) {
+                return '00'
+            } else {
+                return time
+            }
+        } else {
+            if(+time == 12) {
+                return time
+            } else {
+                return (+time + 12).toString();
+            }
+        }
     }
 
     /**
@@ -104,7 +129,6 @@ export default class Time extends Component {
         }
         const getMin = Math.min(...minArr.map(v => Math.abs(currentMinute - v)));
         let closeMin = minArr.find((v) => Math.abs(currentMinute - v) === getMin);
-
         if(closeMin < currentMinute) {
             closeMin += Number(step);
         }
@@ -116,4 +140,3 @@ export default class Time extends Component {
     }
 }
 
-// document.querySelectorAll('.mykl-time').forEach(el => new Time(el))

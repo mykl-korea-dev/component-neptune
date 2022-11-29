@@ -3,11 +3,14 @@ import Component from "../../basic/Component.js";
 export default class Select extends Component {
     setElements() {
         this.select = this.$element.querySelector('select');
-        this.options = Array.from(this.select.querySelectorAll('option'))
+        this.options = Array.from(this.select.querySelectorAll('option'));
     }
 
     setTemplate() {
-        console.log(this.select, this.options, this.select.selectedIndex)
+        const firstValue = this.options[0];
+        console.log(firstValue, firstValue.getAttribute('value') === '' && firstValue.textContent !== "", this.$element);
+        (firstValue.getAttribute('value') === '' && firstValue.textContent !== "") && this.options.splice(0, 1);
+        this.options.forEach(el => console.log(el))
         return `
             <div class="select-group">
                 <div class="select-selected">
@@ -17,13 +20,16 @@ export default class Select extends Component {
                     ${this.options.map(el => `<div>${el.textContent}</div>`).join('')}
                 </div>
             </div>
-        `
+        `;
     }
 
     render() {
         this.$element.innerHTML += this.setTemplate();
-        console.log(this.$element.querySelector('.select-items').getBoundingClientRect().width)
-        this.$element.style.width = this.$element.querySelector('.select-items').getBoundingClientRect().width + 'px';
+        const selectedElWidth = this.$element.querySelector('.select-selected').getBoundingClientRect().width;
+        const selectItemElWidth = this.$element.querySelector('.select-items').getBoundingClientRect().width;
+        this.$element.style.width = selectItemElWidth > selectedElWidth ? selectItemElWidth + 'px' : selectedElWidth + 'px';
+        this.$element.querySelector('.select-selected').style.width = "100%";
+        this.$element.querySelector('.select-items').style.width = "100%";
     }
 
     setEvents() {
@@ -44,7 +50,7 @@ export default class Select extends Component {
             for (let i = 0; i < this.options.length; i++) {
                 if(select.options[i].innerHTML === target?.textContent) {
                     select.selectedIndex = i;
-                    select.value = this.options[i].value;
+                    select.value = select.options[i].value;
                     selectedDiv.textContent = target.textContent;
                     target.classList.add('same-as-selected');
                     selectDiv?.classList.toggle('select-hide');
@@ -53,8 +59,6 @@ export default class Select extends Component {
                 }
             }
         })
-        
-
     }
 
     closeAllSelect(element) {

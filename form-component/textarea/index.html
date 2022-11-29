@@ -12,6 +12,10 @@
     <textarea name="name" cols="100" rows="10" placeholder="입력" class="mykl-textarea textarea-horizontal"></textarea>
     <textarea name="name" cols="100" rows="10" placeholder="입력" class="mykl-textarea textarea-auto"></textarea>
     <textarea name="name" cols="100" rows="10" placeholder="입력" class="mykl-textarea textarea-smart"></textarea>
-<script src="./Textarea.js" type="module"></script>
+<script type="module">
+    import Textarea from "./Textarea.js";
+
+    document.querySelectorAll('.mykl-textarea.textarea-smart').forEach(el => new Textarea(el));
+</script>
 </body>
 </html>

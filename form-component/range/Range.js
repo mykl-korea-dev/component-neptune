@@ -1,8 +1,14 @@
 import Component from "../../basic/Component.js";
 
 export default class Range extends Component {
-    setTemplate() {
+    setElements() {
         [this.min, this.max, this.step] = ["min", "max", "step"].map(v => this.$element.querySelector(".input-left").getAttribute(v));
+        this.minValue = this.$element.querySelector('.input-left').getAttribute("value");
+        this.maxValue = this.$element.querySelector('.input-right').getAttribute("value");
+    }
+
+    setTemplate() {
+
         this.width =  this.$element.getBoundingClientRect().width;
         this.trackWidth = this.width - 15;
         this.totalSize = (this.max - this.min) / this.step;
@@ -25,18 +31,17 @@ export default class Range extends Component {
 
     render() {
         this.$element.innerHTML += this.setTemplate();
-        const minValue = this.$element.querySelector('.input-left').getAttribute("value");
-        const maxValue = this.$element.querySelector('.input-right').getAttribute("value");
         const slider = this.$element.querySelector('.slider');
         const range = slider?.querySelector('.range');
-        const thumbLeft = slider.querySelector('.slider .thumb.left');
+        const thumbLeft = slider.querySelector('.thumb.left');
         const thumbRight = slider.querySelector('.thumb.right');
+
         slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
         slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
-        thumbLeft.style.left = `${this.trackWidth * (this.totalSize * (minValue / this.step)) / 100}px`;
-        range.style.left = `${this.trackWidth * (this.totalSize * (minValue / this.step)) / 100}px`;
-        range.style.right = `${this.trackWidth * (this.totalSize * ((this.max - maxValue) / this.step)) / 100}px`;
-        thumbRight.style.left = `${this.trackWidth * (this.totalSize * (maxValue / this.step)) / 100}px`;
+        thumbLeft.style.left = `${this.trackWidth * (this.totalSize * (this.minValue / this.step)) / 100}px`;
+        range.style.left = `${this.trackWidth * (this.totalSize * (this.minValue / this.step)) / 100}px`;
+        range.style.right = `${this.trackWidth * (this.totalSize * ((this.max - this.maxValue) / this.step)) / 100}px`;
+        thumbRight.style.left = `${this.trackWidth * (this.totalSize * (this.maxValue / this.step)) / 100}px`;
     }
 
     setEvents() {
@@ -49,7 +54,6 @@ export default class Range extends Component {
 
         inputLeft?.addEventListener('input', () => {
             this.setThumbLeft(inputLeft, inputRight, thumbLeft, range, slider);
-
         })
 
         inputRight?.addEventListener('input', () => {
@@ -73,7 +77,7 @@ export default class Range extends Component {
     setThumbLeft(inputLeft, inputRight, thumbLeft, range, slider) {
         inputLeft.value = Math.min(Number(inputLeft.value), Number(inputRight.value) - Number(inputLeft.step)).toString();
 
-        const inputValue = Number(inputLeft.value, 10)
+        const inputValue = Number(inputLeft.value);
         thumbLeft.style.left = `${this.trackWidth * (this.totalSize * (inputValue / this.step)) / 100}px`;
         range.style.left = `${this.trackWidth * (this.totalSize * (inputValue / this.step)) / 100}px`;
         slider.querySelector('.thumb-min').textContent = this.$element.querySelector(".input-left").value;
@@ -82,7 +86,7 @@ export default class Range extends Component {
     setThumbRight(inputLeft, inputRight, thumbRight, range, slider) {
         inputRight.value = Math.max(Number(inputRight.value), Number(inputLeft.value) + Number(inputRight.step)).toString();
 
-        const inputValue = Number(inputRight.value, 10)
+        const inputValue = Number(inputRight.value);
         thumbRight.style.left = `${this.trackWidth * (this.totalSize * (inputValue / this.step)) / 100}px`;
         range.style.right = `${this.trackWidth - (this.trackWidth * (this.totalSize * (inputValue / this.step)) / 100)}px`;
         slider.querySelector('.thumb-max').textContent = this.$element.querySelector(".input-right").value;
@@ -91,16 +95,10 @@ export default class Range extends Component {
     findClosestRange(e) {
         const inputLeft = this.$element.querySelector('.input-left');
         const inputRight = this.$element.querySelector('.input-right');
-
-        const max = this.$element.querySelector('.input-right').getAttribute('value');
-        const bounds = e.target.getBoundingClientRect();
-        const x = e.clientX - bounds.left;
-        const minValue = inputLeft.value;
-        const maxValue = inputRight.value;
-        const minX = this.width * ( minValue / max );
-        const maxX = this.width * ( maxValue / max );
-        const minXDiff = Math.abs( x - minX );
-        const maxXDiff = Math.abs( x - maxX );
+        const x = e.clientX;
+        const minXDiff = Math.abs(this.$element.querySelector('.thumb.left').style.left.replace("px", "") - x);
+        const maxXDiff = Math.abs(this.$element.querySelector('.thumb.right').style.left.replace("px", "") - x);
+        console.log(minXDiff, maxXDiff)
         if ( minXDiff > maxXDiff ) {
             inputLeft.style.zIndex = "5";
             inputRight.style.zIndex = "6";

@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../checkbox/checkbox.css">
+
 </head>
 <body>
-<div class="form-check-ajax">
+<!-- [{ id: value }, { id: value }, { id: value }]-->
+<div id="check" style="background: lightblue">
+    <input type="checkbox" name="check">
 </div>
-<script src="./CheckboxAjax.js" type="module"></script>
+
+<!-- [{ id: 0, value: 123, checked: true }, { id: 2, value: 4, checked: true }] -->
+<div id="check2" style="background: #DFDFDF; margin: 20px 0">
+    <input type="checkbox" name="check2" id="id" value="value" checked="checked__true">
+</div>
+
+<!-- [{ id0: value0, id1: value1, id2: value2 }, { id1-0: value1-0, id1-2: value1-1, id1-3: value1-3 } ] -->
+<!--<div id="check3" style="background: #d7a8f5" class="check-col">-->
+<!--    <input type="checkbox" name="check3, audio3">-->
+<!--</div>-->
+
+<script type="module">
+    import {getData} from "../../../basic/utils.js";
+    import CheckboxAjax from "./CheckboxAjax.js";
+    // fetch('http://localhost:8080/radioList').then(res => res.json()).then((data) => {
+    //     console.log(data);
+    //     new RadioAjax(document.querySelector('#check'), data);
+    // })
+    getData('http://localhost:8080/radio', (data) => {
+        new CheckboxAjax(document.querySelector('#check'), data);
+    })
+
+    fetch('http://localhost:8080/radioList2').then(res => res.json()).then((data) => {
+        console.log(data);
+        new CheckboxAjax(document.querySelector('#check2'), data);
+    })
+
+    // fetch('http://localhost:8080/radioList3').then(res => res.json()).then((data) => {
+    //     console.log(data);
+    //     new CheckboxAjax(document.querySelector('#check3'), data);
+    // })
+</script>
 </body>
 </html>

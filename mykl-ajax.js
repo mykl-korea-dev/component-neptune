@@ -10,13 +10,29 @@ import ProgressAjax from "./ui-component/ajax/progressAjax/ProgressAjax.js";
 import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
 import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js";
 import TabAjax from "./ui-component/ajax/tabAjax/TabAjax.js";
+import FileAjax from "./form-component/ajax/FileAjax.js";
+import FormAjax from "./form-component/ajax/formAjax.js";
+import TagAjax from "./ui-component/tag/Tag.js";
+import CalendarAjax from "./form-component/ajax/calendarAjax/CalendarAjax.js";
+import InputAjax from "./form-component/ajax/inputAjax/InputAjax.js";
+import TimeAjax from "./form-component/ajax/timeAjax/TimeAjax.js";
+import TextareaAjax from "./form-component/ajax/textareaAjax/TextareaAjax.js";
 
 let MYKLAjax = {
     // setComponents
     SetComponents: getData,
     // form -----------------------------
+    FormAjax: function (selector, data) {
+        return new FormAjax(document.querySelector(selector), data)
+    },
+    CalendarAjax: function (selector, data) {
+        return new CalendarAjax(document.querySelector(selector), data)
+    },
     CheckboxAjax: function (selector, data) {
         return new CheckboxAjax(document.querySelector(selector), data)
+    },
+    InputAjax: function (selector, data) {
+        return new InputAjax(document.querySelector(selector), data)
     },
     RadioAjax: function (selector, data) {
         return new RadioAjax(document.querySelector(selector), data)
@@ -26,6 +42,15 @@ let MYKLAjax = {
     },
     SelectAjax: function (selector, data) {
         return new SelectAjax(document.querySelector(selector), data)
+    },
+    TextareaAjax: function (selector, data) {
+        return new TextareaAjax(document.querySelector(selector), data)
+    },
+    TimeAjax: function (selector, data) {
+        return new TimeAjax(document.querySelector(selector), data)
+    },
+    FileAjax: function (selector, data) {
+        return new FileAjax(document.querySelector(selector), data)
     },
     // ui -----------------------------
     AccordionAjax: function (selector, data) {
@@ -48,6 +73,9 @@ let MYKLAjax = {
     },
     TabAjax: function (selector, data) {
         return new TabAjax(document.querySelector(selector), data)
+    },
+    TagAjax: function (selector, data) {
+        return new TagAjax(document.querySelector(selector), data);
     }
 }
 

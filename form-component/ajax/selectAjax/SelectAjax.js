@@ -5,30 +5,33 @@ import {getData} from "../../../basic/utils.js";
 
 export default class SelectAjax extends Select {
     setElements() {
+        console.log(this.$data)
         this.$element.classList.add("mykl-select");
         this.select = this.$element.querySelector('select');
-        const className = this.select.className;
+        const optionEl = this.select.querySelector('option');
 
-        console.log(this.select, this.$data);
-        this.select.innerHTML = `${this.$data.map(el => `<option value="${el.id}">${el.text || el.value}</option>`).join('')}`;
-        this.options = Array.from(this.$element.querySelectorAll('option'));
-        const div = document.createElement('div');
-        className && div.classList.add(className);
-        div.innerHTML = `
-                <div class="select-selected">
-                    ${this.select?.options[this.select.selectedIndex].textContent}
-                </div>
-                <div class="select-items select-hide">
-                    ${this.options?.map((el, i)=> i === 0 ? '' : `<div>${el.textContent}</div>`).join('')}
-                </div>
-            </div>
-            `
-        this.$element.innerHTML += div.innerHTML;
+        const idKey = this.select.lastElementChild.getAttribute('value');
+        const valueKey = this.select.lastElementChild.textContent;
+        const [selectedKey, isTrue] = this.select.lastElementChild.getAttribute('selected')?.split("__") || ["", ""];
 
+        if(optionEl.getAttribute('value') === '' && optionEl.textContent !== "") {
+            this.select.innerHTML = '';
+            this.select.appendChild(optionEl);
+        } else {
+            this.select.innerHTML = '';
+        }
+
+        if(Array.isArray(this.$data)) {
+            this.select.innerHTML += this.$data.map((data) => `
+                <option value="${data[idKey]}"  ${selectedKey ? data[selectedKey].toString() == isTrue ? "selected" : '' : ''}>${data[valueKey]}</option>
+            `).join('')
+        } else {
+            this.select.innerHTML += Object.keys(this.$data).map((data, i) => `
+                <option value="${data}">${this.$data[data]}</option>
+            `).join('');
+        }
+
+        this.options = Array.from(this.select.querySelectorAll('option'));
     }
 }
-
-// getData('http://localhost:3000/select', (data) => {
-//     new SelectAjax(document.querySelector('.form-select'), data)
-// })
 

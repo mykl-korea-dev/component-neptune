@@ -1,16 +1,31 @@
 import Component from "../../../basic/Component.js";
-import {getData, getDataset} from "../../../basic/utils.js";
+import {getDataset} from "../../../basic/utils.js";
 
 export default class RadioAjax extends Component{
-    setTemplate() {
-        const name = getDataset(this.$element, "name");
+    setElements() {
+        this.name = this.$element.querySelector('input').getAttribute('name');
+    }
 
-        return this.$data.map(data => `
-            <div class="mykl-radio">
-                <input class="radio-input" type="radio" ${name ? "name=" + name : ''} id="radio-${data.id}" value="${data.id}">
-                <label class="radio-label" for="radio-${data.id}">${data.value}</label>
-            </div>
-        `).join('');
+    setTemplate() {
+        const idKey = this.$element.querySelector('input').id;
+        const valueKey = this.$element.querySelector('input').getAttribute('value');
+        const [checkedKey, isTrue] = this.$element.querySelector('input').getAttribute('checked')?.split("__") || ["", ""];
+
+        if(Array.isArray(this.$data)) {
+            return this.$data.map(data => `
+                <div class="mykl-radio">
+                    <input class="radio-input" type="radio" name="${this.name}" id="radio-${data[idKey]}" value="${data[valueKey]}"  ${checkedKey ? data[checkedKey] === isTrue ? "checked" : '' : ''}>
+                    <label class="radio-label" for="radio-${data[idKey]}">${data[valueKey]}</label>
+                </div>
+            `).join('')
+        } else {
+            return Object.keys(this.$data).map((data) => `
+                <div class="mykl-radio">
+                    <input class="radio-input" type="radio" name="${this.name}" id="radio-${data}" value="${this.$data[data]}">
+                    <label class="radio-label" for="radio-${data}">${this.$data[data]}</label>
+                </div>
+            `).join('');
+        }
     }
 
     render() {
@@ -18,4 +33,3 @@ export default class RadioAjax extends Component{
     }
 }
 
-// getData('http://localhost:3000/checkbox', (data) => new RadioAjax(document.querySelector('.radio-group-ajax'), data));

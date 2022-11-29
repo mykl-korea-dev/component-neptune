@@ -3,15 +3,15 @@ import Component from "../../basic/Component.js";
 export default class Calendar extends Component {
     setElements() {
         this.year = new Date().getFullYear();
-        this.month = new Date().getMonth() + 1;
-        this.date = new Date().getDate();
+        this.month =  this.setTwoDigits(new Date().getMonth() + 1);
+        this.date = this.setTwoDigits(new Date().getDate());
         this.mark = this.date;
         this.state = {}
 
         const div = document.createElement('div');
         div.classList.add('calendar-wrapper');
         this.$element.appendChild(div);
-        this.$element.querySelector('input').value = `${this.year}-${this.setTwoDigits(this.month)}-${this.setTwoDigits(new Date().getDate())}`;
+        this.$element.querySelector('input').value = `${this.year}-${this.month}-${this.date}`;
         this.isShow = false;
     }
 
@@ -22,11 +22,7 @@ export default class Calendar extends Component {
         return `
         <div class="clicked-date">
             <span>
-                <span class="selected-year">${new Date().getFullYear()}</span>
-                -
-                <span class="selected-month">${this.setTwoDigits(new Date().getMonth() + 1)}</span>
-                -
-                <span class="selected-day">${this.setTwoDigits(new Date().getDate())}</span>
+                <span class="selected-year">${this.year}</span>-<span class="selected-month">${this.setTwoDigits(this.month)}</span>-<span class="selected-day">${this.setTwoDigits(this.date)}</span>
             </span>
             <button type="button" class="calendar-btn">기간</button>
         </div>    
@@ -61,6 +57,8 @@ export default class Calendar extends Component {
     }
 
     render() {
+        this.$element.querySelector('input').value = `${this.year}-${this.setTwoDigits(this.month)}-${this.setTwoDigits(this.date)}`;
+
         if(this.state[`${this.year}-${this.month}`]) {
             this.holiArr = [...this.state[`${this.year}-${this.month}`]];
             this.$element.querySelector('.calendar-wrapper').innerHTML = this.setTemplate();
@@ -87,7 +85,10 @@ export default class Calendar extends Component {
 
     setEvents() {
         document.addEventListener('click', (e) => {
-            (e.composedPath().find(el => el === this.$element) === undefined) && this.$element.querySelector('.calendar-container.show')?.classList.remove('show')
+            if((e.composedPath().find(el => el === this.$element) === undefined)) {
+                this.$element.querySelector('.calendar-container.show')?.classList.remove('show');
+                this.isShow = false;
+            }
         })
         this.$element?.addEventListener('click', ({target}) => {
             if(target.classList.contains('prev')) {
@@ -109,10 +110,8 @@ export default class Calendar extends Component {
             }
 
             if(target.classList.contains('calendar-btn')) {
-                this.year = this.$element.querySelector('.selected-year').textContent;
-                this.month = this.$element.querySelector('.selected-month').textContent;
                 this.isShow = !this.isShow;
-                this.render();
+                this.$element.querySelector('.calendar-container')?.classList.toggle('show');
             }
 
             if(target.classList.contains('day')) {
@@ -121,13 +120,13 @@ export default class Calendar extends Component {
                 const month = this.$element.querySelector('.month').textContent;
                 target.classList.add('mark');
                 this.mark = target.textContent;
+                this.date = this.mark;
                 const day = target.textContent;
                 this.$element.querySelector('.selected-year').textContent = year;
                 this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
                 this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(day);
                 this.$element.querySelector('.calendar-input').value = `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`;
             }
-
         })
     }
 

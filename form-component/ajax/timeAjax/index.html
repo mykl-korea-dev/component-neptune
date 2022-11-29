@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../time/time.css">
+</head>
+<body>
+<div id="form">
+    <div id="time" data-step="20">
+        <input type="time" name="time" id="@" value="" class="time-input">
+    </div>
+    <button type="button" class="form-submit-btn">제출</button>
+</div>
+<div class="mykl-time" data-step="30">
+    <input type="datetime-local" name="" id="@@" value="" class="time-input">
+</div>
+<script type="module">
+    import TimeAjax from "./TimeAjax.js";
+    import FormAjax from "../formAjax.js";
+
+    new TimeAjax(document.querySelector('#time'), {time: "11:58"});
+    new FormAjax(document.querySelector('#form'), {url: 'http://localhost:8080/time'});
+
+</script>
+</body>
+</html>

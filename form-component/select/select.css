@@ -15,7 +15,7 @@
 .select-selected {
     position: relative;
     box-sizing: border-box;
-    padding: 8px 16px;
+    padding: 8px 32px 8px 16px;
     border-radius: 5px;
     border: 1px solid #DFDFDF;
     text-align: left;

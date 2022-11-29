@@ -1,22 +1,19 @@
 import Component from "../../basic/Component.js";
 export default class Textarea extends Component{
-    constructor(element) {
-        super(element);
+    setElements() {
+        this.$element.style.height = 'auto';
+        this.$element.style.height = `${this.$element.scrollHeight}px`
     }
 
     setEvents() {
-        const textarea = this.$element;
-        console.log(textarea)
-        textarea?.addEventListener('keydown', () => {
-            textarea.style.height = 'auto';
-            textarea.style.height = `${textarea.scrollHeight}px`
+        this.$element?.addEventListener('keydown', () => {
+            this.$element.style.height = 'auto';
+            this.$element.style.height = `${this.$element.scrollHeight}px`
         })
-        textarea?.addEventListener('keyup', () => {
-            textarea.style.height = 'auto';
-            textarea.style.height = `${textarea.scrollHeight}px`
+        this.$element?.addEventListener('keyup', () => {
+            this.$element.style.height = 'auto';
+            this.$element.style.height = `${this.$element.scrollHeight}px`
         })
-
     }
 }
 
-document.querySelectorAll('.mykl-textarea.textarea-smart').forEach(el => new Textarea(el))

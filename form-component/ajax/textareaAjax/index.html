@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../textarea/textarea.css">
+</head>
+<body>
+<div id="form">
+    <textarea name="textarea" id="textarea" class="textarea-smart" cols="30" rows="10">textarea</textarea>
+    <div id="divTextarea" contenteditable="true">textarea</div>
+    <textarea name="blue" id="blue" cols="30" rows="10"></textarea>
+    <button type="button" class="form-submit-btn">제출</button>
+</div>
+<script type="module">
+    import {getData} from "../../../basic/utils.js";
+    import TextareaAjax from "./TextareaAjax.js";
+    import FormAjax from "../formAjax.js";
+
+    getData("http://localhost:8080/textarea", (data) => {
+        new TextareaAjax(document.getElementById("textarea"), data);
+        new TextareaAjax(document.getElementById("divTextarea"), data);
+        document.getElementById("blue").innerHTML = document.getElementById("divTextarea").innerHTML;
+    })
+
+    new FormAjax(document.querySelector('#form'), {url: "http://localhost:8080/textarea"})
+</script>
+</body>
+</html>

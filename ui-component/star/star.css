@@ -9,11 +9,11 @@
 }
 
 .star-fill {
-    background: url(./images/star-fill.svg) no-repeat;
+    background: url(../../images/star-fill.svg) no-repeat;
 }
 .star-half {
-    background: url(./images/star-half.svg) no-repeat;
+    background: url(../../images/star-half.svg) no-repeat;
 }
 .star-empty {
-    background: url(./images/star.svg) no-repeat;
+    background: url(../../images/star.svg) no-repeat;
 }

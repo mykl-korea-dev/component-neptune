@@ -4,24 +4,15 @@ export default class Calendar extends Component {
     setElements() {
         this.year = new Date().getFullYear();
         this.month = new Date().getMonth() + 1;
+        this.date = new Date().getDate();
+        this.mark = this.date;
         this.state = {}
 
         const div = document.createElement('div');
-        div.innerHTML = `
-            <div class="clicked-date">
-                <span>
-                    <span class="selected-year">${new Date().getFullYear()}</span>
-                    -
-                    <span class="selected-month">${this.setTwoDigits(new Date().getMonth() + 1)}</span>
-                    -
-                    <span class="selected-day">${this.setTwoDigits(new Date().getDate())}</span>
-                </span>
-                <button class="calendar-btn">기간</button>
-            </div>                
-            <div class="calendar-container">
-            </div>
-        `
-        this.$element.innerHTML += div.innerHTML;
+        div.classList.add('calendar-wrapper');
+        this.$element.appendChild(div);
+        this.$element.querySelector('input').value = `${this.year}-${this.setTwoDigits(this.month)}-${this.setTwoDigits(new Date().getDate())}`;
+        this.isShow = false;
     }
 
     setTemplate() {
@@ -29,13 +20,24 @@ export default class Calendar extends Component {
         let lastDate = new Date(this.year, this.month, 0, 0, 0, 0).getDate();
         let weekSeq = Math.floor((lastDate + firstDay - 1) / 7 + 1);
         return `
-        <div class="year-month">
-              <div class="year">${this.year}</div>
-              <div class="month">${this.month}</div>
-              <div class="calendar-button-group">
-                <button class="prev" type="button">Prev</button>
-                <button class="next" type="button">Next</button>
-              </div>
+        <div class="clicked-date">
+            <span>
+                <span class="selected-year">${new Date().getFullYear()}</span>
+                -
+                <span class="selected-month">${this.setTwoDigits(new Date().getMonth() + 1)}</span>
+                -
+                <span class="selected-day">${this.setTwoDigits(new Date().getDate())}</span>
+            </span>
+            <button type="button" class="calendar-btn">기간</button>
+        </div>    
+        <div class="calendar-container ${this.isShow ? 'show' : ''}">
+            <div class="year-month">
+                <div class="year">${this.year}</div>
+                <div class="month">${this.month}</div>
+                <div class="calendar-button-group">
+                    <button class="prev" type="button">Prev</button>
+                    <button class="next" type="button">Next</button>
+                </div>
             </div>
             <div class="weekday">
               <div>일</div>
@@ -46,22 +48,22 @@ export default class Calendar extends Component {
               <div>금</div>
               <div>토</div>
             </div>
-            ${[...Array(weekSeq)].map((_, i) =>
-            `<div class="week${i}">
+            ${[...Array(weekSeq)].map((_, i) =>`
+                <div class="week${i}">
                     ${[...Array(7)].map((_, j) => {
-                const date = i * 7 + j - firstDay + 1;
-                if(date < 1 || date > lastDate) return `<div></div>`
-                return `<div class="day">${date}</div>`}).join('')
-            }
-                </div>`
-        ).join('')}`
+                    const date = i * 7 + j - firstDay + 1;
+                    if(date < 1 || date > lastDate) return `<div></div>`
+                    return `<div class="day ${date == this.mark ? 'mark' : ''}">${date}</div>`}).join('')}
+                </div>
+            `).join('')}
+        </div>
+        `
     }
 
     render() {
         if(this.state[`${this.year}-${this.month}`]) {
             this.holiArr = [...this.state[`${this.year}-${this.month}`]];
-            console.log(this.holiArr, this.state, this.$element.querySelector('.calendar-container'))
-            this.$element.querySelector('.calendar-container').innerHTML = this.setTemplate();
+            this.$element.querySelector('.calendar-wrapper').innerHTML = this.setTemplate();
             this.holiArr.map(day => this.$element.querySelectorAll('.day')[+day - 1].style.color = "red");
         } else {
             fetch(`http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo?solYear=${this.year}&solMonth=${this.setTwoDigits(this.month)}&_type=json&ServiceKey=T9vZVWD4DUCcBZITtVWmnhlD5hkaLI%2BVQcpHsxNuUdqSYscKbqO6KWnV0PQAgFIvV89g%2BjEirNcPf60sC7C2CA%3D%3D`)
@@ -75,14 +77,11 @@ export default class Calendar extends Component {
                             this.holiArr =  data.response.body.items.item.isHoliday === 'Y' ? [data.response.body.items.item.locdate.toString().substring(6, 8)]: [];
                         }
                         this.state[`${this.year}-${this.month}`] = this.holiArr;
-                    console.log(this.holiArr, this.state, this.$element.querySelector('.calendar-container'))
-                    this.$element.querySelector('.calendar-container').innerHTML = this.setTemplate();
+                    this.$element.querySelector('.calendar-wrapper').innerHTML = this.setTemplate();
                         this.holiArr.map(day => this.$element.querySelectorAll('.day')[+day - 1].style.color = "red");
                     }
                 );
         }
-
-
 
     }
 
@@ -112,13 +111,16 @@ export default class Calendar extends Component {
             if(target.classList.contains('calendar-btn')) {
                 this.year = this.$element.querySelector('.selected-year').textContent;
                 this.month = this.$element.querySelector('.selected-month').textContent;
-                this.$element.querySelector('.calendar-container')?.classList.toggle('show');
+                this.isShow = !this.isShow;
                 this.render();
             }
 
             if(target.classList.contains('day')) {
+                this.$element.querySelector('.mark')?.classList.remove('mark');
                 const year = this.$element.querySelector('.year').textContent;
                 const month = this.$element.querySelector('.month').textContent;
+                target.classList.add('mark');
+                this.mark = target.textContent;
                 const day = target.textContent;
                 this.$element.querySelector('.selected-year').textContent = year;
                 this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
@@ -133,5 +135,3 @@ export default class Calendar extends Component {
         return value < 10 ? `0${value}` : value
     }
 }
-
-// document.querySelectorAll('.mykl-calendar').forEach(el => new Calendar(el));

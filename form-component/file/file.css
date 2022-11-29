@@ -3,6 +3,87 @@
 }
 
 .file-btn {
-    background: skyblue;
+    padding: 10px 20px 10px 36px;
+    border-radius: 18px;
     border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    background: #707070;
+    cursor: pointer;
+}
+
+.file-btn:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background: white;
+    transform: translateY(-50%);
+}
+
+.file-btn:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background: white;
+    transform: translateY(-50%) rotateZ(90deg);
+}
+
+.uploaded-list {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.uploaded-list li {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #DFDFDF;
+    line-height: 1;
+    border-radius: 18px;
+    padding: 10px 20px;
+}
+
+.uploaded-list li + li {
+    margin-left: 10px;
+}
+
+.delete-file-btn {
+    position: relative;
+    margin-left: 8px;
+    text-indent: -9999px;
+    border: none;
+    background: none;
+    width: 16px;
+    height: 16px;
+}
+
+.delete-file-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #707070;
+    transform: translateX(-50%) rotateZ(45deg);
+}
+
+.delete-file-btn:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 2px;
+    height: 100%;
+    background: #707070;
+    transform: translateX(50%) rotateZ(-45deg);
 }

@@ -18,7 +18,7 @@
 <div class="mykl-select" style="width:200px;">
     <select>
         <option value="0">Select car:</option>
-        <option value="1">Audi</option>
+        <option value="1">Auddsfsfsdfsfsdfsfsdfsdfdi</option>
         <option value="2">BMW</option>
         <option value="3">Citroen</option>
         <option value="4">Ford</option>
@@ -32,9 +32,8 @@
         <option value="12">Volvo</option>
     </select>
 </div>
-<div class="form-group">
-    <label for="" class="form-label">Label</label>
-
+<div >
+    Label
     <div class="mykl-select" style="width:200px;">
         <select>
             <option value="0">Select car:</option>
@@ -54,5 +53,10 @@
     </div>
     </div>
 </div>
+<script type="module">
+    import Select from "./Select.js";
+
+    document.querySelectorAll('.mykl-select').forEach(el => new Select(el));
+</script>
 </body>
 </html>

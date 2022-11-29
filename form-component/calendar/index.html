@@ -9,9 +9,12 @@
 </head>
 <body>
 <div class="mykl-calendar">
-  <input type="date" name="" id="a" class="calendar-input">
+  <input type="date" class="calendar-input">
 </div>
-
+<script type="module">
+  import Calendar from "./Calendar.js";
+  new Calendar(document.querySelector('.mykl-calendar'));
+</script>
 <!--  <button type="button" class="calendar-btn">기간</button>-->
 <!--  <div class="calendar show">-->
 <!--    <div class="yearMonth">-->

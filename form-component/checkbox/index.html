@@ -9,24 +9,31 @@
 <body>
     <div class="check-group">
         <div class="mykl-check">
-            <input class="check-input" type="checkbox" name="gender" checked="true">
-            <label class="check-label">남</label>
+            <input class="check-input" type="checkbox" name="gender" id="nprogress" checked>
+            <label class="check-label" for="nprogress">남</label>
         </div>
 
         <div class="mykl-check">
-            <input class="check-input" type="checkbox" name="gender" checked>
-            <label class="check-label">여</label>
+            <input class="check-input" id="hi" type="checkbox" name="gender" checked>
+            <label class="check-label" for="hi">여</label>
         </div>
     </div>
 
-    <div class="check-group check-vertical">
+    <div class="check-group check-col">
         <div class="mykl-check">
-            <input class="check-input" type="checkbox" name="gender">
-            <label class="check-label">남</label>
+            <input class="check-input" type="checkbox" id="male124" name="gender1">
+            <label class="check-label" for="male124">남</label>
         </div>
         <div class="mykl-check">
-            <input class="check-input" type="checkbox" name="gender">
-            <label class="check-label">여</label>
+            <input class="check-input" type="checkbox" name="gender1" id="female124">
+            <label class="check-label" for="female124">여</label>
+        </div>
+    </div>
+
+    <div class="check-group check-col">
+        <div class="mykl-check">
+            <input class="check-input" disabled type="checkbox" name="gender1" id="male12">
+            <label class="check-label" for="male12">남</label>
         </div>
     </div>
 </body>

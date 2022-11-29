@@ -1,0 +1,58 @@
+.mykl-input {
+    display: inline-block;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+    line-height: 1;
+    width: 100%;
+}
+
+/* 크기*/
+.input-sm {
+    font-size: 0.875rem;
+}
+
+.input-lg {
+    font-size: 1.25rem;
+}
+
+/* 상태 */
+.input-error {
+    outline: transparent;
+    border: 1px solid #FF0000;
+}
+
+.mykl-input:disabled {
+    background: #F2F2F2;
+}
+
+.mykl-input:read-only {
+    pointer-events: none;
+}
+
+/* password */
+.mykl-input-password {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+.mykl-input-password .mykl-input {
+    padding-right: 46px;
+}
+
+.input-password-icon {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    background: url("../../images/pass_eye.png");
+    text-indent: -9999px;
+}

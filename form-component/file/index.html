@@ -7,14 +7,29 @@
     <link rel="stylesheet" href="./file.css">
 </head>
 <body>
-<div class="mykl-file">
+<div class="mykl-file" data-name="name">
   <input type="file" class="file-input" multiple>
     <!--  <button class="file-btn">파일 등록</button>-->
 </div>
-<div class="mykl-file">
-    <input type="file" class="file-input">
-    <!--  <button class="file-btn">파일 등록</button>-->
-</div>
-<script src="./File.js" type="module"></script>
+<input type="text" name="name">
+<input type="text" name="name">
+<input type="text" name="name">
+<button type="button" class="tmp-btn">sdf</button>
+<input type="hidden" class="file-a">
+
+<script type="module">
+    document.querySelector(".tmp-btn").addEventListener('click', () => {
+        const a = [...document.querySelectorAll('input[name="name"]')].map(el => el.value);
+        document.querySelector('.file-a').value = JSON.stringify(a);
+        console.log(document.querySelector('.file-a').value, a);
+    })
+    import File from './File.js';
+    new File(document.querySelector('.mykl-file'));
+</script>
+<!--<div class="mykl-file">-->
+<!--    <input type="file" class="file-input">-->
+<!--    &lt;!&ndash;  <button class="file-btn">파일 등록</button>&ndash;&gt;-->
+<!--</div>-->
+<!--<script src="./FileAjax.js" type="module"></script>-->
 </body>
 </html>

@@ -1,114 +1,149 @@
-.signup {
-    max-width: 1200px;
-    width: 70%;
-    min-width: 300px;
-    margin: 0 auto;
-}
-
 .form-group {
+    display: table;
     width: 100%;
-    display: flex;
-    /*flex-wrap: wrap;*/
+    border-spacing:10px;
 }
 
-.form-group .form-label {
-    min-width: 90px;
-    width: 30%;
-    max-width: 100px;
-    flex-shrink: 0;
+.form-group > *:not(.form-group) {
+    display: table-cell;
 }
 
-.form-group .form-control {
-    width: 100%;
-    flex: 1;
-    flex-shrink: 1;
-}
-
-.form-group .form-text {
-    min-width: 20px;
-    text-align: center;
-}
-
-/* 세로 정렬*/
-.form-group.form-vertical {
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.form-group.form-vertical .form-label {
+.form-group.form-row {
     display: block;
-    width: 100%;
-    max-width: none;
 }
+
+.form-group.form-row > *:not(.form-group) {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------- */
+/*.form-group {*/
+/*    !*width: 100%;*!*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.form-label {*/
+/*    font-weight: 600;*/
+/*    font-size: 15px;*/
+/*    color: #505050;*/
+/*    margin: 0;*/
+/*}*/
+
+/*.form-group > *:not(:first-child) {*/
+/*    margin: 0px 0px 0px 14px;*/
+/*}*/
+
+/*!*.form-group .form-label {*!*/
+/*!*    min-width: 90px;*!*/
+/*!*    width: 30%;*!*/
+/*!*    max-width: 100px;*!*/
+/*!*    flex-shrink: 0;*!*/
+/*!*}*!*/
+
+/*!*.form-group .form-control {*!*/
+/*!*    width: 100%;*!*/
+/*!*    flex: 1;*!*/
+/*!*    flex-shrink: 1;*!*/
+/*!*}*!*/
+/*.form-group .mykl-btn {*/
+/*    height: 100%;*/
+/*}*/
+
+/*.form-group .form-text {*/
+/*    color: #B0B0B0;*/
+/*}*/
+
+/*.form-group .form-text, .form-group .form-text + * {*/
+/*    margin-left: 8px;*/
+/*}*/
+
+/*!* 세로 정렬*!*/
+/*.form-group.form-vertical {*/
+/*    display: initial;*/
+/*}*/
+
+/*.form-group.form-vertical > *:not(:first-child) {*/
+/*    margin: 14px 0 0;*/
+/*}*/
+
+/*.form-group.form-vertical .form-label {*/
+/*    display: inline-block;*/
+/*}*/
+
+/* ------------------------------------------------------------------------------------------------------- */
 
 /* float */
-.form-group.form-float {
-    flex-wrap: wrap;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    position: relative;
-}
+/*.form-group.form-float {*/
+/*    flex-wrap: wrap;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    padding: 20px;*/
+/*    position: relative;*/
+/*}*/
 
-.form-group.form-float .form-label {
-    display: block;
-    width: 100%;
-    max-width: none;
-}
+/*.form-group.form-float .form-label {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    max-width: none;*/
+/*}*/
 
-.form-group.form-float > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
+/*.form-group.form-float > * {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    opacity: 0;*/
+/*}*/
 
-.form-group.form-float .form-control {
-    width: 100%;
-    height: 100%;
-}
+/*.form-group.form-float .form-control {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
-.form-group.form-float .form-label {
-    /*position: ;*/
-    width: auto;
-    height: auto;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    opacity: 1;
-    z-index: -1;
-    transition: top 0.1s ease-in, left 0.1s ease-in;
-}
+/*.form-group.form-float .form-label {*/
+/*    !*position: ;*!*/
+/*    width: auto;*/
+/*    height: auto;*/
+/*    top: 50%;*/
+/*    left: 10px;*/
+/*    transform: translateY(-50%);*/
+/*    opacity: 1;*/
+/*    z-index: -1;*/
+/*    transition: top 0.1s ease-in, left 0.1s ease-in;*/
+/*}*/
 
-/* focus일 때 input */
-.form-group.form-float .form-control:focus {
-    opacity: 1;
-    padding-top: 20px;
-}
+/*!* focus일 때 input *!*/
+/*.form-group.form-float .form-control:focus {*/
+/*    opacity: 1;*/
+/*    padding-top: 20px;*/
+/*}*/
 
-/* focus일 때 label */
-.form-group.form-float .form-control:placeholder-shown:focus + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
-}
+/*!* focus일 때 label *!*/
+/*.form-group.form-float .form-control:placeholder-shown:focus + * {*/
+/*    opacity: 1;*/
+/*    z-index: 3;*/
+/*    top: 10px;*/
+/*    left: 5px;*/
+/*    font-size: 0.7rem;*/
+/*}*/
 
-/* placeholder 안보일때 input*/
-.form-group.form-float .form-control:not(:placeholder-shown) {
-    opacity: 1;
-    padding-top: 20px;
-}
+/*!* placeholder 안보일때 input*!*/
+/*.form-group.form-float .form-control:not(:placeholder-shown) {*/
+/*    opacity: 1;*/
+/*    padding-top: 20px;*/
+/*}*/
 
-/* placeholder 안보일때 label */
-.form-group.form-float .form-control:not(:placeholder-shown) + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
-}
+/*!* placeholder 안보일때 label *!*/
+/*.form-group.form-float .form-control:not(:placeholder-shown) + * {*/
+/*    opacity: 1;*/
+/*    z-index: 3;*/
+/*    top: 10px;*/
+/*    left: 5px;*/
+/*    font-size: 0.7rem;*/
+/*}*/
+
 

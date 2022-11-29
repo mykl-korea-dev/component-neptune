@@ -1,23 +1,29 @@
 import Component from "../../basic/Component.js";
 
-export default class Select extends Component{
+export default class Select extends Component {
     setElements() {
         this.select = this.$element.querySelector('select');
-        const className = this.select.className;
-        this.options = Array.from(this.select.querySelectorAll('option'));
-        const div = document.createElement('div');
-        className && div.classList.add(className);
-        div.innerHTML = `
+        this.options = Array.from(this.select.querySelectorAll('option'))
+    }
+
+    setTemplate() {
+        console.log(this.select, this.options, this.select.selectedIndex)
+        return `
             <div class="select-group">
                 <div class="select-selected">
                     ${this.select?.options[this.select.selectedIndex].textContent}
                 </div>
                 <div class="select-items select-hide">
-                    ${this.options.map(el => `<div>${el.text}</div>`).join('')}
+                    ${this.options.map(el => `<div>${el.textContent}</div>`).join('')}
                 </div>
             </div>
-            `
-        this.$element.innerHTML += div.innerHTML;
+        `
+    }
+
+    render() {
+        this.$element.innerHTML += this.setTemplate();
+        console.log(this.$element.querySelector('.select-items').getBoundingClientRect().width)
+        this.$element.style.width = this.$element.querySelector('.select-items').getBoundingClientRect().width + 'px';
     }
 
     setEvents() {
@@ -32,11 +38,13 @@ export default class Select extends Component{
         })
 
         selectDiv?.addEventListener('click', (e) => {
+            const select = this.$element.querySelector('select');
             this.$element.querySelector('.same-as-selected')?.removeAttribute('class');
             const target = e.target;
             for (let i = 0; i < this.options.length; i++) {
-                if(this.select?.options[i].innerHTML === target?.textContent) {
-                    this.select.selectedIndex = i;
+                if(select.options[i].innerHTML === target?.textContent) {
+                    select.selectedIndex = i;
+                    select.value = this.options[i].value;
                     selectedDiv.textContent = target.textContent;
                     target.classList.add('same-as-selected');
                     selectDiv?.classList.toggle('select-hide');
@@ -45,6 +53,8 @@ export default class Select extends Component{
                 }
             }
         })
+        
+
     }
 
     closeAllSelect(element) {
@@ -76,5 +86,3 @@ export default class Select extends Component{
         }
     }
 }
-
-// document.querySelectorAll('.mykl-form-select').forEach(el => new Select(el, []));

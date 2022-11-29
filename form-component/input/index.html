@@ -4,11 +4,55 @@
     <meta charset="UTF-8">
     <title>Input</title>
     <link rel="stylesheet" href="../../basic/common.css">
+    <link rel="stylesheet" href="./input.css">
 </head>
 <body>
-<div>
-    <label for="password">비밀번호</label>
-    <input class="mykl-input" id="password" type="text" name="password" placeholder="Default input" autofocus>
+<div >
+    <input  class="mykl-input" type="text" name="password" placeholder="Default input">
+    <a type="">qjxms</a>
 </div>
+<div style="display: table; width: 900px">
+    <input style="display: table-cell" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <span style="display: table-cell">-</span>
+    <div style="display: table-cell">
+        123123123
+    </div>
+    <input style="display: table-cell" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <span style="display: table-cell">-</span>
+    <input style="display: table-cell" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <a style="display: table-cell" type="button">qjxms</a>
+</div>
+<div style="display: block; width: 900px">
+    <input style="display: inline-block" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <span style="display: inline-block">-</span>
+    <div style="display: inline-block">
+        123123123
+    </div>
+    <input style="display: inline-block" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <span style="display: inline-block">-</span>
+    <input style="display: inline-block" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <button style="display: inline-block">qjxms</button>
+</div>
+<div>
+    <input style="display: table-cell;"  value="123 " class="mykl-input input-sm" type="text" disabled name="password" placeholder="Default input">
+    <input style="display: table-cell;" value="123 " class="mykl-input input-sm" type="text" disabled readonly name="password" placeholder="Default input">
+    <input style="display: table-cell" class="mykl-input" type="text" name="password" placeholder="Default input">
+    <input style="display: table-cell" class="mykl-input input-lg" type="text" name="password" placeholder="Default input">
+
+<!--    <label for="password">비밀번호</label>-->
+    <input class="mykl-input" type="text" name="password" placeholder="Default input">
+    <input class="mykl-input input-full" type="text" name="password" placeholder="Default input">
+
+<!--    <label for="password">비밀번호</label>-->
+    <input class="mykl-input input-lg" id="password2" type="text" name="password" placeholder="Default input">
+    <input class="mykl-input input-lg input-error" type="text" name="password" placeholder="Default input">
+
+    <input type="password" class="mykl-input active input-lg input-error" name="password" placeholder="Default input">
+    <input type="password" name="" id="" class="temp">
+</div>
+<script type="module">
+        import InputPassword from "./InputPassword.js";
+        new InputPassword(document.querySelector('.mykl-input[type=password]'));
+</script>
 </body>
 </html>

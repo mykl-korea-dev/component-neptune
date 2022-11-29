@@ -9,15 +9,19 @@
 <body>
 <div>
     <span class="form-label">예상 투자 비용 범위</span>
-    <div class="mykl-range" data-min="0" data-max="100" data-min-value="20" data-max-value="80" data-step="10">
-        <input type="range" class="input-left">
-        <input type="range" class="input-right">
+    <div class="mykl-range">
+        <input type="range" class="input-left" min="0" max="10" value="2" step="1">
+        <input type="range" class="input-right" min="0" max="10" value="8" step="1">
     </div>
 </div>
-<div class="mykl-range" data-min="0" data-max="5" data-min-value="2" data-max-value="3" data-step="0.5">
-    <input class="input-left" name="range">
-    <input class="input-right" name="range">
-</div>
+<!--<div class="mykl-range">-->
+<!--    <input class="input-left" name="range">-->
+<!--    <input class="input-right" name="range">-->
+<!--</div>-->
 <script src="./Range.js" type="module"></script>
+<script type="module">
+    import Range from "./Range.js";
+    document.querySelectorAll('.mykl-range').forEach(el => new Range(el));
+</script>
 </body>
 </html>

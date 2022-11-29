@@ -63,3 +63,7 @@
 .calendar-container div[class^="week"] *:last-child {
     color: blue;
 }
+
+.mark {
+    background: #d7a8f5;
+}

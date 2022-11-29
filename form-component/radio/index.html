@@ -8,17 +8,6 @@
 </head>
 <body>
 <div class="form-group">
-    <span class="form-label">성별</span>
-<!--    <div class="form-radio">-->
-<!--        <label class="form-radio-label">-->
-<!--            <input class="form-radio-input" type="radio" name="gender1">-->
-<!--            남-->
-<!--        </label>-->
-<!--        <label class="form-radio-label">-->
-<!--            <input class="form-radio-input" type="radio" name="gender1">-->
-<!--            여-->
-<!--        </label>-->
-<!--    </div>-->
     <div class="radio-group">
         <div class="mykl-radio">
             <input class="radio-input" type="radio" name="gender2" id="male">
@@ -30,14 +19,21 @@
         </div>
     </div>
 
-    <div class="radio-group radio-vertical">
+    <div class="radio-group radio-col">
         <div class="mykl-radio">
-            <input class="radio-input" type="radio" name="gender2" id="male1">
-            <label class="radio-label" for="male">남</label>
+            <input class="radio-input" type="radio" name="gender1" id="male1">
+            <label class="radio-label" for="male1">남</label>
         </div>
         <div class="mykl-radio">
-            <input class="radio-input" type="radio" name="gender2" id="female2" checked>
-            <label class="radio-label" for="female">여</label>
+            <input class="radio-input" type="radio" name="gender1" id="female2" checked>
+            <label class="radio-label" for="female2">여</label>
+        </div>
+    </div>
+
+    <div class="radio-group radio-col">
+        <div class="mykl-radio">
+            <input class="radio-input" disabled type="radio" name="gender1" id="male12">
+            <label class="radio-label" for="male12">남</label>
         </div>
     </div>
 </div>

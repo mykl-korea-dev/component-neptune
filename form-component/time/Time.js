@@ -13,7 +13,7 @@ export default class Time extends Component {
             <span class="selected-time">
                 ${Number(closeHour) <= 12 ? '오전' : '오후'} ${this.setInTwelve(closeHour)}:${closeMinute}
             </span>
-            <button class="toggle-button">시간</button>
+            <button type="button" class="toggle-button">시간</button>
             <div class="time-wrapper">
                 <div class="day-night">
                     <span ${Number(closeHour) <= 12 ? 'class="time-mark"':''}>오전</span>

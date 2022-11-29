@@ -1,76 +1,80 @@
 import Component from "../../basic/Component.js";
+import {getDataset} from "../../basic/utils.js";
 
 export default class File extends Component {
     setElements() {
-        // this.dataTransfer = new DataTransfer();
-        this.uplodatedFiles = [];
+        this.uploadedFiles = [];
         this.input = this.$element.querySelector('.file-input');
-
-        const div = document.createElement('div');
-        div.innerHTML = `
+        this.input.setAttribute('name', getDataset(this.$element, "name") || '')
+        this.$element.innerHTML += `
             <button type="button" class="file-btn">파일등록</button>
-            <ul class="uploaded-list"></ul>
-        `
-        this.$element.innerHTML += div.innerHTML;
+            <ul class="uploaded-list">
+            </ul>
+        `;
     }
 
     setTemplate() {
-        return Array.from(this.input.files).reverse().map((file, idx) => `
-            <li>${file.name}<button type="button"  class="delete-file-btn" data-idx=${file.lastModified}>삭제</button></li>
-        `).join('');
+        return super.setTemplate();
     }
 
     render() {
-        this.$element.querySelector('ul').innerHTML = this.setTemplate();
-        // console.log(this.input);
+        super.render();
     }
 
     setEvents() {
         this.input?.addEventListener('change', (e) => {
             let files = e.target.files;
-            for(let i = 0; i < files.length; i++) {
-                this.uploadedFile(files[i]);
-            }
 
+            for(let i = 0; i < files.length; i++) {
+                this.uploadedFile(files[i], e);
+                console.log(files[i])
+            }
         })
 
-        this.$element.addEventListener('click', ({target}) => {
+        this.$element.addEventListener('click', (e) => {
+            const { target } = e;
             if(target.classList.contains('file-btn')) {
                 this.input?.click();
             }
             if(target.classList.contains('delete-file-btn')) {
-                this.$element.querySelector('.uploaded-list').removeChild(target.parentElement);
-                // target.parentElement.remove();
-                // this.dataTransfer?.items.remove(Array.from(this.dataTransfer.files).findIndex((file, idx) => (file.lastModified == parseInt(target.dataset.idx, 10))));
-                // this.input.files = this.dataTransfer.files;
-                // this.render();
+                const deleteName = e.composedPath().find(el => el.tagName === "LI");
+                const a = deleteName.querySelector('a');
+                const targetFile = this.uploadedFiles.find(file => file?.name == a.textContent);
             }
         })
     }
 
-    async uploadedFile(file) {
-        let formData = new FormData();
-        formData.append('file', file);
+    uploadedFile(file) {
+        this.uploadedFiles.push(file);
+        if(this.$data.showImage && this.checkImageType(file.name)) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${e.target.result}"><img src="${e.target.result}">${file.name}</a><button type="button" class="delete-file-btn" data-index="${file.lastModified}">삭제</button><input type="hidden" name="attachment" value="${file.name}">`;
 
-        try {
-            const response = await fetch('https://e83cb729-a641-499b-a9b2-0442a7837ad2.mock.pstmn.io/fileupload', {
-                method: 'POST',
-                body: formData
-            });
+                this.$element.querySelector(".uploaded-list").insertBefore(li, this.$element.querySelector(".uploaded-list").firstChild);
+            }
 
-            const data = await response.text();
-
-            this.uplodatedFiles.push(data);
-
-            const li = document.createElement('li');
-            li.innerHTML = `<a href="#">${file.name}</a><button type="button"  class="delete-file-btn" data-idx=${file.lastModified}>삭제</button>`;
-
-            this.$element.querySelector(".uploaded-list").insertBefore(li, this.$element.querySelector(".uploaded-list").firstChild);
-
-        } catch (e){
-            alert("error: " + e.message);
+        } else {
+            const reader = new FileReader();
+            console.log(reader)
+            reader.onload = (e) => {
+                console.log(e.target)
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${e.target.result}">${file.name}</a><button type="button" class="delete-file-btn" data-index="${file.lastModified}">삭제</button><input type="hidden" name="attachment" value="${e.target.result}">`;
+                const a = document.createElement('a');
+                a.textContent = "다운로드"
+                a.href = file.name;
+                li.insertBefore(a, li.firstChild);
+                this.$element.querySelector(".uploaded-list").insertBefore(li, this.$element.querySelector(".uploaded-list").firstChild);
+            }
+            reader.readAsDataURL(file)
         }
     }
-}
 
-// document.querySelectorAll('.mykl-file').forEach(el=> new File(el));
+    checkImageType(fileName) {
+        const pattern = /.(jpg|gif|png|jpeg|svg)$/i;
+
+        return pattern.test(fileName);
+    }
+}

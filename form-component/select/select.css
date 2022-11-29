@@ -1,70 +1,113 @@
-/*the container must be positioned relative:*/
 .mykl-select {
-    /*font-family: Arial;*/
     position: relative;
+    display: inline-block;
 }
 
 .mykl-select select{
-    display: none; /*hide original SELECT element:*/
+    display: none;
 }
 
 .select-group {
     position: relative;
-    /*overflow: hidden;*/
-}
-
-.select-selected {
-    background-color: DodgerBlue;
-    position: relative;
-    /*width: 200px;*/
-    /* 추가 */
-    display: inline-block;
-    /*float: left;*/
     width: 100%;
 }
 
-/*style the arrow inside the selectAjax element:*/
-.select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
-
-/*point the arrow upwards when the selectAjax box is open (active):*/
-.select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-}
-
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-    color: #ffffff;
+.select-selected {
+    position: relative;
+    box-sizing: border-box;
     padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #DFDFDF;
+    text-align: left;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #101010;
+    display: block;
+}
+
+.select-selected:before {
+    content:"";
+    position: absolute;
+    right:16px;
+    top:50%;
+    transform: translateY(-50%) rotateZ(45deg);
+    width: 8px;
+    height: 2px;
+    background: #707070;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.select-selected:after {
+    content:"";
+    position: absolute;
+    right: 11px;
+    top:50%;
+    transform: translateY(-50%) rotateZ(-45deg);
+    width: 8px;
+    height: 2px;
+    background: #707070;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.select-selected.select-arrow-active:before {
+    transform: translateY(-50%) rotateZ(-225deg);
+}
+
+.select-selected.select-arrow-active:after {
+    transform: translateY(-50%) rotateZ(225deg);
+}
+
+/*.select-selected:after {*/
+/*    content:"";*/
+/*    position: absolute;*/
+/*    right:9px;*/
+/*    top:50%;*/
+/*    transform: translateY(-50%);*/
+/*    background: url("../../images/sel_d_icon.png") no-repeat;*/
+/*    width: 16px;*/
+/*    height: 16px;*/
+/*    -webkit-transition: all 0.3s ease;*/
+/*    -moz-transition: all 0.3s ease;*/
+/*    -o-transition: all 0.3s ease;*/
+/*    -ms-transition: all 0.3s ease;*/
+/*}*/
+
+/*.select-selected.select-arrow-active:after {*/
+/*    transform: translateY(-50%) rotate(180deg);*/
+/*}*/
+
+
+.select-items div {
+    color: #000;
+    padding: 8px 32px 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
     user-select: none;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
-/*style items (options):*/
 .select-items {
     position: absolute;
-    background-color: DodgerBlue;
-    /*top: 100%;*/
     left: 0;
-    right: 0;
-    z-index: 99;
-    /*width: 200px;*/
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+    top: 100%;
+    background-color: #fff;
 }
 
-/*hide the items when the selectAjax box is closed:*/
 .select-hide {
-    display: none;
+    visibility: hidden;
 }
 
 .select-items div:hover, .same-as-selected {

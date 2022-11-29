@@ -1,3 +1,55 @@
+/* reset */
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*  To Do Check */
+img {
+    width: 100%;
+}
+
+:root {
+    --primary: dodgerblue;
+    --secondary: dimgrey;
+    --success: yellowgreen;
+    --danger: indianred;
+    --warning: coral;
+    --info: lightgoldenrodyellow;
+    --light: lightgrey;
+    --dark: black;
+}
+
+.blind {
+    display: block;
+    width: 1px;
+    height: 1px;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+}
 .calendar-input {
     display: none;
 }
@@ -78,194 +130,463 @@
 .calendar-container div[class^="week"] *:last-child {
     color: blue;
 }
-.check-group .mykl-check {
+
+.mark {
+    background: #d7a8f5;
+}
+/* 정렬 */
+.check-col .mykl-check {
     display: inline-block;
 }
 
-.check-group.check-vertical .mykl-check {
-    display: block;
+.mykl-check {
+    position: relative;
+    vertical-align: top;
 }
 
+.mykl-check + .mykl-check {
+    margin-top: 16px;
+    margin-left: 0;
+}
+
+.check-col .mykl-check + .mykl-check {
+    margin-top: 0;
+    margin-left: 48px;
+}
+
+.check-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.check-label {
+    font-size: 1rem;
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    left: 0;
+    height: 17px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding-left: 26px;
+    color: #505050;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.check-label:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: url(./images/check_box_off.png) no-repeat;
+}
+
+.check-input:checked + label:after {
+    margin-top: -8px;
+    background: url(./images/check_box_on.png) no-repeat;
+}
+
+/* 상태 */
+.check-input:disabled + .check-label {
+    pointer-events: none;
+    -webkit-filter: none;
+            filter: none;
+    opacity: .5;
+}
 .file-input {
     display: none;
 }
 
 .file-btn {
-    background: skyblue;
+    padding: 10px 20px 10px 36px;
+    border-radius: 18px;
     border: none;
-}
-
-.signup {
-    max-width: 1200px;
-    width: 70%;
-    min-width: 300px;
-    margin: 0 auto;
-}
-
-.form-group {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /*flex-wrap: wrap;*/
-}
-
-.form-group .form-label {
-    min-width: 90px;
-    width: 30%;
-    max-width: 100px;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-}
-
-.form-group .form-control {
-    width: 100%;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
-}
-
-.form-group .form-text {
-    min-width: 20px;
-    text-align: center;
-}
-
-/* 세로 정렬*/
-.form-group.form-vertical {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-}
-
-.form-group.form-vertical .form-label {
-    display: block;
-    width: 100%;
-    max-width: none;
-}
-
-/* float */
-.form-group.form-float {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
     position: relative;
+    background: #707070;
+    cursor: pointer;
 }
 
-.form-group.form-float .form-label {
-    display: block;
-    width: 100%;
-    max-width: none;
-}
-
-.form-group.form-float > * {
+.file-btn:before {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
-
-.form-group.form-float .form-control {
-    width: 100%;
-    height: 100%;
-}
-
-.form-group.form-float .form-label {
-    /*position: ;*/
-    width: auto;
-    height: auto;
+    left: 20px;
     top: 50%;
-    left: 10px;
+    width: 10px;
+    height: 2px;
+    background: white;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-    opacity: 1;
-    z-index: -1;
-    -webkit-transition: top 0.1s ease-in, left 0.1s ease-in;
-    -o-transition: top 0.1s ease-in, left 0.1s ease-in;
-    transition: top 0.1s ease-in, left 0.1s ease-in;
 }
 
-/* focus일 때 input */
-.form-group.form-float .form-control:focus {
-    opacity: 1;
-    padding-top: 20px;
+.file-btn:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background: white;
+    -webkit-transform: translateY(-50%) rotateZ(90deg);
+        -ms-transform: translateY(-50%) rotate(90deg);
+            transform: translateY(-50%) rotateZ(90deg);
 }
 
-/* focus일 때 label */
-.form-group.form-float .form-control:-moz-placeholder-shown:focus + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
-}
-.form-group.form-float .form-control:-ms-input-placeholder:focus + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
-}
-.form-group.form-float .form-control:placeholder-shown:focus + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
+.uploaded-list {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
-/* placeholder 안보일때 input*/
-.form-group.form-float .form-control:not(:-moz-placeholder-shown) {
-    opacity: 1;
-    padding-top: 20px;
-}
-.form-group.form-float .form-control:not(:-ms-input-placeholder) {
-    opacity: 1;
-    padding-top: 20px;
-}
-.form-group.form-float .form-control:not(:placeholder-shown) {
-    opacity: 1;
-    padding-top: 20px;
+.uploaded-list li {
+    position: relative;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid #DFDFDF;
+    line-height: 1;
+    border-radius: 18px;
+    padding: 10px 20px;
 }
 
-/* placeholder 안보일때 label */
-.form-group.form-float .form-control:not(:-moz-placeholder-shown) + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
-}
-.form-group.form-float .form-control:not(:-ms-input-placeholder) + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
-}
-.form-group.form-float .form-control:not(:placeholder-shown) + * {
-    opacity: 1;
-    z-index: 3;
-    top: 10px;
-    left: 5px;
-    font-size: 0.7rem;
+.uploaded-list li + li {
+    margin-left: 10px;
 }
 
+.delete-file-btn {
+    position: relative;
+    margin-left: 8px;
+    text-indent: -9999px;
+    border: none;
+    background: none;
+    width: 16px;
+    height: 16px;
+}
 
-.radio-group .mykl-radio {
+.delete-file-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #707070;
+    -webkit-transform: translateX(-50%) rotateZ(45deg);
+        -ms-transform: translateX(-50%) rotate(45deg);
+            transform: translateX(-50%) rotateZ(45deg);
+}
+
+.delete-file-btn:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 2px;
+    height: 100%;
+    background: #707070;
+    -webkit-transform: translateX(50%) rotateZ(-45deg);
+        -ms-transform: translateX(50%) rotate(-45deg);
+            transform: translateX(50%) rotateZ(-45deg);
+}
+.form-group {
+    display: table;
+    width: 100%;
+    border-spacing:10px;
+}
+
+.form-group > *:not(.form-group) {
+    display: table-cell;
+}
+
+.form-group.form-row {
+    display: block;
+}
+
+.form-group.form-row > *:not(.form-group) {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------- */
+/*.form-group {*/
+/*    !*width: 100%;*!*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.form-label {*/
+/*    font-weight: 600;*/
+/*    font-size: 15px;*/
+/*    color: #505050;*/
+/*    margin: 0;*/
+/*}*/
+
+/*.form-group > *:not(:first-child) {*/
+/*    margin: 0px 0px 0px 14px;*/
+/*}*/
+
+/*!*.form-group .form-label {*!*/
+/*!*    min-width: 90px;*!*/
+/*!*    width: 30%;*!*/
+/*!*    max-width: 100px;*!*/
+/*!*    flex-shrink: 0;*!*/
+/*!*}*!*/
+
+/*!*.form-group .form-control {*!*/
+/*!*    width: 100%;*!*/
+/*!*    flex: 1;*!*/
+/*!*    flex-shrink: 1;*!*/
+/*!*}*!*/
+/*.form-group .mykl-btn {*/
+/*    height: 100%;*/
+/*}*/
+
+/*.form-group .form-text {*/
+/*    color: #B0B0B0;*/
+/*}*/
+
+/*.form-group .form-text, .form-group .form-text + * {*/
+/*    margin-left: 8px;*/
+/*}*/
+
+/*!* 세로 정렬*!*/
+/*.form-group.form-vertical {*/
+/*    display: initial;*/
+/*}*/
+
+/*.form-group.form-vertical > *:not(:first-child) {*/
+/*    margin: 14px 0 0;*/
+/*}*/
+
+/*.form-group.form-vertical .form-label {*/
+/*    display: inline-block;*/
+/*}*/
+
+/* ------------------------------------------------------------------------------------------------------- */
+
+/* float */
+/*.form-group.form-float {*/
+/*    flex-wrap: wrap;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    padding: 20px;*/
+/*    position: relative;*/
+/*}*/
+
+/*.form-group.form-float .form-label {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    max-width: none;*/
+/*}*/
+
+/*.form-group.form-float > * {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    opacity: 0;*/
+/*}*/
+
+/*.form-group.form-float .form-control {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.form-group.form-float .form-label {*/
+/*    !*position: ;*!*/
+/*    width: auto;*/
+/*    height: auto;*/
+/*    top: 50%;*/
+/*    left: 10px;*/
+/*    transform: translateY(-50%);*/
+/*    opacity: 1;*/
+/*    z-index: -1;*/
+/*    transition: top 0.1s ease-in, left 0.1s ease-in;*/
+/*}*/
+
+/*!* focus일 때 input *!*/
+/*.form-group.form-float .form-control:focus {*/
+/*    opacity: 1;*/
+/*    padding-top: 20px;*/
+/*}*/
+
+/*!* focus일 때 label *!*/
+/*.form-group.form-float .form-control:placeholder-shown:focus + * {*/
+/*    opacity: 1;*/
+/*    z-index: 3;*/
+/*    top: 10px;*/
+/*    left: 5px;*/
+/*    font-size: 0.7rem;*/
+/*}*/
+
+/*!* placeholder 안보일때 input*!*/
+/*.form-group.form-float .form-control:not(:placeholder-shown) {*/
+/*    opacity: 1;*/
+/*    padding-top: 20px;*/
+/*}*/
+
+/*!* placeholder 안보일때 label *!*/
+/*.form-group.form-float .form-control:not(:placeholder-shown) + * {*/
+/*    opacity: 1;*/
+/*    z-index: 3;*/
+/*    top: 10px;*/
+/*    left: 5px;*/
+/*    font-size: 0.7rem;*/
+/*}*/
+
+
+
+.mykl-input {
+    display: inline-block;
+    border: 1px solid #DFDFDF;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+    line-height: 1;
+    width: 100%;
+}
+
+/* 크기*/
+.input-sm {
+    font-size: 0.875rem;
+}
+
+.input-lg {
+    font-size: 1.25rem;
+}
+
+/* 상태 */
+.input-error {
+    outline: transparent;
+    border: 1px solid #FF0000;
+}
+
+.mykl-input:disabled {
+    background: #F2F2F2;
+}
+
+.mykl-input:-moz-read-only {
+    pointer-events: none;
+}
+
+.mykl-input:read-only {
+    pointer-events: none;
+}
+
+/* password */
+.mykl-input-password {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+.mykl-input-password .mykl-input {
+    padding-right: 46px;
+}
+
+.input-password-icon {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    background: url(./images/pass_eye.png);
+    text-indent: -9999px;
+}
+/* 정렬 */
+.radio-col .mykl-radio {
     display: inline-block;
 }
 
-.radio-group.radio-vertical .mykl-radio {
-    display: block;
+.mykl-radio {
+    position: relative;
+    vertical-align: top;
+}
+
+.mykl-radio + .mykl-radio {
+    margin-top: 16px;
+    margin-left: 0;
+}
+
+.radio-col .mykl-radio + .mykl-radio {
+    margin-top: 0;
+    margin-left: 48px;
+}
+
+.radio-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.radio-label {
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    left: 0;
+    height: 17px;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding-left: 26px;
+    color: #101010;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.radio-label:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: url(./images/radio_bt_off.png) no-repeat;
+}
+
+.radio-input:checked + .radio-label:after {
+    background: url(./images/radio_bt_on.png) no-repeat;
+}
+
+/* 상태 */
+.radio-input:disabled + .radio-label {
+    pointer-events: none;
+    -webkit-filter: none;
+            filter: none;
+    opacity: .5;
 }
 .mykl-range, .form-range-ajax {
     position: relative;
@@ -379,7 +700,7 @@ input[type="range"]::-webkit-slider-thumb {
     /* 겹쳐진 두 thumb를 모두 활성화 */
     pointer-events: all;
     width: 15px;
-    height: 20px;
+    height: 15px;
     border-radius: 0;
     border: 0 none;
     background-color: red;
@@ -400,53 +721,103 @@ input[type="range"]::-webkit-slider-thumb {
             transform: translateX(7.5px);
     /*z-index: 3;*/
 }
-/*the container must be positioned relative:*/
 .mykl-select {
-    /*font-family: Arial;*/
     position: relative;
+    display: inline-block;
 }
 
 .mykl-select select{
-    display: none; /*hide original SELECT element:*/
+    display: none;
 }
 
 .select-group {
     position: relative;
-    /*overflow: hidden;*/
-}
-
-.select-selected {
-    background-color: DodgerBlue;
-    position: relative;
-    /*width: 200px;*/
-    /* 추가 */
-    display: inline-block;
-    /*float: left;*/
     width: 100%;
 }
 
-/*style the arrow inside the selectAjax element:*/
-.select-selected:after {
+.select-selected {
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 8px 32px 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #DFDFDF;
+    text-align: left;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #101010;
+    display: block;
+}
+
+.select-selected:before {
+    content:"";
     position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
+    right:16px;
+    top:50%;
+    -webkit-transform: translateY(-50%) rotateZ(45deg);
+        -ms-transform: translateY(-50%) rotate(45deg);
+            transform: translateY(-50%) rotateZ(45deg);
+    width: 8px;
+    height: 2px;
+    background: #707070;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
 }
 
-/*point the arrow upwards when the selectAjax box is open (active):*/
+.select-selected:after {
+    content:"";
+    position: absolute;
+    right: 11px;
+    top:50%;
+    -webkit-transform: translateY(-50%) rotateZ(-45deg);
+        -ms-transform: translateY(-50%) rotate(-45deg);
+            transform: translateY(-50%) rotateZ(-45deg);
+    width: 8px;
+    height: 2px;
+    background: #707070;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.select-selected.select-arrow-active:before {
+    -webkit-transform: translateY(-50%) rotateZ(-225deg);
+        -ms-transform: translateY(-50%) rotate(-225deg);
+            transform: translateY(-50%) rotateZ(-225deg);
+}
+
 .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
+    -webkit-transform: translateY(-50%) rotateZ(225deg);
+        -ms-transform: translateY(-50%) rotate(225deg);
+            transform: translateY(-50%) rotateZ(225deg);
 }
 
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-    color: #ffffff;
-    padding: 8px 16px;
+/*.select-selected:after {*/
+/*    content:"";*/
+/*    position: absolute;*/
+/*    right:9px;*/
+/*    top:50%;*/
+/*    transform: translateY(-50%);*/
+/*    background: url("../../images/sel_d_icon.png") no-repeat;*/
+/*    width: 16px;*/
+/*    height: 16px;*/
+/*    -webkit-transition: all 0.3s ease;*/
+/*    -moz-transition: all 0.3s ease;*/
+/*    -o-transition: all 0.3s ease;*/
+/*    -ms-transition: all 0.3s ease;*/
+/*}*/
+
+/*.select-selected.select-arrow-active:after {*/
+/*    transform: translateY(-50%) rotate(180deg);*/
+/*}*/
+
+
+.select-items div {
+    color: #000;
+    padding: 8px 32px 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
@@ -454,29 +825,39 @@ input[type="range"]::-webkit-slider-thumb {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
-/*style items (options):*/
 .select-items {
     position: absolute;
-    background-color: DodgerBlue;
-    /*top: 100%;*/
     left: 0;
-    right: 0;
-    z-index: 99;
-    /*width: 200px;*/
+    border: 1px solid #DFDFDF;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+    top: 100%;
+    background-color: #fff;
 }
 
-/*hide the items when the selectAjax box is closed:*/
 .select-hide {
-    display: none;
+    visibility: hidden;
 }
 
 .select-items div:hover, .same-as-selected {
     background-color: rgba(0, 0, 0, 0.1);
 }
 .mykl-textarea {
+    border: 1px solid #DFDFDF;
+    padding: 18px 20px;
     resize: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow-y: auto;
+    height: 300px;
 }
 
 .mykl-textarea.textarea-vertical {
@@ -499,6 +880,8 @@ input[type="range"]::-webkit-slider-thumb {
 .mykl-textarea.textarea-smart::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
 }
+
+
 .time-input {
     display: none;
 }
@@ -1590,5 +1973,206 @@ figcaption {
 /*.card-body {*/
 /*    border-top: 1px solid #bdbdbd;*/
 /*}*/
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/*.slider-group {*/
+/*    margin: 0px auto;*/
+/*    padding: 0;*/
+/*    list-style: none;*/
+/*    width: 100%;*/
+/*    !*position: relative;*!*/
+/*    overflow: hidden;*/
+/*    white-space: nowrap;*/
+
+/*    !* 자식 요소의 여백 제거 *!*/
+/*    font-size: 0;*/
+/*    letter-spacing: 0;*/
+/*    word-spacing: 0;*/
+
+/*}*/
+
+
+.slider-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+}
+
+.slide-item {
+    /*float: left;*/
+    display: inline-block;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    /*position: absolute;*/
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    -o-transition: transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    vertical-align: top;
+
+    font-size: medium;
+
+    font-size: initial;
+    letter-spacing: normal;
+    letter-spacing: initial;
+    word-spacing: normal;
+    word-spacing: initial;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+
+.group-horizontal .mykl-media {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.mykl-media > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.media-vertical {
+    max-width: 215px;
+}
+
+.media-vertical > * {
+    margin: 14px 0 0 0;
+    display: block;
+}
+
+.media-cover {
+    position: relative;
+    text-align: center;
+}
+
+.media-cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+}
+
+.flex-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.media-cover .mykl-tooltip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+}
+
+.modal-dialog {
+    display: none;
+}
+.modal-dialog.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    margin-bottom: 300px;
+    border-radius: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    padding: 5px 10px;
+    border-bottom: 1px solid #bdbdbd;
+    position: relative;
+}
+
+.modal-body {
+    padding: 5px 10px;
+}
+
+.modal-footer {
+    border-top: 1px solid #bdbdbd;
+    padding: 5px 10px;
+}
+
+
+.btn-close {
+    border: none;
+    position: absolute;
+    background: none;
+    top: 50%;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.btn-close::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+    width: 20px;
+    height: 2px;
+    display: block;
+    background: #000;
+    -webkit-transform: translateY(-1px) rotate(45deg) ;
+        -ms-transform: translateY(-1px) rotate(45deg) ;
+            transform: translateY(-1px) rotate(45deg) ;
+    -webkit-transform-origin: 50%;
+        -ms-transform-origin: 50%;
+            transform-origin: 50%;
+}
+
+.btn-close::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+    width: 20px;
+    height: 2px;
+    display: block;
+    background: #000;
+    -webkit-transform: translateY(-1px) rotate(-45deg);
+        -ms-transform: translateY(-1px) rotate(-45deg);
+            transform: translateY(-1px) rotate(-45deg);
+    -webkit-transform-origin: 50%;
+        -ms-transform-origin: 50%;
+            transform-origin: 50%;
+}
 
 /*# sourceMappingURL=mykl_ui_style.css.map*/

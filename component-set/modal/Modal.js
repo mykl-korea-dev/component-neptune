@@ -26,7 +26,3 @@ export default class Modal extends Component {
     }
 }
 
-<<<<<<< Updated upstream
-// new Modal(document.querySelector('.modal'));
-=======
->>>>>>> Stashed changes

@@ -68,3 +68,8 @@
     filter: none;
     opacity: .5;
 }
+
+.check-input[readonly] + .check-label {
+    pointer-events: none;
+    cursor: default;
+}

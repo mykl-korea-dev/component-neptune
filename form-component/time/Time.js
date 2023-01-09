@@ -25,12 +25,12 @@ export default class Time extends Component {
                 </div>
                 <div class="time-box">
                     ${[...new Array(12)].map((v, i) => {
-                        return [...new Array(60/+step)].map((sv, j) => `
+            return [...new Array(60/+step)].map((sv, j) => `
                             <div class="time-group ${(+this.setInTwelve(closeHour) === (i+1) && Number(closeMinute) === (j * +step)) ? "time-mark" : ''}">
                                ${this.setTwoDigits(i+1)}:${this.setTwoDigits(j * +step)}
                             </div>
                         `).join("")
-                    }).join("")}
+        }).join("")}
                 </div>
             </div>
         `
@@ -53,7 +53,7 @@ export default class Time extends Component {
             // 가장 상단 위치
             // timeWrapper.querySelector('.time-box').scrollTop = markY - firstY;
             // 중간 위치
-             timeWrapper.querySelector('.time-box').scrollTop = markY - firstY - timeBoxEl.getBoundingClientRect().height / 2;
+            timeWrapper.querySelector('.time-box').scrollTop = markY - firstY - timeBoxEl.getBoundingClientRect().height / 2;
         })
 
         this.$element.querySelector('.time-box').addEventListener('click', ({target}) => {

@@ -7,7 +7,6 @@ export default class Calendar extends Component {
         this.date = this.setTwoDigits(new Date().getDate());
         this.mark = this.date;
         this.state = {}
-
         const div = document.createElement('div');
         div.classList.add('calendar-wrapper');
         this.$element.appendChild(div);
@@ -47,9 +46,9 @@ export default class Calendar extends Component {
             ${[...Array(weekSeq)].map((_, i) =>`
                 <div class="week${i}">
                     ${[...Array(7)].map((_, j) => {
-                    const date = i * 7 + j - firstDay + 1;
-                    if(date < 1 || date > lastDate) return `<div></div>`
-                    return `<div class="day ${date == this.mark ? 'mark' : ''}">${date}</div>`}).join('')}
+            const date = i * 7 + j - firstDay + 1;
+            if(date < 1 || date > lastDate) return `<div></div>`
+            return `<div class="day ${date == this.mark ? 'mark' : ''}">${date}</div>`}).join('')}
                 </div>
             `).join('')}
         </div>
@@ -75,7 +74,7 @@ export default class Calendar extends Component {
                             this.holiArr =  data.response.body.items.item.isHoliday === 'Y' ? [data.response.body.items.item.locdate.toString().substring(6, 8)]: [];
                         }
                         this.state[`${this.year}-${this.month}`] = this.holiArr;
-                    this.$element.querySelector('.calendar-wrapper').innerHTML = this.setTemplate();
+                        this.$element.querySelector('.calendar-wrapper').innerHTML = this.setTemplate();
                         this.holiArr.map(day => this.$element.querySelectorAll('.day')[+day - 1].style.color = "red");
                     }
                 );
@@ -131,6 +130,6 @@ export default class Calendar extends Component {
     }
 
     setTwoDigits(value) {
-        return value < 10 ? `0${value}` : value
+        return +value < 10 ? `0${+value}` : +value;
     }
 }

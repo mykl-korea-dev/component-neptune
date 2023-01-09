@@ -67,3 +67,8 @@
     filter: none;
     opacity: .5;
 }
+
+.radio-input[readonly] + .radio-label {
+    pointer-events: none;
+    cursor: default;
+}

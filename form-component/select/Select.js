@@ -4,27 +4,25 @@ export default class Select extends Component {
     setElements() {
         this.select = this.$element.querySelector('select');
         this.options = Array.from(this.select.querySelectorAll('option'));
+        this.$element.querySelector('.select-group')?.remove();
+        const selectGroupEl = document.createElement('div');
+        selectGroupEl.classList.add('select-group');
+        this.$element.appendChild(selectGroupEl);
     }
 
     setTemplate() {
-        const firstValue = this.options[0];
-        console.log(firstValue, firstValue.getAttribute('value') === '' && firstValue.textContent !== "", this.$element);
-        (firstValue.getAttribute('value') === '' && firstValue.textContent !== "") && this.options.splice(0, 1);
-        this.options.forEach(el => console.log(el))
         return `
-            <div class="select-group">
-                <div class="select-selected">
-                    ${this.select?.options[this.select.selectedIndex].textContent}
-                </div>
-                <div class="select-items select-hide">
-                    ${this.options.map(el => `<div>${el.textContent}</div>`).join('')}
-                </div>
+            <div class="select-selected">
+                ${this.select?.options[this.select.selectedIndex].textContent}
+            </div>
+            <div class="select-items select-hide">
+                ${this.options.map(el => `<div>${el.textContent}</div>`).join('')}
             </div>
         `;
     }
 
     render() {
-        this.$element.innerHTML += this.setTemplate();
+        this.$element.querySelector('.select-group').innerHTML = this.setTemplate();
         const selectedElWidth = this.$element.querySelector('.select-selected').getBoundingClientRect().width;
         const selectItemElWidth = this.$element.querySelector('.select-items').getBoundingClientRect().width;
         this.$element.style.width = selectItemElWidth > selectedElWidth ? selectItemElWidth + 'px' : selectedElWidth + 'px';

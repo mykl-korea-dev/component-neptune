@@ -5,14 +5,9 @@ import {getData} from "../../../basic/utils.js";
 
 export default class SelectAjax extends Select {
     setElements() {
-        console.log(this.$data)
         this.$element.classList.add("mykl-select");
         this.select = this.$element.querySelector('select');
         const optionEl = this.select.querySelector('option');
-
-        const idKey = this.select.lastElementChild.getAttribute('value');
-        const valueKey = this.select.lastElementChild.textContent;
-        const [selectedKey, isTrue] = this.select.lastElementChild.getAttribute('selected')?.split("__") || ["", ""];
 
         if(optionEl.getAttribute('value') === '' && optionEl.textContent !== "") {
             this.select.innerHTML = '';
@@ -20,11 +15,14 @@ export default class SelectAjax extends Select {
         } else {
             this.select.innerHTML = '';
         }
-
-        if(Array.isArray(this.$data)) {
-            this.select.innerHTML += this.$data.map((data) => `
-                <option value="${data[idKey]}"  ${selectedKey ? data[selectedKey].toString() == isTrue ? "selected" : '' : ''}>${data[valueKey]}</option>
-            `).join('')
+        if(this.$data.data) {
+            const {data: $data = this.$data, options = {}} = this.$data;
+            const {id = "id", value = "value", selected = "selected", trueSelected = 'Y'} = options;
+            this.select.innerHTML += $data.map((data) => {
+                return `
+                <option value="${data[id]}"  ${data[selected] === trueSelected ? "selected" : ''}>${data[value]}</option>
+            `
+            }).join('');
         } else {
             this.select.innerHTML += Object.keys(this.$data).map((data, i) => `
                 <option value="${data}">${this.$data[data]}</option>
@@ -32,6 +30,11 @@ export default class SelectAjax extends Select {
         }
 
         this.options = Array.from(this.select.querySelectorAll('option'));
+
+        this.$element.querySelector('.select-group')?.remove();
+        const selectGroupEl = document.createElement('div');
+        selectGroupEl.classList.add('select-group');
+        this.$element.appendChild(selectGroupEl);
     }
 }
 

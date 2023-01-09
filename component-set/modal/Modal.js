@@ -19,11 +19,14 @@ export default class Modal extends Component {
             return;
         })
 
-        this.$element.querySelector('[data-func="modal"]')?.addEventListener('click', () => {
+        this.$element.querySelectorAll('[data-func="modal"]').forEach(el => el.addEventListener('click', () => {
             this.$element.querySelector('.modal-dialog').classList.remove('show');
             document.body.style.overflow = 'auto';
-        })
+        }))
     }
 }
 
+<<<<<<< Updated upstream
 // new Modal(document.querySelector('.modal'));
+=======
+>>>>>>> Stashed changes

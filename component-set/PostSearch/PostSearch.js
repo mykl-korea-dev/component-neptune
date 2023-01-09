@@ -6,6 +6,7 @@ import {getDataset} from "../../basic/utils.js";
 export default class PostSearch extends Component {
     setElements() {
         this.originVal = this.$element.innerHTML;
+        this.$element.classList.add('form-group');
     }
 
     setTemplate() {
@@ -38,20 +39,19 @@ export default class PostSearch extends Component {
                 </div>
             </div>
             $originVal
-            <button type="button" class="postsearch-btn">클릭</button>
-            <label for="">start</label><input type="date" name="${getDataset(this.$element, "startDate")}" data-date="start">
-            <label for="">end</label><input type="date" name="${getDataset(this.$element, "endDate")}" data-date="end">
+            <a type="button" class="postsearch-btn mykl-btn btn-primary">클릭</a>
+            <input type="hidden" name="${getDataset(this.$element, "startdate")}" data-date="start">
+            <input type="hidden" name="${getDataset(this.$element, "enddate")}" data-date="end">
         `;
     }
 
     render() {
         const replacedTemplate = this.setTemplate().replace("$originVal", this.originVal);
         this.$element.innerHTML = replacedTemplate;
-        document.querySelectorAll('.mykl-select').forEach(el => {
-            this.originVal.includes(el.innerHTML) && el.removeChild(el.lastElementChild);
+        this.$element.querySelectorAll('.mykl-select').forEach(el => {
             new Select(el);
         });
-        document.querySelectorAll('.mykl-calendar').forEach(el => new Calendar(el));
+        this.$element.querySelectorAll('.mykl-calendar').forEach(el => new Calendar(el));
     }
 
     setEvents() {
@@ -66,7 +66,17 @@ export default class PostSearch extends Component {
                 },
                 body: JSON.stringify(objs)
             }).then(res => res.json()).then((data) => {
-                this.$data.callback(...this.$data, ...data);
+                const pages = {
+                    limit: 10,
+                    start: 1,
+                }
+                console.log(pages, this.$data, data);
+                const newData = {
+                    ...pages,
+                    ...this.$data,
+                    ...data
+                }
+                this.$data.callback(newData);
             })
         })
 

@@ -45,7 +45,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: './'
+                            publicPath: '/'
                         },
                     },
                     // 'style-loader',
@@ -59,14 +59,15 @@ module.exports = {
         ]
     },
     // optimization: {
-    //     minimize: true,
-    //     minimizer: [new TerserPlugin({
-    //         minify: TerserPlugin.uglifyJsMinify,
-    //         terserOptions: {
-    //             compress: {unused: false},
-    //             mangle: { keep_fnames: true }
-    //         }
-    //     })]
+    //     runtimeChunk: "single"
+    //     // minimize: true,
+    //     // minimizer: [new TerserPlugin({
+    //     //     minify: TerserPlugin.uglifyJsMinify,
+    //     //     terserOptions: {
+    //     //         compress: {unused: false},
+    //     //         mangle: { keep_fnames: true }
+    //     //     }
+    //     // })]
     // },
     // devServer: {
     //     devMiddleware: {publicPath: "/dist"},

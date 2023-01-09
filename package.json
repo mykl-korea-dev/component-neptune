@@ -47,6 +47,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "chart.js": "^3.9.1",
+    "chartjs-plugin-datalabels": "^2.1.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "whatwg-fetch": "^3.6.2"
   },

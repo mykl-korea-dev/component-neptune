@@ -1,5 +1,5 @@
-import Component from "../../basic/Component.js";
-import {getDataset} from "../../basic/utils.js";
+import Component from "../../../basic/Component.js";
+import {getDataset} from "../../../basic/utils.js";
 // 1. keydown 이벤트 발생 시 API 목록 가져오기
 // 2. ArrowDown 누르면 목록 리스트 중 아래로 이동
 // 2-1. 최하단 목록 시 누르면 기본 입력 값
@@ -18,26 +18,29 @@ class AutoCompleteItem extends Component {
     setElements() {
         this.originVal = null;
         this.currentValue = null;
-        this.$element.querySelector('input').setAttribute('autocomplete', 'off');
+        this.$element.classList.add("mykl-auto-complete");
+        this.$element.querySelector('input[type=text]').setAttribute('autocomplete', 'off');
+        this.$element.querySelector('.auto-complete-list').style.width = this.$element.querySelector('.auto-complete-input input').getBoundingClientRect().width + 'px';
     }
 
     setEvents() {
-        this.$element.addEventListener('keydown', this.keyDownHandler.bind(this));
+        this.$element.addEventListener('click',({ target }) => {
+            if(target.classList.contains('btn-direct')) {
+                this.$element.querySelector('input[type=text]').value = this.currentValue || this.originVal;
+                this.inputBlur();
+            }
+        })
 
-        this.$element.querySelector('input').addEventListener('focus', () => {
+        this.$element.addEventListener('keyup', this.keyUpHandler.bind(this));
+
+        this.$element.querySelector('input[type=text]').addEventListener('focus', () => {
             this.closeAllAutoComplete();
             this.$element.classList.add('active');
             this.$element.querySelector('.auto-complete-list').classList.add('show');
         })
 
-        this.$element.querySelector('.btn-direct').addEventListener('click', () => {
-            this.$element.querySelector('input').value = this.currentValue || this.originVal;
-            this.inputBlur();
-            // this.$element.querySelector('.auto-complete-list').classList.remove('show');
-        })
-
-        this.$element.querySelector('.btn-remove')?.addEventListener('click', () => {
-            const childCount = this.$element.parentElement.childElementCount;
+        this.$element.querySelector('.btn-remove').addEventListener('click', () => {
+            const childCount = this.$data.parentEl.querySelectorAll('.auto-complete-item').length;
             // 모두 삭제 가능하도록 변경 가능?
             (childCount > 1) && (this.$element.remove());
         })
@@ -49,27 +52,28 @@ class AutoCompleteItem extends Component {
         })
 
         this.$element.querySelector('.auto-complete-list')?.addEventListener('click', () => {
-            this.currentValue = getDataset(this.$element.querySelector('.selected'), 'val');
-            this.$element.querySelector('input').value = this.currentValue;
-            this.inputBlur();
+            this.setInputValue();
         })
 
         document.addEventListener('click', ({target}) => {
             if(!this.$element.classList.contains('active') || target.tagName === "INPUT") {
                 return;
             }
-            this.currentValue = getDataset(this.$element.querySelector('.selected'), 'val') || this.currentValue;
-            this.$element.querySelector('input').value = this.currentValue || '';
-            this.inputBlur();
+            this.setInputValue();
         })
 
     }
 
-    keyDownHandler(e) {
-        // console.log(e.key, e.keyCode, e.code, e.key == 'Down', e.key === 'Down', e.keyCode === 229, e.keyCode != 229, e.keyCode !== 229);
+    setInputValue() {
+        this.$element.querySelector('input[type=text]').value = getDataset(this.$element.querySelector('.selected'), 'val') || '';
+        this.$element.querySelector('input[type=hidden]').value = getDataset(this.$element.querySelector('.selected'), 'id') || '';
+        this.inputBlur();
+    }
+
+    keyUpHandler(e) {
         this.$element.querySelector('.auto-complete-list').classList.add('show');
         if((e.key === 'Process' && (e.code ==='ArrowDown' || e.code === 'ArrowUp'))) {
-            return
+            return;
         }
 
         let selectedEl = this.$element.querySelector('.auto-complete-list .selected');
@@ -86,7 +90,7 @@ class AutoCompleteItem extends Component {
                 selectedEl = this.$element.querySelector('.auto-complete-list').firstElementChild;
                 selectedEl?.classList.add('selected');
             }
-            this.$element.querySelector('input').value = selectedEl ? getDataset(this.$element.querySelector('.auto-complete.selected'), 'val') : this.originVal;
+            this.$element.querySelector('input[type=text]').value = selectedEl ? getDataset(this.$element.querySelector('.auto-complete.selected'), 'val') : this.originVal;
             return;
         }
 
@@ -99,7 +103,7 @@ class AutoCompleteItem extends Component {
                 selectedEl = this.$element.querySelector('.auto-complete-list').lastElementChild;
                 selectedEl?.classList.add('selected');
             }
-            this.$element.querySelector('input').value = selectedEl ? getDataset(this.$element.querySelector('.auto-complete.selected'), 'val') : this.originVal;
+            this.$element.querySelector('input[type=text]').value = selectedEl ? getDataset(this.$element.querySelector('.auto-complete.selected'), 'val') : this.originVal;
             return;
         }
 
@@ -107,22 +111,29 @@ class AutoCompleteItem extends Component {
             if(!selectedEl) {
                 return;
             }
-            this.currentValue = getDataset(selectedEl, 'val');
-            this.$element.querySelector('input').value = this.currentValue;
-            this.inputBlur();
+            this.setInputValue();
             return;
         }
 
-        fetch("http://localhost:3000/autoComplete")
+        const inputVal = this.$element.querySelector('input[type=text]').value;
+
+        fetch(this.$data.recommendUrl + inputVal, {
+            method: 'GET',
+            headers: {
+                ...this.$data.headers,
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+        })
             .then(response => response.json())
-            .then(datas => {
+            .then(data => {
                 this.$element.querySelector('.auto-complete-list').innerHTML = '';
-                this.originVal = this.$element.querySelector('input').value;
+                this.originVal = this.$element.querySelector('input[type=text]').value;
 
                 const div = document.createElement('div');
-                div.innerHTML = datas.map(data => `
-                        <div class="auto-complete" data-val="${data}">${data.replace(this.originVal, `<b>${this.originVal}</b>`)}</div> 
-                    `).join("");
+                div.innerHTML = data.map(item => `
+                        <div class="auto-complete" data-id="${item[this.$data.id]}" data-val="${item[this.$data.value]}">${item[this.$data.value].replace(this.originVal.trim(), `<b class="fw-bold">${this.originVal.trim()}</b>`)}</div>
+                    `).join("")
+                    + `<button type="button" class="btn-direct">직접입력 > </button>`;
                 this.$element.querySelector('.auto-complete-list').innerHTML = div.innerHTML;
             })
     }
@@ -132,7 +143,7 @@ class AutoCompleteItem extends Component {
     }
 
     inputBlur() {
-        this.$element.querySelector('input').blur();
+        this.$element.querySelector('input[type=text]').blur();
         this.$element.classList.remove('active');
         this.$element.querySelector('.show')?.classList.remove('show');
         this.$element.querySelector('.selected')?.classList.remove('selected');
@@ -141,7 +152,24 @@ class AutoCompleteItem extends Component {
 
 export default class AutoComplete extends Component {
     setElements() {
-        new AutoCompleteItem(this.$element.querySelector('.auto-complete-item'));
+        this.name = this.$element.querySelector("input").getAttribute("name");
+        const originInput = this.$element.querySelector("input");
+        originInput.removeAttribute("name");
+        const hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('name', this.name);
+        hiddenInput.setAttribute('type', 'hidden');
+        originInput.parentElement.appendChild(hiddenInput);
+    }
+
+    setTemplate() {
+        return `
+            <a type="button" class="btn-remove hide mykl-btn btn-secondary">삭제</a>
+        `
+    }
+
+    render() {
+        this.$element.querySelector('.auto-complete-input').innerHTML += this.setTemplate();
+        new AutoCompleteItem(this.$element.querySelector('.auto-complete-item'), { parentEl: this.$element, name: this.name, ...this.$data });
     }
 
     setEvents() {
@@ -153,22 +181,24 @@ export default class AutoComplete extends Component {
                 // 4. clone node show 제거
                 // 5. 원래 node selected 제거
 
-                const currentEl = this.$element.querySelector('.auto-complete-item.active') || this.$element.querySelector('.auto-complete-item');
+                const currentEl = this.$element.querySelector('.auto-complete-item.active') || this.$element.querySelector('.auto-complete-group').lastElementChild;
                 const selectedEl = currentEl?.querySelector('.selected');
-                currentEl.querySelector('input').value = selectedEl ? getDataset(selectedEl, 'val') : currentEl.classList.contains('active') ? '' : currentEl.querySelector('input').value;
+                currentEl.querySelector('input[type=text]').value = selectedEl ? getDataset(selectedEl, 'id') : currentEl.classList.contains('active') ? '' : currentEl.querySelector('input').value;
+                currentEl.querySelector('input[type=hidden]').value = "";
+                currentEl.querySelector('.auto-complete-list').innerHTML = "";
 
                 currentEl.classList.remove('active');
                 currentEl.querySelector('.auto-complete-list.show')?.classList.remove('show');
                 currentEl.querySelector('.auto-complete-list .selected')?.classList.remove('selected');
-
                 const duplicatedEl = currentEl.cloneNode(true);
                 duplicatedEl.querySelector('input').value = '';
                 this.$element.querySelector('.auto-complete-group').appendChild(duplicatedEl);
+                currentEl.querySelector('.btn-add').classList.add("hide");
+                currentEl.querySelector('.btn-remove').classList.remove("hide");
 
-                new AutoCompleteItem(duplicatedEl);
+                new AutoCompleteItem(duplicatedEl, { parentEl: this.$element, name: this.name, ...this.$data });
             }
         })
     }
 }
 
-// document.querySelectorAll('.mykl-auto-complete').forEach(el => new AutoComplete(el));

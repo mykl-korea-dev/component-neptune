@@ -1,68 +1,72 @@
 .mykl-btn {
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9375rem;
+    /*font-size: 15px;*/
+    font-weight: 600;
+    box-sizing: border-box;
+    /*max-width: 120px;*/
+    /*width: 100%;*/
+    min-width: 80px;
 
-    /* 추후 변경 가능 */
-    min-width: 100px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    /* 한글, 영어 높이 동일 하게 됨*/
+    /*!* 한글, 영어 높이 동일 하게 됨*!*/
     line-height: 2;
+    border: 1px solid transparent;
+    background: #fff;
+    padding: 10px;
 }
 
 .mykl-btn:hover {
     opacity: 0.8;
 }
 
-.mykl-btn[disabled] {
-    cursor: initial;
-    opacity: 0.5;
+/* 크기 */
+.btn-full {
+    width: 100%;
+    max-width: initial;
 }
 
-.mykl-btn[disabled]:hover {
-    opacity: 0.5;
+.btn-sm {
+    margin-left: 14px;
+    width: 80px;
+    padding: 8px;
 }
 
-/* Size */
-.mykl-btn.btn-lg {
-    min-width: 200px;
-    line-height: 3;
+.btn-round {
+    border-radius: 28px;
 }
 
-.mykl-btn.btn-sm {
-    min-width: 70px;
-    line-height: 1;
-}
-
-/* Color */
-.mykl-btn.btn-primary {
+.btn-primary {
     background: var(--primary);
+    color: #fff;
 }
 
-.mykl-btn.btn-secondary {
+.btn-primary-rev {
+    border: 1px solid currentColor;
+    color: #004CFF;
+}
+
+.btn-secondary {
+    border: 1px solid transparent;
     background: var(--secondary);
+    color: #505050;
 }
 
-.mykl-btn.btn-success {
-    background: var(--success);
+.btn-secondary-rev {
+    color: #505050;
+    border: 1px solid var(--secondary);
+    background: #fff;
 }
 
-.mykl-btn.btn-danger {
-    background: var(--danger);
+.btn-dark {
+    border: 1px solid #101010;
+    background: #101010;
+    color: #fff;
 }
 
-.mykl-btn.btn-warning {
-    background: var(--warning);
-}
 
-.mykl-btn.btn-info {
-    background: var(--info);
-}
 
-.mykl-btn.btn-light {
-    background: var(--light);
-}
 
-.mykl-btn.btn-dark {
-    background: var(--dark);
-    color: #bdbdbd;
-}
+

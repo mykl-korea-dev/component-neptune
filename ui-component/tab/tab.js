@@ -16,21 +16,19 @@ export default class Tab extends Component {
             e.preventDefault();
             e.stopPropagation();
 
-            const { target } = e;
-
-            if (!target.classList.contains('tab-item')) {
+            const tabItem = e.composedPath().find(v => v.classList.contains('tab-item'));
+            if(tabItem === undefined) {
                 return;
             }
 
-            const id = target.getAttribute('href');
+            const id = tabItem.getAttribute('href');
             [...this.$element.children].forEach(el => el.classList.contains('show') && el.classList.remove('show'));
             // this.$element.querySelector('nav ~ .tab-content.show')?.classList.remove('show');
             this.$element.querySelector('#' + id).classList.add('show');
 
             this.$element.querySelector('nav > .tab-item.active')?.classList.remove('active')
-            target.classList.toggle('active');
-        })
+            tabItem.classList.toggle('active');
+        });
     }
 }
 
-// document.querySelectorAll('.mykl-tab').forEach(el => new Tab(el));

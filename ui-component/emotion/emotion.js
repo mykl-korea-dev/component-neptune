@@ -56,4 +56,3 @@ export default class Emotion extends Component {
     }
 }
 
-document.querySelectorAll('.mykl-emotion').forEach(el => new Emotion(el));

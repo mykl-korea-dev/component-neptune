@@ -1,167 +1,68 @@
-.dropdown, .dropdown-ajax {
-    position: relative;
+.dropdown-toggle {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    color: #101010;
+    /*white-space: nowrap;*/
 }
 
-.dropdown-toggle {
-    white-space: nowrap;
+.dropdown-toggle:hover {
+    color: #222;
+}
+
+.dropdown-menu-outer {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    box-sizing:border-box;
+    padding-top: 8px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
 }
 
 .dropdown-menu {
-    position: absolute;
-    z-index: 1000;
-    display: none;
-    min-width: 10rem;
-    padding: 0.5rem 0;
-    margin: 0;
-    font-size: 1rem;
-    color: #212529;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.175);
-    border-radius: 0.375rem;
+    border-radius:5px;
+    background: #fff;
+    height: auto;
+    padding:20px 32px 20px 20px;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    overflow: hidden;
+    transform: matrix(1,0,0,1,0,0);
 }
 
-.dropdown-menu.show {
-    display: block;
-    position: absolute;
-    /*inset: auto auto 0px 0px;*/
-    margin: 0px;
-    /*transform: translate3d(0px, 40px, 0px);*/
-}
-.dropdown-item {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: inherit;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
+.dropdown-toggle:hover + .dropdown-menu-outer, .dropdown-menu-outer:hover {
+    overflow: visible;
+    height: auto;
+    opacity: 1;
+    z-index: 10;
 }
 
+.dropdown-item + .dropdown-item {
+    margin-top: 35px;
+}
+
+.dropdown-text:hover {
+    font-weight: 600;
+    color: #004CFF;
+}
+
+.dropdown-text {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    color: #505050;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
 
 .dropdown-list {
     float: left;
     display: inline-block;
     width: 100%;
 }
-
-/* 시작 */
-
-/*.btn {*/
-/*    display: block;*/
-/*    !*width: 10rem;*!*/
-/*    !*height: 1.5rem;*!*/
-/*    background: #fff;*/
-/*    color: #000;*/
-/*    text-align: center;*/
-/*    border: none;*/
-/*    font-size: 1rem;*/
-/*    cursor: pointer;*/
-/*    font-family: sans-serif;*/
-/*    !*background: lightblue;*!*/
-/*    padding: 5px 10px;*/
-/*}*/
-/*.dropdown, .dropdown-ajax {*/
-/*    position: relative;*/
-/*    !*width: max-content;*!*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.dropdown-toggle {*/
-/*    overflow: hidden;*/
-/*    !*display: inline-block;*!*/
-/*    padding: 5px 10px;*/
-/*    border: 1px solid #343434;*/
-/*}*/
-
-/*.dropdown-menu {*/
-/*    !*opacity: 0;*!*/
-/*    visibility: hidden;*/
-/*    width: max-content;*/
-/*    padding: 0;*/
-/*    list-style: none;*/
-/*    !*position: absolute;*!*/
-/*    top: 100%;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    transition: opacity 0.5s;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*!*.dropdown-toggle:hover + .dropdown-menu {*!*/
-/*!*    !*opacity: 1;*!*!*/
-/*!*    transition: none;*!*/
-/*!*    margin-top: 0;*!*/
-/*!*}*!*/
-
-/*.dropdown-menu > * {*/
-/*    border-top: none;*/
-/*    !*background: #bdbdbd;*!*/
-/*}*/
-
-/*.dropdown-menu a {*/
-/*    display: block;*/
-/*    !*width: 100%;*!*/
-/*    padding: 5px;*/
-/*    text-align: left;*/
-/*}*/
-
-/*.dropdown-toggle > * {*/
-/*    position: relative;*/
-/*}*/
-
-/* 끝 */
-
-/*.dropdown-toggle .dropdown-menu {*/
-/*    position: absolute;*/
-/*}*/
-
-
-/*nav dropdown */
-/*.nav:after {*/
-/*    content: "";*/
-/*    display: block;*/
-/*    clear: both;*/
-/*}*/
-/*.nav > li {*/
-/*    float: left;*/
-/*}*/
-
-/*.navbar.dropdown {*/
-/*    display: table;*/
-/*    table-layout: fixed;*/
-/*}*/
-
-/*.navbar.dropdown:after {*/
-/*    content: "";*/
-/*    display: block;*/
-/*    clear: both;*/
-/*}*/
-
-/*.navbar .nav.dropdown-toggle {*/
-/*    display: table-row;*/
-/*}*/
-
-/*.navbar .nav.dropdown-toggle > li {*/
-/*    display: table-cell;*/
-/*    float: none;*/
-/*}*/
-
-/*.navbar .nav+.dropdown-menu {*/
-/*    display: table-row;*/
-/*}*/
-
-/*.navbar .nav+.dropdown-menu ul{*/
-/*    display: table-cell;*/
-/*}*/
-
-/*.navbar .nav+.dropdown-menu ul > li {*/
-/*    clear: both;*/
-/*}*/
-

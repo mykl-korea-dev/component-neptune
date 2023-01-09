@@ -1,49 +1,89 @@
 import Component from "../../../basic/Component.js";
-import {getData} from "../../../basic/utils.js";
+import { getDataset } from "../../../basic/utils.js";
 
 export default class PaginationAjax extends Component {
     setTemplate() {
         this.$element.classList.add("mykl-pagination");
-        const url = window.location.href;
-        const { currentPage, totalCount, pageCount, limit  } = this.$data;
-        const totalPage = Math.ceil(totalCount / limit);
+        const { currentPage, pageCount } = this.$data;
 
-        // pageGroup으로 묶어서 현재 page의 위치가 해당 위치일 때 사용
-        // const pageGroup = Math.ceil(currentPage / pageCount);
-        // let lastNumber = pageGroup * pageCount;
-
-        // 해당 페이지가 항상 중간에 위치하도록 하기 위함
-        let lastNumber = currentPage + Math.floor(((pageCount - 1) / 2));
-
-        if(lastNumber > totalPage) {
-            lastNumber = totalPage;
+        const getFirstAndLastNumber = (option) => {
+            return option ? this.setAlwaysCenter(currentPage, pageCount)
+                : this.setInGroup(currentPage, pageCount);
         }
 
-        let firstNumber = lastNumber - (pageCount - 1);
-
-        if(firstNumber < 3) {
-            firstNumber = 1;
-            lastNumber = firstNumber + (pageCount - 1);
-        }
+        let { firstNumber, lastNumber } = getFirstAndLastNumber(this.$data["setCenter"]);
 
         const next = lastNumber + 1;
         const prev = firstNumber - 1;
-        const regex = /(page=[0-9]*)/gm;
+
         return `
-            ${prev >= 1 ? `<li class="page-item"><a href="${url.replace(regex, `page=${prev}`)}">이전</a></li>` : ''}
+            ${prev >= 1 ? `<li class="page-item page-prev"  ${prev >= 1 ? `data-page="${prev}"` : ''} >이전</li>`: ''}
             ${[...new Array(lastNumber - firstNumber + 1)].map((page, i) => `
-                <li class="page-item ${(firstNumber + i == currentPage) ? "active" : ""}">
-                    <a href="${url.replace(regex, `page=${firstNumber + i}`)}">${firstNumber + i}</a>
+                <li class="page-item ${(firstNumber + i == currentPage) ? "active" : ""}" data-page=${firstNumber + i}>
+                    ${firstNumber + i}
                 </li>
             `).join('')}
-            ${next <= totalPage ? `<li class="page-item"><a href="${url.replace(regex, `page=${next}`)}">다음</a></li>` : ''}
+            ${next <= pageCount ? `<li class="page-item page-next" ${next <= pageCount ? `data-page="${next}"` : ''}>다음</li>` : ''}
         `
     }
 
     render() {
-        this.$element.innerHTML = this.setTemplate();
+        fetch(this.$data.paginationUrl, {
+            method: 'POST',
+            headers: {
+                ...this.$data.headers,
+            },
+            body: JSON.stringify(this.$data)
+        }).then(res => res.json())
+            .then(data => {
+                this.$data = {
+                    ...this.$data,
+                    ...data
+                }
+                this.$data.callback(this.$data);
+                this.$element.innerHTML = this.setTemplate();
+            });
     }
+
+    setEvents() {
+        this.$element.addEventListener('click', ({target}) => {
+            if(target.classList.contains('page-item')) {
+                this.$data['start'] = (+getDataset(target, 'page') - 1) * this.$data.limit + 1;
+                this.render();
+            }
+        })
+    }
+
+    // TODO: 수정
+    // 페이지 숫자가 항상 가운데 위치하도록
+    setAlwaysCenter(currentPage, totalCount, limit, pageCount) {
+        let lastNumber = currentPage + Math.floor(((limit - 1) / 2));
+
+        let firstNumber = lastNumber - (limit - 1);
+
+        if(lastNumber > pageCount) {
+            lastNumber = pageCount;
+        }
+
+        if(lastNumber - firstNumber < limit) {
+            firstNumber = lastNumber - limit + 1;
+        }
+
+        return ({lastNumber, firstNumber});
+    }
+
+    // 페이지 숫자가 해당 그룹에 속하도록
+    setInGroup(currentPage, pageCount) {
+        const pageGroup = Math.floor((currentPage - 1) / 10);
+
+        let lastNumber = (pageGroup + 1) * 10;
+
+        (lastNumber >= pageCount) && (lastNumber = pageCount);
+
+        let firstNumber = ((pageGroup + 1) * 10) - 9;
+        return ({lastNumber, firstNumber});
+    }
+
 }
 
-// getData("http://localhost:3000/pagination", (data) => new PaginationAjax(document.querySelector('.pagination-ajax'), data));
 

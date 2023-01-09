@@ -2,24 +2,18 @@ import Component from "../../../basic/Component.js";
 import {getData} from "../../../basic/utils.js";
 import Dropdown from "../../dropdown/Dropdown.js";
 
-export default class DropdownAjax extends Dropdown {
-    setTemplate() {
-        const { title, titleUrl, items } = this.$data;
-        return `
-            <a href="${titleUrl}" class="dropdown-toggle">${title}</a>
-            <ul class="dropdown-menu">
-                ${items.map(item => `
-                    <li class="dropdown-item">
-                        <a href="${item.itemUrl}">${item.value}</a>
-                    </li>
-                `).join('')}
-            </ul>
-        `
-    }
+export default class DropdownAjax extends Component {
+    setElements() {
+        this.$element.classList.add("mykl-dropdown");
 
-    render() {
-        this.$element.innerHTML = this.setTemplate();
+        this.$element.querySelector('.dropdown-toggle').innerHTML = Object.values(this.$data)[0];
+        const items = Object.values(this.$data).slice(1);
+        // 보류 : 링크 + item;
+        // this.$element.querySelector('.dropdown-menu').innerHTML = items.map(v => `
+        //     <li>
+        //         <a href=""
+        //     </li>
+        // `)
     }
 }
 
-// getData('http://localhost:3000/dropdown', (data) => new DropdownAjax(document.querySelector('.dropdown-ajax'), data));

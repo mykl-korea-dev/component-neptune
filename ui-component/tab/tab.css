@@ -1,37 +1,159 @@
+.tab-title {
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.tab-menu {
+    font-size: 0;
+}
+
+.tab-title,
 .tab-item {
     display: inline-block;
     border: 1px solid #bdbdbd;
     border-radius: 3px;
-    padding: 5px 10px;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    color: #101010;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .tab-item.active {
-    background: lightblue;
+    background-color: #e5edff;
+    font-weight: 600;
+    color: #004CFF;
+    border: 1px solid currentColor;
+    /*border: none;*/
+}
+
+.tab-title > span,
+.tab-item > span {
+    display: inline-block;
+    /*vertical-align: middle;*/
+    line-height: normal;
+}
+
+.tab-title:after,
+.tab-item:after {
+    content:'';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
 }
 
 .tab-content {
     display: none;
+    padding: 10px;
+    border-top: 1px solid #bdbdbd;
+    box-sizing: border-box;
 }
 
 .tab-content.show {
     display: block;
 }
 
-@media all and (max-width: 768px) {
-    .tab {
-        display: flex;
-    }
-
-    .tab-item {
-        flex: 1;
-        flex-shrink: 0;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .tab-item.active {
-        min-width: fit-content;
-        text-overflow: initial;
-    }
+.tab-content.mykl-tab {
+    padding: 0;
+    border: none;
 }
+
+/* nav 반대 */
+.tab-rev .tab-menu {
+    text-align: end;
+}
+
+/* 둥글게 */
+.tab-round .tab-item {
+    border-radius: 20px;
+}
+
+.tab-round .tab-item + .tab-item {
+    margin-left: 10px;
+}
+
+.tab-round .tab-content {
+    border-top: none;
+}
+
+/* 크기 */
+.tab-lg > nav > .tab-title, .tab-lg > nav > .tab-item {
+    width: 220px;
+    height: 60px;
+}
+
+.tab-lg.tab-vertical > .tab-content.show {
+    width: calc(100% - 220px);
+}
+
+/* 세로 정렬 */
+.tab-vertical {
+    display: flex;
+    /*position: relative;*/
+    /*font-size: 0;*/
+}
+.tab-vertical > .tab-menu {
+    flex: 0 0 120px;
+}
+
+.tab-vertical > .tab-menu, .tab-vertical > .tab-content.show {
+    /*display: inline-block;*/
+    /*vertical-align: top;*/
+}
+
+.tab-vertical > nav > .tab-title,
+.tab-vertical > nav > .tab-item {
+    display: block;
+    border: none;
+    border-top: 1px solid #F2F2F2;
+    border-radius: 0;
+    text-align: left;
+}
+
+.tab-vertical > .tab-content {
+    display: none;
+    border-top: none;
+    border-left: 1px solid #B0B0B0;
+    /*height: inherit;*/
+}
+
+.tab-vertical > .tab-content.show.mykl-tab {
+    border-left: none;
+    /*font-size: 0;*/
+    display: flex;
+}
+
+.tab-vertical > .tab-content.show {
+    display: inline-block;
+    /*display: flex;*/
+
+    /*font-size: initial;*/
+    /*margin-left: 120px;*/
+    width: 100%;
+    /*max-width: calc(100% - 120px);*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*height: 100%;*/
+}
+
+/*@media all and (max-width: 768px) {*/
+/*    .tab {*/
+/*        display: flex;*/
+/*    }*/
+
+/*    .tab-item {*/
+/*        flex: 1;*/
+/*        flex-shrink: 0;*/
+/*        overflow: hidden;*/
+/*        white-space: nowrap;*/
+/*        text-overflow: ellipsis;*/
+/*    }*/
+
+/*    .tab-item.active {*/
+/*        min-width: fit-content;*/
+/*        text-overflow: initial;*/
+/*    }*/
+/*}*/

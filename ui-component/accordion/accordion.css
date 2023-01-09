@@ -1,7 +1,106 @@
+.accordion-item {
+    font-size: 15px;
+    color: #000000;
+    font-weight: 500;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    /*margin-bottom: 12px;*/
+}
+
+.accordion-item a {
+    color: inherit;
+}
+
+.accordion-header {
+    padding: 16px 0px;
+}
+
+.accordion-toggle {
+    padding: 0;
+    font-size: 15px;
+    color: #000000;
+    font-weight: 500;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+}
+
+/*.accordion-toggle:focus, .accordion-toggle:active {*/
+/*    padding: 8px;*/
+/*}*/
+
+.accordion-toggle.show {
+    color: #004CFF;
+    font-weight: 600;
+}
+
+.accordion-toggle:before {
+    content:"";
+    position: absolute;
+    right:16px;
+    top:50%;
+    transform: translateY(-50%) rotateZ(45deg);
+    width: 8px;
+    height: 2px;
+    background: #707070;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.accordion-toggle:after {
+    content:"";
+    position: absolute;
+    right: 11px;
+    top:50%;
+    transform: translateY(-50%) rotateZ(-45deg);
+    width: 8px;
+    height: 2px;
+    background: #707070;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.accordion-toggle.show:before {
+    transform: translateY(-50%) rotateZ(-225deg);
+    background: #004CFF;
+}
+
+.accordion-toggle.show:after {
+    transform: translateY(-50%) rotateZ(225deg);
+    background: #004CFF;
+}
+
+.accordion-toggle * {
+    pointer-events: none;
+}
+
 .accordion-body {
-    display: none;
+    overflow: hidden;
+    height: 0;
+    padding: 0 10px;
+
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
 }
 
 .accordion-body.show {
-    display: block;
+    padding: 10px;
+    box-sizing: content-box;
+    /*border: 10px solid transparent;*/
+}
+
+.accordion-body-item + .accordion-body-item {
+    border-radius: 5px;
+    padding: 15px 0;
 }

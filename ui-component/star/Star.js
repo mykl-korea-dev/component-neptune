@@ -93,9 +93,5 @@ export default class Star extends Component {
             }
         })
     }
-
-
 }
 
-// document.querySelectorAll('.mykl-star').forEach(el => new Star(el));
-// document.querySelectorAll('.mykl-star-ajax').forEach(el =>  new Star(el));

@@ -6,9 +6,9 @@ export default class Progress extends Component {
         const [strMin, strMax, strValue] = ['min', 'max', 'value'].map(v => getDataset(this.$element, v));
         const min = parseFloat(strMin) || 0;
         const max = parseFloat(strMax) || 100;
-        const value = parseFloat(strValue) || null;
+        const value = parseFloat(strValue) >= 0 ? parseFloat(strValue) : null;
 
-        if(!value) {
+        if(value !== 0 && !value) {
             throw new Error('data-value is not defined');
         }
 
@@ -32,5 +32,4 @@ export default class Progress extends Component {
     }
 }
 
-document.querySelectorAll('.mykl-progress').forEach(el => new Progress(el));
 

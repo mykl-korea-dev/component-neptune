@@ -1,0 +1,36 @@
+.link-group a {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #101010;
+    vertical-align: top;
+    -webkit-transition: all 0.3s ease;
+}
+
+.link-group a + a {
+    margin-left: 40px;
+}
+
+.link-group a + a:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    margin-top: -6px;
+    width: 1px;
+    height: 12px;
+    background-color: #101010;
+}
+
+.link-group.link-arrow a + a:before {
+    content: "\003e";
+    position: absolute;
+    top: 50%;
+    left: -24px;
+    margin-top: -13px;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+}

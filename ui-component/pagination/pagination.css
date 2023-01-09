@@ -1,10 +1,73 @@
-.mykl-pagination li {
+.mykl-pagination {
+    text-align: center;
+}
+.page-item {
+    vertical-align: middle;
+    cursor: pointer;
     display: inline-block;
     padding: 5px 10px;
-    margin-left: 2px;
-    background: lightgoldenrodyellow;
+    margin: 0;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #B0B0B0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
 }
 
 .mykl-pagination .active {
-    background: lightblue;
+    font-weight: bold;
+    color: #101010;
+}
+
+.mykl-item:hover,
+.mykl-item:focus {
+    font-weight: bold;
+    color: #101010;
+}
+
+/*.page-item.disabled {*/
+/*    pointer-events: none;*/
+/*    background-color: #555555;*/
+/*    color: #b7b7b7;*/
+/*}*/
+
+.page-prev, .page-next {
+    width: 28px;
+    height: 28px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+    border: 0;
+    text-indent: -999999px;
+    background: #B0B0B0;
+    border-radius: 100%;
+}
+
+.page-prev:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1px solid;
+    border-color: #fff transparent transparent #fff;
+    transform: translate(-30%, -50%) rotate(-45deg);
+}
+
+.page-next:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1px solid;
+    border-color: #fff #fff transparent transparent;
+    transform: translate(30%, -50%) rotate(45deg);
 }

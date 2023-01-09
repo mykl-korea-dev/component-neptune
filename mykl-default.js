@@ -6,7 +6,7 @@ import Textarea from './form-component/textarea/Textarea.js';
 import Time from './form-component/time/Time.js';
 
 import Accordion from "./ui-component/accordion/Accordion.js";
-import AutoComplete from "./ui-component/autoComplete/AutoComplete.js";
+import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
 import ButtonLink from "./ui-component/button/Button.js";
 import Dropdown from "./ui-component/dropdown/Dropdown.js";
 import Emotion from "./ui-component/emotion/emotion.js";
@@ -31,7 +31,7 @@ import './form-component/time/time.css';
 
 
 import './ui-component/accordion/accordion.css';
-import './ui-component/autoComplete/autoComplete.css';
+import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
 import './ui-component/button/button.css';
 import './ui-component/dropdown/dropdown.css';
 import './ui-component/emotion/emotion.css';
@@ -58,7 +58,7 @@ import './component-set/modal/modal.css';
 
 import "./polyfill.js";
 import Modal from "./component-set/modal/Modal";
-import PostSearch from "./component-set/PostSearch/PostSearch";
+import PostSearch from "./component-set/postSearch/PostSearch";
 import InputPassword from "./form-component/input/InputPassword";
 
 const MYKLBasic = {
@@ -144,7 +144,7 @@ document.querySelectorAll('.mykl-auto-complete').forEach(el => MYKL.AutoComplete
 document.querySelectorAll('.mykl-btn[data-href]').forEach(el => MYKL.ButtonLink(el));
 // document.querySelectorAll('.mykl-dropdown').forEach(el => MYKL.Dropdown(el));
 document.querySelectorAll('.mykl-emotion').forEach(el => MYKL.Emotion(el));
-document.querySelectorAll('.navbar').forEach(el => MYKL.Navigation(el));
+document.querySelectorAll('.mykl-navbar').forEach(el => MYKL.Navigation(el));
 document.querySelectorAll('.process').forEach(el => MYKL.Process(el));
 document.querySelectorAll('.mykl-progress').forEach(el => MYKL.Progress(el));
 document.querySelectorAll('.mykl-star').forEach(el => MYKL.Star(el));

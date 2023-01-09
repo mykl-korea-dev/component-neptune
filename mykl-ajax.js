@@ -12,11 +12,24 @@ import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js
 import TabAjax from "./ui-component/ajax/tabAjax/TabAjax.js";
 import FileAjax from "./form-component/ajax/FileAjax.js";
 import FormAjax from "./form-component/ajax/formAjax.js";
-import TagAjax from "./ui-component/tag/Tag.js";
 import CalendarAjax from "./form-component/ajax/calendarAjax/CalendarAjax.js";
 import InputAjax from "./form-component/ajax/inputAjax/InputAjax.js";
 import TimeAjax from "./form-component/ajax/timeAjax/TimeAjax.js";
 import TextareaAjax from "./form-component/ajax/textareaAjax/TextareaAjax.js";
+import TagAjax from "./ui-component/ajax/tagAjax/TagAjax.js";
+import TableAjax from "./ui-component/ajax/tableAjax/TableAjax.js";
+import MediaAjax from "./component-set/ajax/mediaAjax/MediaAjax.js";
+
+const returnComponent = (component) => {
+    return (selector, data) => {
+        if(!MYKL[selector]) {
+            MYKL[selector] = new component(document.querySelector(selector), data);
+        } else {
+            MYKL[selector].setData(data);
+        }
+        return MYKL[selector]
+    };
+}
 
 let MYKLAjax = {
     // setComponents
@@ -59,9 +72,7 @@ let MYKLAjax = {
     DropdownAjax: function (selector, data) {
         return new DropdownAjax(document.querySelector(selector), data)
     },
-    PaginationAjax: function (selector, data) {
-        return new PaginationAjax(document.querySelector(selector), data)
-    },
+    PaginationAjax: returnComponent(PaginationAjax),
     ProcessAjax: function (selector, data) {
         return new ProcessAjax(document.querySelector(selector), data)
     },
@@ -76,6 +87,13 @@ let MYKLAjax = {
     },
     TagAjax: function (selector, data) {
         return new TagAjax(document.querySelector(selector), data);
+    },
+    TableAjax: function (selector, data) {
+        return new TableAjax(document.querySelector(selector), data);
+    },
+    // set -----------------------------
+    MediaAjax: function (selector, data) {
+        return new MediaAjax(document.querySelector(selector), data)
     }
 }
 

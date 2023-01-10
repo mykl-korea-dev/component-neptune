@@ -22,4 +22,10 @@ export default class Component {
 
     setEvents() {};
 
+    setData(data) {
+        this.$data = {
+            ...data
+        }
+        this.render();
+    }
 }

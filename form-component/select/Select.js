@@ -56,6 +56,7 @@ export default class Select extends Component {
                     break;
                 }
             }
+            this.select.click();
         })
     }
 

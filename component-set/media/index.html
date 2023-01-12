@@ -5,6 +5,7 @@
     <title>Media</title>
     <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="../../basic/common.css">
+    <link rel="stylesheet" href="../../ui-component/button/button.css">
 <!--    <link rel="stylesheet" href="../../dist/css/mykl_ui_style.css"/>-->
     <link rel="stylesheet" href="../../ui-component/tooltip/tooltip.css">
 
@@ -24,6 +25,25 @@
     <div class="mykl-media">
         <div class="media-cover">
             <img src="https://via.placeholder.com/200" alt="">
+        </div>
+        <div class="media-body">
+            <div>
+                <p class="title">${data.organization_name}</p>
+                <p>${data.department_name}</p>
+            </div>
+            <div class="temp-cover">
+                <div class="temp">
+                    <a href="">${data.department_url}</a>
+                    <span>${data.department_tel}</span>
+                    <span>${data.department_address}</span>
+                </div>
+
+                <div class="temp">
+                    <span>${data.operation_name}</span>
+                    <span>${data.providers_name}</span>
+                    <span>${data.timedivision_name}</span>
+                </div>
+            </div>
         </div>
         <div class="media-body">
             <div>

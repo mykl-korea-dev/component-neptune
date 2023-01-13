@@ -23,19 +23,15 @@ a {
 }
 
 /*  To Do Check */
-img {
-    width: 100%;
-}
-
 :root {
-    --primary: dodgerblue;
+    --primary: #004CFF;
     --secondary: dimgrey;
     --success: yellowgreen;
     --danger: indianred;
     --warning: coral;
     --info: lightgoldenrodyellow;
     --light: lightgrey;
-    --dark: black;
+    --dark: #101010;
 }
 
 .blind {
@@ -44,6 +40,10 @@ img {
     height: 1px;
     line-height: 0;
     text-indent: -9999px;
+}
+
+.text-hidden {
+    display: none;
 }
 
 a {
@@ -309,71 +309,32 @@ a {
         -ms-transform: translateX(50%) rotate(-45deg);
             transform: translateX(50%) rotateZ(-45deg);
 }
-.mykl-input {
-    display: inline-block;
-    border: 1px solid #DFDFDF;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border-radius: 5px;
+.form-group {
     position: relative;
-    line-height: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
     width: 100%;
 }
 
-/* 크기*/
-.input-sm {
-    font-size: 0.875rem;
+.form-label {
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
 }
 
-.input-lg {
-    font-size: 1.25rem;
+.form-group > .mykl-input {
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
 }
 
-/* 상태 */
-.input-error {
-    outline: transparent;
-    border: 1px solid #FF0000;
-}
-
-.mykl-input:disabled {
-    background: #F2F2F2;
-}
-
-.mykl-input:-moz-read-only {
-    pointer-events: none;
-}
-
-.mykl-input:read-only {
-    pointer-events: none;
-}
-
-/* password */
-.mykl-input-password {
-    display: inline-block;
-    width: 100%;
-    position: relative;
-}
-
-.mykl-input-password .mykl-input {
-    padding-right: 46px;
-}
-
-.input-password-icon {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
-    background: url(/images/pass_eye.png);
-    text-indent: -9999px;
-}
 .mykl-input {
     display: inline-block;
     border: 1px solid #DFDFDF;
@@ -995,7 +956,7 @@ input[type="range"]::-webkit-slider-thumb {
     line-height: 2;
     border: 1px solid transparent;
     background: #fff;
-    padding: 10px;
+    padding: 5px 15px;
 }
 
 .mykl-btn:hover {
@@ -1013,6 +974,10 @@ input[type="range"]::-webkit-slider-thumb {
     margin-left: 14px;
     width: 80px;
     padding: 8px;
+}
+
+.btn-lg {
+    min-width: 140px;
 }
 
 .btn-round {
@@ -2098,6 +2063,44 @@ figure.mykl-img img {
             transform: translateX(-20px) translateY(100%);
 }
 
+.link-group a {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #101010;
+    vertical-align: top;
+    -webkit-transition: all 0.3s ease;
+}
+
+.link-group a + a {
+    margin-left: 40px;
+}
+
+.link-group a + a:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    margin-top: -6px;
+    width: 1px;
+    height: 12px;
+    background-color: #101010;
+}
+
+.link-group.link-arrow a + a:before {
+    content: "\003e";
+    position: absolute;
+    top: 50%;
+    left: -24px;
+    margin-top: -13px;
+    width: auto;
+    width: initial;
+    height: auto;
+    height: initial;
+    background-color: transparent;
+}
 .message-bar {
     border: 1px solid #000000;
     padding: 5px 30px 5px 10px;
@@ -2143,7 +2146,7 @@ figure.mykl-img img {
             box-sizing: border-box;
 }
 
-.card {
+.mykl-card {
     width: 40%;
     border: 1px solid #343434;
     border-radius: 20px;
@@ -2160,12 +2163,12 @@ figure.mykl-img img {
     text-align: initial;
 }
 
-.card > * {
+.mykl-card > * {
     padding: 10px;
     border-bottom: 1px solid #343434;
 }
 
-.card > *:last-child {
+.mykl-card > *:last-child {
     border-bottom: none;
 }
 

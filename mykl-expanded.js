@@ -24,7 +24,7 @@ import AbilityTab from "./extended-component/ability/AbilityTab.js";
 import Filter from "./extended-component/ability/Filter.js";
 import RadarChart from "./extended-component/ability/RadarChart.js";
 import BarChart from "./extended-component/ability/BarChart.js";
-import AbilityResult from "./extended-component/match/AbilityResultInfo.js";
+import AbilityResult from "./extended-component/ability/AbilityResult.js";
 import ResultContent from "./extended-component/ability/ResultContent.js";
 import AbilityImprovement from "./extended-component/ability/AbilityImprovement.js";
 import Major from "./extended-component/match/schoolnmajor/SchoolnMajor.js";

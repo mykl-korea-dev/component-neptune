@@ -7,7 +7,7 @@ export class Count extends Component {
 
     setTemplate() {
         const { count } = this.$data.store.getState();
-        return `${count[this.$data.abilityId] || 0}/${this.$data.totalCount}`;
+        return `(${count[this.$data.abilityId] || 0}/${this.$data.totalCount})`;
     }
 
     render() {

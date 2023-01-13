@@ -14,7 +14,7 @@ export default class AbilityList extends Component {
     }
 
     setTemplate() {
-        return `(<span class="countNum"></span>)`;
+        return `<span class="countNum"></span>`;
     }
 
     render() {

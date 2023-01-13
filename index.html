@@ -15,13 +15,12 @@
         #aside-nav dl {
             margin: 10px 0 10px 20px;
         }
+
         .html-wrapper {
-            width: 100%;
-            overflow-x: scroll;
-        }
-        .hljs-tag {
             margin-left: -100px;
+            background: linear-gradient(90deg, #ffffff 8%, #f3f3f3 8%, #f3f3f3 100%);
         }
+
     </style>
 </head>
 <body>
@@ -471,7 +470,7 @@ const asideNav = document.querySelector('#aside-nav');
 
 // html 문서 넣기
 document.querySelectorAll('.static-code').forEach(el => {
-    el.nextElementSibling.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt")
+    el.nextElementSibling.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
 })
 </script>
 <script type="module" src="dist/js/mykl_ui.js"></script>

@@ -6,12 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MYKL Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
     <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
         #aside-nav dl {
             margin: 10px 0 10px 20px;
         }
@@ -21,6 +25,9 @@
             background: linear-gradient(90deg, #ffffff 8%, #f3f3f3 8%, #f3f3f3 100%);
         }
 
+        .static-code > * {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +62,7 @@
                 <h3 id="Input-Component">Input Component</h3>
                 <div class="static-code">
                     <input class="mykl-input" type="text" placeholder="Default input">
+
                     <input class="mykl-input" type="password" placeholder="Input Password">
                 </div>
                 <div class="static-code-copy">
@@ -188,7 +196,7 @@
             <section>
                 <h3 id="Button-Component">Button Component</h3>
                 <div class="static-code">
-                    <button type="button" class="mykl-btn btn-primary btn-sm" disabled>button</button>
+                    <button type="button" class="mykl-btn btn-primary">button</button>
                 </div>
                 <div class="static-code-copy">
                     <pre>

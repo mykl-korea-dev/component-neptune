@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.card {
+.mykl-card {
     width: 40%;
     border: 1px solid #343434;
     border-radius: 20px;
@@ -18,12 +18,12 @@
     text-align: initial;
 }
 
-.card > * {
+.mykl-card > * {
     padding: 10px;
     border-bottom: 1px solid #343434;
 }
 
-.card > *:last-child {
+.mykl-card > *:last-child {
     border-bottom: none;
 }
 

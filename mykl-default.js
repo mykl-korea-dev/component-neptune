@@ -47,6 +47,7 @@ import './ui-component/table/table.css';
 import './ui-component/tag/tag.css';
 import './ui-component/text/text.css';
 import './ui-component/tooltip/tooltip.css';
+import "./ui-component/linkBox/linkGroup.css";
 
 import ContextMessage from "./component-set/message/ContextMessage.js";
 import './component-set/message/message.css';
@@ -131,7 +132,7 @@ const MYKLBasic = {
 
 window.MYKL = {...window.MYKL, ...MYKLBasic};
 
-document.querySelectorAll('.mykl-input[type=password]').forEach(el => MYKL.Calender(el));
+document.querySelectorAll('.mykl-input[type=password]').forEach(el => MYKL.InputPassword(el));
 document.querySelectorAll('.mykl-calendar').forEach(el => MYKL.Calender(el));
 // document.querySelectorAll('.mykl-file').forEach(el => MYKL.File(el));
 document.querySelectorAll('.mykl-range').forEach(el => MYKL.Range(el));

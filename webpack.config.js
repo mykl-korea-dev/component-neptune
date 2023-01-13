@@ -20,8 +20,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            // template: "./index.html"
-            template: "./index.html"
+            template: "./index.html",
+            filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
             filename: "css/[name]_style.css"
@@ -69,9 +69,9 @@ module.exports = {
     //     //     }
     //     // })]
     // },
-    // devServer: {
-    //     devMiddleware: {publicPath: "/dist"},
-    //     static: {directory: path.join(__dirname)},
-    //     hot: true,
-    // }
+    devServer: {
+        devMiddleware: {publicPath: "/dist"},
+        static: {directory: path.join(__dirname)},
+        hot: true,
+    }
 }

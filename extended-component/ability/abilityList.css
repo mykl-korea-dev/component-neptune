@@ -1,0 +1,45 @@
+.tab-item.complete {
+    position: relative;
+}
+
+.tab-item.complete:after {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 14px;
+    top: 50%;
+    margin-top: -8px;
+    content: "";
+    background: url("../../images/icon_completion.png") no-repeat;
+}
+
+.response + .response {
+    margin-left: 24px;
+}
+
+.response > input {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.response > input + label {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #909090;
+    border-radius: 2px;
+}
+
+.response > input:checked + label {
+    background-color: #004CFF;
+    color: #fff;
+}

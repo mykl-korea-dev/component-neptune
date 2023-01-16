@@ -1,16 +1,39 @@
 .form-group {
     position: relative;
-    display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
 }
 
-.form-label {
-    flex-grow: 0;
-    flex-shrink: 0;
+.form-group > * {
+    margin: 0 0 20px 0;
 }
 
-.form-group > .mykl-input {
-    flex-shrink: 1;
+.form-group .form-label {
+    margin: 0 0 12px 0;
 }
+
+.form-row {
+    display: flex;
+    align-items: center;
+}
+
+.form-row > * {
+    margin: 0 20px 0 0;
+}
+
+.form-row .form-label {
+    margin: 0;
+}
+
+.form-label {
+    display: inline-block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-width: 80px;
+    width: 100px;
+}
+
+/*.form-group > .mykl-input {*/
+/*    flex-shrink: 1;*/
+/*}*/

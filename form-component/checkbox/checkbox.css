@@ -1,22 +1,22 @@
-/* 정렬 */
-.check-col .mykl-check {
-    display: inline-block;
-}
+/*!* 정렬 *!*/
+/*.check-col .mykl-check {*/
+/*    display: inline-block;*/
+/*}*/
 
-.mykl-check {
-    position: relative;
-    vertical-align: top;
-}
+/*.mykl-check {*/
+/*    position: relative;*/
+/*    vertical-align: top;*/
+/*}*/
 
-.mykl-check + .mykl-check {
-    margin-top: 16px;
-    margin-left: 0;
-}
+/*.mykl-check + .mykl-check {*/
+/*    margin-top: 16px;*/
+/*    margin-left: 0;*/
+/*}*/
 
-.check-col .mykl-check + .mykl-check {
-    margin-top: 0;
-    margin-left: 48px;
-}
+/*.check-col .mykl-check + .mykl-check {*/
+/*    margin-top: 0;*/
+/*    margin-left: 48px;*/
+/*}*/
 
 .check-input {
     position: absolute;
@@ -31,7 +31,7 @@
 
 .check-label {
     font-size: 1rem;
-    vertical-align: top;
+    /*vertical-align: top;*/
     display: inline-block;
     position: relative;
     left: 0;

@@ -35,9 +35,7 @@ let MYKLAjax = {
     // setComponents
     SetComponents: getData,
     // form -----------------------------
-    FormAjax: function (selector, data) {
-        return new FormAjax(document.querySelector(selector), data)
-    },
+    FormAjax: returnComponent(FormAjax),
     CalendarAjax: function (selector, data) {
         return new CalendarAjax(document.querySelector(selector), data)
     },
@@ -92,9 +90,7 @@ let MYKLAjax = {
         return new TableAjax(document.querySelector(selector), data);
     },
     // set -----------------------------
-    MediaAjax: function (selector, data) {
-        return new MediaAjax(document.querySelector(selector), data)
-    }
+    MediaAjax: returnComponent(MediaAjax),
 }
 
 window.MYKL = {...window.MYKL, ...MYKLAjax};

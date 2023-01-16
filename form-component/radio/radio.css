@@ -1,22 +1,26 @@
 /* 정렬 */
-.radio-col .mykl-radio {
-    display: inline-block;
-}
+/*.radio-col .mykl-radio {*/
+/*    display: inline-block;*/
+/*}*/
 
-.mykl-radio {
-    position: relative;
-    vertical-align: top;
-}
+/*.mykl-radio {*/
+/*    position: relative;*/
+/*    vertical-align: top;*/
+/*}*/
 
-.mykl-radio + .mykl-radio {
-    margin-top: 16px;
-    margin-left: 0;
-}
+/*.mykl-radio + .mykl-radio {*/
+/*    margin-top: 16px;*/
+/*    margin-left: 0;*/
+/*}*/
 
-.radio-col .mykl-radio + .mykl-radio {
-    margin-top: 0;
-    margin-left: 48px;
-}
+/*.form-row > .mykl-radio {*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*.radio-col .mykl-radio + .mykl-radio {*/
+/*    margin-top: 0;*/
+/*    margin-left: 48px;*/
+/*}*/
 
 .radio-input {
     position: absolute;
@@ -30,7 +34,7 @@
 }
 
 .radio-label {
-    vertical-align: top;
+    /*vertical-align: top;*/
     display: inline-block;
     position: relative;
     left: 0;

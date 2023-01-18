@@ -18,8 +18,8 @@ export default class AbilityDuty extends Component {
                    </div>
                    <div style="margin-left: auto">
                        ${complete.includes(v.ability_id) ?
-                            `<a class="mykl-btn btn-primary-border btn-full" href="/ability/${top}/duty/reports" data-page="result" data-ability="${v.ability_id}">진단결과보기</a>` :
-                            `<a class="mykl-btn btn-primary btn-full" href="/ability/${top}" data-page="test" data-ability="${v.ability_id}">진단하기</a>`
+                            `<a class="mykl-btn btn-primary-border btn-full" href="/ability/${this.$data.store.getState().top}/duty/reports" data-page="result" data-ability="${v.ability_id}">진단결과보기</a>` :
+                            `<a class="mykl-btn btn-primary btn-full" href="/ability/${this.$data.store.getState().top}" data-page="test" data-ability="${v.ability_id}">진단하기</a>`
                        }
                    </div>
                </div>

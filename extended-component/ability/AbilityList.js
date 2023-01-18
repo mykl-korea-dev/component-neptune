@@ -23,7 +23,7 @@ export default class AbilityList extends Component {
             const ability = store["ability"][getDataset(el, 'count')];
             const abilityId = ability["ability_id"];
             const totalCount = ability['ability_total_ques'];
-            el.innerHTML += this.setTemplate();
+            el.querySelector('span').innerHTML += this.setTemplate();
             new Count(el.querySelector('.countNum'), {...this.$data, totalCount, abilityId });
         })
     }

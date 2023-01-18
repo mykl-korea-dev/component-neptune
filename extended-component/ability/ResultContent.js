@@ -8,7 +8,6 @@ export default class ResultContent extends Component {
 
     setTemplate() {
         const content = this.$element.innerHTML;
-        console.log(content)
         // date
         const timeRegex = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/gm;
         const replacedEndTime = this.$data.store.getState()["ability"][this.$data.top]["ability_end_dttm"].toString().replace(timeRegex, "$1.$2.$3");
@@ -28,9 +27,9 @@ export default class ResultContent extends Component {
 
         const replacedContent = content.replace("$date", replacedEndTime)
             .replace("$highestAbility", sortedAbilityScore[0]["ability_name"])
-            .replace("$highestScore", sortedAbilityScore[0]["ability_my_score"])
+            .replace("$highestScore", (+sortedAbilityScore[0]["ability_my_score"]).toFixed(1))
             .replace("$lowestAbility", sortedAbilityScore[abilityLength-1]["ability_name"])
-            .replace("$lowestScore", sortedAbilityScore[abilityLength-1]["ability_my_score"])
+            .replace("$lowestScore", (+sortedAbilityScore[abilityLength-1]["ability_my_score"]).toFixed(1))
             .replace("$highestGapAbility", sortedAbilityGap[0]["ability_name"])
             .replace("$lowestGapAbility", sortedAbilityGap[abilityLength-1]["ability_name"])
             .replace("$recommendAbility", sortedAbilityResult.length <= 3 ? sortedAbilityResult.map(v => v["ability_name"]).join(', ') : sortedAbilityResult.slice(0, 3).map(v => v["ability_name"]).join(', '));

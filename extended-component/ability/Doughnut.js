@@ -153,7 +153,6 @@ export default function Doughnut($element, $data) {
     function generateData() {
         const total = $data.totalCount;
         const inputs = $data.store ? ($data.store.getState()[$data.key][$data.count]) || 0 : $data.inputs ;
-        console.log(inputs, total);
         return [inputs, $data.totalCount - inputs];
     }
 

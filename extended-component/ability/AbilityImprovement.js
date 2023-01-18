@@ -12,26 +12,28 @@ export default class AbilityImprovement extends Component {
     setTemplate() {
         const { hierarchy } = this.$data.store.getState();
         const { abilityPid } = this.$data;
-        const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v[["ability_my_gap"]]) < 0);
+        //  Todo: 아래 줄로 변경
+        // const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v[["ability_my_gap"]]) < 0);
+        const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_score"]) < (+second["ability_my_score"]) ? -1 : 1);
+        // console.log(sortedHierarchy)
         return sortedHierarchy.map((data, i) => `
             <div>
-                <h6>${i+1}. ${data["ability_name"]}</h6>
+                <h6 class="fs-6 fw-bold lh-lg text-start">${i+1}. ${data["ability_name"]}</h6>
                 <div>
-                    <div>
-                        <span>점수Gap</span>
-                        <span>${(+data["ability_my_gap"]).toFixed(1)}</span>
-                        <canvas data-ability="ability${data['ability_id']}"></canvas>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>점수Gap ${(+data["ability_my_gap"]).toFixed(1)}</span>
+                        <div>
+                            <span>미성취 영역 목록</span>
+                            <ul>
+                                ${hierarchy[data["ability_id"]].filter(v => v["ability_completed"] === "N" && (+v["ability_my_gap"]) < 0)
+                                    // .sort((first, second) => first["ability_my_gap"] < second["ability_my_gap"] ? -1 : 1)
+                                    .map(subData => `
+                                        <li>${subData["ability_name"]} <span>${(+subData["ability_my_gap"]).toFixed(1)}</span></li>
+                                `).join('')}
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <span>미성취 영역 목록</span>
-                        <ul>
-                        ${hierarchy[data["ability_id"]].filter(v => v["ability_completed"] === "N" && (+v["ability_my_gap"]) < 0)
-            // .sort((first, second) => first["ability_my_gap"] < second["ability_my_gap"] ? -1 : 1)
-            .map(subData => `
-                            <li>${subData["ability_name"]} <span>${(+subData["ability_my_gap"]).toFixed(1)}</span></li>
-                        `).join('')}
-                        </ul>
-                    </div>
+                    <canvas data-ability="ability${data['ability_id']}"></canvas>
                 </div>
             </div>
         `).join('');
@@ -41,7 +43,12 @@ export default class AbilityImprovement extends Component {
         this.$element.innerHTML = this.setTemplate();
         this.$element.querySelectorAll("canvas").forEach(el => {
             const abilityId = getDataset(el, 'ability').replace("ability", "");
-            new BarChart(el, { ability_id: abilityId, store: this.$data.store })
+            new BarChart(el, {
+                ability_id: abilityId,
+                store: this.$data.store,
+                datalabels: this.$data.store.getState().hierarchy[abilityId].map(v => v['ability_name']),
+                labels: ["기준 점수", "내 점수"]
+            })
         })
     }
 }

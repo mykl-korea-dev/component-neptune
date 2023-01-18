@@ -32,6 +32,17 @@ import Subject from "./extended-component/match/subject/Subject.js";
 import AbilityResultInfo from "./extended-component/match/AbilityResultInfo.js";
 import Expert from "./extended-component/match/Expert.js";
 
+const returnComponent = (component) => {
+    return (selector, data) => {
+        if(!MYKL[selector]) {
+            MYKL[selector] = new component(document.querySelector(selector), data);
+        } else {
+            MYKL[selector].setData(data);
+        }
+        return MYKL[selector]
+    };
+}
+
 let MYKLExpanded = {
     MajorSlide: function (url, el) {
         return getData(url, (data) => new MajorSlide(el, data));
@@ -95,9 +106,7 @@ let MYKLExpanded = {
     SubjectInfo: function(selector, data) {
         return new Subject(document.querySelector(selector), data)
     },
-    MajorInfo: function(selector, data) {
-        return new Major(document.querySelector(selector), data)
-    },
+    MajorInfo: returnComponent(Major),
     JobInfo: function(selector, data) {
         return new Job(document.querySelector(selector), data)
     },

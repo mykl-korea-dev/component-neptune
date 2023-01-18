@@ -10,20 +10,21 @@ export default class Major extends Component {
                     <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
                 <div class="media-body">
-                    <div>
-                        <p class="title">${data.organization_name}</p>
-                        <p>${data.department_name}</p>
+                    <p class="fs-5 fw-bold text-dark">${data.organization_name}</p>
+                    <p class="lh-lg">${data.department_name}</p>
+                    
+                    <div style="display: flex; margin: 20px 0" class="mg20 pd10 lh-sm">
+                        <div style="display: flex; flex-direction: column; padding-right: 20px; border-right: 1px solid #bdbdbd">
+                            <span>${data.operation_name}</span>
+                            <span>${data.providers_name}</span>
+                            <span>${data.timedivision_name}</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; margin-left: 10px">
+                            <a href="${data.department_url}">${data.department_url}</a>
+                            <span>${data.department_tel}</span>
+                            <span>${data.department_address}</span>
+                        </div>
                     </div>
-                    <div>
-                        <a href="${data.department_url}">${data.department_url}</a>
-                        <span>${data.department_tel}</span>
-                        <span>${data.department_address}</span>
-                    </div> 
-                </div>
-                <div class="match-school-footer">
-                    <span>${data.operation_name}</span>
-                    <span>${data.providers_name}</span>
-                    <span>${data.timedivision_name}</span>
                 </div>
             </li>
         `).join('');
@@ -33,4 +34,3 @@ export default class Major extends Component {
         this.$element.innerHTML = this.setTemplate();
     }
 }
-

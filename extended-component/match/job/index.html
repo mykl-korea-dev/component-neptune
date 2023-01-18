@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../../../basic/common.css">
-    <link rel="stylesheet" href="../../../dist/mykl_ui_style.css">
+    <link rel="stylesheet" href="../../../dist/css/mykl_ui_style.css">
 </head>
 <body>
+<li class="mykl-media">
+    <div class="media-cover">
+        <img src="${data.image_url}" alt="${data.image_alt}">
+    </div>
+    <div class="media-body">
+        <div>
+            <span class="fs-5" style="display: block">${data.class_name}</span>
+            <span class="lh-lg">${data.subclass_name}</span>
+            <p>${data.class_description}</p>
+        </div>
+        <div>
+            <span>연봉: ${class_level},000만원</span>
+        </div>
+    </div>
+</li>
     <div class="match-job">
         <div class="match-job-body">
             <p class="fs-3">인공지능 플랫폼 요구사항 분석</p>

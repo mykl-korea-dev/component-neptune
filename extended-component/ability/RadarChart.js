@@ -1,14 +1,13 @@
 export default function RadarChart($element, $data={}) {
     const canvas = $element;
     const ctx = canvas.getContext("2d");
-
+    // $data.store.getState()["hierarchy"][$data.abilityId].map(v => v["ability_name"])
     const config = {
         type: 'radar',
         data: {
-            labels: $data.store.getState()["hierarchy"][$data.abilityId].map(v => v["ability_name"]),
+            labels: $data.datalabels,
             datasets: [{
-                label: 'My First Dataset',
-                data: $data.store.getState()["hierarchy"][$data.abilityId].map(v => v["ability_ref_score"]),
+                data: $data.store.getState()["hierarchy"][$data.abilityId].map(v => (+v["ability_ref_score"]).toFixed(1)),
                 fill: true,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgb(255, 99, 132)',
@@ -17,8 +16,7 @@ export default function RadarChart($element, $data={}) {
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgb(255, 99, 132)'
             }, {
-                label: 'My Second Dataset',
-                data: $data.store.getState()["hierarchy"][$data.abilityId].map(v => v["ability_my_score"]),
+                data: $data.store.getState()["hierarchy"][$data.abilityId].map(v => (+v["ability_my_score"]).toFixed(1)),
                 fill: true,
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgb(54, 162, 235)',
@@ -49,7 +47,13 @@ export default function RadarChart($element, $data={}) {
     }
 
     function generateData(key) {
-        return $data.store.getState()["hierarchy"][$data.abilityId].map(v => v[key]);
+        return $data.store.getState()["hierarchy"][$data.abilityId].map(v => (+v[key]).toFixed(1));
+    }
+
+    function setDataLabel(chart) {
+        chart.data.datasets.forEach((dataset, i) => {
+            dataset.label = $data.labels[i]
+        })
     }
 
     function handler(chart) {
@@ -62,6 +66,7 @@ export default function RadarChart($element, $data={}) {
 
 
     const myChart = new Chart(ctx, config);
+    setDataLabel(myChart);
     handler(myChart);
     $data.store.subscribe(() => handler(myChart));
 }

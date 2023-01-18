@@ -30,14 +30,14 @@ export default class HierarchyTab extends Component {
 
         return `
             <nav>
-                <span class="count tab-title" data-count="${abilitySn}">${ability[abilitySn]["ability_name"]}</span>
+                <span class="count tab-title" data-count="${abilitySn}"><span>${ability[abilitySn]["ability_name"]}</span></span>
                 ${hierarchy[abilitySn]?.map(v => `
                     <a class="tab-item 
                             ${(complete.findIndex(id => id == v.ability_id) !== -1) ? "complete" : ""}
                             ${(active.findIndex(id => id == v.ability_id) !== -1) ? "active" : ""} count 
                             ${(filter && (complete.findIndex(id => id == v.ability_id) !== -1)) ? "hide" : ""}" 
                         data-count="${v.ability_id}" href="abilitySn${v.ability_id}">
-                        ${ability[v.ability_id]["ability_name"]}
+                        <span>${ability[v.ability_id]["ability_name"]}</span>
                     </a>
                 `).join("")}
             </nav>

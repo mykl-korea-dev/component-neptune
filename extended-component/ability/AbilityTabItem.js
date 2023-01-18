@@ -28,7 +28,7 @@ export default class AbilityTabItem extends TabAjax {
                         ${(active.findIndex(id => id == data.ability_id) !== -1) ? "show" : ""}
                         ${(filter && (complete.findIndex(id => id == data.ability_id) !== -1)) ? "hide" : ""}"
                     id="${data.id || ((this.$data.idName || this.$data.name) + data[this.$data.id])}">
-                ${data.name || data[this.$data.name]}ㄹ
+                ${data.name || data[this.$data.name]}
                 </div>            
             `).join('')}
         `;
@@ -40,7 +40,6 @@ export default class AbilityTabItem extends TabAjax {
         this.$element.querySelectorAll('.tab-content').forEach(el => {
             const elementId = el.id;
             const getIdNumber = elementId.replace("abilitySnPool", "");
-            console.log(getIdNumber);
             new PoolAccordion(el, { store: this.$data.store, data: hierarchy[getIdNumber], dispatch: this.$data.dispatch })
         })
     }

@@ -5,27 +5,27 @@ import {getData} from "../../../basic/utils.js"
 export default class Subject extends Component {
     setTemplate() {
         return this.$data.map(data => `
-            <li class="mykl-media">
-                <div class="media-cover">
-                    <img src="${data.image_url}" alt="${data.image_alt}">
-                </div>
-                <div class="media-body">
+            <li class="mykl-card mg20 bg-light">
+                <div class="card-body">
+                    <span>rate: ${data.rate}</span>
                     <div>
-                        <p class="title">${data.course_name}</p>
+                        <h3 class="fs-5 fw-bold mg10">${data.name}</h3>
                         <p>${data.institution_name}</p>
                     </div>
-                    <div>
-                        <a href="${data.course_url}">${data.course_url}</a>
-                        <span>${data.institution_tel}</span>
-                        <span>${data.institution_addr}</span>
-                    </div> 
-                </div>
-                <div class="match-school-footer">
-                    <span>${data.ncs_name}</span>
-                    <span>${data.training_days}</span>
-                    <span>${data.training_time}</span>
-                    <span>${data.training_cost}</span>
-                </div>
+                    <span class="mg10 mykl-card bg-primary text-light" style="display: inline-block; padding: 10px">${data.ncs_name}</span>
+                    <div style="display: flex">
+                        <div style="display:flex; flex-shrink: 0; flex-direction: column; border-right: 1px solid #bdbdbd; padding-right: 10px; margin-right: 20px;">
+                            <span>훈련일수: ${data.training_days}일</span>
+                            <span>훈련시간: ${data.training_time || 0}시간</span>
+                            <span>훈련비용: ${data.training_cost || 0}</span>
+                        </div> 
+                        <div style="display:flex; flex-direction: column;">
+                            <a href="${data.institution_url}" style="text-decoration: underline" class="text-primary">${data.institution_url}</a>
+                            <span>${data.institution_tel}</span>
+                            <p style="white-space: break-spaces">${data.address}</p>
+                        </div>
+                    </div>
+               </div>
             </li>
         `).join('');
     }

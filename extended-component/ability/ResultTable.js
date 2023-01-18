@@ -8,9 +8,9 @@ export default class ResultTable extends Component {
         const timeRegex = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/gm;
 
         return `
-            <div>
-                <h5>${ability[abilityId]["ability_name"]}</h5>
-                <dl>
+            <div class="mg20" style="display: flex; justify-content: space-between;">
+                <h5 class="fw-bold">${ability[abilityId]["ability_name"]}</h5>
+                <dl class="text-secondary">
                     <dt>진단일시:</dt>
                     <dd>${ability[abilityId]["ability_end_dttm"].toString().replace(timeRegex, "$1.$2.$3")}</dd>
                 </dl>

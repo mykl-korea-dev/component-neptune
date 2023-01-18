@@ -3,19 +3,21 @@ import Component from "../../../basic/Component.js";
 export default class Job extends Component {
     setTemplate() {
         return this.$data.map(data => `
-            <li class="match-job">
-                <div class="match-job-body">
-                    <p class="fs-3">${data.class_name}</p>
-                    <p>${data.subclass_name}</p>
-                    <p>${data.class_description}</p>
+            <li class="mykl-media">
+                <div class="media-cover">
+                    <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
-                <div class="match-job-footer">
-                    <span>${data.class_level}</span>
-                    <ul>
-                        <li>${data.depth1}</li>
-                        <li>${data.depth2}</li>
-                        <li>${data.depth3}</li>
-                    </ul>
+                <div class="media-body">
+                    <div style="display: flex; justify-content: space-between">
+                        <div>
+                            <span class="fs-5" style="display: block">${data.class_name}</span>
+                            <span class="lh-lg">${data.subclass_name}</span>
+                        </div>
+                        <div>
+                            <span>연봉: ${data.class_level},000만원</span>                    
+                        </div>
+                    </div>
+                    <p style="margin-top: 40px">${data.class_description}</p>
                 </div>
             </li>
         `).join('');

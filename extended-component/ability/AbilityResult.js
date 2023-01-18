@@ -8,9 +8,19 @@ export default class AbilityResult extends Component {
     }
 
     setTemplate() {
-        const { hierarchy } = this.$data.store.getState();
+        const { ability, hierarchy } = this.$data.store.getState();
+        const { abilityId } = this.$data;
+        const timeRegex = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/gm;
+
         return hierarchy[this.$data.top].map(data => `
-            <dt>${data.ability_name} ${+data.ability_my_gap >= 0 ? "+" + (+data.ability_my_gap).toFixed(1) : (+data.ability_my_gap).toFixed(1)}</dt>
+            <div class="mg20" style="display: flex; justify-content: space-between;">
+                <h5 class="fw-bold">${data["ability_name"]}</h5>
+                <dl class="text-secondary">
+                    <dt style="display: inline-block">진단일시:</dt>
+                    <dd style="display: inline-block">${data["ability_end_dttm"].toString().replace(timeRegex, "$1.$2.$3")}</dd>
+                </dl>
+            </div>
+
             <table class="mykl-table">
                 <colgroup>
                     <col width="15%">
@@ -39,7 +49,7 @@ export default class AbilityResult extends Component {
                                 </div>
                             </td>
                             <td rowspan="2">${(+v["ability_my_gap"]).toFixed(2)}</td>
-                            <td rowspan="2">${v["ability_completed"] === "N" ? "미성취" : "성취"}</td>
+                            <td rowspan="2" class="${["ability_completed"] === "N" ? "text-secondary": "text-primary"}">${v["ability_completed"] === "N" ? "미성취" : "성취"}</td>
                         </tr>
                         <tr>
                             <td>내 점수</td>

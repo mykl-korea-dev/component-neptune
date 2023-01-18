@@ -1,19 +1,16 @@
 export default function BarChart($element, $data) {
     const canvas = $element;
     const ctx = canvas.getContext('2d');
-    console.log($data.ability_id);
     const config = {
         type: 'bar',
         data: {
-            labels: $data.store.getState()["hierarchy"][$data.ability_id].map(v => v["ability_name"]),
+            labels: $data.datalabels.map(label => label.split(" ")),
             datasets: [{
-                label: 'My First Dataset',
                 data: $data.store.getState()["hierarchy"][$data.ability_id].map(v => (+v["ability_ref_score"]).toFixed(1)),
                 fill: true,
                 backgroundColor:  'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgb(255, 99, 132)',
             }, {
-                label: 'My Second Dataset',
                 data: $data.store.getState()["hierarchy"][$data.ability_id].map(v => (+v["ability_my_score"]).toFixed(1)),
                 fill: true,
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
@@ -26,7 +23,10 @@ export default function BarChart($element, $data) {
             scales: {
                 x: {
                     grid: {
-                        offset: true
+                        offset: true,
+                    },
+                    ticks: {
+                        fontSize: 8,
                     }
                 },
                 y: {
@@ -40,8 +40,8 @@ export default function BarChart($element, $data) {
             },
             plugins: {
                 datalabels: {
-                    anchor: 'end'
-                }
+                    anchor: 'end',
+                },
             },
         }
     }
@@ -50,6 +50,11 @@ export default function BarChart($element, $data) {
         return $data.store.getState()["hierarchy"][$data.ability_id].map(v => (+v[key]).toFixed(1));
     }
 
+    function setDataLabel(chart) {
+        chart.data.datasets.forEach((dataset, i)  => {
+            dataset.label = $data.labels[i]
+        });
+    }
     function handler(chart) {
         const name = ["ability_ref_score", "ability_my_score"];
         chart.data.datasets.forEach((dataset, i) => {
@@ -60,6 +65,7 @@ export default function BarChart($element, $data) {
 
 
     const myChart = new Chart(ctx, config);
+    setDataLabel(myChart);
     handler(myChart);
     $data.store.subscribe(() => handler(myChart));
 }

@@ -1,12 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
 .mykl-card {
-    width: 40%;
-    border: 1px solid #343434;
     border-radius: 20px;
-    /*overflow: hidden;*/
     position: relative;
 }
 
@@ -41,6 +34,12 @@
     transform: translateY(-50%);
 }
 
-/*.card-body {*/
-/*    border-top: 1px solid #bdbdbd;*/
+.card-row .card-body {
+    display: flex;
+}
+/*.mykl-card .mykl-tooltip {*/
+/*    position: absolute;*/
+/*    top: 12px;*/
+/*    left: 12px;*/
+/*    font-size: 12px;*/
 /*}*/

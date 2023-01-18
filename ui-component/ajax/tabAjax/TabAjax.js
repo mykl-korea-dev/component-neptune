@@ -14,8 +14,12 @@ export default class TabAjax extends Component {
             `).join("");
         }
 
-        !this.$element.querySelector(".tab-item.active") && this.$element.querySelector('.tab-item').classList.add("active");
-        !this.$element.querySelector(".tab-content.show") && this.$element.querySelector('.tab-content').classList.add("show");
+        this.$element.querySelector('.tab-item.active')?.classList.remove('active');
+        this.$element.querySelector('.tab-content.show')?.classList.remove('show');
+        // !this.$element.querySelector(".tab-item.active") &&
+        this.$element.querySelector('.tab-item').classList.add("active");
+        // !this.$element.querySelector(".tab-content.show") &&
+        this.$element.querySelector('.tab-content').classList.add("show");
     }
 
     setEvents() {

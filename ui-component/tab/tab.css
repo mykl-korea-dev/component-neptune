@@ -37,12 +37,18 @@
     line-height: normal;
 }
 
-.tab-title:after,
-.tab-item:after {
-    content:'';
+.tab-title:before,
+.tab-item:before {
+    content: '';
     display: inline-block;
     vertical-align: middle;
     height: 100%;
+}
+
+.tab-title:after,
+.tab-item:after {
+    content:'';
+    display: block;
 }
 
 .tab-content {
@@ -106,7 +112,9 @@
 
 .tab-vertical > nav > .tab-title,
 .tab-vertical > nav > .tab-item {
-    display: block;
+    /*display: block;*/
+    display: flex;
+    align-items: center;
     border: none;
     border-top: 1px solid #F2F2F2;
     border-radius: 0;
@@ -138,6 +146,7 @@
     /*top: 0;*/
     /*height: 100%;*/
 }
+
 
 /*@media all and (max-width: 768px) {*/
 /*    .tab {*/

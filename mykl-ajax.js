@@ -80,9 +80,7 @@ let MYKLAjax = {
     StarAjax: function (selector, data) {
         return new StarAjax(document.querySelector(selector), data)
     },
-    TabAjax: function (selector, data) {
-        return new TabAjax(document.querySelector(selector), data)
-    },
+    TabAjax: returnComponent(TabAjax),
     TagAjax: function (selector, data) {
         return new TagAjax(document.querySelector(selector), data);
     },

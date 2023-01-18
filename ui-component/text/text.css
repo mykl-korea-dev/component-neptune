@@ -115,3 +115,35 @@
 .fst-italic {
     font-style: italic;
 }
+
+.bg-primary {
+    background: var(--primary);
+}
+
+.bg-secondary {
+    background: var(--secondary);
+}
+
+.bg-success {
+    background: var(--success);
+}
+
+.bg-danger {
+    background: var(--danger);
+}
+
+.bg-warning {
+    background: var(--warning);
+}
+
+.bg-info {
+    background: var(--info);
+}
+
+.bg-light {
+    background: var(--light);
+}
+
+.bg-dark {
+    background: var(--dark);
+}

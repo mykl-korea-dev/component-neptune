@@ -4,6 +4,8 @@
 
 .mykl-media {
     display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .media-vertical > * {
@@ -11,7 +13,7 @@
 }
 
 .media-group > .mykl-media {
-    padding: 30px 0;
+    padding: 10px 0;
 }
 
 .media-cover {
@@ -19,6 +21,13 @@
     text-align: center;
     align-self: center;
     margin-right: 30px;
+    border-radius: 5px;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.media-cover img {
+    width: 100%;
 }
 
 .media-body {
@@ -30,7 +39,7 @@
     margin-bottom: 0;
 }
 
-.media-cover .mykl-tooltip {
+.mykl-media .mykl-tooltip {
     position: absolute;
     top: 12px;
     right: 12px;

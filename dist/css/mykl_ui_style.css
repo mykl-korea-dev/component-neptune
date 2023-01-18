@@ -134,25 +134,25 @@ a {
 .mark {
     background: #d7a8f5;
 }
-/* 정렬 */
-.check-col .mykl-check {
-    display: inline-block;
-}
+/*!* 정렬 *!*/
+/*.check-col .mykl-check {*/
+/*    display: inline-block;*/
+/*}*/
 
-.mykl-check {
-    position: relative;
-    vertical-align: top;
-}
+/*.mykl-check {*/
+/*    position: relative;*/
+/*    vertical-align: top;*/
+/*}*/
 
-.mykl-check + .mykl-check {
-    margin-top: 16px;
-    margin-left: 0;
-}
+/*.mykl-check + .mykl-check {*/
+/*    margin-top: 16px;*/
+/*    margin-left: 0;*/
+/*}*/
 
-.check-col .mykl-check + .mykl-check {
-    margin-top: 0;
-    margin-left: 48px;
-}
+/*.check-col .mykl-check + .mykl-check {*/
+/*    margin-top: 0;*/
+/*    margin-left: 48px;*/
+/*}*/
 
 .check-input {
     position: absolute;
@@ -167,7 +167,7 @@ a {
 
 .check-label {
     font-size: 1rem;
-    vertical-align: top;
+    /*vertical-align: top;*/
     display: inline-block;
     position: relative;
     left: 0;
@@ -311,9 +311,6 @@ a {
 }
 .form-group {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-align: stretch;
@@ -322,18 +319,45 @@ a {
     width: 100%;
 }
 
+.form-group > * {
+    margin: 0 0 20px 0;
+}
+
+.form-group .form-label {
+    margin: 0 0 12px 0;
+}
+
+.form-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.form-row > * {
+    margin: 0 20px 0 0;
+}
+
+.form-row .form-label {
+    margin: 0;
+}
+
 .form-label {
+    display: inline-block;
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
             flex-grow: 0;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-}
-
-.form-group > .mykl-input {
     -ms-flex-negative: 1;
         flex-shrink: 1;
+    min-width: 80px;
+    width: 100px;
 }
+
+/*.form-group > .mykl-input {*/
+/*    flex-shrink: 1;*/
+/*}*/
 
 .mykl-input {
     display: inline-block;
@@ -401,24 +425,28 @@ a {
     text-indent: -9999px;
 }
 /* 정렬 */
-.radio-col .mykl-radio {
-    display: inline-block;
-}
+/*.radio-col .mykl-radio {*/
+/*    display: inline-block;*/
+/*}*/
 
-.mykl-radio {
-    position: relative;
-    vertical-align: top;
-}
+/*.mykl-radio {*/
+/*    position: relative;*/
+/*    vertical-align: top;*/
+/*}*/
 
-.mykl-radio + .mykl-radio {
-    margin-top: 16px;
-    margin-left: 0;
-}
+/*.mykl-radio + .mykl-radio {*/
+/*    margin-top: 16px;*/
+/*    margin-left: 0;*/
+/*}*/
 
-.radio-col .mykl-radio + .mykl-radio {
-    margin-top: 0;
-    margin-left: 48px;
-}
+/*.form-row > .mykl-radio {*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*.radio-col .mykl-radio + .mykl-radio {*/
+/*    margin-top: 0;*/
+/*    margin-left: 48px;*/
+/*}*/
 
 .radio-input {
     position: absolute;
@@ -432,7 +460,7 @@ a {
 }
 
 .radio-label {
-    vertical-align: top;
+    /*vertical-align: top;*/
     display: inline-block;
     position: relative;
     left: 0;
@@ -1547,12 +1575,18 @@ figure.mykl-img img {
     line-height: normal;
 }
 
-.tab-title:after,
-.tab-item:after {
-    content:'';
+.tab-title:before,
+.tab-item:before {
+    content: '';
     display: inline-block;
     vertical-align: middle;
     height: 100%;
+}
+
+.tab-title:after,
+.tab-item:after {
+    content:'';
+    display: block;
 }
 
 .tab-content {
@@ -1624,7 +1658,13 @@ figure.mykl-img img {
 
 .tab-vertical > nav > .tab-title,
 .tab-vertical > nav > .tab-item {
-    display: block;
+    /*display: block;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border: none;
     border-top: 1px solid #F2F2F2;
     border-radius: 0;
@@ -1658,6 +1698,7 @@ figure.mykl-img img {
     /*top: 0;*/
     /*height: 100%;*/
 }
+
 
 /*@media all and (max-width: 768px) {*/
 /*    .tab {*/
@@ -1953,6 +1994,39 @@ figure.mykl-img img {
 .fst-italic {
     font-style: italic;
 }
+
+.bg-primary {
+    background: var(--primary);
+}
+
+.bg-secondary {
+    background: var(--secondary);
+}
+
+.bg-success {
+    background: var(--success);
+}
+
+.bg-danger {
+    background: var(--danger);
+}
+
+.bg-warning {
+    background: var(--warning);
+}
+
+.bg-info {
+    background: var(--info);
+}
+
+.bg-light {
+    background: var(--light);
+}
+
+.bg-dark {
+    background: var(--dark);
+}
+
 .mykl-tooltip {
     position: relative;
     display: inline-block;
@@ -2141,16 +2215,8 @@ figure.mykl-img img {
 }
 
 /*.message {}*/
-* {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-}
-
 .mykl-card {
-    width: 40%;
-    border: 1px solid #343434;
     border-radius: 20px;
-    /*overflow: hidden;*/
     position: relative;
 }
 
@@ -2188,9 +2254,18 @@ figure.mykl-img img {
             transform: translateY(-50%);
 }
 
-/*.card-body {*/
-/*    border-top: 1px solid #bdbdbd;*/
+.card-row .card-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+/*.mykl-card .mykl-tooltip {*/
+/*    position: absolute;*/
+/*    top: 12px;*/
+/*    left: 12px;*/
+/*    font-size: 12px;*/
 /*}*/
+
 * {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -2258,6 +2333,10 @@ figure.mykl-img img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
 }
 
 .media-vertical > * {
@@ -2267,7 +2346,7 @@ figure.mykl-img img {
 }
 
 .media-group > .mykl-media {
-    padding: 30px 0;
+    padding: 10px 0;
 }
 
 .media-cover {
@@ -2277,6 +2356,14 @@ figure.mykl-img img {
         -ms-grid-row-align: center;
         align-self: center;
     margin-right: 30px;
+    border-radius: 5px;
+    width: 220px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+}
+
+.media-cover img {
+    width: 100%;
 }
 
 .media-body {
@@ -2290,7 +2377,7 @@ figure.mykl-img img {
     margin-bottom: 0;
 }
 
-.media-cover .mykl-tooltip {
+.mykl-media .mykl-tooltip {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -2415,5 +2502,7 @@ figure.mykl-img img {
         -ms-transform-origin: 50%;
             transform-origin: 50%;
 }
+
+
 
 /*# sourceMappingURL=mykl_ui_style.css.map*/

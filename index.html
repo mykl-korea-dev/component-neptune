@@ -16,8 +16,25 @@
         body {
             font-family: 'Noto Sans KR', sans-serif;
         }
+
+        aside {
+            flex-shrink: 0;
+            width: 300px;
+            height: 100vh;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+            background: #f2f2f2;
+        }
+
         #aside-nav dl {
             margin: 10px 0 10px 20px;
+        }
+
+        #component-wrapper {
+            padding: 20px;
+            width: calc(100%  - 300px)
         }
 
         .html-wrapper {
@@ -32,41 +49,40 @@
 </head>
 <body>
 <div style="display: flex">
-    <aside style="flex-shrink: 0; width: 300px; height: 100vh; position: sticky; top: 0; overflow-y: auto; background: #707070;">
-        <dl id="aside-nav">
-            <dt>Form Component</dt>
-            <dt>UI Component</dt>
-            <dt>Component Set</dt>
-        </dl>
+    <aside>
+        <a href="/ajax.html" class="mykl-btn btn-primary">> 동적 컴포넌트 바로가기</a>
+        <div id="aside-nav" class="mykl-accordion">
+        </div>
     </aside>
-    <article id="component-wrapper" style="padding: 20px; width: calc(100%  - 300px)">
+    <article id="component-wrapper">
         <h1>MYKL COMPONENT</h1>
-        <section id="Form-component-wrapper">
+        <section class="component-wrapper">
             <h2 id="Form component">Form component</h2>
             <section>
                 <h3 id="Form-Group">Form Group</h3>
                 <div class="static-code">
                     <div class="form-group">
-                        <span class="form-label">성별</span>
+                        <span class="form-label fw-bold">Label</span>
                         <div class="mykl-radio">
-                            <input class="radio-input" type="radio" name="gender2" id="male">
-                            <label class="radio-label" for="male">남</label>
+                            <input class="radio-input" type="radio" name="" id="one">
+                            <label class="radio-label" for="one">one</label>
                         </div>
                         <div class="mykl-radio">
-                            <input class="radio-input" type="radio" name="gender2" id="female" checked>
-                            <label class="radio-label" for="female">여</label>
+                            <input class="radio-input" type="radio" name="" id="two" checked>
+                            <label class="radio-label" for="two">two</label>
                         </div>
                     </div>
 
                     <div class="form-group form-row">
-                        <span class="form-label">성별</span>
-                        <div class="mykl-radio">
-                            <input class="radio-input" type="radio" name="gender2" id="male">
-                            <label class="radio-label" for="male">남</label>
-                        </div>
-                        <div class="mykl-radio">
-                            <input class="radio-input" type="radio" name="gender2" id="female" checked>
-                            <label class="radio-label" for="female">여</label>
+                        <span class="form-label fw-bold">Label</span>
+                        <div class="mykl-select">
+                            <select>
+                                <option value="1">one</option>
+                                <option value="2">two</option>
+                                <option value="3">three</option>
+                                <option value="4">four</option>
+                                <option value="5">five</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -93,12 +109,13 @@
                 <h3 id="Radio-Component">Radio Component</h3>
                 <div class="static-code">
                     <div class="mykl-radio">
-                        <input class="radio-input" type="radio" name="gender2" id="male12">
-                        <label class="radio-label" for="male12">남</label>
+                        <input class="radio-input" type="radio" name="radio" id="radio1">
+                        <label class="radio-label" for="radio1">radio1</label>
                     </div>
+
                     <div class="mykl-radio">
-                        <input class="radio-input" type="radio" name="gender2" id="female12" checked>
-                        <label class="radio-label" for="female12">여</label>
+                        <input class="radio-input" type="radio" name="radio" id="radio2" checked>
+                        <label class="radio-label" for="radio2">radio2</label>
                     </div>
                 </div>
                 <div class="static-code-copy">
@@ -110,16 +127,14 @@
             <section>
                 <h3 id="Checkbox-Component">Checkbox Component</h3>
                 <div class="static-code">
-                    <div class="check-group">
-                        <div class="mykl-check">
-                            <input class="check-input" type="checkbox" name="gender" id="nprogress" checked>
-                            <label class="check-label" for="nprogress">남</label>
-                        </div>
+                    <div class="mykl-check">
+                        <input class="check-input" type="checkbox" name="checkbox" id="checkbox1" checked>
+                        <label class="check-label" for="checkbox1">checkbox1</label>
+                    </div>
 
-                        <div class="mykl-check">
-                            <input class="check-input" id="hi" type="checkbox" name="gender" checked>
-                            <label class="check-label" for="hi">여</label>
-                        </div>
+                    <div class="mykl-check">
+                        <input class="check-input" type="checkbox" name="checkbox" id="checkbox2" checked>
+                        <label class="check-label" for="checkbox2">checkbox</label>
                     </div>
                 </div>
                 <div class="static-code-copy">
@@ -173,19 +188,12 @@
                 <div class="static-code">
                     <div class="mykl-select">
                         <select>
-                            <option value="">Select car:</option>
-                            <option value="1">Auddsfsfsdfsfsdfsfsdfsdfdi</option>
-                            <option value="2">BMW</option>
-                            <option value="3">Citroen</option>
-                            <option value="4">Ford</option>
-                            <option value="5">Honda</option>
-                            <option value="6">Jaguar</option>
-                            <option value="7">Land Rover</option>
-                            <option value="8">Mercedes</option>
-                            <option value="9">Mini</option>
-                            <option value="10">Nissan</option>
-                            <option value="11">Toyota</option>
-                            <option value="12">Volvo</option>
+                            <option value="">Select:</option>
+                            <option value="1">ONE</option>
+                            <option value="2">TWO</option>
+                            <option value="3">THREE</option>
+                            <option value="4">FOUR</option>
+                            <option value="5">FIVE</option>
                         </select>
                     </div>
                 </div>
@@ -207,12 +215,20 @@
                 </div>
             </section>
         </section>
-        <section id="UI-Component-wrapper">
-            <h2>UI Component</h2> - text 제외했움
+        <section class="component-wrapper">
+            <h2>UI Component</h2> - text 제외
             <section>
                 <h3 id="Button-Component">Button Component</h3>
                 <div class="static-code">
                     <button type="button" class="mykl-btn btn-primary">button</button>
+                    <button type="button" class="mykl-btn btn-primary-rev">button</button>
+                    <button type="button" class="mykl-btn btn-secondary">button</button>
+                    <button type="button" class="mykl-btn btn-dark">button</button>
+
+                    <button type="button" class="mykl-btn btn-primary btn-round">button</button>
+
+                    <button type="button" class="mykl-btn btn-primary btn-lg">button</button>
+                    <button type="button" class="mykl-btn btn-primary btn-full">button</button>
                 </div>
                 <div class="static-code-copy">
                     <pre>
@@ -237,6 +253,12 @@
                 <h3 id="Table-Component">Table Component</h3>
                 <div class="static-code">
                     <table class="mykl-table">
+                        <colgroup>
+                            <col width=10%>
+                            <col width="30%">
+                            <col width="30%">
+                            <col width="30%">
+                        </colgroup>
                         <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -277,10 +299,12 @@
                 <div class="static-code">
                     <nav>
                         <ul class="mykl-pagination">
+                            <li class="page-item page-prev"><a href="" class="page-link">prev</a></li>
                             <li class="page-item active"><a href="" class="page-link">1</a></li>
                             <li class="page-item"><a href="" class="page-link">2</a></li>
                             <li class="page-item"><a href="" class="page-link">3</a></li>
                             <li class="page-item"><a href="" class="page-link">4</a></li>
+                            <li class="page-item page-next"><a href="" class="page-link">next</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -331,9 +355,9 @@
                 <div class="static-code">
                     <div class="mykl-tab">
                         <nav class="tab-menu">
-                            <a href="tab1"  class= "tab-item">소개</a>
-                            <a href="tab2" class= "tab-item">포트폴리오</a>
-                            <a href="tab3" class= "tab-item">서비스 현황</a>
+                            <a href="tab1"  class= "tab-item">Tab1</a>
+                            <a href="tab2" class= "tab-item">Tab2</a>
+                            <a href="tab3" class= "tab-item">Tab3</a>
                         </nav>
                         <div class="tab-content" id="tab1">
                             모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한 재판을 받을 권리를 가진다. 국회의원이 회기전에 체포 또는 구금된 때에는 현행범인이 아닌 한 국회의 요구가 있으면 회기중 석방된다.
@@ -360,20 +384,20 @@
                 <h3 id="Dropdown-Component">Dropdown Component</h3>
                 <div class="static-code">
                     <div class="mykl-dropdown">
-                        <a href="#"  class="btn dropdown-toggle">정보검색</a>
+                        <a href="#"  class="btn dropdown-toggle">Dropdown</a>
                         <div class="dropdown-menu-outer">
                             <ul class="dropdown-menu">
                                 <li  class="dropdown-item">
-                                    <a href="#" class="dropdown-text">학교/학과 정보</a>
+                                    <a href="#" class="dropdown-text">DropdownItem1</a>
                                 </li>
                                 <li  class="dropdown-item">
-                                    <a href="#" class="dropdown-text">자격증 정보</a>
+                                    <a href="#" class="dropdown-text">DropdownItem2</a>
                                 </li>
                                 <li  class="dropdown-item">
-                                    <a href="#" class="dropdown-text">직업 정보</a>
+                                    <a href="#" class="dropdown-text">DropdownItem3</a>
                                 </li>
                                 <li  class="dropdown-item">
-                                    <a href="#" class="dropdown-text">전문가 정보</a>
+                                    <a href="#" class="dropdown-text">DropdownItem4</a>
                                 </li>
                             </ul>
                         </div>
@@ -392,24 +416,17 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button  class= "accordion-toggle">
-                                    진단하기
+                                    Accordion
                                 </button>
                             </h2>
-                            <dl class="accordion-body">
-                                <div>
-                                    <dt>공통진단</dt>
-                                    <dd class="accordion-body-item">
-                                        <a href="#">공통역량진단</a>
-                                    </dd>
-                                </div>
-                                <div>
-                                    <dt>직무수행진단</dt>
-                                    <dd class= "accordion-body-item"><a href="#">인공지능진단</a></dd>
-                                    <dd class= "accordion-body-item"><a href="#">빅데이터 진단</a></dd>
-                                    <dd class= "accordion-body-item"><a href="#">실감미디어 진단</a></dd>
-                                    <dd class= "accordion-body-item"><a href="#">지능형로봇 진단</a></dd>
-                                </div>
-                            </dl>
+                            <div class="accordion-body">
+                                <ul class="accordion-body-item">
+                                    <li><a href="#">AccordionItem1</a></li>
+                                    <li><a href="#">AccordionItem2</a></li>
+                                    <li><a href="#">AccordionItem3</a></li>
+                                    <li><a href="#">AccordionItem4</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -475,22 +492,137 @@
                 </div>
             </section>
         </section>
-        <section id="Component-Set">
+        <section class="component-wrapper">
             <h2>component set</h2>
-
+            <section>
+                <h3 id="Card-Component">Card Component</h3>
+                <div class="static-code">
+                    <div class="mykl-card bg-light">
+                        <div class="card-header">Featured</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p>With supporting text below as a natural lead-in to additional content.</p>
+                            <button class="mykl-btn btn-primary">Go somewhere</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h3 id="Media-Component">Media Component</h3>
+                <div class="static-code">
+                    <div class="mykl-media">
+                        <div class="media-cover">
+                            <img src="https://via.placeholder.com/200" alt="">
+                            <span class="media-cover-text">mediaCoverText</span>
+                        </div>
+                        <div class="media-body">
+                            모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한 재판을 받을 권리를 가진다. 국회의원이 회기전에 체포 또는 구금된 때에는 현행범인이 아닌 한 국회의 요구가 있으면 회기중 석방된다.
+                            국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 대통령은 법률에서 구체적으로 범위를 정하여 위임받은 사항과 법률을 집행하기 위하여 필요한 사항에 관하여 대통령령을 발할 수 있다.
+                        </div>
+                    </div>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h3 id="Modal-Component">Modal Component</h3>
+                <div class="static-code">
+                    <div class="mykl-modal">
+                        <button class="modal-btn mykl-btn btn-secondary-rev">Modal Open</button>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="btn-close" data-func="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Modal body text goes here.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="mykl-btn btn-secondary" data-func="modal">Close</button>
+                                    <button type="button" class="mykl-btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h3 id="Message-Component">Message Component</h3>
+                <div class="static-code">
+                    <!-- message bar -->
+                    <div class="message-bar">
+                        <span class="message-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </span>
+                        <span class="message">Input Message Context Here.</span>
+                    </div>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h3 id="PostSearch-Component">PostSearch Component</h3>
+                <div class="static-code">
+                    <div class="mykl-postSearch" data-startDate="start-date" data-endDate="start-end">
+                        <div class="mykl-select">
+                            <select name="">
+                                <option value="0">작성자</option>
+                                <option value="1">제목</option>
+                                <option value="2">내용</option>
+                                <option value="3">답글</option>
+                            </select>
+                        </div>
+                        <input type="text" name="value" class="mykl-input">
+                    </div>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
         </section>
     </article>
 </div>
 <script>
 // aside 메뉴 이동
 const asideNav = document.querySelector('#aside-nav');
-[...asideNav.children].forEach((el, i) => {
-    const component = document.querySelectorAll("#component-wrapper > section")[i];
-    const componentList = component.querySelectorAll('h3');
-    (componentList.length > 0) && ([...componentList].forEach(cp => {
-        el.innerHTML += `<dl><a href="#${cp.id}">${cp.textContent}</a>`
-    }))
-})
+asideNav.innerHTML = [...document.querySelectorAll('.component-wrapper')].map(el => `
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <button class="fs-5 fw-bold accordion-toggle">
+                ${el.querySelector('h2').textContent}
+            </button>
+        </div>
+        <ul class="accordion-body">
+               ${[...el.querySelectorAll('h3')].map(component => `
+                    <li class="accordion-body-item">
+                        <a href="#${component.id}">${component.textContent}</a>
+                    </li>
+                `).join("")}
+        </ul>
+    </div>
+`).join("");
 
 // html 문서 넣기
 document.querySelectorAll('.static-code').forEach(el => {

@@ -23,6 +23,10 @@ module.exports = {
             template: "./index.html",
             filename: "./index.html"
         }),
+        new HtmlWebpackPlugin({
+            template: "./ajax.html",
+            filename: "./ajax.html"
+        }),
         new MiniCssExtractPlugin({
             filename: "css/[name]_style.css"
         }),

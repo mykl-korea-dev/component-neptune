@@ -125,8 +125,8 @@ const MYKLBasic = {
     ContextMessage: function (selector, callback) {
         return new ContextMessage(document.querySelector(selector), callback)
     },
-    PostSearch: function (selector, data) {
-        return new PostSearch(document.querySelector(selector), data)
+    PostSearch: function (el) {
+        return new PostSearch(el)
     }
 }
 
@@ -153,3 +153,4 @@ document.querySelectorAll('.mykl-tab').forEach(el => MYKL.Tab(el));
 // document.querySelectorAll('.mykl-tag').forEach(el => MYKL.Tag(el));
 
 document.querySelectorAll('.mykl-modal').forEach(el => MYKL.Modal(el));
+document.querySelectorAll('.mykl-postSearch').forEach(el => MYKL.PostSearch(el));

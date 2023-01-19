@@ -7,6 +7,7 @@ export default class PostSearch extends Component {
     setElements() {
         this.originVal = this.$element.innerHTML;
         this.$element.classList.add('form-group');
+        this.$element.classList.add('form-row');
     }
 
     setTemplate() {

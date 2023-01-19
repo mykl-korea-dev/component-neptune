@@ -56,3 +56,7 @@
     background: url("../../images/pass_eye.png");
     text-indent: -9999px;
 }
+
+.mykl-postSearch .mykl-input {
+    flex: 1;
+}

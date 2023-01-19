@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MYKL Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        aside {
+            flex-shrink: 0;
+            width: 300px;
+            height: 100vh;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+            background: #f2f2f2;
+        }
+
+        #aside-nav dl {
+            margin: 10px 0 10px 20px;
+        }
+
+        #component-wrapper {
+            padding: 20px;
+            width: calc(100%  - 300px)
+        }
+
+        .html-wrapper {
+            margin-left: -100px;
+            background: linear-gradient(90deg, #ffffff 8%, #f3f3f3 8%, #f3f3f3 100%);
+        }
+
+        .static-code > * {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div style="display: flex">
+    <aside>
+        <a href="/" class="mykl-btn btn-primary">> 정적 컴포넌트 바로가기</a>
+        <div id="aside-nav" class="mykl-accordion">
+        </div>
+    </aside>
+    <article id="component-wrapper">
+        <h1>MYKL COMPONENT</h1>
+        <section class="component-wrapper">
+            <h2>컴포넌트 세팅</h2>
+            <section>
+                <h3 id="Set-Component">SetComponent: 동적 컴포넌트 세팅</h3>
+                <div class="static-code text-hidden">
+                    MYKL.SetComponet('url', (data) => {
+                        MYKL.Component(#id, data);
+                    })
+                    // 또는
+                    fetch('url')
+                        .then(res => res.json())
+                        .then(data => {
+                            MYKL.Component(#id, data);
+                        })
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="javascript html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h3 id="FormAjax-Component">FormAjax Component: Form 전송</h3>
+                <div class="static-code">
+                    <form id="form">
+                        <div class="form-group">
+                            <span class="form-label fw-bold">Label</span>
+                            <div class="mykl-radio">
+                                <input class="radio-input" type="radio" name="" id="one">
+                                <label class="radio-label" for="one">one</label>
+                            </div>
+                            <div class="mykl-radio">
+                                <input class="radio-input" type="radio" name="" id="two" checked>
+                                <label class="radio-label" for="two">two</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            <span class="form-label fw-bold">Label</span>
+                            <div class="mykl-select">
+                                <select>
+                                    <option value="1">one</option>
+                                    <option value="2">two</option>
+                                    <option value="3">three</option>
+                                    <option value="4">four</option>
+                                    <option value="5">five</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="form-submit-btn mykl-btn btn-primary">제출</button>
+                    </form>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+        </section>
+    </article>
+</div>
+<script>
+    // aside 메뉴 이동
+    const asideNav = document.querySelector('#aside-nav');
+    asideNav.innerHTML = [...document.querySelectorAll('.component-wrapper')].map(el => `
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <button class="fs-5 fw-bold accordion-toggle">
+                ${el.querySelector('h2').textContent}
+            </button>
+        </div>
+        <ul class="accordion-body">
+               ${[...el.querySelectorAll('h3')].map(component => `
+                    <li class="accordion-body-item">
+                        <a href="#${component.id}">${component.id.split("-").join(" ")}</a>
+                    </li>
+                `).join("")}
+        </ul>
+    </div>
+`).join("");
+
+// html 문서 넣기
+document.querySelectorAll('.static-code').forEach(el => {
+    el.nextElementSibling.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
+})
+</script>
+<script type="module" src="dist/js/mykl_ui.js"></script>
+</body>
+</html>

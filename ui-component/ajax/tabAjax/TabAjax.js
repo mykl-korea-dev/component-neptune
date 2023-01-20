@@ -23,7 +23,7 @@ export default class TabAjax extends Component {
     }
 
     setEvents() {
-        this.$element.addEventListener('click', (e) => {
+        this.$element.querySelector('nav').addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
 

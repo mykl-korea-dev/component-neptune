@@ -12,10 +12,7 @@ export default class Tab extends Component {
     }
 
     setEvents() {
-        this.$element.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
+        this.$element.querySelector('nav').addEventListener('click', (e) => {
             const tabItem = e.composedPath().find(v => v.classList.contains('tab-item'));
             if(tabItem === undefined) {
                 return;

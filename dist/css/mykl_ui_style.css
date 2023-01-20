@@ -435,10 +435,10 @@ a {
 /*    display: inline-block;*/
 /*}*/
 
-/*.mykl-radio {*/
-/*    position: relative;*/
-/*    vertical-align: top;*/
-/*}*/
+.mykl-radio {
+    position: relative;
+    vertical-align: top;
+}
 
 /*.mykl-radio + .mykl-radio {*/
 /*    margin-top: 16px;*/

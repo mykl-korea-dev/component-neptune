@@ -9,7 +9,7 @@ export default class TextareaAjax extends Component {
     setTemplate() {
         const {data = "", options = {}} = this.$data;
         const { value = "value"} = options;
-        this.$element.textContent = data[value];
+        return data[value]
     }
 
     render() {

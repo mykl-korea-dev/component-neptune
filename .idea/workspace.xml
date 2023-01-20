@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="form component ajax 추가 및 수정" />
+    <list default="true" id="61aee792-9cf6-4dbc-aa54-a6a4a9201458" name="Changes" comment="form component ajax 추가 및 수정">
+      <change beforePath="$PROJECT_DIR$/dist/TextareaAjax.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/TextareaAjax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/TextareaAjax.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/TextareaAjax.js.map" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

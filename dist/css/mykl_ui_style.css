@@ -1890,21 +1890,21 @@ figure.mykl-img img {
 
 /* 위치 */
 .text-start {
-    text-align: left;
-    text-align: -moz-left;
-    text-align: -webkit-left;
+    text-align: left !important;
+    text-align: -moz-left !important;
+    text-align: -webkit-left !important;
 }
 
 .text-center {
-    text-align: center;
-    text-align: -moz-center;
-    text-align: -webkit-center;
+    text-align: center !important;
+    text-align: -moz-center !important;
+    text-align: -webkit-center !important;
 }
 
 .text-end {
-    text-align: right;
-    text-align: -moz-right;
-    text-align: -webkit-right;
+    text-align: right !important;
+    text-align: -moz-right !important;
+    text-align: -webkit-right !important;
 }
 
 /* 글자 높이 간격 */

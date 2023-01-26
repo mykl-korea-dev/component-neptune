@@ -8,14 +8,29 @@
     <link rel="stylesheet" href="../../basic/common.css">
 </head>
 <body>
-  <div class="mykl-tag" data-name="name">
+  <div class="mykl-tag">
     <div class="tag-inner">
         <strong class="blind">태그입력</strong>
         <div class="tag-input-box">
-            <input type="text" class="tag-input"  placeholder="태그를 입력해주세요 (최대 10개)">
+            <input type="text" name="name" class="tag-input"  placeholder="태그를 입력해주세요 (최대 10개)">
         </div>
     </div>
   </div>
-  <script src="./Tag.js" type="module"></script>
+
+  <div id="mykl-tag" data-name="name">
+      <div class="tag-inner">
+          <strong class="blind">태그입력</strong>
+          <div class="tag-input-box">
+              <input type="text" name="name" class="tag-input"  placeholder="태그를 입력해주세요 (최대 10개)">
+          </div>
+      </div>
+  </div>
+  <script type="module">
+      import Tag from "./Tag.js";
+      import TagAjax from "../ajax/tagAjax/TagAjax.js";
+
+      new Tag(document.querySelector('.mykl-tag'));
+      new TagAjax(document.querySelector('#mykl-tag'));
+  </script>
 </body>
 </html>

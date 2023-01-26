@@ -67,7 +67,7 @@ export default class Tag extends Component {
 
             this.setInputWidth();
 
-            if (e.data === ",") {
+            if (e.data?.includes(",")) {
                 if (this.$element.querySelector('.tag-input').value.length === 1) {
                     this.$element.querySelector('.tag-input').value = "";
                     return;
@@ -96,7 +96,7 @@ export default class Tag extends Component {
                 }
                 return;
             }
-
+            console.log(e.key);
             if (e.key === 'Enter') {
                 this.addInputItem();
             }

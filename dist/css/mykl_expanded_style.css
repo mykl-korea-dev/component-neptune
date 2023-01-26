@@ -1,5 +1,6 @@
 .tab-item.complete {
     position: relative;
+    padding-right: 32px;
 }
 
 .tab-item.complete:after {
@@ -18,8 +19,8 @@
 }
 
 .response > input {
-    width: 1px;
-    height: 1px;
+    width: 0px;
+    height: 0px;
     padding: 0;
     margin: -1px;
     overflow: hidden;

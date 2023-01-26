@@ -152,8 +152,7 @@ export default function Doughnut($element, $data) {
 
     function generateData() {
         const total = $data.totalCount;
-        const inputs = $data.store ? ($data.store.getState()[$data.key][$data.count]) || 0 : $data.inputs ;
-        return [inputs, $data.totalCount - inputs];
+        return [$data.inputs, total - $data.inputs];
     }
 
     function handler(chart) {
@@ -166,5 +165,9 @@ export default function Doughnut($element, $data) {
 
     const myChart = new Chart(ctx, config);
     handler(myChart);
-    $data.store?.subscribe(() => handler(myChart));
+    this.setData = (data) => {
+        $data = {...$data, ...data};
+        handler(myChart);
+    }
+    // $data.store?.subscribe(() => handler(myChart));
 }

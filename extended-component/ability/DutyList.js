@@ -3,11 +3,11 @@ import Component from "../../basic/Component.js";
 export default class DutyList extends Component {
     setTemplate() {
         return this.$data.map(data => `
-            <div class="card">
+            <div class="mykl-card bg-light mg20">
                 <div class="card-body">
-                    <h5 class="card-title">${data.name}</h5>
-                    <p>${data.content}</p>
-                    <button class="mykl-btn btn-primary" type="button">${data.id}</button>
+                    <h5 class="fs-5 fw-bold">${data.name}</h5>
+                    <p class="mg20">${data.content}</p>
+                    <a href="/ability/${data.id}" class="mykl-btn btn-primary">진단하기</a>
                 </div>
             </div>
         `).join('');

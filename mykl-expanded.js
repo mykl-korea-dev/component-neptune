@@ -32,10 +32,10 @@ import Subject from "./extended-component/match/subject/Subject.js";
 import AbilityResultInfo from "./extended-component/match/AbilityResultInfo.js";
 import Expert from "./extended-component/match/Expert.js";
 
-const returnComponent = (component) => {
+const returnComponent = (component, initData) => {
     return (selector, data) => {
         if(!MYKL[selector]) {
-            MYKL[selector] = new component(document.querySelector(selector), data);
+            MYKL[selector] = new component(document.querySelector(selector), initData ? {...initData, ...data} : data);
         } else {
             MYKL[selector].setData(data);
         }
@@ -81,9 +81,10 @@ let MYKLExpanded = {
     Count: function(selector, data) {
         return new Count(document.querySelector(selector), data)
     },
-    DoughnutChart: function (selector, data) {
-        return new Doughnut(document.querySelector(selector), {titlePrefix: "", titleSuffix: "", labelPrefix: "", labelSuffix: "", ...data})
-    },
+    DoughnutChart: returnComponent(Doughnut,{titlePrefix: "", titleSuffix: "", labelPrefix: "", labelSuffix: ""}),
+    //     function (selector, data) {
+    //     return new Doughnut(document.querySelector(selector), {titlePrefix: "", titleSuffix: "", labelPrefix: "", labelSuffix: "", ...data})
+    // },
     Filter: function (selector, data) {
         return new Filter(document.querySelector(selector), data)
     },

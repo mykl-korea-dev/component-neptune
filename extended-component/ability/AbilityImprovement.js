@@ -13,9 +13,8 @@ export default class AbilityImprovement extends Component {
         const { hierarchy } = this.$data.store.getState();
         const { abilityPid } = this.$data;
         //  Todo: 아래 줄로 변경
-        // const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v[["ability_my_gap"]]) < 0);
-        const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_score"]) < (+second["ability_my_score"]) ? -1 : 1);
-        // console.log(sortedHierarchy)
+        const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v["ability_my_gap"]) < 0);
+        // const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_score"]) < (+second["ability_my_score"]) ? -1 : 1);
         return sortedHierarchy.map((data, i) => `
             <div>
                 <h6 class="fs-6 fw-bold lh-lg text-start">${i+1}. ${data["ability_name"]}</h6>
@@ -25,8 +24,7 @@ export default class AbilityImprovement extends Component {
                         <div>
                             <span>미성취 영역 목록</span>
                             <ul>
-                                ${hierarchy[data["ability_id"]].filter(v => v["ability_completed"] === "N" && (+v["ability_my_gap"]) < 0)
-                                    // .sort((first, second) => first["ability_my_gap"] < second["ability_my_gap"] ? -1 : 1)
+                                 ${hierarchy[data["ability_id"]].filter(v => (+v["ability_my_gap"]) < 0)
                                     .map(subData => `
                                         <li>${subData["ability_name"]} <span>${(+subData["ability_my_gap"]).toFixed(1)}</span></li>
                                 `).join('')}

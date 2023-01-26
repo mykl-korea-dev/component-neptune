@@ -19,8 +19,8 @@ export default class AbilityCommon extends Component {
                         <div class="tooltip-content ">${complete.includes(v.ability_id) ? "진단을 완료하였습니다." : "진단을 하지 않았습니다." }</div>
                     </div>
                     ${complete.includes(v.ability_id) ?
-                        `<a class="mykl-btn btn-primary-rev btn-full" href="/ability/${top}/common/reports" data-page="result" data-ability="${v.ability_id}">진단결과보기</a>` :
-                        `<a class="mykl-btn btn-primary btn-full" href="/ability/${top}" data-page="test" data-ability="${v.ability_id}">진단하기</a>`
+                        `<button type="button" class="mykl-btn btn-primary-rev btn-full" data-ability="${v.ability_id}">진단완료</button>` :
+                        `<a class="mykl-btn btn-primary btn-full" href="/ability/${top || hierarchy[top][0].ability_id }" data-page="test" data-ability="${v.ability_id}">진단하기</a>`
                     }
                 </div>
             </li>
@@ -34,10 +34,8 @@ export default class AbilityCommon extends Component {
 
     setEvents() {
         this.$element.addEventListener('click', ({target}) => {
-            console.log(target);
             if(getDataset(target, "page")) {
-                console.log(getDataset(target, "ability"));
-                this.$data.dispatch.setAbility(getDataset(target, "ability"))
+                sessionStorage.setItem('abilityActive', JSON.stringify({[this.$data.store.getState().top]: getDataset(target, "ability")}));
             }
         })
     }

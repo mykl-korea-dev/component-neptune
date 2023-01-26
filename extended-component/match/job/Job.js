@@ -4,9 +4,6 @@ export default class Job extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="mykl-media">
-                <div class="media-cover">
-                    <img src="${data.image_url}" alt="${data.image_alt}">
-                </div>
                 <div class="media-body">
                     <div style="display: flex; justify-content: space-between">
                         <div>

@@ -1,4 +1,5 @@
 import Component from "../../basic/Component.js";
+import {getDataset} from "../../basic/utils";
 
 export default class AbilityDuty extends Component {
     setTemplate() {
@@ -18,7 +19,7 @@ export default class AbilityDuty extends Component {
                    </div>
                    <div style="margin-left: auto">
                        ${complete.includes(v.ability_id) ?
-                            `<a class="mykl-btn btn-primary-border btn-full" href="/ability/${this.$data.store.getState().top}/duty/reports" data-page="result" data-ability="${v.ability_id}">진단결과보기</a>` :
+                            `<button type="button" class="mykl-btn btn-primary-border btn-full" data-ability="${v.ability_id}">진단완료</button>` :
                             `<a class="mykl-btn btn-primary btn-full" href="/ability/${this.$data.store.getState().top}" data-page="test" data-ability="${v.ability_id}">진단하기</a>`
                        }
                    </div>
@@ -29,5 +30,13 @@ export default class AbilityDuty extends Component {
 
     render() {
         this.$element.innerHTML = this.setTemplate();
+    }
+
+    setEvents() {
+        this.$element.addEventListener('click', ({target}) => {
+            if(getDataset(target, "page")) {
+                sessionStorage.setItem('abilityActive', JSON.stringify({[this.$data.store.getState().top]: getDataset(target, "ability")}));
+            }
+        })
     }
 }

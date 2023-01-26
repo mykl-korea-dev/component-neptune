@@ -29,7 +29,20 @@
 </div>
 
 <ul id="certificate">
-
+    <li>
+        <a>
+            <div class="media-cover">
+                <img src="${data.image_url}" alt="${data.image_alt}">
+            </div>
+            <div class="media-body" style="display: flex; flex-direction: column; justify-content: space-evenly">
+                <span class="fs-5" style="display: block">${data.certificate_name}</span>
+                <span class="lh-lg">${data.depincharge_name}</span>
+                <div style="margin-top: 40px">
+                    <a href="${data.qnetcert_url}" class="text-primary" style="text-decoration: underline">큐넷바로가기</a>
+                </div>
+            </div>
+        </a>
+    </li>
 </ul>
 <script src="./Certificate.js" type="module"></script>
 </body>

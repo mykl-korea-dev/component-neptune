@@ -20,7 +20,7 @@ export default class Major extends Component {
                             <span>${data.timedivision_name}</span>
                         </div>
                         <div style="display: flex; flex-direction: column; margin-left: 10px">
-                            <a href="${data.department_url}">${data.department_url}</a>
+                            <a href="https://${data.department_url}" target="_blank">${data.department_url}</a>
                             <span>${data.department_tel}</span>
                             <span>${data.department_address}</span>
                         </div>

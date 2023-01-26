@@ -16,13 +16,13 @@ export default class ResultContent extends Component {
         const abilityLength = abilities?.length
 
         // 결과
-        const sortedAbilityScore = [...abilities].sort((first, second) => first["ability_my_score"] > second["ability_my_score"] ? -1 : 1);
+        const sortedAbilityScore = [...abilities].sort((first, second) => (+first["ability_my_score"]) > (+second["ability_my_score"]) ? -1 : 1);
 
         // Gap
-        const sortedAbilityGap = [...abilities].sort((first, second) => first["ability_my_gap"] > second["ability_my_gap"] ? -1 : 1);
+        const sortedAbilityGap = [...abilities].sort((first, second) => (+first["ability_my_gap"]) > (+second["ability_my_gap"]) ? -1 : 1);
 
         // 우선순위
-        const sortedAbilityResult = [...abilities].sort((first, second) => first["ability_my_gap"] < second["ability_my_gap"] ? -1 : 1).filter(v => 0 >= v['ability_my_gap']);
+        const sortedAbilityResult = [...abilities].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => 0 >= (+v['ability_my_gap']));
 
 
         const replacedContent = content.replace("$date", replacedEndTime)

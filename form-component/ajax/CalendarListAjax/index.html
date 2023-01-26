@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../basic/common.css">
+    <link rel="stylesheet" href="../../calendar/calendar.css">
+</head>
+<body>
+<div id="form">
+    <div id="calendar">
+    </div>
+</div>
+<script type="module">
+    import CalendarAjax from './CalendarListAjax.js';
+    new CalendarAjax(document.querySelector('#calendar'));
+</script>
+</body>
+</html>

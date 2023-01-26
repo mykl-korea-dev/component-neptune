@@ -23,14 +23,12 @@
 
 .calendar-container .year-month {
     position: relative;
-    height: 70px;
     width: 100%;
 }
 
-.calendar-container .year-month > * {
-    position: absolute;
-
-}
+/*.calendar-container .year-month > * {*/
+/*    position: absolute;*/
+/*}*/
 
 .calendar-container .year-month .year {
     width: 100%;
@@ -40,12 +38,13 @@
 }
 
 .calendar-container .year-month .month {
-    top: 35px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 5px;
 }
 
 .calendar-container .year-month .calendar-button-group {
+    position: absolute;
     width: 100%;
     top: 35px;
     display: flex;
@@ -56,14 +55,99 @@
     background: #bdbdbd;
 }
 
-.calendar-container div[class^="week"] *:first-child {
+.calendar-container div[class^="week"] .day:first-child {
     color: red;
 }
 
-.calendar-container div[class^="week"] *:last-child {
+.calendar-container div[class^="week"] .day:last-child {
     color: blue;
 }
 
 .mark {
     background: #d7a8f5;
+}
+
+.mykl-calendarList .calendar-container {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.mykl-calendarList .calendar-container .year-month {
+    background: var(--light);
+}
+
+.mykl-calendarList .calendar-container .year-month .calendar-button-group {
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mykl-calendarList .calendar-button-group button {
+    background: transparent;
+    border: none;
+    padding: 10px;
+}
+
+.mykl-calendarList .calendar-container .today {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    background: #F2F2F2;
+    padding: 5px 10px;
+    transform: translateY(-50%);
+}
+
+
+.mykl-calendarList .calendar-button-group .prev {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.mykl-calendarList .calendar-button-group .next {
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+.mykl-calendarList .calendar-container .month-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px;
+    border-bottom: 1px solid #707070;
+}
+
+.mykl-calendarList .calendar-container .month{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.mykl-calendarList .calendar-container .month.active {
+    background: #B0B0B0;
+}
+
+.mykl-calendarList .calendar-container .weekday {
+    border-bottom: 1px solid #707070;
+}
+
+.mykl-calendarList .calendar-container div[class^="week"] > * {
+    padding: 10px 0;
+    border-right: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+
+.mykl-calendarList .calendar-container div[class^="week"] > *:first-child {
+    border-left: 1px solid #707070;
+}
+
+
+
+.mykl-calendarList .calendar-container .date {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.mykl-calendarList .calendar-container .content {
+    min-height: 50px;
 }

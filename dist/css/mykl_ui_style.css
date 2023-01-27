@@ -35,6 +35,10 @@ a {
 }
 
 .blind {
+    margin: 0 !important;
+}
+
+.blind {
     display: block;
     width: 1px;
     height: 1px;
@@ -412,7 +416,7 @@ a {
 }
 
 .form-group > * {
-    margin: 0 0 20px 0;
+    margin: 0 0 12px 0;
 }
 
 .form-group .form-label {
@@ -426,10 +430,16 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
 }
 
 .form-row > * {
-    margin: 0 20px 0 0;
+    margin: 0 12px 0 0;
+}
+
+.form-row > *:last-child {
+    margin: 0;
 }
 
 .form-row .form-label {
@@ -457,7 +467,7 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     font-size: 1rem;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 5px;
     position: relative;
     line-height: 1;
@@ -753,7 +763,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: relative;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 8px 32px 8px 16px;
+    padding: 11px 32px 11px 16px;
     border-radius: 5px;
     border: 1px solid #DFDFDF;
     text-align: left;
@@ -831,7 +841,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .select-items div {
     color: #000;
-    padding: 8px 32px 8px 16px;
+    padding: 11px 32px 11px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
@@ -862,6 +872,11 @@ input[type="range"]::-webkit-slider-thumb {
 
 .select-items div:hover, .same-as-selected {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mykl-select.select-sm .select-selected,
+.mykl-select.select-sm .select-items div {
+    padding: 8px 32px 8px 16px;
 }
 .mykl-textarea {
     border: 1px solid #DFDFDF;
@@ -1057,18 +1072,6 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 5px;
     padding: 15px 0;
 }
-.mykl-auto-complete .auto-complete.selected {
-    background: #bdbdbd;
-}
-
-.mykl-auto-complete .auto-complete-list {
-    display: none;
-}
-
-.mykl-auto-complete .auto-complete-item.active .auto-complete-list.show {
-    display: block;
-}
-
 .mykl-btn {
     display: inline-block;
     text-align: center;
@@ -2606,6 +2609,25 @@ figure.mykl-img img {
             transform-origin: 50%;
 }
 
+
+.mykl-autoComplete .auto-complete.selected {
+    background: #bdbdbd;
+}
+
+.mykl-autoComplete .auto-complete-list {
+    position: absolute;
+    background: antiquewhite;
+    z-index: 1;
+    display: none;
+}
+
+.mykl-autoComplete .auto-complete-item {
+    position: relative;
+}
+
+.mykl-autoComplete .auto-complete-item.active .auto-complete-list.show {
+    display: block;
+}
 
 
 /*# sourceMappingURL=mykl_ui_style.css.map*/

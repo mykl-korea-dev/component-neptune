@@ -39,6 +39,7 @@ a {
     height: 1px;
     line-height: 0;
     text-indent: -9999px;
+    margin: 0 !important;
 }
 
 .text-hidden {

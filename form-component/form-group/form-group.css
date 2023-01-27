@@ -6,7 +6,7 @@
 }
 
 .form-group > * {
-    margin: 0 0 20px 0;
+    margin: 0 0 12px 0;
 }
 
 .form-group .form-label {
@@ -16,10 +16,15 @@
 .form-row {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .form-row > * {
-    margin: 0 20px 0 0;
+    margin: 0 12px 0 0;
+}
+
+.form-row > *:last-child {
+    margin: 0;
 }
 
 .form-row .form-label {

@@ -6,7 +6,6 @@ import Textarea from './form-component/textarea/Textarea.js';
 import Time from './form-component/time/Time.js';
 
 import Accordion from "./ui-component/accordion/Accordion.js";
-import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
 import ButtonLink from "./ui-component/button/Button.js";
 import Dropdown from "./ui-component/dropdown/Dropdown.js";
 import Emotion from "./ui-component/emotion/emotion.js";
@@ -31,7 +30,6 @@ import './form-component/time/time.css';
 
 
 import './ui-component/accordion/accordion.css';
-import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
 import './ui-component/button/button.css';
 import './ui-component/dropdown/dropdown.css';
 import './ui-component/emotion/emotion.css';
@@ -88,9 +86,6 @@ const MYKLBasic = {
     // ui --------------------------------------------------
     Accordion: function (el) {
         return new Accordion(el);
-    },
-    AutoComplete: function (el) {
-        return new AutoComplete(el);
     },
     ButtonLink: function (el) {
         return new ButtonLink(el);

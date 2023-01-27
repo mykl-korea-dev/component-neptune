@@ -19,6 +19,10 @@ import TextareaAjax from "./form-component/ajax/textareaAjax/TextareaAjax.js";
 import TagAjax from "./ui-component/ajax/tagAjax/TagAjax.js";
 import TableAjax from "./ui-component/ajax/tableAjax/TableAjax.js";
 import MediaAjax from "./component-set/ajax/mediaAjax/MediaAjax.js";
+import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
+
+import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
+
 
 const returnComponent = (component) => {
     return (selector, data) => {
@@ -64,6 +68,9 @@ let MYKLAjax = {
         return new FileAjax(document.querySelector(selector), data)
     },
     // ui -----------------------------
+    AutoComplete: function (selector, data) {
+        return new AutoComplete(document.querySelector(selector), data)
+    },
     AccordionAjax: function (selector, data) {
         return new AccordionAjax(document.querySelector(selector), data)
     },

@@ -46,27 +46,37 @@ class AutoCompleteItem extends Component {
         })
 
         this.$element.querySelector('.auto-complete-list')?.addEventListener('mouseover', (e) => {
+            const { target } = e;
             this.$element.querySelector('.selected')?.classList.remove('selected');
-            const target = e.composedPath().find(el => el.classList.contains('auto-complete'));
-            target.classList.add('selected');
+            if(target.matches('.auto-complete') || target.matches('.auto-complete *')) {
+                const el = e.composedPath().find(el => el.classList.contains('auto-complete'));
+                el ? el.classList.add('selected') : target.classList.add('selected');
+            }
         })
 
-        this.$element.querySelector('.auto-complete-list')?.addEventListener('click', () => {
-            this.setInputValue();
-        })
-
-        document.addEventListener('click', ({target}) => {
-            if(!this.$element.classList.contains('active') || target.tagName === "INPUT") {
+        this.$element.querySelector('.auto-complete-list')?.addEventListener('click', ({target}) => {
+            if(target.matches('.btn-direct')) {
                 return;
             }
             this.setInputValue();
         })
 
+        document.addEventListener('click', ({target}) => {
+            if(!this.$element.classList.contains('active') || target.tagName === "INPUT" || target.matches('.btn-direct')) {
+                return;
+            }
+            this.setInputValue();
+        })
     }
 
     setInputValue() {
-        this.$element.querySelector('input[type=text]').value = getDataset(this.$element.querySelector('.selected'), 'val') || '';
-        this.$element.querySelector('input[type=hidden]').value = getDataset(this.$element.querySelector('.selected'), 'id') || '';
+        // this.$element.querySelector('input[type=text]').value = getDataset(this.$element.querySelector('.selected'), 'val') || '';
+        // this.$element.querySelector('input[type=hidden]').value = getDataset(this.$element.querySelector('.selected'), 'id') || '';
+        const selectedEl = document.querySelector('.selected');
+        console.log(selectedEl, selectedEl.querySelector('input[type=hidden]'), selectedEl.querySelector('input[type=hidden]').value);
+        this.$element.querySelector('input[type=text]').value = selectedEl.querySelector('input[type=hidden]').value;
+        this.$element.querySelector('input[type=hidden]').value = selectedEl.querySelector('input[type=radio]').value;
+
         this.inputBlur();
     }
 
@@ -116,7 +126,9 @@ class AutoCompleteItem extends Component {
         }
 
         const inputVal = this.$element.querySelector('input[type=text]').value;
-
+        if(!inputVal) {
+            return;
+        }
         fetch(this.$data.recommendUrl + inputVal, {
             method: 'GET',
             headers: {
@@ -130,10 +142,17 @@ class AutoCompleteItem extends Component {
                 this.originVal = this.$element.querySelector('input[type=text]').value;
 
                 const div = document.createElement('div');
-                div.innerHTML = data.map(item => `
-                        <div class="auto-complete" data-id="${item[this.$data.id]}" data-val="${item[this.$data.value]}">${item[this.$data.value].replace(this.originVal.trim(), `<b class="fw-bold">${this.originVal.trim()}</b>`)}</div>
+                div.innerHTML = data.map((item) => `
+                        <div class="auto-complete mykl-radio">
+                            <input type="radio" value="${item[this.$data.id]}" id="${item[this.$data.id]}" class="radio-input">
+                            <input type="hidden" value="${item[this.$data.value]}">
+                            <label for="${item[this.$data.id]}">${item[this.$data.value].replace(this.originVal.trim(), `<b class="fw-bold">${this.originVal.trim()}</b>`)}</label>
+                        </div>
                     `).join("")
                     + `<button type="button" class="btn-direct">직접입력 > </button>`;
+                // <div className="auto-complete" data-id="${item[this.$data.id]}"
+                //      data-val="${item[this.$data.value]}">${item[this.$data.value].replace(this.originVal.trim(), `<b class="fw-bold">${this.originVal.trim()}</b>`)}</div>
+
                 this.$element.querySelector('.auto-complete-list').innerHTML = div.innerHTML;
             })
     }
@@ -152,7 +171,11 @@ class AutoCompleteItem extends Component {
 
 export default class AutoComplete extends Component {
     setElements() {
+        this.$element.classList.add('mykl-autoComplete');
+        this.$element.querySelector('.auto-complete-list').classList.add('form-group');
         this.name = this.$element.querySelector("input").getAttribute("name");
+        this.$element.querySelector('.auto-complete-input').classList.add('form-group');
+        this.$element.querySelector('.auto-complete-input').classList.add('form-row');
         const originInput = this.$element.querySelector("input");
         originInput.removeAttribute("name");
         const hiddenInput = document.createElement('input');
@@ -184,7 +207,6 @@ export default class AutoComplete extends Component {
                 const currentEl = this.$element.querySelector('.auto-complete-item.active') || this.$element.querySelector('.auto-complete-group').lastElementChild;
                 const selectedEl = currentEl?.querySelector('.selected');
                 currentEl.querySelector('input[type=text]').value = selectedEl ? getDataset(selectedEl, 'id') : currentEl.classList.contains('active') ? '' : currentEl.querySelector('input').value;
-                currentEl.querySelector('input[type=hidden]').value = "";
                 currentEl.querySelector('.auto-complete-list').innerHTML = "";
 
                 currentEl.classList.remove('active');
@@ -192,6 +214,7 @@ export default class AutoComplete extends Component {
                 currentEl.querySelector('.auto-complete-list .selected')?.classList.remove('selected');
                 const duplicatedEl = currentEl.cloneNode(true);
                 duplicatedEl.querySelector('input').value = '';
+                duplicatedEl.querySelector('input[type=hidden]').value = "";
                 this.$element.querySelector('.auto-complete-group').appendChild(duplicatedEl);
                 currentEl.querySelector('.btn-add').classList.add("hide");
                 currentEl.querySelector('.btn-remove').classList.remove("hide");

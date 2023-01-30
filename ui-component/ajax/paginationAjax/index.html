@@ -11,5 +11,18 @@
     <ul class="pagination-ajax"></ul>
 </nav>
 <script src="PaginationAjax.js" type="module"></script>
+
+<script type="module">
+
+    import PaginationAjax from "./paginationAjax2.js";
+
+    const pages = {
+        "start": 1,
+        "limit": 10,
+        "total": 11,
+        "offset": 0
+    }
+    new PaginationAjax(document.querySelector('.pagination-ajax'), { data: pages })
+</script>
 </body>
 </html>

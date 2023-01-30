@@ -9,6 +9,7 @@ import ProcessAjax from "./ui-component/ajax/processAjax/ProcessAjax.js";
 import ProgressAjax from "./ui-component/ajax/progressAjax/ProgressAjax.js";
 import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
 import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js";
+import PaginationAjax2 from "./ui-component/ajax/paginationAjax/PaginationAjax2.js";
 import TabAjax from "./ui-component/ajax/tabAjax/TabAjax.js";
 import FileAjax from "./form-component/ajax/FileAjax.js";
 import FormAjax from "./form-component/ajax/formAjax.js";
@@ -78,6 +79,7 @@ let MYKLAjax = {
         return new DropdownAjax(document.querySelector(selector), data)
     },
     PaginationAjax: returnComponent(PaginationAjax),
+    PaginationUIAjax: returnComponent(PaginationAjax2),
     ProcessAjax: function (selector, data) {
         return new ProcessAjax(document.querySelector(selector), data)
     },

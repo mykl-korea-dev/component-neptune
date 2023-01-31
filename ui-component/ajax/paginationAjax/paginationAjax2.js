@@ -13,7 +13,7 @@ export default class PaginationAjax extends Component {
                 : this.setInGroup(start, total, limit);
         }
 
-        let { firstNumber, lastNumber, pageCount } = getFirstAndLastNumber(setCenter=== true);
+        let { firstNumber, lastNumber, pageCount, pageGroup } = getFirstAndLastNumber(setCenter=== true);
 
         const next = lastNumber + 1;
         const prev = firstNumber - 1;
@@ -21,7 +21,7 @@ export default class PaginationAjax extends Component {
         return `
             ${prev >= 1 ? `<li class="page-item page-prev"  ${prev >= 1 ? `data-page="${prev}"` : ''} >이전</li>`: ''}
             ${[...new Array(lastNumber - firstNumber + 1)].map((page, i) => `
-                <li class="page-item ${Math.floor(start / limit) === i ? "active" : ""}" data-page=${firstNumber + i}>
+                <li class="page-item ${Math.floor(start / limit) === (pageGroup * 10) + i ? "active" : ""}" data-page=${firstNumber + i}>
                     ${firstNumber + i}
                 </li>
             `).join('')}
@@ -37,7 +37,7 @@ export default class PaginationAjax extends Component {
         this.$element.addEventListener('click', ({target}) => {
             if(target.classList.contains('page-item')) {
                 this.$data.data['start'] = (+getDataset(target, 'page') - 1) * this.$data.data.limit + 1;
-                this.$data.callback(this.$data);
+                this.$data.callback && this.$data.callback(this.$data);
                 this.render();
             }
         })
@@ -63,7 +63,7 @@ export default class PaginationAjax extends Component {
 
     // 페이지 숫자가 해당 그룹에 속하도록
     setInGroup(start, total, limit) {
-        const pageGroup = (Math.floor(start / total) - 1) / 10;
+        const pageGroup = Math.floor((start / limit) / 10);
 
         let pageCount = +total / +limit;
         pageCount = Math.ceil(pageCount);
@@ -74,7 +74,7 @@ export default class PaginationAjax extends Component {
 
         let firstNumber = ((pageGroup + 1) * 10) - 9 || 1;
 
-        return ({lastNumber, firstNumber, pageCount});
+        return ({lastNumber, firstNumber, pageCount, pageGroup});
     }
 }
 

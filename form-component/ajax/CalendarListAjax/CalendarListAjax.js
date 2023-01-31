@@ -48,13 +48,44 @@ export default class Calendar extends Component {
                 <div class="week${i}">
                     ${[...Array(7)].map((_, j) => {
                         const date = i * 7 + j - firstDay + 1;
-                        if(date < 1 || date > lastDate) return `<div></div>`
-                        return `
-                            <div class="day ${date == this.mark ? 'mark' : ''}">
-                                <span class="date">${date}</span>
-                                <div class="content"></div>
-                            </div>
-                        `}).join('')}
+                        if(date < 1) {
+                            const lastMonth = +this.month - 1;
+                            const thisMonth = lastMonth < 1 ? 12 : lastMonth;
+                            const lastYear = lastMonth < 1 ? +this.year - 1 : this.year;
+                            let lastDate = new Date(lastYear, thisMonth, 0, 0, 0, 0).getDate();
+                            
+                            return `
+                                <div class="day lastMonth">
+                                    <div>
+                                        <input type="date" value="${lastYear}-${thisMonth.toString().padStart(2, "0")}-${(lastDate + date).toString().padStart(2, "0")}" name="" id="">
+                                        <label class="date" style="color: #bdbdbd">${lastDate + date}</label>                                    
+                                    </div>
+                                    <div class="content"></div>
+                                </div>`
+                        } else if(date > lastDate) {
+                            const nextMonth = +this.month + 1;
+                            const thisMonth = nextMonth > 12 ? 1 : nextMonth;
+                            const nextYear = nextMonth > 12 ? +this.year + 1 : this.year;
+                            
+                            return `
+                                <div class="day nextMonth">
+                                    <div>
+                                        <input type="date" value="${nextYear}-${thisMonth.toString().padStart(2, "0")}-${(date - lastDate).toString().padStart(2, "0")}" name="" id="">
+                                        <label class="date" style="color: #bdbdbd">${date - lastDate}</label>                                    
+                                    </div>
+                                    <div class="content"></div>
+                                </div>`
+                        } else {
+                            return `
+                                <div class="day ${date == this.mark ? 'mark' : ''}">
+                                    <div>
+                                        <input type="date" value="${this.year}-${this.month.toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}" name="" id="">
+                                        <label class="date">${date}</label>                                    
+                                    </div>
+                                    <div class="content"></div>
+                                </div>
+                            ` }
+                        }).join('')}
                 </div>
             `).join('')}
         </div>

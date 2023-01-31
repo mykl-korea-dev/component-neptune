@@ -136,8 +136,16 @@ a {
     background: #d7a8f5;
 }
 
+.mykl-calendarList input[type=date] {
+    display: none;
+}
+
+.mykl-calendarList .lastMonth label,
+.mykl-calendarList .nextMonth label {
+    color: #bdbdbd;
+}
+
 .mykl-calendarList .calendar-container {
-    padding: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -217,8 +225,6 @@ a {
 .mykl-calendarList .calendar-container div[class^="week"] > *:first-child {
     border-left: 1px solid #707070;
 }
-
-
 
 .mykl-calendarList .calendar-container .date {
     display: inline-block;

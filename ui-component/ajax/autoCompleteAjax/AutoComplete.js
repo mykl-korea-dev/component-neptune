@@ -17,20 +17,12 @@ import {getDataset} from "../../../basic/utils.js";
 class AutoCompleteItem extends Component {
     setElements() {
         this.originVal = null;
-        this.currentValue = null;
         this.$element.classList.add("mykl-auto-complete");
         this.$element.querySelector('input[type=text]').setAttribute('autocomplete', 'off');
         this.$element.querySelector('.auto-complete-list').style.width = this.$element.querySelector('.auto-complete-input input').getBoundingClientRect().width + 'px';
     }
 
     setEvents() {
-        this.$element.addEventListener('click',({ target }) => {
-            if(target.classList.contains('btn-direct')) {
-                this.$element.querySelector('input[type=text]').value = this.currentValue || this.originVal;
-                this.inputBlur();
-            }
-        })
-
         this.$element.addEventListener('keyup', this.keyUpHandler.bind(this));
 
         this.$element.querySelector('input[type=text]').addEventListener('focus', () => {
@@ -55,7 +47,10 @@ class AutoCompleteItem extends Component {
         })
 
         this.$element.querySelector('.auto-complete-list')?.addEventListener('click', ({target}) => {
-            if(target.matches('.btn-direct')) {
+            if(target.classList.contains('btn-direct')) {
+                this.$element.querySelector('input[type=text]').value = this.originVal;
+                this.$element.querySelector('input[type=hidden]').value = this.originVal;
+                this.inputBlur();
                 return;
             }
             this.setInputValue();
@@ -70,8 +65,6 @@ class AutoCompleteItem extends Component {
     }
 
     setInputValue() {
-        // this.$element.querySelector('input[type=text]').value = getDataset(this.$element.querySelector('.selected'), 'val') || '';
-        // this.$element.querySelector('input[type=hidden]').value = getDataset(this.$element.querySelector('.selected'), 'id') || '';
         const selectedEl = document.querySelector('.selected');
         console.log(selectedEl, selectedEl.querySelector('input[type=hidden]'), selectedEl.querySelector('input[type=hidden]').value);
         this.$element.querySelector('input[type=text]').value = selectedEl.querySelector('input[type=hidden]').value;
@@ -150,9 +143,6 @@ class AutoCompleteItem extends Component {
                         </div>
                     `).join("")
                     + `<button type="button" class="btn-direct">직접입력 > </button>`;
-                // <div className="auto-complete" data-id="${item[this.$data.id]}"
-                //      data-val="${item[this.$data.value]}">${item[this.$data.value].replace(this.originVal.trim(), `<b class="fw-bold">${this.originVal.trim()}</b>`)}</div>
-
                 this.$element.querySelector('.auto-complete-list').innerHTML = div.innerHTML;
             })
     }
@@ -172,6 +162,7 @@ class AutoCompleteItem extends Component {
 export default class AutoComplete extends Component {
     setElements() {
         this.$element.classList.add('mykl-autoComplete');
+        this.$element.querySelector('.auto-complete-group').classList.add('form-group');
         this.$element.querySelector('.auto-complete-list').classList.add('form-group');
         this.name = this.$element.querySelector("input").getAttribute("name");
         this.$element.querySelector('.auto-complete-input').classList.add('form-group');

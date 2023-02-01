@@ -30,19 +30,19 @@ export default class Calendar extends Component {
                     오늘
                 </button>
             </div>
-            <div class="month-group">
+            <ul class="month-group">
                 ${[...Array(12)].map((_, i) => `
-                    <div class="month ${+this.month === (i + 1) ? 'active' : ''}">${i + 1}</div>
+                    <li class="month ${+this.month === (i + 1) ? 'active' : ''}">${i + 1}</li>
                 `).join("")}            
-            </div>
+            </ul>
             <div class="weekday">
-              <div>일</div>
-              <div>월</div>
-              <div>화</div>
-              <div>수</div>
-              <div>목</div>
-              <div>금</div>
-              <div>토</div>
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
             </div>
             ${[...Array(weekSeq)].map((_, i) =>`
                 <div class="week${i}">
@@ -56,10 +56,8 @@ export default class Calendar extends Component {
                             
                             return `
                                 <div class="day lastMonth">
-                                    <div>
-                                        <input type="date" value="${lastYear}-${thisMonth.toString().padStart(2, "0")}-${(lastDate + date).toString().padStart(2, "0")}" name="" id="">
-                                        <label class="date" style="color: #bdbdbd">${lastDate + date}</label>                                    
-                                    </div>
+                                    <input type="date" value="${lastYear}-${thisMonth.toString().padStart(2, "0")}-${(lastDate + date).toString().padStart(2, "0")}" name="" id="">
+                                    <label class="date">${lastDate + date}</label>                                    
                                     <div class="content"></div>
                                 </div>`
                         } else if(date > lastDate) {
@@ -69,19 +67,15 @@ export default class Calendar extends Component {
                             
                             return `
                                 <div class="day nextMonth">
-                                    <div>
-                                        <input type="date" value="${nextYear}-${thisMonth.toString().padStart(2, "0")}-${(date - lastDate).toString().padStart(2, "0")}" name="" id="">
-                                        <label class="date" style="color: #bdbdbd">${date - lastDate}</label>                                    
-                                    </div>
+                                    <input type="date" value="${nextYear}-${thisMonth.toString().padStart(2, "0")}-${(date - lastDate).toString().padStart(2, "0")}" name="" id="">
+                                    <label class="date">${date - lastDate}</label>                                    
                                     <div class="content"></div>
                                 </div>`
                         } else {
                             return `
                                 <div class="day ${date == this.mark ? 'mark' : ''}">
-                                    <div>
-                                        <input type="date" value="${this.year}-${this.month.toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}" name="" id="">
-                                        <label class="date">${date}</label>                                    
-                                    </div>
+                                    <input type="date" value="${this.year}-${this.month.toString().padStart(2, "0")}-${date.toString().padStart(2, "0")}" name="" id="">
+                                    <label class="date">${date}</label>                                    
                                     <div class="content"></div>
                                 </div>
                             ` }

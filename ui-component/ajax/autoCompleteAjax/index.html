@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>autoComplete</title>
-    <link rel="stylesheet" href="autoComplete.css">
     <link rel="stylesheet" href="../../../form-component/form-group/form-group.css">
-    <link rel="stylesheet" href="autoComplete.css">
+    <link rel="stylesheet" href="./autoComplete.css">
 </head>
 <body>
     <div class="form-group">
@@ -25,10 +24,36 @@
             </div>
         </div>
     </div>
+    <form id="form">
+        <div id="autoComplete">
+            <div class="auto-complete-group">
+                <div class="auto-complete-item">
+                    <div class="auto-complete-input">
+                        <input type="text" name="duty_list" id="major" class="search-input mykl-input">
+                        <a type="button" class="btn-add mykl-btn btn-dark">추가</a>
+                    </div>
+                    <div class="auto-complete-list"></div>
+                </div>
+            </div>
+        </div>
+        <button type="button" >버튼</button>
+    </form>
     <div class="auto-completes">
         <input type="text" name="" id="" class="search-input">
         <div class="auto-complete-group"></div>
     </div>
-    <script src="AutoComplete.js" type="module"></script>
+    <script type="module">
+        import AutoComplete from "./AutoComplete.js";
+
+        new AutoComplete(document.querySelector("#autoComplete"), {
+            recommendUrl: "http://icpbl.co.kr:12010" + "/api/duty/",
+            headers: {contentType: "application/json;charset=utf-8;"},
+            id: "duty_id",
+            value: "duty_name"
+        })
+        document.querySelector('#form').addEventListener('submit', (e) => {
+            e.preventDefault();
+        })
+    </script>
 </body>
 </html>

@@ -16,8 +16,10 @@ export default class FormAjax extends Component {
                     }
                 } else {
                     if(this.$data.list?.[el.getAttribute('name')]) {
-                        objs[el.getAttribute('name')] = (el.value !== "" && objs[el.getAttribute('name')])
-                            ? objs[el.getAttribute('name')] + this.$data.list[el.getAttribute('name')] + el.value : el.value;
+                        if(el.value) {
+                            objs[el.getAttribute('name')] = objs[el.getAttribute('name')]
+                                ? objs[el.getAttribute('name')] + this.$data.list[el.getAttribute('name')] + el.value : el.value;
+                        }
                     } else {
                         objs[el.getAttribute('name')] = objs[el.getAttribute('name')] ? [...objs[el.getAttribute('name')], el.value] : el.value
                     }

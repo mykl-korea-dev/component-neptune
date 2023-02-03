@@ -1655,7 +1655,6 @@ figure.mykl-img img {
 .tab-title,
 .tab-item {
     display: inline-block;
-    border: 1px solid #bdbdbd;
     border-radius: 3px;
     padding: 10px 20px;
     font-size: 0.875rem;
@@ -1669,15 +1668,13 @@ figure.mykl-img img {
 .tab-item.active {
     background-color: #e5edff;
     font-weight: 600;
-    color: #004CFF;
-    border: 1px solid currentColor;
-    /*border: none;*/
+    background: var(--primary);
+    color: #fff;
 }
 
 .tab-title > span,
 .tab-item > span {
     display: inline-block;
-    /*vertical-align: middle;*/
     line-height: normal;
 }
 

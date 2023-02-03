@@ -46,6 +46,9 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+        var url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io";
+    </script>
 </head>
 <body>
 <div style="display: flex">
@@ -77,6 +80,9 @@
                     </pre>
                 </div>
             </section>
+        </section>
+        <section class="component-wrapper">
+            <h2>Form Component</h2>
             <section>
                 <h3 id="FormAjax-Component">FormAjax Component: Form 전송</h3>
                 <div class="static-code">
@@ -107,6 +113,25 @@
                         </div>
                         <button class="form-submit-btn mykl-btn btn-primary">제출</button>
                     </form>
+                </div>
+                <div class="static-code-copy">
+                    <pre>
+                        <code class="html html-wrapper"></code>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h3 id="Input-Ajax">InputAjax</h3>
+                <div class="static-code">
+                    <input type="text" name="name" id="inputId">
+                    <script>
+                        MYKL.SetComponents(url + '/input', (data) => {
+                            const options = {
+                                value: "text"
+                            }
+                            MYKL.InputAjax('#inputId', {data, options});
+                        })
+                    </script>
                 </div>
                 <div class="static-code-copy">
                     <pre>

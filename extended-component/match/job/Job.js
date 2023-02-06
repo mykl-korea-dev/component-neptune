@@ -7,8 +7,8 @@ export default class Job extends Component {
                 <div class="media-body">
                     <div style="display: flex; justify-content: space-between">
                         <div>
-                            <span class="fs-5" style="display: block">${data.class_name}</span>
-                            <span class="lh-lg">${data.subclass_name}</span>
+                            <span class="fs-5" style="display: block">${data.subclass_name}</span>
+                            <span class="lh-lg">${data.class_name}</span>
                         </div>
                         <div>
                             <span>연봉: ${data.class_level},000만원</span>                    

@@ -24,13 +24,13 @@ a {
 
 /*  To Do Check */
 :root {
-    --primary: #004CFF;
+    --primary: rgb(0, 76, 255);
     --secondary: dimgrey;
     --success: yellowgreen;
     --danger: indianred;
     --warning: coral;
-    --info: lightgoldenrodyellow;
-    --light: lightgrey;
+    --info: #FFBB00;
+    --light: #F2F2F2;
     --dark: #101010;
 }
 
@@ -1078,12 +1078,9 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9375rem;
-    /*font-size: 15px;*/
     font-weight: 600;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    /*max-width: 120px;*/
-    /*width: 100%;*/
     min-width: 80px;
 
     /*!* 한글, 영어 높이 동일 하게 됨*!*/
@@ -1098,16 +1095,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* 크기 */
-.btn-full {
-    width: 100%;
-    max-width: none;
-    max-width: initial;
-}
-
 .btn-sm {
-    margin-left: 14px;
-    width: 80px;
-    padding: 8px;
+    min-width: 50px;
 }
 
 .btn-lg {
@@ -1118,6 +1107,13 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 28px;
 }
 
+.btn-full {
+    width: 100%;
+    max-width: none;
+    max-width: initial;
+}
+
+/* 상태 */
 .btn-primary {
     background: var(--primary);
     color: #fff;
@@ -1333,33 +1329,38 @@ figure.mykl-img img {
             align-items: center;
 }
 
-.mykl-navbar .nav-brand {
+.mykl-navbar .logo-cover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-right: 20px;
+}
+
+.mykl-navbar .logo-cover .nav-logo {
+    margin-left: 10px;
 }
 
 .mykl-navbar .nav-logo {
-    padding-left: 10px;
+    margin-right: 50px;
 }
 
 .mykl-navbar .nav {
-    display: inline-block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     vertical-align: middle;
-    text-align: center;
 }
 
 .nav {
     margin: 0;
     padding: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
 }
 
 .nav > li {
-    display: inline-block;
     vertical-align: top;
     padding: 0 25px;
 }
@@ -1382,62 +1383,64 @@ figure.mykl-img img {
 /*    border-bottom: 1px solid #ccc;*/
 /*}*/
 
-/*.nav-toggle {*/
-/*    display: none;*/
-/*}*/
+.nav-toggle {
+    display: none;
+}
 
-/*@media all and (max-width: 938px) {*/
-/*    .navbar {*/
-/*        justify-content: space-between;*/
-/*    }*/
+@media all and (max-width: 938px) {
+    .mykl-navbar {
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
 
-/*    .nav-toggle {*/
-/*        display: block;*/
-/*        padding: 5px;*/
-/*    }*/
+    .nav-toggle {
+        display: block;
+        padding: 5px;
+    }
 
-/*    .nav-hamburger {*/
-/*        position: relative;*/
-/*        display: block;*/
-/*        width: 10px;*/
-/*        height: 2px;*/
-/*        background: #000;*/
-/*    }*/
+    .nav-hamburger {
+        position: relative;
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: #000;
+    }
 
-/*    .nav-hamburger::before {*/
-/*        content: "";*/
-/*        display: block;*/
-/*        width: 10px;*/
-/*        height: 2px;*/
-/*        background: #000;*/
-/*        position: absolute;*/
-/*        top: -4px;*/
-/*        left: 0;*/
-/*    }*/
+    .nav-hamburger::before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        top: -4px;
+        left: 0;
+    }
 
-/*    .nav-hamburger::after {*/
-/*        content: "";*/
-/*        display: block;*/
-/*        width: 10px;*/
-/*        height: 2px;*/
-/*        background: #000;*/
-/*        position: absolute;*/
-/*        bottom: -4px;*/
-/*        left: 0;*/
-/*    }*/
+    .nav-hamburger::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+    }
 
-/*    .navbar .nav {*/
-/*        display: none;*/
-/*        flex-basis: 100%;*/
-/*        flex-grow: 1;*/
-/*        align-items: center;*/
-/*        flex-direction: column;*/
-/*    }*/
+    /*.mykl-navbar .nav {*/
+    /*    display: none;*/
+    /*    flex-basis: 100%;*/
+    /*    flex-grow: 1;*/
+    /*    align-items: center;*/
+    /*    flex-direction: column;*/
+    /*}*/
 
-/*    .navbar .nav.show {*/
-/*        display: block;*/
-/*    }*/
-/*}*/
+    /*.mykl-navbar .nav.show {*/
+    /*    display: block;*/
+    /*}*/
+}
 .mykl-pagination {
     text-align: center;
 }
@@ -1457,7 +1460,13 @@ figure.mykl-img img {
     -ms-transition: all 0.3s ease;
 }
 
-.mykl-pagination .active {
+.page-item a {
+    font-weight: inherit;
+    color: inherit;
+}
+
+.mykl-pagination .active,
+.mykl-pagination .active a {
     font-weight: bold;
     color: #101010;
 }
@@ -1533,7 +1542,7 @@ figure.mykl-img img {
     background: var(--success);
 }
 .mykl-progress {
-    background: #bdbdbd;
+    background: transparent;
     min-height: 20px;
     height: 100%;
     max-height: 50px;
@@ -1541,7 +1550,10 @@ figure.mykl-img img {
 
 .progress-bar {
     position: relative;
-    background: lightblue;
+    color: var(--primary);
+    border: 3px solid currentColor;
+    -webkit-box-shadow: 0 0 20px inset currentColor;
+            box-shadow: 0 0 20px inset currentColor;
     min-height: inherit;
     height: 100%;
     max-height: inherit;
@@ -1555,6 +1567,38 @@ figure.mykl-img img {
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     padding: 0 10px;
+}
+
+.progress-primary .progress-bar {
+    color: var(--primary);
+}
+
+.progress-secondary .progress-bar {
+    color: var(--secondary);
+}
+
+.progress-success .progress-bar {
+    color: var(--success);
+}
+
+.progress-danger .progress-bar {
+    color: var(--danger);
+}
+
+.progress-warning .progress-bar {
+    color: var(--warning);
+}
+
+.progress-info .progress-bar {
+    color: var(--info);
+}
+
+.progress-light .progress-bar {
+    color: var(--light);
+}
+
+.progress-dark .progress-bar {
+    color: var(--dark);
 }
 .mykl-star .star-group {
     display: inline-block;
@@ -1643,7 +1687,7 @@ figure.mykl-img img {
 /*}*/
 .tab-title {
     display: inline-block;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #fff;
     padding-left: 20px;
 }
@@ -1665,8 +1709,11 @@ figure.mykl-img img {
     text-align: center;
 }
 
+.tab-item * {
+    pointer-events: none;
+}
+
 .tab-item.active {
-    background-color: #e5edff;
     font-weight: 600;
     background: var(--primary);
     color: #fff;
@@ -1709,6 +1756,42 @@ figure.mykl-img img {
     border: none;
 }
 
+/* 상태 */
+.tab-secondary .tab-item.active {
+    background: var(--secondary);
+}
+
+.tab-success .tab-item.active {
+    background: var(--success);
+}
+
+.tab-danger .tab-item.active {
+    background: var(--danger);
+}
+
+.tab-warning .tab-item.active {
+    background: var(--warning);
+}
+
+.tab-info .tab-item.active {
+    background: var(--info);
+}
+
+.tab-light .tab-item.active {
+    background: var(--light);
+    color: #101010;
+}
+
+.tab-dark .tab-item.active {
+    background: var(--dark);
+}
+
+/* disabled */
+.tab-item.tab-disabled {
+    pointer-events: none;
+    color: var(--light );
+}
+
 /* nav 반대 */
 [dir="ltr"] .tab-rev .tab-menu {
     text-align: right;
@@ -1745,8 +1828,6 @@ figure.mykl-img img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /*position: relative;*/
-    /*font-size: 0;*/
 }
 .tab-vertical > .tab-menu {
     -webkit-box-flex: 0;
@@ -1754,14 +1835,8 @@ figure.mykl-img img {
             flex: 0 0 120px;
 }
 
-.tab-vertical > .tab-menu, .tab-vertical > .tab-content.show {
-    /*display: inline-block;*/
-    /*vertical-align: top;*/
-}
-
 .tab-vertical > nav > .tab-title,
 .tab-vertical > nav > .tab-item {
-    /*display: block;*/
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1778,12 +1853,10 @@ figure.mykl-img img {
     display: none;
     border-top: none;
     border-left: 1px solid #B0B0B0;
-    /*height: inherit;*/
 }
 
 .tab-vertical > .tab-content.show.mykl-tab {
     border-left: none;
-    /*font-size: 0;*/
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1791,15 +1864,7 @@ figure.mykl-img img {
 
 .tab-vertical > .tab-content.show {
     display: inline-block;
-    /*display: flex;*/
-
-    /*font-size: initial;*/
-    /*margin-left: 120px;*/
     width: 100%;
-    /*max-width: calc(100% - 120px);*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*height: 100%;*/
 }
 
 
@@ -1821,30 +1886,24 @@ figure.mykl-img img {
 /*        text-overflow: initial;*/
 /*    }*/
 /*}*/
-/*.mykl-table {*/
-/*    width: 100%;*/
-/*    border-collapse: collapse;*/
-/*}*/
-
-/*.mykl-table td, .mykl-table th {*/
-/*    border: 1px solid #000;*/
-/*}*/
-
-/*.mobile-collapse {*/
-/*    visibility: collapse;*/
-/*}*/
-
 .mykl-table {
     border-collapse: collapse;
     width: 100%;
+    text-align: center;
+}
+
+.mykl-table th {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.mykl-table td {
+    font-size: 0.9rem;
 }
 
 .mykl-table thead {
     text-align: center;
-    background-color: #F2F2F2;
-    font-size: 14px;
-    font-weight: 500;
-    color: #505050;
+    background-color: var(--light);
 }
 
 .mykl-table thead th,
@@ -1858,21 +1917,83 @@ figure.mykl-img img {
 
 .mykl-table tbody th,
 .mykl-table tbody td {
-    color: #101010;
     padding: 10px;
-    text-align: center;
     vertical-align: middle;
 }
 
 .mykl-table tbody tr {
-    border-top: 1px solid #F2F2F2;
+    border-top: 1px solid var(--light);
 }
 
-.mykl-table tbody .text-sm {
-    font-size: 13px;
-    line-height: 18px;
+/* 상태 */
+.table-primary thead {
+    background: var(--primary);
+    color: #fff;
 }
 
+.table-primary tbody tr {
+    border-top: 1px solid var(--primary);
+}
+
+.table-secondary thead {
+    background: var(--secondary);
+    color: #fff;
+}
+
+.table-secondary tbody tr {
+    border-top: 1px solid var(--secondary);
+}
+
+.table-success thead {
+    background: var(--success);
+}
+
+.table-success tbody tr {
+    border-top: 1px solid var(--success);
+}
+
+.table-danger thead {
+    background: var(--danger);
+    color: #fff;
+}
+
+.table-danger tbody tr {
+    border-top: 1px solid var(--danger);
+}
+
+.table-warning thead {
+    background: var(--warning);
+}
+
+.table-warning tbody tr {
+    border-top: 1px solid var(--warning);
+}
+
+.table-info thead {
+    background: var(--info);
+}
+
+.table-info tbody tr {
+    border-top: 1px solid var(--info);
+}
+
+.table-dark thead {
+    background: var(--dark);
+    color: #fff;
+}
+
+.table-dark tbody tr {
+    border-top: 1px solid var(--dark);
+}
+
+/*.mykl-table tbody .text-sm {*/
+/*    font-size: 13px;*/
+/*    line-height: 18px;*/
+/*}*/
+
+/*.mobile-collapse {*/
+/*    visibility: collapse;*/
+/*}*/
 
 .mykl-tag {
     font-size: 13px;

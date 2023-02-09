@@ -23,13 +23,13 @@ a {
 
 /*  To Do Check */
 :root {
-    --primary: #004CFF;
+    --primary: rgb(0, 76, 255);
     --secondary: dimgrey;
     --success: yellowgreen;
     --danger: indianred;
     --warning: coral;
-    --info: lightgoldenrodyellow;
-    --light: lightgrey;
+    --info: #FFBB00;
+    --light: #F2F2F2;
     --dark: #101010;
 }
 

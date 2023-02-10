@@ -3,12 +3,13 @@
     align-items: center;
 }
 
-.mykl-navbar .logo-cover {
+.mykl-navbar .nav-logo-cover {
     display: flex;
     align-items: center;
+    margin-right: 50px;
 }
 
-.mykl-navbar .logo-cover .nav-logo {
+.mykl-navbar .nav-logo-cover .nav-logo {
     margin-left: 10px;
 }
 
@@ -16,12 +17,16 @@
     margin-right: 50px;
 }
 
+.mykl-navbar .nav-logo {
+    margin-right: 0px;
+}
+
 .mykl-navbar .nav {
-    display: flex;
     vertical-align: middle;
 }
 
 .nav {
+    display: flex;
     margin: 0;
     padding: 0;
     flex-shrink: 0;

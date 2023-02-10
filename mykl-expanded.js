@@ -31,6 +31,10 @@ import Major from "./extended-component/match/schoolnmajor/SchoolnMajor.js";
 import Subject from "./extended-component/match/subject/Subject.js";
 import AbilityResultInfo from "./extended-component/match/AbilityResultInfo.js";
 import Expert from "./extended-component/match/Expert.js";
+import StateProcess from "./extended-component/mypage/StateProcess/StateProcess.js";
+import StateProcessGroup from "./extended-component/mypage/StateProcess/StateProcess.js";
+
+import './extended-component/mypage/StateProcess/stateProcess.css';
 
 const returnComponent = (component, initData) => {
     return (selector, data) => {
@@ -119,6 +123,10 @@ let MYKLExpanded = {
     },
     AbilityResultInfo: function(selector, data) {
         return new AbilityResultInfo(document.querySelector(selector), data)
+    },
+//    MyPage
+    StateProcessGroup: function(selector, data) {
+        return new StateProcessGroup(document.querySelector(selector), data)
     }
 }
 

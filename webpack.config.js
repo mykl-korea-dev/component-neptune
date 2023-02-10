@@ -60,6 +60,17 @@ module.exports = {
 
                 exclude: /node_modules\/(?!(axios|@redux-saga|redux-logger))/
             },
+            // {
+            //     test: /\.png$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: "images/assets/[name].[ext]"
+            //             }
+            //         }
+            //     ]
+            // }
         ]
     },
     // optimization: {

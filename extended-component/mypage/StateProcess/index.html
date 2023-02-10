@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../dist/css/mykl_ui_style.css">
+    <link rel="stylesheet" href="./stateProcess.css">
+</head>
+<body>
+  <div id="process" class="row"></div>
+  <script src="../../../dist/js/mykl_expanded.js"></script>
+<script type="module">
+  // import StateProcess from "./StateProcess.js";
+  // const processWrapper = new StateProcess(document.querySelector('#process'));
+  // processWrapper.addItem({
+  //   type: "circle",
+  //   name: "회원가입",
+  //   state: true,
+  // })
+
+  const processGroup = MYKL.StateProcessGroup("#process");
+  const process = processGroup.addItem();
+  process.addItem({
+      type: "circle",
+      name: "group1 - circle1",
+      state: false,
+      tooltip: "미완료"
+  })
+  // process.addItem({
+  //     type: "circle",
+  //     name: "group1 - circle1",
+  //     state: false,
+  //     tooltip: "미완료"
+  // });
+
+  const process2 = processGroup.addItem();
+  process2.addItem({
+      type: "circle",
+      name: "group2 - circle1sadfdsfdsf",
+      state: true,
+  })
+  process2.addItem({
+      type: "circle",
+      name: "group2",
+      state: true,
+  });
+  process2.addItem({
+      type: "circle",
+      name: "group2",
+      state: true,
+  });
+  process2.addItem({
+      type: "circle",
+      name: "group2",
+      state: true,
+  });
+
+
+  const process3 = processGroup.addItem();
+  process3.addItem({
+      type: "circle",
+      name: "group2 - circle1sadfdsfdsf",
+      state: true,
+  })
+
+
+  process.addItem({
+      type: "circle",
+      name: "group1 - circle1",
+      state: false,
+      tooltip: "미완료"
+  });
+
+  process2.addItem({
+      type: "circle",
+      name: "group2",
+      state: true,
+  });
+</script>
+</body>
+</html>

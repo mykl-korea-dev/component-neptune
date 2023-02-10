@@ -44,5 +44,75 @@
     background-color: #004CFF;
     color: #fff;
 }
+.state-process-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.state-process-group .mykl-state-process {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.state-process-group .mykl-state-process .state-process-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 10px;
+}
+
+.state-process-group .mykl-state-process + .mykl-state-process {
+    margin-left: 100px;
+}
+
+.state-process-group .mykl-state-process .state-process-item + .state-process-item {
+    margin-top: 40px;
+}
+
+.state-process-group .mykl-state-process .state-process-item .state-process-circle {
+    width: 120px;
+    height: 120px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap-reverse;
+        flex-wrap: wrap-reverse;
+    border: 1px solid #000000;
+    border-radius: 50%;
+}
+
+.state-process-name {
+    margin: 5px;
+    text-align: center;
+    word-break: break-all;
+}
+
+.state-process-item > *:not(:first-child) {
+    margin-top: 10px;
+}
 
 /*# sourceMappingURL=mykl_expanded_style.css.map*/

@@ -1,0 +1,46 @@
+.state-process-group {
+    display: flex;
+}
+
+.state-process-group .mykl-state-process {
+    display: flex;
+    flex-direction: column;
+}
+
+.state-process-group .mykl-state-process .state-process-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.state-process-group .mykl-state-process + .mykl-state-process {
+    margin-left: 100px;
+}
+
+.state-process-group .mykl-state-process .state-process-item + .state-process-item {
+    margin-top: 40px;
+}
+
+.state-process-group .mykl-state-process .state-process-item .state-process-circle {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    border: 1px solid #000000;
+    border-radius: 50%;
+}
+
+.state-process-name {
+    margin: 5px;
+    text-align: center;
+    word-break: break-all;
+}
+
+.state-process-item > *:not(:first-child) {
+    margin-top: 10px;
+}

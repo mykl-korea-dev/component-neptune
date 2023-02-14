@@ -5,6 +5,7 @@ export default class Job extends Component {
         return this.$data.map(data => `
             <li class="mykl-media">
                 <div class="media-body">
+                    ${data.rate ? `<span class="lh-lg">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
                     <div style="display: flex; justify-content: space-between">
                         <div>
                             <span class="fs-5" style="display: block">${data.subclass_name}</span>

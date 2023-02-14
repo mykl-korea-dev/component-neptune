@@ -5,14 +5,14 @@ import {getData} from "../../../basic/utils.js"
 export default class Subject extends Component {
     setTemplate() {
         return this.$data.map(data => `
-            <li class="mykl-card mg20 bg-light">
-                <div class="card-body">
-                    <span>rate: ${data.rate}</span>
+            <li class="mykl-media mg20">
+                <div class="media-body" style="position: relative">
+                    ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
                     <div>
                         <h3 class="fs-5 fw-bold mg10">${data.name}</h3>
                         <p>${data.institution_name}</p>
                     </div>
-                    <span class="mg10 mykl-card bg-primary text-light" style="display: inline-block; padding: 10px">${data.ncs_name}</span>
+                    <span class="mg10 mykl-btn btn-primary-rev btn-round">${data.ncs_name}</span>
                     <div style="display: flex">
                         <div style="display:flex; flex-shrink: 0; flex-direction: column; border-right: 1px solid #bdbdbd; padding-right: 10px; margin-right: 20px;">
                             <span>훈련일수: ${data.training_days}일</span>

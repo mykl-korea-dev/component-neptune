@@ -54,7 +54,7 @@ export default class AbilityResult extends Component {
                         <tr>
                             <td>내 점수</td>
                             <td>
-                                <div class="mykl-progress" data-min="0" data-max="5" data-value="${v["ability_my_score"]}">
+                                <div class="mykl-progress progress-info" data-min="0" data-max="5" data-value="${v["ability_my_score"]}">
                                     <div class="progress-bar"></div>
                                 </div>
                             </td>    

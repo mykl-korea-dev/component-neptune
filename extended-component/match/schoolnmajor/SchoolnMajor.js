@@ -9,10 +9,10 @@ export default class Major extends Component {
                 <div class="media-cover">
                     <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
-                <div class="media-body">
+                <div class="media-body" style="position: relative">
+                    ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
                     <p class="fs-5 fw-bold text-dark">${data.organization_name}</p>
                     <p class="lh-lg">${data.department_name}</p>
-                    
                     <div style="display: flex; margin: 20px 0" class="mg20 pd10 lh-sm">
                         <div style="display: flex; flex-direction: column; padding-right: 20px; border-right: 1px solid #bdbdbd">
                             <span>${data.operation_name}</span>

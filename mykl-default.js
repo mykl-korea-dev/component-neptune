@@ -60,7 +60,17 @@ import Modal from "./component-set/modal/Modal";
 import PostSearch from "./component-set/postSearch/PostSearch";
 import InputPassword from "./form-component/input/InputPassword";
 
+export function setRootColor(nameOrObj="", color="") {
+    if(color === "") {
+        Object.keys(nameOrObj).forEach(key => document.documentElement.style.setProperty(key, nameOrObj[key]));
+    } else {
+        document.documentElement.style.setProperty(nameOrObj, color);
+    }
+}
+
 const MYKLBasic = {
+    // 기본 색상 변경
+    setRootColor: (name, color) => setRootColor(name, color),
     // form -----------------------------------------------------
     InputPassword: function (el) {
         return new InputPassword(el);

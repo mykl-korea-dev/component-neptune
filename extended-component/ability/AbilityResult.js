@@ -49,7 +49,7 @@ export default class AbilityResult extends Component {
                                 </div>
                             </td>
                             <td rowspan="2">${(+v["ability_my_gap"]).toFixed(2)}</td>
-                            <td rowspan="2" class="${["ability_completed"] === "N" ? "text-secondary": "text-primary"}">${v["ability_completed"] === "N" ? "미성취" : "성취"}</td>
+                            <td rowspan="2" class="${+v["ability_my_gap"] < 0 ? "text-secondary": "text-primary"}">${+v["ability_my_gap"] < 0 ? "미성취" : "성취"}</td>
                         </tr>
                         <tr>
                             <td>내 점수</td>

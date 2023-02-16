@@ -2404,6 +2404,62 @@ figure.mykl-img img {
     height: initial;
     background-color: transparent;
 }
+.mykl-loading,
+.loading {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 100%;
+}
+
+.mykl-loading.loading-stop {
+    display: none;
+}
+
+.loading {
+    border: 4px solid;
+    border-color: var(--primary) var(--primary) transparent transparent;
+    -webkit-animation: rotate-loading 2s linear 0s infinite normal;
+            animation: rotate-loading 2s linear 0s infinite normal;
+}
+
+.loading-text {
+    -webkit-animation: loading-text-opacity 3s linear 0s infinite normal;
+            animation: loading-text-opacity 3s linear 0s infinite normal;
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50%;
+    width: 100%;
+}
+
+@-webkit-keyframes rotate-loading {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg) }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg)}
+}
+
+@keyframes rotate-loading {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg) }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg)}
+}
+
+@-webkit-keyframes loading-text-opacity {
+    0% { opacity: 0.4 }
+    20% { opacity: 0.4 }
+    50% { opacity: 1 }
+    100% { opacity: 0.4}
+}
+
+@keyframes loading-text-opacity {
+    0% { opacity: 0.4 }
+    20% { opacity: 0.4 }
+    50% { opacity: 1 }
+    100% { opacity: 0.4}
+}
 .message-bar {
     border: 1px solid #000000;
     padding: 5px 30px 5px 10px;

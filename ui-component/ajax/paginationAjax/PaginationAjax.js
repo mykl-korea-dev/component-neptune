@@ -4,7 +4,9 @@ import { getDataset } from "../../../basic/utils.js";
 export default class PaginationAjax extends Component {
     setTemplate() {
         this.$element.classList.add("mykl-pagination");
-        const { currentPage, pageCount } = this.$data;
+        const { options = {start, total, limit } } = this.$data;
+        const { start = "start", total="total", limit: optionLimit = "limit" } = options;
+        const { currentPage = this.$data[start], pageCount = this.$data[total], limit = this.$data[optionLimit] || 10 } = this.$data;
 
         const getFirstAndLastNumber = (option) => {
             return option ? this.setAlwaysCenter(currentPage, pageCount)
@@ -40,7 +42,7 @@ export default class PaginationAjax extends Component {
                     ...this.$data,
                     ...data
                 }
-                this.$data.callback(this.$data);
+                this.$data.callback && this.$data.callback(this.$data);
                 this.$element.innerHTML = this.setTemplate();
             });
     }
@@ -48,7 +50,8 @@ export default class PaginationAjax extends Component {
     setEvents() {
         this.$element.addEventListener('click', ({target}) => {
             if(target.classList.contains('page-item')) {
-                this.$data['start'] = (+getDataset(target, 'page') - 1) * this.$data.limit + 1;
+                const { limit } = this.$data;
+                this.$data['start'] = (+getDataset(target, 'page') - 1) * limit + 1;
                 this.render();
             }
         })

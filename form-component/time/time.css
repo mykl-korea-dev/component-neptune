@@ -1,36 +1,36 @@
-.time-input {
+.mykl-time .time-input {
     display: none;
 }
 
-.time-wrapper {
+.mykl-time .time-wrapper {
     display: none;
     position: relative;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 1);
 }
 
-.time-wrapper.show {
+.mykl-time .time-wrapper.show {
     display: flex;
     height: 150px;
     width: max-content;
     position: relative;
 }
 
-.day-night > * {
+.mykl-time .day-night > * {
     display: block;
 }
 
-.time-box {
+.mykl-time .time-box {
     display: inline-block;
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
 }
 
-.time-group {
+.mykl-time .time-group {
     margin: 2px;
     cursor: pointer;
 }
 
-.time-mark {
+.mykl-time .time-mark {
     background: dodgerblue;
 }

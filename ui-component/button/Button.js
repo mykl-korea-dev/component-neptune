@@ -12,7 +12,6 @@ export default class ButtonLink extends Component {
             }else {
                 href && (window.location = href);
             }
-            console.log(window.location.history);
         })
     }
 }

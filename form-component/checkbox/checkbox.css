@@ -1,24 +1,4 @@
-/*!* 정렬 *!*/
-/*.check-col .mykl-check {*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.mykl-check {*/
-/*    position: relative;*/
-/*    vertical-align: top;*/
-/*}*/
-
-/*.mykl-check + .mykl-check {*/
-/*    margin-top: 16px;*/
-/*    margin-left: 0;*/
-/*}*/
-
-/*.check-col .mykl-check + .mykl-check {*/
-/*    margin-top: 0;*/
-/*    margin-left: 48px;*/
-/*}*/
-
-.check-input {
+.mykl-check .check-input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -29,47 +9,58 @@
     border: 0;
 }
 
-.check-label {
+.mykl-check .check-label {
     font-size: 1rem;
-    /*vertical-align: top;*/
     display: inline-block;
     position: relative;
     left: 0;
-    height: 17px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 26px;
-    color: #505050;
-    font-weight: 500;
-    line-height: 18px;
+    padding-left: 2rem;
 }
 
-.check-label:after {
+.mykl-check .check-label:before {
+    width: 1rem;
+    height: 1rem;
     content: "";
     position: absolute;
     top: 50%;
-    margin-top: -8px;
     left: 0;
-    width: 16px;
-    height: 16px;
-    background: url("../../images/check_box_off.png") no-repeat;
+    border: 1px solid rgba(189, 189, 189, 0.58);
+    transform: translateY(-50%);
+    box-sizing: border-box;
 }
 
-.check-input:checked + label:after {
-    margin-top: -8px;
-    background: url("../../images/check_box_on.png") no-repeat;
+.mykl-check .check-input:checked + .check-label:before {
+    background: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.mykl-check .check-input:checked + .check-label:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 0.7rem;
+    height: 0.35rem;
+    border: 0.125rem solid;
+    border-color: transparent transparent rgba(242, 242, 242, 0.9) rgba(242, 242, 242, 0.9);
+    top: 40%;
+    left: 0;
+    transform: translate(20%, -50%) rotate(-45deg);
+    transform-origin: 50%;
+    box-sizing: border-box;
 }
 
 /* 상태 */
-.check-input:disabled + .check-label {
+.mykl-check .check-input:disabled + .check-label {
     pointer-events: none;
     filter: none;
     opacity: .5;
 }
 
-.check-input[readonly] + .check-label {
+.mykl-check .check-input[readonly] + .check-label {
     pointer-events: none;
     cursor: default;
 }

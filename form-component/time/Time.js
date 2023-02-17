@@ -62,7 +62,6 @@ export default class Time extends Component {
                 target.classList.add('time-mark');
                 const [selectedHour, selectedMinute] = target.textContent.split(':');
                 const twelveHour = this.setInTwenty(this.$element.querySelector('.day-night .time-mark').textContent, selectedHour);
-                console.log(twelveHour, selectedHour.trim() == 12)
                 this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`.trim();
                 this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
             }

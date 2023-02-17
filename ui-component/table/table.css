@@ -33,6 +33,15 @@
     vertical-align: middle;
 }
 
+.mykl-table tbody th a,
+.mykl-table tbody td a {
+    color: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
 .mykl-table tbody tr {
     border-top: 1px solid var(--light);
 }

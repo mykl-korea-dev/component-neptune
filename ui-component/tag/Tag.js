@@ -96,7 +96,6 @@ export default class Tag extends Component {
                 }
                 return;
             }
-            console.log(e.key);
             if (e.key === 'Enter') {
                 this.addInputItem();
             }

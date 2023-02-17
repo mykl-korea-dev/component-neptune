@@ -1,11 +1,6 @@
 import Component from "../../basic/Component.js";
 
 export default class Process extends Component {
-    setElements() {
-        // this.$element.querySelectorAll('.active ~ .process-item').forEach((el) => {
-        //     console.log(el)
-        // })
-    }
     setEvents() {
         this.$element.addEventListener('click', ({target}) => {
             if(!target.classList.contains('active') && !target.classList.contains('done')) {

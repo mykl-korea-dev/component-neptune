@@ -13,6 +13,9 @@
     <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
     <style>
+        html {
+            font-size: 16px;
+        }
         body {
             font-family: 'Noto Sans KR', sans-serif;
         }
@@ -62,19 +65,19 @@
                 <h3 id="Form-Group">Form Group</h3>
                 <div class="static-code">
                     <div class="form-group">
-                        <span class="form-label fw-bold">Label</span>
-                        <div class="mykl-radio">
-                            <input class="radio-input" type="radio" name="" id="one">
+                        <span class="form-label">Label</span>
+                        <div class="mykl-radio ">
+                            <input class="radio-input" type="radio" name="name" id="one">
                             <label class="radio-label" for="one">one</label>
                         </div>
                         <div class="mykl-radio">
-                            <input class="radio-input" type="radio" name="" id="two" checked>
+                            <input class="radio-input" type="radio" name="name" id="two" checked>
                             <label class="radio-label" for="two">two</label>
                         </div>
                     </div>
 
                     <div class="form-group form-row">
-                        <span class="form-label fw-bold">Label</span>
+                        <span class="form-label">Label</span>
                         <div class="mykl-select">
                             <select>
                                 <option value="1">one</option>
@@ -744,5 +747,8 @@ document.querySelectorAll('.static-code').forEach(el => {
 })
 </script>
 <script src="dist/js/mykl_ui.js"></script>
+<script>
+    // MYKL.setRootColor("--primary", "pink");
+</script>
 </body>
 </html>

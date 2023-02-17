@@ -54,11 +54,11 @@ a {
     text-decoration: none;
     color: #222222;
 }
-.calendar-input {
+.mykl-calendar .calendar-input {
     display: none;
 }
 
-.calendar-container {
+.mykl-calendar .calendar-container {
     display: none;
     width: 60%;
     -webkit-box-orient: vertical;
@@ -67,26 +67,26 @@ a {
             flex-direction: column;
 }
 
-.calendar-container.show {
+.mykl-calendar .calendar-container.show {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.calendar-container div[class^="week"] {
+.mykl-calendar .calendar-container div[class^="week"] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.calendar-container div[class^="week"] > div {
+.mykl-calendar .calendar-container div[class^="week"] > div {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
     text-align: center;
 }
 
-.calendar-container .year-month {
+.mykl-calendar .calendar-container .year-month {
     position: relative;
     width: 100%;
 }
@@ -95,20 +95,20 @@ a {
 /*    position: absolute;*/
 /*}*/
 
-.calendar-container .year-month .year {
+.mykl-calendar .calendar-container .year-month .year {
     width: 100%;
     text-align: center;
     border-bottom: 1px solid #ccc;
     padding: 5px;
 }
 
-.calendar-container .year-month .month {
+.mykl-calendar .calendar-container .year-month .month {
     width: 100%;
     text-align: center;
     padding: 5px;
 }
 
-.calendar-container .year-month .calendar-button-group {
+.mykl-calendar .calendar-container .year-month .calendar-button-group {
     position: absolute;
     width: 100%;
     top: 35px;
@@ -120,19 +120,19 @@ a {
             justify-content: space-between;
 }
 
-.day:hover {
+.mykl-calendar .day:hover {
     background: #bdbdbd;
 }
 
-.calendar-container div[class^="week"] .day:first-child {
+.mykl-calendar .calendar-container div[class^="week"] .day:first-child {
     color: red;
 }
 
-.calendar-container div[class^="week"] .day:last-child {
+.mykl-calendar .calendar-container div[class^="week"] .day:last-child {
     color: blue;
 }
 
-.mark {
+.mykl-calendar .mark {
     background: #d7a8f5;
 }
 
@@ -230,27 +230,7 @@ a {
 .mykl-calendarList .calendar-container .content {
     min-height: 50px;
 }
-/*!* 정렬 *!*/
-/*.check-col .mykl-check {*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.mykl-check {*/
-/*    position: relative;*/
-/*    vertical-align: top;*/
-/*}*/
-
-/*.mykl-check + .mykl-check {*/
-/*    margin-top: 16px;*/
-/*    margin-left: 0;*/
-/*}*/
-
-/*.check-col .mykl-check + .mykl-check {*/
-/*    margin-top: 0;*/
-/*    margin-left: 48px;*/
-/*}*/
-
-.check-input {
+.mykl-check .check-input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -261,57 +241,76 @@ a {
     border: 0;
 }
 
-.check-label {
+.mykl-check .check-label {
     font-size: 1rem;
-    /*vertical-align: top;*/
     display: inline-block;
     position: relative;
     left: 0;
-    height: 17px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 26px;
-    color: #505050;
-    font-weight: 500;
-    line-height: 18px;
+    padding-left: 2rem;
 }
 
-.check-label:after {
+.mykl-check .check-label:before {
+    width: 1rem;
+    height: 1rem;
     content: "";
     position: absolute;
     top: 50%;
-    margin-top: -8px;
     left: 0;
-    width: 16px;
-    height: 16px;
-    background: url(/images/check_box_off.png) no-repeat;
+    border: 1px solid rgba(189, 189, 189, 0.58);
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
-.check-input:checked + label:after {
-    margin-top: -8px;
-    background: url(/images/check_box_on.png) no-repeat;
+.mykl-check .check-input:checked + .check-label:before {
+    background: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.mykl-check .check-input:checked + .check-label:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 0.7rem;
+    height: 0.35rem;
+    border: 0.125rem solid;
+    border-color: transparent transparent rgba(242, 242, 242, 0.9) rgba(242, 242, 242, 0.9);
+    top: 40%;
+    left: 0;
+    -webkit-transform: translate(20%, -50%) rotate(-45deg);
+        -ms-transform: translate(20%, -50%) rotate(-45deg);
+            transform: translate(20%, -50%) rotate(-45deg);
+    -webkit-transform-origin: 50%;
+        -ms-transform-origin: 50%;
+            transform-origin: 50%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /* 상태 */
-.check-input:disabled + .check-label {
+.mykl-check .check-input:disabled + .check-label {
     pointer-events: none;
     -webkit-filter: none;
             filter: none;
     opacity: .5;
 }
 
-.check-input[readonly] + .check-label {
+.mykl-check .check-input[readonly] + .check-label {
     pointer-events: none;
     cursor: default;
 }
 
-.file-input {
+.mykl-file .file-input {
     display: none;
 }
 
-.file-btn {
+.mykl-file .file-btn {
     padding: 10px 20px 10px 36px;
     border-radius: 18px;
     border: none;
@@ -323,7 +322,7 @@ a {
     cursor: pointer;
 }
 
-.file-btn:before {
+.mykl-file .file-btn:before {
     content: "";
     position: absolute;
     left: 20px;
@@ -336,7 +335,7 @@ a {
             transform: translateY(-50%);
 }
 
-.file-btn:after {
+.mykl-file .file-btn:after {
     content: "";
     position: absolute;
     left: 20px;
@@ -349,13 +348,13 @@ a {
             transform: translateY(-50%) rotateZ(90deg);
 }
 
-.uploaded-list {
+.mykl-file .uploaded-list {
     display: inline-block;
     margin: 0;
     padding: 0;
 }
 
-.uploaded-list li {
+.mykl-file .uploaded-list li {
     position: relative;
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -366,11 +365,11 @@ a {
     padding: 10px 20px;
 }
 
-.uploaded-list li + li {
+.mykl-file .uploaded-list li + li {
     margin-left: 10px;
 }
 
-.delete-file-btn {
+.mykl-file .delete-file-btn {
     position: relative;
     margin-left: 8px;
     text-indent: -9999px;
@@ -380,7 +379,7 @@ a {
     height: 16px;
 }
 
-.delete-file-btn:before {
+.mykl-file .delete-file-btn:before {
     content: "";
     position: absolute;
     top: 0;
@@ -393,7 +392,7 @@ a {
             transform: translateX(-50%) rotateZ(45deg);
 }
 
-.delete-file-btn:after {
+.mykl-file .delete-file-btn:after {
     content: "";
     position: absolute;
     top: 0;
@@ -420,6 +419,7 @@ a {
 }
 
 .form-group .form-label {
+    font-weight: 600;
     margin: 0 0 12px 0;
 }
 
@@ -446,7 +446,7 @@ a {
     margin: 0;
 }
 
-.form-label {
+.form-group .form-label {
     display: inline-block;
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
@@ -475,29 +475,29 @@ a {
 }
 
 /* 크기*/
-.input-sm {
+.mykl-input .input-sm {
     font-size: 0.875rem;
 }
 
-.input-lg {
+.mykl-input .input-lg {
     font-size: 1.25rem;
 }
 
 /* 상태 */
-.input-error {
+.mykl-input .input-error {
     outline: transparent;
     border: 1px solid #FF0000;
 }
 
-.mykl-input:disabled {
+.mykl-input .mykl-input:disabled {
     background: #F2F2F2;
 }
 
-.mykl-input:-moz-read-only {
+.mykl-input .mykl-input:-moz-read-only {
     pointer-events: none;
 }
 
-.mykl-input:read-only {
+.mykl-input .mykl-input:read-only {
     pointer-events: none;
 }
 
@@ -512,7 +512,7 @@ a {
     padding-right: 46px;
 }
 
-.input-password-icon {
+.mykl-input-password .input-password-icon {
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -532,31 +532,12 @@ a {
         -ms-flex: 1;
             flex: 1;
 }
-/* 정렬 */
-/*.radio-col .mykl-radio {*/
-/*    display: inline-block;*/
-/*}*/
-
 .mykl-radio {
     position: relative;
     vertical-align: top;
 }
 
-/*.mykl-radio + .mykl-radio {*/
-/*    margin-top: 16px;*/
-/*    margin-left: 0;*/
-/*}*/
-
-/*.form-row > .mykl-radio {*/
-/*    margin-top: 0;*/
-/*}*/
-
-/*.radio-col .mykl-radio + .mykl-radio {*/
-/*    margin-top: 0;*/
-/*    margin-left: 48px;*/
-/*}*/
-
-.radio-input {
+.mykl-radio .radio-input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -567,69 +548,81 @@ a {
     border: 0;
 }
 
-.radio-label {
-    /*vertical-align: top;*/
+.mykl-radio .radio-label {
     display: inline-block;
     position: relative;
     left: 0;
-    height: 17px;
     cursor: pointer;
     font-size: 1rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 26px;
-    color: #101010;
-    font-weight: 500;
-    line-height: 18px;
+    padding-left: 2rem;
 }
 
-.radio-label:after {
+.mykl-radio .radio-label:after {
     content: "";
     position: absolute;
     top: 50%;
-    margin-top: -8px;
     left: 0;
-    width: 16px;
-    height: 16px;
-    background: url(/images/radio_bt_off.png) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    border: 0.0625rem solid rgba(189, 189, 189, 0.58);
+    border-radius: 100%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
-.radio-input:checked + .radio-label:after {
-    background: url(/images/radio_bt_on.png) no-repeat;
+.mykl-radio .radio-input:checked + .radio-label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary);
+    border-radius: 100%;
+    border: 0.15rem solid #fff;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /* 상태 */
-.radio-input:disabled + .radio-label {
+.mykl-radio .radio-input:disabled + .radio-label {
     pointer-events: none;
     -webkit-filter: none;
             filter: none;
     opacity: .5;
 }
 
-.radio-input[readonly] + .radio-label {
+.mykl-radio .radio-input[readonly] + .radio-label {
     pointer-events: none;
     cursor: default;
 }
 
-.mykl-range, .form-range-ajax {
+.mykl-range {
     position: relative;
     /*width: 100%;*/
     width: 400px;
     max-width: 100%;
 }
 
-.slider {
+.mykl-range .slider {
     position: relative;
     width: 100%;
     height: 10px;
     border-radius: 15px;
-    /*z-index: 1;*/
     margin-bottom: 20px;
     z-index: -3;
 }
 
-.slider .track {
+.mykl-range .slider .track {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -637,33 +630,29 @@ a {
     right: 0;
     border-radius: 15px;
     background: #bdbdbd;
-    /*z-index: 1;*/
     z-index: -3;
 }
 
-.slider .range {
+.mykl-range .slider .range {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 25%;
     right: 25%;
     border-radius: 15px;
-    background: cadetblue;
-    /*z-index: 2;*/
+    background: var(--primary);
     z-index: -2;
 }
 
-.slider .thumb {
-    /*display: none;*/
+.mykl-range .slider .thumb {
     position: absolute;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    /*z-index: 5;*/
-    background: cadetblue;
+    background: var(--primary);
 }
 
-.slider .thumb.left {
+.mykl-range .slider .thumb.left {
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -671,22 +660,22 @@ a {
 }
 
 
-.slider .thumb.right {
+.mykl-range .slider .thumb.right {
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
 }
 
-.slider .thumb span {
+.mykl-range .slider .thumb span {
     position: absolute;
     top: 100%;
 }
 
-input[type="range"] {
+.mykl-range input[type="range"] {
     position: absolute;
     /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
-    /*pointer-events: none;*/
+    pointer-events: none;
     -webkit-appearance: none;
     z-index: 2;
     height: 10px;
@@ -694,7 +683,7 @@ input[type="range"] {
     opacity: 0;
 }
 
-input[type="range"]::-ms-thumb {
+.mykl-range input[type="range"]::-ms-thumb {
     /* 겹쳐진 두 thumb를 모두 활성화 */
     pointer-events: all;
     width: 15px;
@@ -707,7 +696,7 @@ input[type="range"]::-ms-thumb {
     -webkit-appearance: none;
 }
 
-input[type="range"]::-moz-range-thumb {
+.mykl-range input[type="range"]::-moz-range-thumb {
     /* 겹쳐진 두 thumb를 모두 활성화 */
     pointer-events: all;
     width: 15px;
@@ -720,7 +709,7 @@ input[type="range"]::-moz-range-thumb {
     -webkit-appearance: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.mykl-range input[type="range"]::-webkit-slider-thumb {
     /* 겹쳐진 두 thumb를 모두 활성화 */
     pointer-events: all;
     width: 15px;
@@ -754,12 +743,12 @@ input[type="range"]::-webkit-slider-thumb {
     display: none;
 }
 
-.select-group {
+.mykl-select .select-group {
     position: relative;
     width: 100%;
 }
 
-.select-selected {
+.mykl-select .select-selected {
     position: relative;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -773,7 +762,7 @@ input[type="range"]::-webkit-slider-thumb {
     display: block;
 }
 
-.select-selected:before {
+.mykl-select .select-selected:before {
     content:"";
     position: absolute;
     right:16px;
@@ -790,7 +779,7 @@ input[type="range"]::-webkit-slider-thumb {
     -ms-transition: all 0.3s ease;
 }
 
-.select-selected:after {
+.mykl-select .select-selected:after {
     content:"";
     position: absolute;
     right: 11px;
@@ -807,42 +796,22 @@ input[type="range"]::-webkit-slider-thumb {
     -ms-transition: all 0.3s ease;
 }
 
-.select-selected.select-arrow-active:before {
+.mykl-select .select-selected.select-arrow-active:before {
     -webkit-transform: translateY(-50%) rotateZ(-225deg);
         -ms-transform: translateY(-50%) rotate(-225deg);
             transform: translateY(-50%) rotateZ(-225deg);
 }
 
-.select-selected.select-arrow-active:after {
+.mykl-select .select-selected.select-arrow-active:after {
     -webkit-transform: translateY(-50%) rotateZ(225deg);
         -ms-transform: translateY(-50%) rotate(225deg);
             transform: translateY(-50%) rotateZ(225deg);
 }
 
-/*.select-selected:after {*/
-/*    content:"";*/
-/*    position: absolute;*/
-/*    right:9px;*/
-/*    top:50%;*/
-/*    transform: translateY(-50%);*/
-/*    background: url("../../images/sel_d_icon.png") no-repeat;*/
-/*    width: 16px;*/
-/*    height: 16px;*/
-/*    -webkit-transition: all 0.3s ease;*/
-/*    -moz-transition: all 0.3s ease;*/
-/*    -o-transition: all 0.3s ease;*/
-/*    -ms-transition: all 0.3s ease;*/
-/*}*/
-
-/*.select-selected.select-arrow-active:after {*/
-/*    transform: translateY(-50%) rotate(180deg);*/
-/*}*/
-
-
-.select-items div {
+.mykl-select .select-items div {
     color: #000;
     padding: 11px 32px 11px 16px;
-    border: 1px solid transparent;
+    border: 1px solid;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
     -webkit-user-select: none;
@@ -853,7 +822,7 @@ input[type="range"]::-webkit-slider-thumb {
     white-space: nowrap;
 }
 
-.select-items {
+.mykl-select .select-items {
     position: absolute;
     left: 0;
     border: 1px solid #DFDFDF;
@@ -866,11 +835,11 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: #fff;
 }
 
-.select-hide {
+.mykl-select .select-hide {
     visibility: hidden;
 }
 
-.select-items div:hover, .same-as-selected {
+.mykl-select .select-items div:hover, .same-as-selected {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -911,18 +880,18 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 
-.time-input {
+.mykl-time .time-input {
     display: none;
 }
 
-.time-wrapper {
+.mykl-time .time-wrapper {
     display: none;
     position: relative;
     -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 1);
             box-shadow: 0 0 2px 0 rgba(0, 0, 0, 1);
 }
 
-.time-wrapper.show {
+.mykl-time .time-wrapper.show {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -933,23 +902,23 @@ input[type="range"]::-webkit-slider-thumb {
     position: relative;
 }
 
-.day-night > * {
+.mykl-time .day-night > * {
     display: block;
 }
 
-.time-box {
+.mykl-time .time-box {
     display: inline-block;
     overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
 }
 
-.time-group {
+.mykl-time .time-group {
     margin: 2px;
     cursor: pointer;
 }
 
-.time-mark {
+.mykl-time .time-mark {
     background: dodgerblue;
 }
 .accordion-item {
@@ -1925,6 +1894,15 @@ figure.mykl-img img {
     padding: 10px;
     vertical-align: middle;
 }
+
+.mykl-table tbody th a,
+.mykl-table tbody td a {
+    color: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
 
 .mykl-table tbody tr {
     border-top: 1px solid var(--light);

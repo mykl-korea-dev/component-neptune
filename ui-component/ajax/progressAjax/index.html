@@ -9,6 +9,12 @@
 <div class="progress-ajax">
     <div class="progress-bar"></div>
 </div>
-<script src="./ProgressAjax.js" type="module"></script>
+<script type="module">
+    import ProgressAjax from "./ProgressAjax.js";
+    import {getData} from "../../../basic/utils,js";
+
+    getData("http://localhost:3000/progress", (data) => new ProgressAjax(document.querySelector('.progress-ajax'), data));
+</script>
+
 </body>
 </html>

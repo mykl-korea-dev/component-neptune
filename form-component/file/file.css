@@ -1,8 +1,8 @@
-.file-input {
+.mykl-file .file-input {
     display: none;
 }
 
-.file-btn {
+.mykl-file .file-btn {
     padding: 10px 20px 10px 36px;
     border-radius: 18px;
     border: none;
@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.file-btn:before {
+.mykl-file .file-btn:before {
     content: "";
     position: absolute;
     left: 20px;
@@ -25,7 +25,7 @@
     transform: translateY(-50%);
 }
 
-.file-btn:after {
+.mykl-file .file-btn:after {
     content: "";
     position: absolute;
     left: 20px;
@@ -36,13 +36,13 @@
     transform: translateY(-50%) rotateZ(90deg);
 }
 
-.uploaded-list {
+.mykl-file .uploaded-list {
     display: inline-block;
     margin: 0;
     padding: 0;
 }
 
-.uploaded-list li {
+.mykl-file .uploaded-list li {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
@@ -52,11 +52,11 @@
     padding: 10px 20px;
 }
 
-.uploaded-list li + li {
+.mykl-file .uploaded-list li + li {
     margin-left: 10px;
 }
 
-.delete-file-btn {
+.mykl-file .delete-file-btn {
     position: relative;
     margin-left: 8px;
     text-indent: -9999px;
@@ -66,7 +66,7 @@
     height: 16px;
 }
 
-.delete-file-btn:before {
+.mykl-file .delete-file-btn:before {
     content: "";
     position: absolute;
     top: 0;
@@ -77,7 +77,7 @@
     transform: translateX(-50%) rotateZ(45deg);
 }
 
-.delete-file-btn:after {
+.mykl-file .delete-file-btn:after {
     content: "";
     position: absolute;
     top: 0;

@@ -66,7 +66,6 @@ class AutoCompleteItem extends Component {
 
     setInputValue() {
         const selectedEl = document.querySelector('.selected');
-        console.log(selectedEl, selectedEl.querySelector('input[type=hidden]'), selectedEl.querySelector('input[type=hidden]').value);
         this.$element.querySelector('input[type=text]').value = selectedEl.querySelector('input[type=hidden]').value;
         this.$element.querySelector('input[type=hidden]').value = selectedEl.querySelector('input[type=radio]').value;
 

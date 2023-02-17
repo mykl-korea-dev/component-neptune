@@ -1,10 +1,6 @@
 import Component from "../../basic/Component.js";
 
 export default class ImageSlide extends Component {
-    setElements() {
-        console.log("imageSlide");
-    }
-
     setEvents() {
         this.$element.querySelector('.prev')?.addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
         this.$element.querySelector('.next')?.addEventListener('click', () => {
@@ -47,7 +43,6 @@ export default class ImageSlide extends Component {
     clickPrevBtn() {
         const firstImage = this.$element.querySelector('.slider-group').firstElementChild;
         const { width: firstImgWidth , x: firstImgX } = firstImage.getBoundingClientRect();
-        console.log(firstImgX, firstImgWidth, firstImgX)
         if(firstImgX <= firstImgWidth && firstImgX >= 0) {
             return;
         }

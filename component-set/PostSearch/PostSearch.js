@@ -71,7 +71,6 @@ export default class PostSearch extends Component {
                     limit: 10,
                     start: 1,
                 }
-                console.log(pages, this.$data, data);
                 const newData = {
                     ...pages,
                     ...this.$data,

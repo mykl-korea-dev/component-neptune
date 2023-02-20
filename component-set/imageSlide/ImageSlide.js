@@ -1,58 +1,69 @@
 import Component from "../../basic/Component.js";
+import {throttle} from "../../basic/utils.js";
 
 export default class ImageSlide extends Component {
-    setEvents() {
-        this.$element.querySelector('.prev')?.addEventListener('click', this.throttle(this.clickPrevBtn.bind(this), 500))
-        this.$element.querySelector('.next')?.addEventListener('click', () => {
-            const { width: groupWidth } = this.$element.querySelector('.slider-group').getBoundingClientRect();
-            const lastImage = this.$element.querySelector('.slider-group').lastElementChild;
-            const { width: lastImgWidth , x: lastImgX } = lastImage.getBoundingClientRect();
-            if(lastImgX + lastImgWidth <= groupWidth) {
-                return;
-            }
+    render() {
+        this.checkPrevDisabled();
+        this.checkNextDisabled();
+    }
 
-            this.$element.querySelectorAll('.slide-item').forEach((el, i) => {
-                const currentPosX = el.style.transform.replace(/translateX\(|px\)/gi, "");
-                el.style.transform = `translateX(${Number(currentPosX) - Number(groupWidth)}px)`;
-            })
-        })
+    setEvents() {
+        this.$element.querySelector('.slide-prev')?.addEventListener('click', throttle(this.clickPrevBtn.bind(this), 500));
+        this.$element.querySelector('.slide-next')?.addEventListener('click', throttle(this.clickNextBtn.bind(this), 500));
 
         window.addEventListener('resize', this.setElements.bind(this));
     }
 
-    throttle(func, delay) {
-        let lastFunc;
-        let lastRan;
-        return function(...args) {
-            const context = this;
-            if(!lastRan) {
-                func.call(context, ...args);
-                lastRan = Date.now();
-            } else {
-                if (lastRan) clearTimeout(lastFunc);
-                lastFunc = setTimeout(function() {
-                    if((Date.now() - lastRan) >= delay) {
-                        func.call(context, ...args);
-                        lastRan = Date.now();
-                    }
-                }, delay - (Date.now() - lastRan));
-            }
-        }
-    }
-
     clickPrevBtn() {
-        const firstImage = this.$element.querySelector('.slider-group').firstElementChild;
-        const { width: firstImgWidth , x: firstImgX } = firstImage.getBoundingClientRect();
-        if(firstImgX <= firstImgWidth && firstImgX >= 0) {
+        const isDisabled = this.checkPrevDisabled();
+        if(isDisabled) {
             return;
         }
-        const { width: groupWidth } = this.$element.querySelector('.slider-group').getBoundingClientRect();
+        this.$element.querySelector('.slide-next').classList.remove("disabled");
+        const { width: groupWidth } = this.$element.querySelector('.slide-group').getBoundingClientRect();
         this.$element.querySelectorAll('.slide-item').forEach((el, i) => {
             const currentPosX = el.style.transform.replace(/translateX\(|px\)/gi, "");
             el.style.transform = `translateX(${Number(currentPosX) + Number(groupWidth)}px)`;
-        })
+        });
+        setTimeout(() => {
+            this.checkPrevDisabled();
+        }, 510);
     }
 
-}
+    clickNextBtn() {
+        const isDisabled = this.checkNextDisabled();
+        if(isDisabled) {
+            return;
+        }
+        this.$element.querySelector('.slide-prev').classList.remove("disabled");
+        const { width: groupWidth } = this.$element.querySelector('.slide-group').getBoundingClientRect();
+        this.$element.querySelectorAll('.slide-item').forEach((el, i) => {
+            const currentPosX = el.style.transform.replace(/translateX\(|px\)/gi, "");
+            el.style.transform = `translateX(${Number(currentPosX) - Number(groupWidth)}px)`;
+        });
+        setTimeout(() => {
+            this.checkNextDisabled();
+        }, 510);
+    }
 
-// document.querySelectorAll('.image-slide').forEach(el => new ImageSlide(el));
+    checkPrevDisabled() {
+        const firstImage = this.$element.querySelector('.slide-group').firstElementChild;
+        const { width: firstImgWidth , x: firstImgX } = firstImage.getBoundingClientRect();
+        if(firstImgX <= firstImgWidth && firstImgX >= 0) {
+            this.$element.querySelector('.slide-prev').classList.add("disabled");
+            return true;
+        }
+        return false;
+    }
+
+    checkNextDisabled() {
+        const { width: groupWidth, x: groupX } = this.$element.querySelector('.slide-group').getBoundingClientRect();
+        const lastImage = this.$element.querySelector('.slide-group').lastElementChild;
+        const { width: lastImgWidth , x: lastImgX } = lastImage.getBoundingClientRect();
+        if(lastImgX + lastImgWidth <= groupX + groupWidth) {
+            this.$element.querySelector('.slide-next').classList.add("disabled");
+            return true;
+        }
+        return false;
+    }
+}

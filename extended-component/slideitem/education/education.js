@@ -4,19 +4,23 @@ import {getData} from "../../../basic/utils.js";
 export default class Education extends Component {
     setTemplate() {
         return this.$data.map(data => `
-            <li class="slide-item item-group">
-                ${data.image ? `<img src="${data.image}" alt="">` : ""}
-                ${data.title ? `<span class="title">${data.title}</span>` : ""}
-                ${data.link ? `<a href="${data.link}">${data.name}</a>` : ""}
-                ${data.location ? `<span>${data.location}</span>` : ""}
-                ${data.department ? `<span class="stretch">${data.department}</span>`: ""}
+            <li class="slide-item mykl-media media-vertical">
+                <div class="media-cover">
+                    <img src="${data.image_url}" alt="${data.image_alt}">
+                </div>
+                <div class="media-body" style="position: relative">
+                    <div>
+                        <h3 class="fs-5 fw-bold mg10">${data.name}</h3>
+                        <p>${data.institution_name}</p>
+                        <p style="white-space: break-spaces">${data.address}</p>
+                    </div>
+                    <span class="mg10 mykl-btn btn-primary-rev btn-round">${data.ncs_name}</span>
+               </div>
             </li>
-        `).join("");
+        `).join('');
     }
 
     render() {
-        this.$element.querySelector('.slider-group').innerHTML = this.setTemplate();
+        this.$element.querySelector('.slide-group').innerHTML = this.setTemplate();
     }
 }
-
-// getData("http://localhost:3000/imageSlide", (data) => new Education(document.querySelector('#education'), data.education));

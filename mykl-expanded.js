@@ -35,6 +35,7 @@ import StateProcess from "./extended-component/mypage/StateProcess/StateProcess.
 import StateProcessGroup from "./extended-component/mypage/StateProcess/StateProcess.js";
 
 import './extended-component/mypage/StateProcess/stateProcess.css';
+import ImageSlideAjax from "./component-set/ajax/imageSlideAjax/ImageSlideAjax.js";
 
 const returnComponent = (component, initData) => {
     return (selector, data) => {
@@ -48,20 +49,23 @@ const returnComponent = (component, initData) => {
 }
 
 let MYKLExpanded = {
-    MajorSlide: function (url, el) {
-        return getData(url, (data) => new MajorSlide(el, data));
+    ImageSlideAjax: function (selector, data) {
+        return new ImageSlideAjax(document.querySelector(selector), data)
     },
-    JobSlide: function(selector, data) {
-        return new JobSlide(document.querySelector(selector), data)
+    MajorSlide: () => {
+        return (el, data) => new MajorSlide(el, data)
     },
-    ExpertSlide: function(selector, data) {
-        return new ExpertSlide(document.querySelector(selector), data)
+    JobSlide: () => {
+        return (el, data) => new JobSlide(el, data)
     },
-    EducationSlide: function(selector, data) {
-        return new EducationSlide(document.querySelector(selector), data)
+    ExpertSlide: () => {
+        return (el, data) => new ExpertSlide(el, data)
     },
-    CertificateSlide: function(selector, data) {
-        return new CertificateSlide(document.querySelector(selector), data)
+    EducationSlide: () => {
+        return (el, data) => new EducationSlide(el, data)
+    },
+    CertificateSlide: () => {
+        return (el, data) => new CertificateSlide(el, data)
     },
     // 진단하기
     DutyList: function(selector, data) {

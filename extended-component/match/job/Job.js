@@ -25,17 +25,3 @@ export default class Job extends Component {
         this.$element.innerHTML = this.setTemplate();
     }
 }
-
-// new Tab(document.querySelector('#job'));
-//
-// getData("http://localhost:3000/job", (data) => {
-//     new Job(document.querySelector('#all'), data.all);
-//     // new Tab(document.querySelector('#subjects'));
-// });
-//
-// getData("http://localhost:3000/job", (data) => {
-//     console.log(data);
-//     new Job(document.querySelector('#one'), data.one);
-//     // new Tab(document.querySelector('#subjects'));
-// });
-

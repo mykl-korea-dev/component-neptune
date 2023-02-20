@@ -737,6 +737,7 @@ a {
 .mykl-select {
     position: relative;
     display: inline-block;
+    min-width: 80px;
 }
 
 .mykl-select select{

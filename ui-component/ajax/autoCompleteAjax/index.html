@@ -3,28 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>autoComplete</title>
-    <link rel="stylesheet" href="../../../form-component/form-group/form-group.css">
+    <link rel="stylesheet" href="../../../dist/css/mykl_ui_style.css">
+<!--    <link rel="stylesheet" href="../../../form-component/form-group/form-group.css">-->
     <link rel="stylesheet" href="./autoComplete.css">
 </head>
 <body>
-    <div class="form-group">
-        <label for="major" class="form-label">전공</label>
-        <div>
-            <div class="mykl-auto-complete form-control">
-<!--                <input type="text" name="" class="search-input">-->
-                <div class="auto-complete-group">
-                    <div class="auto-complete-item">
-                        <input type="text" name="" id="major" class="search-input">
-                        <div class="auto-complete-list"></div>
-                        <button type="button" class="btn-add">추가</button>
-                        <button type="button" class="btn-remove">삭제</button>
-                        <button type="button" class="btn-direct">직접입력</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <form id="form">
+<!--    <div class="form-group">-->
+<!--        <label for="major" class="form-label">전공</label>-->
+<!--        <div>-->
+<!--            <div class="mykl-auto-complete form-control">-->
+<!--&lt;!&ndash;                <input type="text" name="" class="search-input">&ndash;&gt;-->
+<!--                <div class="auto-complete-group">-->
+<!--                    <div class="auto-complete-item">-->
+<!--                        <input type="text" name="" id="major" class="search-input">-->
+<!--                        <div class="auto-complete-list"></div>-->
+<!--                        <button type="button" class="btn-add">추가</button>-->
+<!--                        <button type="button" class="btn-remove">삭제</button>-->
+<!--                        <button type="button" class="btn-direct">직접입력</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>    <div class="form-group">-->
+<!--        <label for="major" class="form-label">전공</label>-->
+<!--        <div>-->
+<!--            <div class="mykl-auto-complete form-control">-->
+<!--&lt;!&ndash;                <input type="text" name="" class="search-input">&ndash;&gt;-->
+<!--                <div class="auto-complete-group">-->
+<!--                    <div class="auto-complete-item">-->
+<!--                        <input type="text" name="" id="major" class="search-input">-->
+<!--                        <div class="auto-complete-list"></div>-->
+<!--                        <button type="button" class="btn-add">추가</button>-->
+<!--                        <button type="button" class="btn-remove">삭제</button>-->
+<!--                        <button type="button" class="btn-direct">직접입력</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <form id="form">-->
         <div id="autoComplete">
             <div class="auto-complete-group">
                 <div class="auto-complete-item">
@@ -36,24 +53,35 @@
                 </div>
             </div>
         </div>
-        <button type="button" >버튼</button>
-    </form>
-    <div class="auto-completes">
-        <input type="text" name="" id="" class="search-input">
-        <div class="auto-complete-group"></div>
-    </div>
+<!--        <button type="button" >버튼</button>-->
+<!--    </form>-->
+<!--    <div class="auto-completes">-->
+<!--        <input type="text" name="" id="" class="search-input">-->
+<!--        <div class="auto-complete-group"></div>-->
+<!--    </div>-->
     <script type="module">
         import AutoComplete from "./AutoComplete.js";
+        const data = [
+            {
+                duty_id: "test1",
+                duty_name: "test1",
+            },
+            {
+                duty_id: "test2",
+                duty_name: "test2",
+            }
+        ]
 
         new AutoComplete(document.querySelector("#autoComplete"), {
             recommendUrl: "http://icpbl.co.kr:12010" + "/api/duty/",
             headers: {contentType: "application/json;charset=utf-8;"},
             id: "duty_id",
-            value: "duty_name"
+            value: "duty_name",
+            data
         })
-        document.querySelector('#form').addEventListener('submit', (e) => {
-            e.preventDefault();
-        })
+        // document.querySelector('#form').addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        // })
     </script>
 </body>
 </html>

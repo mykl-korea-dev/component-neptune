@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <title>ImageSlide</title>
 </head>
+<link rel="stylesheet" href="../../../dist/css/mykl_ui_style.css">
 <link rel="stylesheet" href="./imageSlide.css">
 <body>
-    <div class="image-slide">
-        <h4>교육</h4>
-        <div class="button-box">
-            <button type="button" class="prev">이전</button>
-            <button type="button" class="next">다음</button>
-        </div>
-        <ul class="slider-group">
+    <div class="mykl-slide">
+        <button type="button" class="slide-prev">이전</button>
+        <button type="button" class="slide-next">다음</button>
+        <ul class="slide-group">
           <li class="slide-item p10">
               <img src="https://via.placeholder.com/1200x160">
               <div>
@@ -62,6 +60,9 @@
         </ul>
     </div>
 
-    <script src="./ImageSlide.js" type="module"></script>
+    <script type="module">
+        import ImageSlide from "./ImageSlide.js";
+        new ImageSlide(document.querySelector('.mykl-slide'));
+    </script>
 </body>
 </html>

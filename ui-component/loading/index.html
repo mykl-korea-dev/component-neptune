@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./loading.css">
+</head>
+<body>
+<div class="mykl-loading" id="abc">
+    <div class="loading"></div>
+    <span class="loading-text">Loading</span>
+</div>
+<script type="module">
+    import Loading from "./Loading.js";
+
+    new Loading(document.querySelector("#abc"), {loading: false});
+</script>
+</body>
+</html>

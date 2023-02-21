@@ -23,9 +23,12 @@ export default class Select extends Component {
 
     render() {
         this.$element.querySelector('.select-group').innerHTML = this.setTemplate();
-        const selectedElWidth = this.$element.querySelector('.select-selected').getBoundingClientRect().width;
-        const selectItemElWidth = this.$element.querySelector('.select-items').getBoundingClientRect().width;
-        this.$element.style.width = selectItemElWidth > selectedElWidth ? selectItemElWidth + 'px' : selectedElWidth + 'px';
+        let longestTextWidth = [...this.options].reduce((f, el) => {
+            let textLength = 0;
+            [...el.textContent].forEach(text => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|A-Z|0-9]/.test(text) ? textLength+=2 : textLength++);
+            return f < textLength ? textLength : f;
+        }, 0);
+        this.$element.style.width = longestTextWidth * 0.635 + 1 + 'rem';
         this.$element.querySelector('.select-selected').style.width = "100%";
         this.$element.querySelector('.select-items').style.width = "100%";
     }

@@ -95,10 +95,11 @@ export default class Range extends Component {
     findClosestRange(e) {
         const inputLeft = this.$element.querySelector('.input-left');
         const inputRight = this.$element.querySelector('.input-right');
-        const x = e.clientX;
+        const { screenX } = e;
+        const { left: rangePosX } = this.$element.getBoundingClientRect();
+        const x = rangePosX ? Math.abs(screenX - rangePosX) : e.clientX;
         const minXDiff = Math.abs(this.$element.querySelector('.thumb.left').style.left.replace("px", "") - x);
         const maxXDiff = Math.abs(this.$element.querySelector('.thumb.right').style.left.replace("px", "") - x);
-        console.log(minXDiff, maxXDiff)
         if ( minXDiff > maxXDiff ) {
             inputLeft.style.zIndex = "5";
             inputRight.style.zIndex = "6";

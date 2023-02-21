@@ -4,11 +4,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9375rem;
-    /*font-size: 15px;*/
     font-weight: 600;
     box-sizing: border-box;
-    /*max-width: 120px;*/
-    /*width: 100%;*/
     min-width: 80px;
 
     /*!* 한글, 영어 높이 동일 하게 됨*!*/
@@ -23,15 +20,8 @@
 }
 
 /* 크기 */
-.btn-full {
-    width: 100%;
-    max-width: initial;
-}
-
 .btn-sm {
-    margin-left: 14px;
-    width: 80px;
-    padding: 8px;
+    min-width: 50px;
 }
 
 .btn-lg {
@@ -42,6 +32,12 @@
     border-radius: 28px;
 }
 
+.btn-full {
+    width: 100%;
+    max-width: initial;
+}
+
+/* 상태 */
 .btn-primary {
     background: var(--primary);
     color: #fff;

@@ -41,6 +41,14 @@
     <button type="button" class="form-submit-btn">제출</button>
 </div>
 
+<form id="form-list">
+    <input type="text" class="name" value="123">
+    <input type="text" class="name" value="asdf">
+    <input type="text" class="name" value="ㅁㄴㅇㄹ">
+    <input type="text" class="name" value="asdf13">
+    <button type="button" class="form-submit-btn">제출</button>
+</form>
+
 <script type="module">
     import SelectAjax from './SelectAjax.js';
     import {getData} from "../../../basic/utils.js";
@@ -61,7 +69,18 @@
         new SelectAjax(document.querySelector('#select6'), data)
     })
 
-    new FormAjax(document.querySelector('#form'), {url: 'http://localhost:8080/select'});
+    new FormAjax(document.querySelector('#form-list'), {callback: (bodyData) => {
+            fetch("https://723d38b0-76c2-40bc-bdce-6ecf05a90d9d.mock.pstmn.io/post", {
+                method: "POST",
+                headers: {
+                    contentType: "application/json;charset=utf8;"
+                },
+                body: bodyData
+            })
+                .then(res => res.json())
+                .then(data => console.log(data));
+        }});
+
 </script>
 </body>
 </html>

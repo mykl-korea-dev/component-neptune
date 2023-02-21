@@ -1,14 +1,14 @@
-.calendar-input {
+.mykl-calendar .calendar-input {
     display: none;
 }
 
-.calendar-container {
+.mykl-calendar .calendar-container {
     display: none;
     width: 60%;
     flex-direction: column;
 }
 
-.calendar-container.show {
+.mykl-calendar .calendar-container.show {
     display: flex;
 }
 
@@ -16,16 +16,16 @@
     cursor: pointer;
 }
 
-.calendar-container div[class^="week"] {
+.mykl-calendar .calendar-container div[class^="week"] {
     display: flex;
 }
 
-.calendar-container div[class^="week"] > div {
+.mykl-calendar .calendar-container div[class^="week"] > div {
     flex: 1;
     text-align: center;
 }
 
-.calendar-container .year-month {
+.mykl-calendar .calendar-container .year-month {
     position: relative;
     border-bottom: 1px solid #ccc;
     margin-bottom: 5px;
@@ -36,19 +36,19 @@
 /*    position: absolute;*/
 /*}*/
 
-.calendar-container .year-month .year {
+.mykl-calendar .calendar-container .year-month .year {
     width: 100%;
     text-align: center;
     padding: 5px;
 }
 
-.calendar-container .year-month .month {
+.mykl-calendar .calendar-container .year-month .month {
     width: 100%;
     text-align: center;
     padding: 5px;
 }
 
-.calendar-container .year-month .calendar-button-group {
+.mykl-calendar .calendar-container .year-month .calendar-button-group {
     position: absolute;
     width: 100%;
     top: 35px;
@@ -56,24 +56,19 @@
     justify-content: space-between;
 }
 
-.calendar-container .day {
-    width: calc(100% / 7);
-    z-index: 4;
+.mykl-calendar .day:hover {
+    background: #bdbdbd;
 }
 
-.calendar-container .day:hover {
-    background: #eff0f2;
-}
-
-.calendar-container div[class^="week"] .day:first-child {
+.mykl-calendar .calendar-container div[class^="week"] .day:first-child {
     color: red;
 }
 
-.calendar-container div[class^="week"] .day:last-child {
+.mykl-calendar .calendar-container div[class^="week"] .day:last-child {
     color: blue;
 }
 
-.mark {
+.mykl-calendar .mark {
     background: #d7a8f5;
 }
 

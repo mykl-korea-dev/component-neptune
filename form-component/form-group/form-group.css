@@ -10,6 +10,7 @@
 }
 
 .form-group .form-label {
+    font-weight: 600;
     margin: 0 0 12px 0;
 }
 
@@ -31,7 +32,7 @@
     margin: 0;
 }
 
-.form-label {
+.form-group .form-label {
     display: inline-block;
     flex-grow: 0;
     flex-shrink: 1;

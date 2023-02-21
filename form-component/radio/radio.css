@@ -1,28 +1,9 @@
-/* 정렬 */
-/*.radio-col .mykl-radio {*/
-/*    display: inline-block;*/
-/*}*/
-
 .mykl-radio {
     position: relative;
     vertical-align: top;
 }
 
-/*.mykl-radio + .mykl-radio {*/
-/*    margin-top: 16px;*/
-/*    margin-left: 0;*/
-/*}*/
-
-/*.form-row > .mykl-radio {*/
-/*    margin-top: 0;*/
-/*}*/
-
-/*.radio-col .mykl-radio + .mykl-radio {*/
-/*    margin-top: 0;*/
-/*    margin-left: 48px;*/
-/*}*/
-
-.radio-input {
+.mykl-radio .radio-input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -33,46 +14,53 @@
     border: 0;
 }
 
-.radio-label {
-    /*vertical-align: top;*/
+.mykl-radio .radio-label {
     display: inline-block;
     position: relative;
     left: 0;
-    height: 17px;
     cursor: pointer;
     font-size: 1rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 26px;
-    color: #101010;
-    font-weight: 500;
-    line-height: 18px;
+    padding-left: 1.5rem;
 }
 
-.radio-label:after {
+.mykl-radio .radio-label:after {
     content: "";
     position: absolute;
     top: 50%;
-    margin-top: -8px;
     left: 0;
-    width: 16px;
-    height: 16px;
-    background: url("../../images/radio_bt_off.png") no-repeat;
+    width: 1rem;
+    height: 1rem;
+    border: 0.0625rem solid rgba(189, 189, 189, 0.58);
+    border-radius: 100%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
 }
 
-.radio-input:checked + .radio-label:after {
-    background: url("../../images/radio_bt_on.png") no-repeat;
+.mykl-radio .radio-input:checked + .radio-label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary);
+    border-radius: 100%;
+    border: 0.15rem solid #fff;
+    transform: translate(0, -50%);
+    box-sizing: border-box;
 }
 
 /* 상태 */
-.radio-input:disabled + .radio-label {
+.mykl-radio .radio-input:disabled + .radio-label {
     pointer-events: none;
     filter: none;
     opacity: .5;
 }
 
-.radio-input[readonly] + .radio-label {
+.mykl-radio .radio-input[readonly] + .radio-label {
     pointer-events: none;
     cursor: default;
 }

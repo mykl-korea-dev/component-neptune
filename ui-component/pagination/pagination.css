@@ -17,7 +17,13 @@
     -ms-transition: all 0.3s ease;
 }
 
-.mykl-pagination .active {
+.page-item a {
+    font-weight: inherit;
+    color: inherit;
+}
+
+.mykl-pagination .active,
+.mykl-pagination .active a {
     font-weight: bold;
     color: #101010;
 }

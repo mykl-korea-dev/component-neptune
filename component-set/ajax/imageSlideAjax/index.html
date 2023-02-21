@@ -13,7 +13,7 @@
         <button type="button" class="prev">이전</button>
         <button type="button" class="next">다음</button>
     </div>
-    <ul class="slider-group">
+    <ul class="slide-group">
     </ul>
 </div>
 
@@ -23,7 +23,7 @@
         <button type="button" class="prev">이전</button>
         <button type="button" class="next">다음</button>
     </div>
-    <ul class="slider-group">
+    <ul class="slide-group">
     </ul>
 </div>
 
@@ -33,7 +33,7 @@
         <button type="button" class="prev">이전</button>
         <button type="button" class="next">다음</button>
     </div>
-    <ul class="slider-group">
+    <ul class="slide-group">
     </ul>
 </div>
 
@@ -43,7 +43,7 @@
         <button type="button" class="prev">이전</button>
         <button type="button" class="next">다음</button>
     </div>
-    <ul class="slider-group">
+    <ul class="slide-group">
     </ul>
 </div>
 
@@ -53,16 +53,22 @@
         <button type="button" class="prev">이전</button>
         <button type="button" class="next">다음</button>
     </div>
-    <ul class="slider-group">
+    <ul class="slide-group">
     </ul>
 </div>
 
-<script src="../../imageSlide/ImageSlide.js" type="module"></script>
-<script src="../../../extended-component/slideitem/education/education.js" type="module"></script>
-<script src="../../../extended-component/slideitem/major/major.js" type="module"></script>
-<script src="../../../extended-component/slideitem/certificate/certificate.js" type="module"></script>
-<script src="../../../extended-component/slideitem/job/job.js" type="module"></script>
-<script src="../../../extended-component/slideitem/expert/expert.js" type="module"></script>
-
+<script src="../../../dist/js/mykl_expanded.js"></script>
+<script type="module">
+    import ImageSlideAjax from "./ImageSlideAjax.js";
+    new ImageSlideAjax(document.querySelector('#major'), {
+        method: "POST",
+        headers: {
+            "enc" : "4|user|123451-123452-123453",
+            "content-type": "application/json;charset=utf-8"
+        },
+        url: "http://icpbl.co.kr:12010" + "/api/match/ml/f19/real",
+        component: MYKL.MajorSlide(),
+    })
+</script>
 </body>
 </html>

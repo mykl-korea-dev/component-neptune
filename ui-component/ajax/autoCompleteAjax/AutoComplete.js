@@ -66,7 +66,6 @@ class AutoCompleteItem extends Component {
 
     setInputValue() {
         const selectedEl = document.querySelector('.selected');
-        console.log(selectedEl, selectedEl.querySelector('input[type=hidden]'), selectedEl.querySelector('input[type=hidden]').value);
         this.$element.querySelector('input[type=text]').value = selectedEl.querySelector('input[type=hidden]').value;
         this.$element.querySelector('input[type=hidden]').value = selectedEl.querySelector('input[type=radio]').value;
 
@@ -159,6 +158,30 @@ class AutoCompleteItem extends Component {
     }
 }
 
+export class UploadedAutoCompleteItem extends AutoCompleteItem {
+    setElements() {
+        this.$element.classList.add("mykl-auto-complete");
+        const { data, id, value } = this.$data;
+        this.duplicatedEl = this.$element.cloneNode('true');
+        this.originVal = data[value];
+        this.duplicatedEl.querySelector('.btn-add').classList.add("btn-hide");
+        this.duplicatedEl.querySelector('.btn-remove').classList.remove("btn-hide");
+        this.duplicatedEl.querySelector('input[type=text]').value = this.originVal;
+        this.duplicatedEl.querySelector('input[type=hidden]').value = data[id];
+        this.duplicatedEl.querySelector('input[type=text]').setAttribute('autocomplete', 'off');
+        this.duplicatedEl.querySelector('.auto-complete-list').style.width = this.$element.querySelector('.auto-complete-input input').getBoundingClientRect().width + 'px';
+    }
+
+    render() {
+        this.$element.insertAdjacentElement('beforebegin', this.duplicatedEl);
+    }
+
+    setEvents() {
+        this.$element = this.duplicatedEl;
+        super.setEvents();
+    }
+}
+
 export default class AutoComplete extends Component {
     setElements() {
         this.$element.classList.add('mykl-autoComplete');
@@ -167,23 +190,30 @@ export default class AutoComplete extends Component {
         this.name = this.$element.querySelector("input").getAttribute("name");
         this.$element.querySelector('.auto-complete-input').classList.add('form-group');
         this.$element.querySelector('.auto-complete-input').classList.add('form-row');
+
         const originInput = this.$element.querySelector("input");
         originInput.removeAttribute("name");
-        const hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('name', this.name);
-        hiddenInput.setAttribute('type', 'hidden');
-        originInput.parentElement.appendChild(hiddenInput);
+
+        this.uploadedList = this.$data.data || [];
     }
 
     setTemplate() {
         return `
-            <a type="button" class="btn-remove hide mykl-btn btn-secondary">삭제</a>
+            <a type="button" class="btn-remove btn-hide mykl-btn btn-secondary">삭제</a>
+            <input type="hidden" name="${this.name}">
         `
     }
 
     render() {
+        const firstItem = this.$element.querySelector('.auto-complete-item');
         this.$element.querySelector('.auto-complete-input').innerHTML += this.setTemplate();
-        new AutoCompleteItem(this.$element.querySelector('.auto-complete-item'), { parentEl: this.$element, name: this.name, ...this.$data });
+        this.uploadedList.forEach(data => new UploadedAutoCompleteItem(firstItem, {
+            ...this.$data,
+            parentEl: this.$element,
+            name: this.name,
+            data: data,
+        }))
+        new AutoCompleteItem(firstItem, { parentEl: this.$element, name: this.name, ...this.$data });
     }
 
     setEvents() {
@@ -207,8 +237,8 @@ export default class AutoComplete extends Component {
                 duplicatedEl.querySelector('input').value = '';
                 duplicatedEl.querySelector('input[type=hidden]').value = "";
                 this.$element.querySelector('.auto-complete-group').appendChild(duplicatedEl);
-                currentEl.querySelector('.btn-add').classList.add("hide");
-                currentEl.querySelector('.btn-remove').classList.remove("hide");
+                currentEl.querySelector('.btn-add').classList.add("btn-hide");
+                currentEl.querySelector('.btn-remove').classList.remove("btn-hide");
 
                 new AutoCompleteItem(duplicatedEl, { parentEl: this.$element, name: this.name, ...this.$data });
             }

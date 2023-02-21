@@ -11,25 +11,25 @@
 }
 
 /* 크기*/
-.input-sm {
+.mykl-input .input-sm {
     font-size: 0.875rem;
 }
 
-.input-lg {
+.mykl-input .input-lg {
     font-size: 1.25rem;
 }
 
 /* 상태 */
-.input-error {
+.mykl-input .input-error {
     outline: transparent;
     border: 1px solid #FF0000;
 }
 
-.mykl-input:disabled {
+.mykl-input .mykl-input:disabled {
     background: #F2F2F2;
 }
 
-.mykl-input:read-only {
+.mykl-input .mykl-input:read-only {
     pointer-events: none;
 }
 
@@ -44,7 +44,7 @@
     padding-right: 46px;
 }
 
-.input-password-icon {
+.mykl-input-password .input-password-icon {
     display: inline-block;
     position: absolute;
     top: 50%;

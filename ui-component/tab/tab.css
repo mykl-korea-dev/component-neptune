@@ -1,6 +1,6 @@
 .tab-title {
     display: inline-block;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #fff;
     padding-left: 20px;
 }
@@ -12,7 +12,6 @@
 .tab-title,
 .tab-item {
     display: inline-block;
-    border: 1px solid #bdbdbd;
     border-radius: 3px;
     padding: 10px 20px;
     font-size: 0.875rem;
@@ -22,18 +21,19 @@
     text-align: center;
 }
 
+.tab-item * {
+    pointer-events: none;
+}
+
 .tab-item.active {
-    background-color: #e5edff;
     font-weight: 600;
-    color: #004CFF;
-    border: 1px solid currentColor;
-    /*border: none;*/
+    background: var(--primary);
+    color: #fff;
 }
 
 .tab-title > span,
 .tab-item > span {
     display: inline-block;
-    /*vertical-align: middle;*/
     line-height: normal;
 }
 
@@ -67,6 +67,42 @@
     border: none;
 }
 
+/* 상태 */
+.tab-secondary .tab-item.active {
+    background: var(--secondary);
+}
+
+.tab-success .tab-item.active {
+    background: var(--success);
+}
+
+.tab-danger .tab-item.active {
+    background: var(--danger);
+}
+
+.tab-warning .tab-item.active {
+    background: var(--warning);
+}
+
+.tab-info .tab-item.active {
+    background: var(--info);
+}
+
+.tab-light .tab-item.active {
+    background: var(--light);
+    color: #101010;
+}
+
+.tab-dark .tab-item.active {
+    background: var(--dark);
+}
+
+/* disabled */
+.tab-item.tab-disabled {
+    pointer-events: none;
+    color: var(--light );
+}
+
 /* nav 반대 */
 .tab-rev .tab-menu {
     text-align: end;
@@ -98,21 +134,13 @@
 /* 세로 정렬 */
 .tab-vertical {
     display: flex;
-    /*position: relative;*/
-    /*font-size: 0;*/
 }
 .tab-vertical > .tab-menu {
     flex: 0 0 120px;
 }
 
-.tab-vertical > .tab-menu, .tab-vertical > .tab-content.show {
-    /*display: inline-block;*/
-    /*vertical-align: top;*/
-}
-
 .tab-vertical > nav > .tab-title,
 .tab-vertical > nav > .tab-item {
-    /*display: block;*/
     display: flex;
     align-items: center;
     border: none;
@@ -125,26 +153,16 @@
     display: none;
     border-top: none;
     border-left: 1px solid #B0B0B0;
-    /*height: inherit;*/
 }
 
 .tab-vertical > .tab-content.show.mykl-tab {
     border-left: none;
-    /*font-size: 0;*/
     display: flex;
 }
 
 .tab-vertical > .tab-content.show {
     display: inline-block;
-    /*display: flex;*/
-
-    /*font-size: initial;*/
-    /*margin-left: 120px;*/
     width: 100%;
-    /*max-width: calc(100% - 120px);*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*height: 100%;*/
 }
 
 

@@ -1,44 +1,86 @@
-* {
-    box-sizing: border-box;
+.mykl-slide {
+    position: relative;
 }
 
-/*.slider-group {*/
-/*    margin: 0px auto;*/
-/*    padding: 0;*/
-/*    list-style: none;*/
-/*    width: 100%;*/
-/*    !*position: relative;*!*/
-/*    overflow: hidden;*/
-/*    white-space: nowrap;*/
-
-/*    !* 자식 요소의 여백 제거 *!*/
-/*    font-size: 0;*/
-/*    letter-spacing: 0;*/
-/*    word-spacing: 0;*/
-
-/*}*/
-
-
-.slider-group {
+.mykl-slide .slide-group {
     display: flex;
     overflow: hidden;
+    margin: 0 40px;
+    padding: 0;
+    justify-content: space-between;
 }
 
-.slide-item {
-    /*float: left;*/
+.mykl-slide .slide-item {
     display: inline-block;
-    flex-shrink: 0;
-    flex-grow: 0;
-    /*position: absolute;*/
     transition: transform 0.5s;
     vertical-align: top;
-
     font-size: initial;
     letter-spacing: initial;
     word-spacing: initial;
+    flex: 1;
 }
 
-.p10 {
-    padding: 10px;
+.mykl-slide .slide-item + .slide-item {
+    margin-left: 20px;
+}
+
+.mykl-slide .slide-prev,
+.mykl-slide .slide-next {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-indent: -9999px;
+    background: #B0B0B0;
+    border-radius: 100%;
+    z-index: 3;
+}
+
+.mykl-slide .slide-prev {
+    left: 0;
+}
+
+.mykl-slide .slide-next {
+    right: 0;
+}
+
+.mykl-slide .slide-prev:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1px solid;
+    border-color: #fff transparent transparent #fff;
+    transform: translate(-30%, -50%) rotate(-45deg);
+}
+.mykl-slide .slide-next:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1px solid;
+    border-color: #fff #fff transparent transparent;
+    transform: translate(30%, -50%) rotate(45deg);
+}
+
+.mykl-slide .slide-prev.disabled,
+.mykl-slide .slide-next.disabled {
+    background: #dedede;
+    pointer-events: none;
+}
+
+.mykl-slide .slide-prev:hover,
+.mykl-slide .slide-next:hover {
+    background: var(--primary);
+    cursor: pointer;
 }
 

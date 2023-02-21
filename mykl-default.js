@@ -28,7 +28,6 @@ import './form-component/select/select.css';
 import './form-component/textarea/textarea.css';
 import './form-component/time/time.css';
 
-
 import './ui-component/accordion/accordion.css';
 import './ui-component/button/button.css';
 import './ui-component/dropdown/dropdown.css';
@@ -46,6 +45,7 @@ import './ui-component/tag/tag.css';
 import './ui-component/text/text.css';
 import './ui-component/tooltip/tooltip.css';
 import "./ui-component/linkBox/linkGroup.css";
+import './ui-component/loading/loading.css';
 
 import ContextMessage from "./component-set/message/ContextMessage.js";
 import './component-set/message/message.css';
@@ -59,8 +59,37 @@ import "./polyfill.js";
 import Modal from "./component-set/modal/Modal";
 import PostSearch from "./component-set/postSearch/PostSearch";
 import InputPassword from "./form-component/input/InputPassword";
+import Loading from "./ui-component/loading/Loading";
+
+export function setRootColor(nameOrObj="", color="") {
+    if(color === "") {
+        Object.keys(nameOrObj).forEach(key => document.documentElement.style.setProperty(key, nameOrObj[key]));
+    } else {
+        document.documentElement.style.setProperty(nameOrObj, color);
+    }
+}
+
+export const returnComponent = (component) => {
+    return (selector, data) => {
+        if(!MYKL[selector]) {
+            MYKL[selector] = new component(document.querySelector(selector), data);
+        } else {
+            MYKL[selector].setData(data);
+        }
+        return MYKL[selector]
+    };
+}
 
 const MYKLBasic = {
+    // 기본 색상 변경
+    setRootColor: (name, color) => setRootColor(name, color),
+    // 모든 로딩 중단
+    stopAllLoading: function() {
+        document.querySelectorAll('.mykl-loading').forEach(el => el.classList.add('loading-stop'));
+    },
+    Loading: function (el, data) {
+        return new Loading(document.querySelector(el), data);
+    },
     // form -----------------------------------------------------
     InputPassword: function (el) {
         return new InputPassword(el);

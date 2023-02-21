@@ -13,7 +13,6 @@ export default class ProcessAjax extends Component {
     }
     setEvents() {
         this.$element.addEventListener('click', ({target}) => {
-            // console.log(target);
             this.$element.querySelector('.active')?.classList.remove('active');
             target.classList.add('active');
         })

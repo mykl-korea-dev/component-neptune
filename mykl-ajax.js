@@ -24,17 +24,8 @@ import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
 
 import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
 
+import {returnComponent} from "./mykl-default.js";
 
-const returnComponent = (component) => {
-    return (selector, data) => {
-        if(!MYKL[selector]) {
-            MYKL[selector] = new component(document.querySelector(selector), data);
-        } else {
-            MYKL[selector].setData(data);
-        }
-        return MYKL[selector]
-    };
-}
 
 let MYKLAjax = {
     // setComponents

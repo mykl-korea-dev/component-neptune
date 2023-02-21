@@ -73,15 +73,11 @@ a {
     display: flex;
 }
 
-<<<<<<< HEAD
 .calendar-container button {
     cursor: pointer;
 }
 
-.calendar-container div[class^="week"] {
-=======
 .mykl-calendar .calendar-container div[class^="week"] {
->>>>>>> master
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -129,18 +125,8 @@ a {
             justify-content: space-between;
 }
 
-<<<<<<< HEAD
-.calendar-container .day {
-    width: calc(100% / 7);
-    z-index: 4;
-}
-
-.calendar-container .day:hover {
-    background: #eff0f2;
-=======
 .mykl-calendar .day:hover {
     background: #bdbdbd;
->>>>>>> master
 }
 
 .mykl-calendar .calendar-container div[class^="week"] .day:first-child {

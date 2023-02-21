@@ -7,6 +7,7 @@
     overflow: hidden;
     margin: 0 40px;
     padding: 0;
+    justify-content: space-between;
 }
 
 .mykl-slide .slide-item {
@@ -21,10 +22,6 @@
 
 .mykl-slide .slide-item + .slide-item {
     margin-left: 20px;
-}
-
-.mykl-slide .slide-item:last-child {
-    margin-left: 0;
 }
 
 .mykl-slide .slide-prev,

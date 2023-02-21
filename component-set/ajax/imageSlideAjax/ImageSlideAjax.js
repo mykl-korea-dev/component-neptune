@@ -20,6 +20,7 @@ export default class ImageSlideAjax extends ImageSlide {
             .then(res => res.json())
             .then(data => {
                 this.component = this.component ? this.component.setData(data) : component(this.$element, data);
+                (this.$data.tempImage) && this.$element.querySelectorAll('img').forEach(el => el.setAttribute('src', this.$data.tempImage));
             }).catch(err => {
                 throw new Error("failed to render from ImageSlideAjax::: " + err);
         })

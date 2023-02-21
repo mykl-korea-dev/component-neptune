@@ -13,7 +13,7 @@
 }
 
 .media-group > .mykl-media {
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .media-cover {
@@ -62,4 +62,5 @@
 .media-vertical .media-cover {
     margin-right: 0;
     margin-bottom: 20px;
+    min-width: 100%;
 }

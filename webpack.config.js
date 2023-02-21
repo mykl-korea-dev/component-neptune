@@ -40,6 +40,7 @@ module.exports = {
                 loader: "babel-loader",
                 options: {
                     presets: ['@babel/preset-env'],
+                    plugins: [["transform-remove-console", {"exclude": ["error", "warn"]}]]
                 },
                 exclude: /node_modules\/(?!(axios|@redux-saga|redux-logger))/
             },

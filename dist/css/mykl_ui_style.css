@@ -250,7 +250,7 @@ a {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 }
 
 .mykl-check .check-label:before {
@@ -557,7 +557,7 @@ a {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 }
 
 .mykl-radio .radio-label:after {
@@ -2541,6 +2541,9 @@ figure.mykl-img img {
     overflow: hidden;
     margin: 0 40px;
     padding: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .mykl-slide .slide-item {
@@ -2564,10 +2567,6 @@ figure.mykl-img img {
 
 .mykl-slide .slide-item + .slide-item {
     margin-left: 20px;
-}
-
-.mykl-slide .slide-item:last-child {
-    margin-left: 0;
 }
 
 .mykl-slide .slide-prev,
@@ -2658,7 +2657,7 @@ figure.mykl-img img {
 }
 
 .media-group > .mykl-media {
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .media-cover {
@@ -2721,6 +2720,7 @@ figure.mykl-img img {
 .media-vertical .media-cover {
     margin-right: 0;
     margin-bottom: 20px;
+    min-width: 100%;
 }
 
 .modal-dialog {
@@ -2747,7 +2747,7 @@ figure.mykl-img img {
 }
 
 .modal-content {
-    margin-bottom: 300px;
+    margin-bottom: 100px;
     border-radius: 10px;
     background: #fff;
     -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);

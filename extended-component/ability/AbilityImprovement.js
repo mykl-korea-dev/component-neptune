@@ -16,17 +16,20 @@ export default class AbilityImprovement extends Component {
         const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v["ability_my_gap"]) < 0);
         // const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_score"]) < (+second["ability_my_score"]) ? -1 : 1);
         return sortedHierarchy.map((data, i) => `
-            <div>
+            <div class="mg20">
                 <h6 class="fs-6 fw-bold lh-lg text-start">${i+1}. ${data["ability_name"]}</h6>
-                <div>
+                <div style="border: 1px solid #bdbdbd;border-radius: 5px;padding: 20px">
                     <div style="display: flex; justify-content: space-between;">
-                        <span>점수Gap ${(+data["ability_my_gap"]).toFixed(1)}</span>
                         <div>
+                            <span>점수Gap</span> 
+                            <span class="mg10 fs-4 fw-bold text-danger" style="display: block;">${(+data["ability_my_gap"]).toFixed(1)}</span>
+                        </div>
+                        <div class="text-start">
                             <span>미성취 영역 목록</span>
-                            <ul>
+                            <ul class="mg10">
                                  ${hierarchy[data["ability_id"]].filter(v => (+v["ability_my_gap"]) < 0)
                                     .map(subData => `
-                                        <li>${subData["ability_name"]} <span>${(+subData["ability_my_gap"]).toFixed(1)}</span></li>
+                                        <li class="lh-md" style="display: flex; justify-content: space-between; font-size: 0.825rem">${subData["ability_name"]} <span style="margin-left: 5px">${(+subData["ability_my_gap"]).toFixed(1)}</span></li>
                                 `).join('')}
                             </ul>
                         </div>

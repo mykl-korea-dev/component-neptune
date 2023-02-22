@@ -10,7 +10,6 @@ export default class PoolAccordion extends Accordion {
     setTemplate() {
         this.$element.classList.add('mykl-accordion');
         const { question, active, inputs, filter, complete, response } = this.$data.store.getState();
-        console.log(this.$data.data);
         return this.$data.data.map(v => `
             <div class="accordion-item ${(filter && (complete.findIndex(id => id == v.ability_id) !== -1)) ? "hide" : ""}">
                 <h2 class="accordion-header">
@@ -26,8 +25,8 @@ export default class PoolAccordion extends Accordion {
                     <thead>
                         <tr>
                         <th>문항</th>
-                        <th>타당하지 않음</th>
-                        <th>타당함</th>
+                        <th class="text-start">타당하지 않음</th>
+                        <th class="text-end">타당함</th>
                         </tr>
                     </thead>       
                     <tbody>

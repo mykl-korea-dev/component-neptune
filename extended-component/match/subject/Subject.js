@@ -5,7 +5,7 @@ import {getData} from "../../../basic/utils.js"
 export default class Subject extends Component {
     setTemplate() {
         return this.$data.map(data => `
-            <li class="mykl-media mg20">
+            <li class="mykl-media">
                 <div class="media-body" style="position: relative">
                     ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
                     <div>

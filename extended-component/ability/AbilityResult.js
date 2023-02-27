@@ -12,16 +12,16 @@ export default class AbilityResult extends Component {
         const { abilityId } = this.$data;
         const timeRegex = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/gm;
 
-        return hierarchy[this.$data.top].map(data => `
-            <div class="mg20" style="display: flex; justify-content: space-between;">
-                <h5 class="fw-bold">${data["ability_name"]}</h5>
-                <dl class="text-secondary">
-                    <dt style="display: inline-block">진단일시:</dt>
-                    <dd style="display: inline-block">${data["ability_end_dttm"].toString().replace(timeRegex, "$1.$2.$3")}</dd>
-                </dl>
-            </div>
-
-            <table class="mykl-table">
+        return hierarchy[this.$data.top].map((data, i) => `
+            <div class="${i >= 2 ? "mg20" : ""}">
+                <div class="mg20" style="display: flex; justify-content: space-between;">
+                    <h5 class="fw-bold">${data["ability_name"]}</h5>
+                    <dl class="text-secondary">
+                        <dt style="display: inline-block">진단일시:</dt>
+                        <dd style="display: inline-block">${data["ability_end_dttm"].toString().replace(timeRegex, "$1.$2.$3")}</dd>
+                    </dl>
+                </div>
+                <table class="mykl-table">
                 <colgroup>
                     <col width="15%">
                     <col width="15%">
@@ -62,6 +62,7 @@ export default class AbilityResult extends Component {
                     `).join("")}
                 </tbody>
             </table>
+            </div>
         `).join("");
     }
 

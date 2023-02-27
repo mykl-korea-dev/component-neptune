@@ -47,7 +47,7 @@ export default function BarChart($element, $data) {
     }
 
     function generateData(key) {
-        return $data.store.getState()["hierarchy"][$data.ability_id].map(v => (+v[key]).toFixed(1));
+        return $data.inputs ? $data.inputs.map(v => (+v[key]).toFixed(1)) : $data.store.getState()["hierarchy"][$data.ability_id].map(v => (+v[key]).toFixed(1));
     }
 
     function setDataLabel(chart) {

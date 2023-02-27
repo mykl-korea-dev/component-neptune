@@ -13,10 +13,10 @@ export default class AbilityImprovement extends Component {
         const { hierarchy } = this.$data.store.getState();
         const { abilityPid } = this.$data;
         //  Todo: 아래 줄로 변경
-        const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v["ability_my_gap"]) < 0);
+        this.sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v["ability_my_gap"]) < 0);
         // const sortedHierarchy = [...hierarchy[abilityPid]].sort((first, second) => (+first["ability_my_score"]) < (+second["ability_my_score"]) ? -1 : 1);
-        return sortedHierarchy.map((data, i) => `
-            <div class="mg20">
+        return this.sortedHierarchy.map((data, i) => `
+            <div class="${i !== 0 ? 'mg20' : ''}">
                 <h6 class="fs-6 fw-bold lh-lg text-start">${i+1}. ${data["ability_name"]}</h6>
                 <div style="border: 1px solid #bdbdbd;border-radius: 5px;padding: 20px">
                     <div style="display: flex; justify-content: space-between;">
@@ -44,11 +44,13 @@ export default class AbilityImprovement extends Component {
         this.$element.innerHTML = this.setTemplate();
         this.$element.querySelectorAll("canvas").forEach(el => {
             const abilityId = getDataset(el, 'ability').replace("ability", "");
+            const sortedData = [...this.$data.store.getState().hierarchy[abilityId]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v["ability_my_gap"]) < 0);
             new BarChart(el, {
                 ability_id: abilityId,
                 store: this.$data.store,
-                datalabels: this.$data.store.getState().hierarchy[abilityId].map(v => v['ability_name']),
-                labels: ["기준 점수", "내 점수"]
+                datalabels: sortedData.map(v => v['ability_name']),
+                labels: ["기준 점수", "내 점수"],
+                input: sortedData
             })
         })
     }

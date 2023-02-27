@@ -12,10 +12,11 @@ export default class ImageSlideAjax extends ImageSlide {
     }
 
     render() {
-        const { url, component, method, headers } = this.$data;
+        const { url, component, method, headers, body } = this.$data;
         fetch(url, {
             method,
-            headers
+            headers,
+            body
         })
             .then(res => res.json())
             .then(data => {
@@ -28,7 +29,17 @@ export default class ImageSlideAjax extends ImageSlide {
 
     setEvents() {
         // super.setEvents();
-        this.$element.querySelector('.slide-prev').addEventListener('click', throttle(this.render.bind(this), 500));
-        this.$element.querySelector('.slide-next').addEventListener('click', throttle(this.render.bind(this), 500));
+        this.$element.querySelector('.slide-prev').addEventListener('click', throttle(this.clickPrevBtn.bind(this), 500));
+        this.$element.querySelector('.slide-next').addEventListener('click', throttle(this.clickNextBtn.bind(this), 500));
+    }
+
+    prevBtnHandler = null;
+    nextBtnHandler = null;
+
+    clickPrevBtn() {
+        this.prevBtnHandler ? this.prevBtnHandler() : this.render.bind(this)
+    }
+    clickNextBtn() {
+        this.nextBtnHandler ? this.nextBtnHandler() : this.render.bind(this)
     }
 }

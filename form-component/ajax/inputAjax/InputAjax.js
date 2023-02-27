@@ -5,6 +5,6 @@ export default class InputAjax extends Component {
         this.$element.classList.add("mykl-input");
         const {data = "", options = {}, key = ""} = this.$data;
         const { value = "value"} = options;
-        this.$element.value = key ? data[key] : data[value];
+        this.$element.value = key ? data[key] : Object.keys(options).length ? data[value] : data;
     }
 }

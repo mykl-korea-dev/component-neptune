@@ -25,12 +25,14 @@ export default class Select extends Component {
         this.$element.querySelector('.select-group').innerHTML = this.setTemplate();
         let longestTextWidth = [...this.options].reduce((f, el) => {
             let textLength = 0;
-            [...el.textContent].forEach(text => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|A-Z|0-9]/.test(text) ? textLength+=2 : textLength++);
+            [...el.textContent].forEach(text => {
+                textLength += (text.match(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/)?.length || 0) * 2.5;
+                textLength += (text.match(/[A-Z|0-9]/)?.length || 0) * 2;
+                textLength += (text.match(/^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|A-Z|0-9]/)?.length || 0) * 1.5;
+            })
             return f < textLength ? textLength : f;
         }, 0);
-        this.$element.style.width = longestTextWidth * 0.635 + 1 + 'rem';
-        this.$element.querySelector('.select-selected').style.width = "100%";
-        this.$element.querySelector('.select-items').style.width = "100%";
+        this.$element.style.width = longestTextWidth * 0.5 + 1 + 'rem';
     }
 
     setEvents() {

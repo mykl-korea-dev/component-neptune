@@ -161,13 +161,14 @@ class AutoCompleteItem extends Component {
 export class UploadedAutoCompleteItem extends AutoCompleteItem {
     setElements() {
         this.$element.classList.add("mykl-auto-complete");
-        const { data, id, value } = this.$data;
+        const { data, id, value, options = {} } = this.$data;
+        const { id: optionId, value: optionValue } = options;
         this.duplicatedEl = this.$element.cloneNode('true');
-        this.originVal = data[value];
+        this.originVal = Object.keys(options).length ? data[optionValue] : data[value];
         this.duplicatedEl.querySelector('.btn-add').classList.add("btn-hide");
         this.duplicatedEl.querySelector('.btn-remove').classList.remove("btn-hide");
         this.duplicatedEl.querySelector('input[type=text]').value = this.originVal;
-        this.duplicatedEl.querySelector('input[type=hidden]').value = data[id];
+        this.duplicatedEl.querySelector('input[type=hidden]').value = Object.keys(options).length ? data[optionId] : data[id];
         this.duplicatedEl.querySelector('input[type=text]').setAttribute('autocomplete', 'off');
         this.duplicatedEl.querySelector('.auto-complete-list').style.width = this.$element.querySelector('.auto-complete-input input').getBoundingClientRect().width + 'px';
     }

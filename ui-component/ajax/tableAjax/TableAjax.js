@@ -42,8 +42,8 @@ export default class TableAjax extends Component {
                     let link;
                     if(linkType) {
                         if(typeof linkType === "function") {
-                            link = linkType(v[key]);
-                            link = Array.isArray(link) ? link.join(" ") : link;
+                            link = linkType(v);
+                            // link = Array.isArray(link) ? link.join(" ") : link;
                         } else if(typeof linkType === "string") {
                             link = linkType;
                         } else {

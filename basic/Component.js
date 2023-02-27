@@ -23,7 +23,7 @@ export default class Component {
     setEvents() {};
 
     setData(data) {
-        this.$data = Array.isArray(data) ? [...data] : {...data}
+        this.$data = Array.isArray(data) ? [...data] : {...this.$data, ...data}
         this.setElements();
         this.render();
     }

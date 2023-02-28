@@ -9,9 +9,9 @@ export default class Certificate extends Component {
                     <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
                 <div class="media-body" style="display: flex; flex-direction: column; justify-content: space-evenly; position: relative">
-                    <span class="fs-5" style="display: block">${data.certificate_name}</span>
+                    <span class="fw-bold" style="display: block">${data.certificate_name}</span>
                     <span class="lh-lg">${data.depincharge_name}</span>
-                    <div style="margin-top: 40px">
+                    <div class="mg10">
                         <a href="${data.qnetcert_url}" class="text-primary" target="_blank" style="text-decoration: underline">시행기관 자격정보 &gt;</a>
                     </div>
                 </div>

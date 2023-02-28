@@ -10,9 +10,11 @@ export default class Major extends Component {
                     <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
                 <div class="media-body" style="position: relative">
-                    <p class="fs-5 fw-bold text-dark">${data.organization_name}</p>
+                    <p class="fw-bold">${data.organization_name}</p>
                     <p class="lh-lg">${data.department_name}</p>
-                    <a href="https://${data.department_url}" target="_blank">학과정보 &gt;</a>
+                    <div class="mg10">
+                    <a href="https://${data.department_url}" class="text-primary" target="_blank" style="text-decoration: underline; display: inline-block;">학과정보 &gt;</a>                    
+                    </div>
                 </div>
             </li>
         `).join('');

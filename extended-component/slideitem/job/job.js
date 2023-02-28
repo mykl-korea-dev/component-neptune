@@ -9,10 +9,11 @@ export default class Job extends Component {
                     <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
                 <div class="media-body">
-                    <span class="fs-5" style="display: block">${data.subclass_name}</span>
-                    <span class="lh-lg">${data.class_name}</span>
-                    <span>연봉: ${data.class_level},000만원</span>                    
-                    <p style="margin-top: 40px">${data.class_description}</p>
+                    <span class="fw-bold" style="display: block">${data.subclass_name}</span>
+                    <span class="lh-lg" style="display: block">${data.class_name}</span>
+                    <div class="mg10">
+                        <span class="mykl-btn btn-primary-rev btn-round" style="pointer-events: none">연봉: ${data.class_level},000만원</span>                                            
+                    </div>
                 </div>
             </li>
         `).join('');

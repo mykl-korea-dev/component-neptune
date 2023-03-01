@@ -14,7 +14,7 @@ export default class Certificate extends Component {
                     <span class="fs-5" style="display: block">${data.certificate_name}</span>
                     <span class="lh-lg">${data.depincharge_name}</span>
                     <div style="margin-top: 40px">
-                        <a href="${data.qnetcert_url}" class="text-primary" target="_blank" style="text-decoration: underline">큐넷바로가기</a>
+                        <a href="https://${(data.qnetcert_url).replace(/http[s]?:\/\//,'')}" class="text-primary" target="_blank" style="text-decoration: underline">큐넷바로가기</a>
                     </div>
                 </div>
             </li>

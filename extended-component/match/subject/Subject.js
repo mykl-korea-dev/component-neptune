@@ -20,7 +20,7 @@ export default class Subject extends Component {
                             <span>훈련비용: ${data.training_cost || 0}</span>
                         </div> 
                         <div style="display:flex; flex-direction: column;">
-                            <a href="${data.institution_url}" style="text-decoration: underline" class="text-primary">${data.institution_url}</a>
+                            <a href="https://${(data.institution_url).replace(/http[s]?:\/\//,'')}" target="_blank" style="text-decoration: underline" class="text-primary">${data.institution_url}</a>
                             <span>${data.institution_tel}</span>
                             <p style="white-space: break-spaces">${data.address}</p>
                         </div>

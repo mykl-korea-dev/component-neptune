@@ -17,7 +17,7 @@ import {getDataset} from "../../../basic/utils.js";
 class AutoCompleteItem extends Component {
     setElements() {
         this.originVal = null;
-        this.$element.classList.add("mykl-auto-complete");
+        this.$element.classList.add("mykl-autoComplete");
         this.$element.querySelector('input[type=text]').setAttribute('autocomplete', 'off');
         this.$element.querySelector('.auto-complete-list').style.width = this.$element.querySelector('.auto-complete-input input').getBoundingClientRect().width + 'px';
     }
@@ -160,7 +160,7 @@ class AutoCompleteItem extends Component {
 
 export class UploadedAutoCompleteItem extends AutoCompleteItem {
     setElements() {
-        this.$element.classList.add("mykl-auto-complete");
+        this.$element.classList.add("mykl-autoComplete");
         const { data, id, value, options = {} } = this.$data;
         const { id: optionId, value: optionValue } = options;
         this.duplicatedEl = this.$element.cloneNode('true');

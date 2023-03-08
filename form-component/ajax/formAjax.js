@@ -14,14 +14,13 @@ export default class FormAjax extends Component {
                 const isDefaultText = this.$data.default?.[el.getAttribute('name')];
 
                 if(isConnectText || (isFormEl && el.checked && isConnectText)) {
-                    const isValue = isFormEl ? el.checked : el.value;
-                    if(isValue) {
+                    if((isFormEl && el.checked) || !isFormEl) {
                         if(/\[]/.test(isConnectText)) {
                             objs[key] = objs[key]
                                 ? [...objs[key], el.value] : [el.value];
                         } else {
-                            objs[key] = objs[key]
-                                ? objs[key] + isConnectText + el.value : el.value;
+                            objs[key] = el.value ?
+                                (objs[key] ? (objs[key] + isConnectText + el.value) : el.value) : objs[key] || "";
                         }
                     }
                 } else if(isFormEl && el.checked || !isFormEl) {

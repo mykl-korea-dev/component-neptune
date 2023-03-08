@@ -4,9 +4,9 @@ import { getDataset } from "../../../basic/utils.js";
 export default class PaginationAjax extends Component {
     setTemplate() {
         this.$element.classList.add("mykl-pagination");
-        const { options = {start, total, limit } } = this.$data;
-        const { start = "start", total="total", limit: optionLimit = "limit" } = options;
-        const { currentPage = this.$data[start], pageCount = this.$data[total], limit = this.$data[optionLimit] || 10 } = this.$data;
+        const { body = { start, total, limit } } = this.$data;
+        const { start = this.$data.start || 1, total= this.$data.total || 0, limit: bodyLimit = this.$data.limit || 10 } = body;
+        const { currentPage = body[start], pageCount = body[total], limit = body[bodyLimit] } = this.$data;
 
         const getFirstAndLastNumber = (option) => {
             return option ? this.setAlwaysCenter(currentPage, pageCount)
@@ -35,14 +35,14 @@ export default class PaginationAjax extends Component {
             headers: {
                 ...this.$data.headers,
             },
-            body: JSON.stringify(this.$data)
+            body: JSON.stringify(this.$data.body)
         }).then(res => res.json())
             .then(data => {
                 this.$data = {
                     ...this.$data,
                     ...data
                 }
-                this.$data.callback && this.$data.callback(this.$data);
+                this.$data.callback && this.$data.callback(this.$data.body);
                 this.$element.innerHTML = this.setTemplate();
             });
     }
@@ -50,8 +50,8 @@ export default class PaginationAjax extends Component {
     setEvents() {
         this.$element.addEventListener('click', ({target}) => {
             if(target.classList.contains('page-item')) {
-                const { limit } = this.$data;
-                this.$data['start'] = (+getDataset(target, 'page') - 1) * limit + 1;
+                const { limit } = this.$data.body;
+                this.$data.body['start'] = (+getDataset(target, 'page') - 1) * limit + 1;
                 this.render();
             }
         })

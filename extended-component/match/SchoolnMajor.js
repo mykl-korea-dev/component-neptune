@@ -1,6 +1,6 @@
-import Component from "../../../basic/Component.js";
-import Tab from "../../../ui-component/tab/tab.js";
-import {getData} from "../../../basic/utils.js";
+import Component from "../../basic/Component.js";
+import Tab from "../../ui-component/tab/tab.js";
+import {getData} from "../../basic/utils.js";
 
 export default class Major extends Component {
     setTemplate() {
@@ -10,7 +10,7 @@ export default class Major extends Component {
                     <img src="${data.image_url}" alt="${data.image_alt}">
                 </div>
                 <div class="media-body" style="position: relative">
-                    ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
+                    ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">매칭률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
                     <p class="fs-5 fw-bold text-dark">${data.organization_name}</p>
                     <p class="lh-lg">${data.department_name}</p>
                     <div style="display: flex; margin: 20px 0" class="mg20 pd10 lh-sm">

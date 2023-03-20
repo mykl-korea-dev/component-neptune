@@ -165,6 +165,7 @@ export default function Doughnut($element, $data) {
 
     const myChart = new Chart(ctx, config);
     handler(myChart);
+
     this.setData = (data) => {
         $data = {...$data, ...data};
         handler(myChart);

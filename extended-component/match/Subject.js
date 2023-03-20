@@ -1,13 +1,13 @@
-import Component from "../../../basic/Component.js";
-import Tab from "../../../ui-component/tab/tab.js";
-import {getData} from "../../../basic/utils.js"
+import Component from "../../basic/Component.js";
+import Tab from "../../ui-component/tab/tab.js";
+import {getData} from "../../basic/utils.js"
 
 export default class Subject extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="mykl-media">
                 <div class="media-body" style="position: relative">
-                    ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
+                    ${data.rate ? `<span style="position: absolute; top: 10px; right: 10px;">매칭률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
                     <div>
                         <h3 class="fs-5 fw-bold mg10">${data.name}</h3>
                         <p>${data.institution_name}</p>
@@ -34,12 +34,3 @@ export default class Subject extends Component {
         this.$element.innerHTML = this.setTemplate();
     }
 }
-
-// new Tab(document.querySelector('#subjects'));
-
-// getData("http://localhost:3000/subject", (data) => {
-//     new Subject(document.querySelector('#subject'), data);
-//     // new Tab(document.querySelector('#subjects'));
-// });
-
-

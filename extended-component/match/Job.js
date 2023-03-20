@@ -1,11 +1,13 @@
-import Component from "../../../basic/Component.js";
+import Component from "../../basic/Component.js";
 
 export default class Job extends Component {
     setTemplate() {
         return this.$data.map(data => `
             <li class="mykl-media">
                 <div class="media-body">
-                    ${data.rate ? `<span class="lh-lg">적중률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                    
+                    <div class="text-end">
+                    ${data.rate ? `<span class="lh-lg">매칭률: ${(data.rate * 100).toFixed(2)}%</span>` : ""}                                        
+                    </div>
                     <div style="display: flex; justify-content: space-between">
                         <div>
                             <span class="fs-5" style="display: block">${data.subclass_name}</span>

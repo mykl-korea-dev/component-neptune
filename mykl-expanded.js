@@ -1,17 +1,10 @@
-// import ImageSlide from "./component-set/imageSlide/ImageSlide.js";
 import MajorSlide from "./extended-component/slideitem/major/major.js";
 import JobSlide from "./extended-component/slideitem/job/job.js";
 import ExpertSlide from "./extended-component/slideitem/expert/expert.js";
 import EducationSlide from "./extended-component/slideitem/education/education.js";
 import CertificateSlide from "./extended-component/slideitem/certificate/certificate.js";
-import {getData} from "./basic/utils.js";
-import Job from "./extended-component/match/job/Job.js";
-import Certificate from "./extended-component/match/certificate/Certificate.js";
-
-// import './extended-component/match/subject/subject.css';
-// import './extended-component/match/schoolnmajor/schoolnmajor.css';
-// import './extended-component/match/job/job.css';
-// import './extended-component/match/certificate/certificate.css';
+import Job from "./extended-component/match/Job.js";
+import Certificate from "./extended-component/match/Certificate.js";
 
 import DutyList from "./extended-component/ability/DutyList.js";
 import AbilityCommon from "./extended-component/ability/AbilityCommon.js";
@@ -27,11 +20,11 @@ import BarChart from "./extended-component/ability/BarChart.js";
 import AbilityResult from "./extended-component/ability/AbilityResult.js";
 import ResultContent from "./extended-component/ability/ResultContent.js";
 import AbilityImprovement from "./extended-component/ability/AbilityImprovement.js";
-import Major from "./extended-component/match/schoolnmajor/SchoolnMajor.js";
-import Subject from "./extended-component/match/subject/Subject.js";
+
+import Major from "./extended-component/match/SchoolnMajor.js";
+import Subject from "./extended-component/match/Subject.js";
 import AbilityResultInfo from "./extended-component/match/AbilityResultInfo.js";
 import Expert from "./extended-component/match/Expert.js";
-import StateProcess from "./extended-component/mypage/StateProcess/StateProcess.js";
 import StateProcessGroup from "./extended-component/mypage/StateProcess/StateProcess.js";
 
 import './extended-component/mypage/StateProcess/stateProcess.css';

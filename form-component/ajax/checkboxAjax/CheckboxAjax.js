@@ -13,8 +13,8 @@ export default class CheckboxAjax extends Component{
                 const {id="id", value="value", checked="checked", trueChecked = 'Y' } = options;
                 return `
                 <div class="mykl-check">
-                    <input class="check-input" type="checkbox" name="${this.name}" id="check-${data[id]}" value="${data[id]}"  ${data[checked] === trueChecked ? "checked" : ''}>
-                    <label class="check-label" for="check-${data[id]}">${data[value]}</label>
+                    <input class="check-input" type="checkbox" name="${this.name || data[name]}" id="${this.name || data[name]}-${data[id]}" value="${data[id]}"  ${data[checked] === trueChecked ? "checked" : ''}>
+                    <label class="check-label" for="${this.name || data[name]}-${data[id]}">${data[value]}</label>
                 </div>
             `
             }).join('');

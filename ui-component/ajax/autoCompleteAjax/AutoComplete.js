@@ -164,7 +164,7 @@ export class UploadedAutoCompleteItem extends AutoCompleteItem {
         const { data, id, value, options = {} } = this.$data;
         const { id: optionId, value: optionValue } = options;
         this.duplicatedEl = this.$element.cloneNode('true');
-        this.originVal = Object.keys(options).length ? data[optionValue] : data[value];
+        this.originVal = Object.keys(options).length ? (data[optionValue] || data[optionId]) : data[value];
         this.duplicatedEl.querySelector('.btn-add').classList.add("btn-hide");
         this.duplicatedEl.querySelector('.btn-remove').classList.remove("btn-hide");
         this.duplicatedEl.querySelector('input[type=text]').value = this.originVal;

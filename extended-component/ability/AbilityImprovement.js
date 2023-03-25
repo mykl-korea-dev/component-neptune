@@ -44,13 +44,13 @@ export default class AbilityImprovement extends Component {
         this.$element.innerHTML = this.setTemplate();
         this.$element.querySelectorAll("canvas").forEach(el => {
             const abilityId = getDataset(el, 'ability').replace("ability", "");
-            const sortedData = [...this.$data.store.getState().hierarchy[abilityId]].sort((first, second) => (+first["ability_my_gap"]) < (+second["ability_my_gap"]) ? -1 : 1).filter(v => (+v["ability_my_gap"]) < 0);
+            const sortedData =  [...this.$data.store.getState().hierarchy[abilityId]].filter(v => (+v["ability_my_gap"]) < 0);
             new BarChart(el, {
                 ability_id: abilityId,
                 store: this.$data.store,
                 datalabels: sortedData.map(v => v['ability_name']),
                 labels: ["기준 점수", "내 점수"],
-                input: sortedData
+                inputs: sortedData
             })
         })
     }

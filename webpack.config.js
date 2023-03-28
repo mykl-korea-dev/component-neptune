@@ -10,7 +10,7 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: [ "./mykl-default", "./mykl-ajax"] },
+    entry: { polyfill: ["./polyfill", "whatwg-fetch", "@babel/polyfill"], mykl_ui: [ "./mykl-default", "./mykl-ajax"], mykl_extended: ["./mykl-extended"] },
     output: {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[name][ext]',

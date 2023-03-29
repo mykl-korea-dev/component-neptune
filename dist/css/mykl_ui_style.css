@@ -523,7 +523,7 @@ a {
     cursor: pointer;
     width: 22px;
     height: 22px;
-    background: url(/images/pass_eye.png);
+    background: url(../images/pass_eye.png);
     text-indent: -9999px;
 }
 
@@ -1226,22 +1226,22 @@ a {
 }
 
 .emotion-good {
-    background: url(/images/emoji-smile.svg) no-repeat center;
+    background: url(../images/emoji-smile.svg) no-repeat center;
 }
 .emotion-sad {
-    background: url(/images/emoji-frown.svg) no-repeat center;
+    background: url(../images/emoji-frown.svg) no-repeat center;
 }
 .emotion-like {
-    background: url(/images/emoji-heart-eyes.svg) no-repeat center;
+    background: url(../images/emoji-heart-eyes.svg) no-repeat center;
 }
 .emotion-bad {
-    background: url(/images/emoji-angry.svg) no-repeat center;
+    background: url(../images/emoji-angry.svg) no-repeat center;
 }
 .emotion-thumbsUp {
-    background: url(/images/hand-thumbs-up.svg) no-repeat center;
+    background: url(../images/hand-thumbs-up.svg) no-repeat center;
 }
 .emotion-thumbsDown {
-    background: url(/images/hand-thumbs-down.svg) no-repeat center;
+    background: url(../images/hand-thumbs-down.svg) no-repeat center;
 }
 
 .mykl-img img {
@@ -1588,13 +1588,13 @@ figure.mykl-img img {
 }
 
 .star-fill {
-    background: url(/images/star-fill.svg) no-repeat;
+    background: url(../images/star-fill.svg) no-repeat;
 }
 .star-half {
-    background: url(/images/star-half.svg) no-repeat;
+    background: url(../images/star-half.svg) no-repeat;
 }
 .star-empty {
-    background: url(/images/star.svg) no-repeat;
+    background: url(../images/star.svg) no-repeat;
 }
 .step {
     width: 150px;

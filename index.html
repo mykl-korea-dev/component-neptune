@@ -6,12 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MYKL Component</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
     <style>
         html {
             font-size: 16px;
@@ -618,11 +619,6 @@ document.querySelectorAll('.static-code').forEach(el => {
     el.nextElementSibling.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
 })
 
-</script>
-<script src="dist/js/mykl_ui.js"></script>
-<script>
-
-    // MYKL.setRootColor("--primary", "pink");
 </script>
 </body>
 </html>

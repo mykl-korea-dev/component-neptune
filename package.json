@@ -1,8 +1,8 @@
 {
-  "name": "neptune-component",
-  "version": "1.0.0",
+  "name": "component-neptune",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/mykl_ui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "data": "json-server data.json --port 3000 --routes routes.json",
@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "files": [
+    "dist/**"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.9",

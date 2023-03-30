@@ -15,13 +15,14 @@ module.exports = {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[name][ext]',
         path: path.resolve(__dirname, "dist"),
-        publicPath: "./dist",
+        publicPath: "/dist/",
         clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: "./index.html",
-            filename: "./index.html"
+            filename: "./index.html",
+            inject: "body"
         }),
         new HtmlWebpackPlugin({
             template: "./ajax.html",
@@ -50,7 +51,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '/'
+                            publicPath: '../'
                         },
                     },
                     // 'style-loader',
@@ -74,20 +75,9 @@ module.exports = {
             // }
         ]
     },
-    // optimization: {
-    //     runtimeChunk: "single"
-    //     // minimize: true,
-    //     // minimizer: [new TerserPlugin({
-    //     //     minify: TerserPlugin.uglifyJsMinify,
-    //     //     terserOptions: {
-    //     //         compress: {unused: false},
-    //     //         mangle: { keep_fnames: true }
-    //     //     }
-    //     // })]
-    // },
     devServer: {
-        devMiddleware: {publicPath: "/dist"},
-        static: {directory: path.join(__dirname)},
+        static: {directory: path.join(__dirname, "/dist")},
+        port: 3001,
         hot: true,
     }
 }

@@ -11,7 +11,7 @@
     top: 50%;
     margin-top: -8px;
     content: "";
-    background: url(/images/icon_completion.png) no-repeat;
+    background: url(../images/icon_completion.png) no-repeat;
 }
 
 .response + .response {

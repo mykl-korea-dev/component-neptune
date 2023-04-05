@@ -2,7 +2,7 @@
   "name": "component-neptune",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/mykl_ui.js",
+  "main": "dist/js/mykl_ui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "data": "json-server data.json --port 3000 --routes routes.json",

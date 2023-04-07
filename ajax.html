@@ -11,8 +11,8 @@
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <script src="dist/js/mykl_ui.js"></script>
     <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
+    <script src="./dist/js/mykl_ui.js"></script>
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -42,9 +42,11 @@
             margin-top: 20px;
         }
 
-        script.static-code {
+        .script-code {
             display: none;
         }
+
+
     </style>
     <script>
         const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io";
@@ -63,12 +65,12 @@
             <h2>컴포넌트 세팅</h2>
             <section>
                 <h3 id="Set-Component">SetComponent: 동적 컴포넌트 세팅</h3>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponet('url', (data) => {
         MYKL.Component(#id, data);
     })
 
-    // 또는
+    또는
     fetch('url')
         .then(res => res.json())
         .then(data => {
@@ -110,7 +112,7 @@
         <button type="submit" class="form-submit-btn mykl-btn btn-primary">제출</button>
     </form>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     const submitFn = async (bodyData) => {
         const res = await fetch('url', {
             method: "POST",
@@ -127,7 +129,7 @@
                 <div class="static-code">
     <input type="text" name="name" id="inputId">
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/input', (data) => {
         MYKL.InputAjax('#inputId', {data, key: "text"});
     })
@@ -140,7 +142,7 @@
         <input class="radio-input" type="radio" name="radio">
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/radio', (data) => {
         const options = {
             id: "radio_id",
@@ -157,7 +159,7 @@
                         <input class="check-input" type="checkbox" name="checkbox">
                     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/checkbox', (data) => {
         const options = {
             id: "checkbox_id",
@@ -176,7 +178,7 @@
         <input type="date" name="calendar" class="calendar-input">
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/calendar', (data) => {
         MYKL.CalendarAjax("#calendarId", {date: data.date});
     })
@@ -189,7 +191,7 @@
         <input type="time" name="time" class="time-input">
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/time', (data) => {
         MYKL.TimeAjax("#timeId", {time: data.time})
     })
@@ -203,7 +205,7 @@
         <input type="range" name="max" class="input-right" value="maxValue">
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/range', (data) => {
         MYKL.RangeAjax("#rangeId", data)
     })
@@ -218,7 +220,7 @@
         </select>
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/select', (data) => {
         const options = {
             id: "select_id",
@@ -234,7 +236,7 @@
     <div id="textareaId">
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/textarea', (data) => {
         MYKL.TextareaAjax("#textareaId", {data, key: "content"})
     })
@@ -246,9 +248,11 @@
             <section>
                 <h3 id="Button-Component">Button Component</h3>
                 <div class="static-code">
-    --
+    <button type="button" id="btnId" class="mykl-btn btn-primary">제출</button>
                 </div>
+
             </section>
+
             <section>
                 <h3 id="Progress-Component">Progress Component</h3>
                 <div class="static-code">
@@ -256,7 +260,7 @@
         <div class="progress-bar"></div>
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/progress', (data) => {
         const options = {
             min: "minimum",
@@ -287,7 +291,7 @@
         </tbody>
     </table>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     MYKL.SetComponents(url + '/table', (data) => {
         const options = {
             colOrder: ["sn", "title", "create_date"],
@@ -311,17 +315,17 @@
     <div id="paginationId">
     </div>
                 </div>
-                <script class="static-code">
+                <script class="script-code">
     const options = {
         start: "start",
         total: "total",
         limit: "limit"
     }
-    MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})
+    // MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})
                 </script>
             </section>
             <section>
-                <h3 id="Navigation-Component">Navigation Component</h3>
+                <h3 id="Navigcalation-Component">Navigation Component</h3>
                 <div class="static-code">
     --
                 </div>
@@ -402,7 +406,7 @@ document.querySelectorAll('div.static-code').forEach(el => {
     el.parentElement.appendChild(div);
     div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
 });
-document.querySelectorAll('script.static-code').forEach(el => {
+document.querySelectorAll('.script-code').forEach(el => {
     const div = document.createElement('div');
     div.classList.add('static-code-copy');
     div.innerHTML = `
@@ -414,6 +418,5 @@ document.querySelectorAll('script.static-code').forEach(el => {
     div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
 });
 </script>
-<script src="dist/js/mykl_ui.js"></script>
 </body>
 </html>

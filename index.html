@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
@@ -43,6 +44,10 @@
 
         .static-code > * {
             margin-top: 20px;
+        }
+
+        .script-code {
+            display: none;
         }
     </style>
 </head>
@@ -182,6 +187,32 @@
             <section>
                 <h3 id="Button-Component">Button Component</h3>
                 <section>
+<h4>기능(function)</h4>
+<div class="static-code">
+    <button type="button" class="mykl-btn btn-primary" id="btn">button</button>
+    <button type="button" class="mykl-btn btn-primary-rev">button</button>
+    <button type="button" class="mykl-btn btn-secondary">button</button>
+    <button type="button" class="mykl-btn btn-dark">button</button>
+</div>
+                </section>
+                <section>
+<div class="script-code">
+    // 메서드
+    click()
+    add(selector)
+    remove(selector)
+    toggle(selector)
+    submit({
+    url="",
+    method = "GET",
+    headers = {},
+    type = "json",
+    body = null,
+    callback = (data) => {},
+    })
+</div>
+                </section>
+                <section>
                     <h4>상태(state)</h4>
 <div class="static-code">
     <button type="button" class="mykl-btn btn-primary">button</button>
@@ -221,6 +252,7 @@
                     <h4>상태</h4>
 <div class="static-code">
     <div class="mykl-progress" data-min="0" data-max="100" data-value="30">
+        <input type="number" min="0" max="100" value="30">
         <div class="progress-bar"></div>
     </div>
     <div class="mykl-progress progress-secondary" data-min="0" data-max="100" data-value="40">
@@ -581,6 +613,7 @@
         </section>
     </article>
 </div>
+<script src="./dist/js/mykl_ui.js"></script>
 <script>
 // aside 메뉴 이동
 const asideNav = document.querySelector('#aside-nav');
@@ -614,10 +647,17 @@ document.querySelectorAll('div.static-code').forEach(el => {
     div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
 });
 
-// html 문서 넣기
-document.querySelectorAll('.static-code').forEach(el => {
-    el.nextElementSibling.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
-})
+document.querySelectorAll('.script-code').forEach(el => {
+    const div = document.createElement('div');
+    div.classList.add('static-code-copy');
+    div.innerHTML = `
+        <pre>
+            <code class="javascript html-wrapper"></code>
+        </pre>
+    `;
+    el.parentElement.appendChild(div);
+    div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
+});
 
 </script>
 </body>

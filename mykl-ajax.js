@@ -3,6 +3,13 @@ import CheckboxAjax from "./form-component/ajax/checkboxAjax/CheckboxAjax.js";
 import RadioAjax from "./form-component/ajax/radioAjax/RadioAjax.js";
 import RangeAjax from "./form-component/ajax/rangeAjax/RangeAjax.js";
 import SelectAjax from "./form-component/ajax/selectAjax/SelectAjax.js";
+import FileAjax from "./form-component/ajax/FileAjax.js";
+import FormAjax from "./form-component/ajax/formAjax.js";
+import CalendarAjax from "./form-component/ajax/calendarAjax/CalendarAjax.js";
+import InputAjax from "./form-component/ajax/inputAjax/InputAjax.js";
+import TimeAjax from "./form-component/ajax/timeAjax/TimeAjax.js";
+import TextareaAjax from "./form-component/ajax/textareaAjax/TextareaAjax.js";
+
 import AccordionAjax from "./ui-component/ajax/accordionAjax/AccordionAjax.js";
 import DropdownAjax from "./ui-component/ajax/dropdownAjax/DropdownAjax.js";
 import ProcessAjax from "./ui-component/ajax/processAjax/ProcessAjax.js";
@@ -10,12 +17,6 @@ import ProgressAjax from "./ui-component/ajax/progressAjax/ProgressAjax.js";
 import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
 import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js";
 import TabAjax from "./ui-component/ajax/tabAjax/TabAjax.js";
-import FileAjax from "./form-component/ajax/FileAjax.js";
-import FormAjax from "./form-component/ajax/formAjax.js";
-import CalendarAjax from "./form-component/ajax/calendarAjax/CalendarAjax.js";
-import InputAjax from "./form-component/ajax/inputAjax/InputAjax.js";
-import TimeAjax from "./form-component/ajax/timeAjax/TimeAjax.js";
-import TextareaAjax from "./form-component/ajax/textareaAjax/TextareaAjax.js";
 import TagAjax from "./ui-component/ajax/tagAjax/TagAjax.js";
 import TableAjax from "./ui-component/ajax/tableAjax/TableAjax.js";
 import MediaAjax from "./component-set/ajax/mediaAjax/MediaAjax.js";
@@ -72,9 +73,7 @@ let MYKLAjax = {
     ProcessAjax: function (selector, data) {
         return new ProcessAjax(document.querySelector(selector), data)
     },
-    ProgressAjax: function (selector, data) {
-        return new ProgressAjax(document.querySelector(selector), data)
-    },
+    ProgressAjax: returnComponent(ProgressAjax),
     StarAjax: function (selector, data) {
         return new StarAjax(document.querySelector(selector), data)
     },

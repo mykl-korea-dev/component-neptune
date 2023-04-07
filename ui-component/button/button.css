@@ -19,6 +19,10 @@
     opacity: 0.8;
 }
 
+.mykl-btn:focus {
+
+}
+
 /* 크기 */
 .btn-sm {
     min-width: 50px;

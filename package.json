@@ -1,7 +1,7 @@
 {
   "name": "component-neptune",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.3",
+  "description": "MYKL COMPONENT",
   "main": "dist/js/mykl_ui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,10 +11,12 @@
     "dev": "webpack-dev-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "eunung",
   "license": "ISC",
   "files": [
-    "dist/**"
+    "dist/**",
+    "index.html",
+    "ajax.html"
   ],
   "devDependencies": {
     "@babel/cli": "^7.18.9",

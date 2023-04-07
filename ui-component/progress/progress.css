@@ -5,6 +5,10 @@
     max-height: 50px;
 }
 
+.mykl-progress input {
+    display: none;
+}
+
 .progress-bar {
     position: relative;
     color: var(--primary);

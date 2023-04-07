@@ -6,12 +6,18 @@
     <link rel="stylesheet" href="./progress.css">
 </head>
 <body>
-    <div class="mykl-progress" data-min="0" data-max="100" data-value="30">
-        <div class="progress-bar"></div>
+    <div id="progress" class="mykl-progress">
+        <input type="number" min="0" max="10" value="2.66">
     </div>
-<!--    <div class="mykl-progress" >-->
-<!--        <div class="progress-bar"></div>-->
-<!--    </div>-->
-    <script src="./Progress.js" type="module"></script>
+    <button type="button" style="margin-top: 10px">버튼</button>
+    <script type="module">
+        import Progress from "./Progress.js";
+
+        const first = new Progress(document.querySelector('.mykl-progress'));
+
+        document.querySelector('button').addEventListener('click', () => {
+            first.change({min: 5, max: 9, value: 6});
+        });
+    </script>
 </body>
 </html>

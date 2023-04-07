@@ -6,14 +6,27 @@
     <link rel="stylesheet" href="../../progress/progress.css">
 </head>
 <body>
-<div class="progress-ajax">
-    <div class="progress-bar"></div>
+<div id="progress" class="progress-ajax">
+    <input type="number" min="$minimum" max="$maximum" value="$value">
 </div>
+<button type="button" style="margin-top: 20px">버튼</button>
 <script type="module">
     import ProgressAjax from "./ProgressAjax.js";
-    import {getData} from "../../../basic/utils,js";
+    import {getData} from "../../../basic/utils.js";
+    const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io";
 
-    getData("http://localhost:3000/progress", (data) => new ProgressAjax(document.querySelector('.progress-ajax'), data));
+    let a = null;
+    getData(url + "/progress", (data) =>
+        a = new ProgressAjax(document.querySelector('#progress'), data)
+    );
+
+    document.querySelector('button').addEventListener('click', () => {
+        a.change({
+            min: 0,
+            max: 100,
+            value: 10
+        })
+    })
 </script>
 
 </body>

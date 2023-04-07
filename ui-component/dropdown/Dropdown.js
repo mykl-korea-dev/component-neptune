@@ -15,5 +15,3 @@ export default class Dropdown extends Component {
         })
     }
 }
-
-// document.querySelectorAll('.mykl-dropdown').forEach(el => new Dropdown(el));

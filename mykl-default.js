@@ -1,65 +1,32 @@
+// Form
+import InputPassword from "./form-component/input/InputPassword.js";
 import Calendar from './form-component/calendar/Calendar.js';
-// import File from './form-component/file/File.js';
 import Range from './form-component/range/Range.js';
 import Select from './form-component/select/Select.js';
 import Textarea from './form-component/textarea/Textarea.js';
 import Time from './form-component/time/Time.js';
 
+// UI
 import Accordion from "./ui-component/accordion/Accordion.js";
-import ButtonLink from "./ui-component/button/Button.js";
-import Dropdown from "./ui-component/dropdown/Dropdown.js";
 import Emotion from "./ui-component/emotion/emotion.js";
 import Navigation from "./ui-component/navigation/Navigation.js";
 import Process from "./ui-component/process/Process.js";
 import Progress from "./ui-component/progress/Progress.js";
 import Star from "./ui-component/star/Star.js";
 import Tab from "./ui-component/tab/tab.js";
-// import Tag from "./ui-component/tag/Tag.js";
+import Loading from "./ui-component/loading/Loading.js";
 
-import './basic/common.css'
-import './form-component/calendar/calendar.css';
-import './form-component/checkbox/checkbox.css';
-import './form-component/file/file.css';
-import './form-component/form-group/form-group.css';
-import './form-component/input/input.css';
-import './form-component/radio/radio.css';
-import './form-component/range/range.css';
-import './form-component/select/select.css';
-import './form-component/textarea/textarea.css';
-import './form-component/time/time.css';
-
-import './ui-component/accordion/accordion.css';
-import './ui-component/button/button.css';
-import './ui-component/dropdown/dropdown.css';
-import './ui-component/emotion/emotion.css';
-import './ui-component/img/img.css';
-import './ui-component/navigation/navigation.css';
-import './ui-component/pagination/pagination.css';
-import './ui-component/process/process.css';
-import './ui-component/progress/progress.css';
-import './ui-component/star/star.css';
-import './ui-component/step/step.css';
-import './ui-component/tab/tab.css';
-import './ui-component/table/table.css';
-import './ui-component/tag/tag.css';
-import './ui-component/text/text.css';
-import './ui-component/tooltip/tooltip.css';
-import "./ui-component/linkBox/linkGroup.css";
-import './ui-component/loading/loading.css';
-
+// Set
 import ContextMessage from "./component-set/message/ContextMessage.js";
-import './component-set/message/message.css';
-import './component-set/card/card.css';
-import './component-set/imageSlide/imageSlide.css';
-import './component-set/media/media.css';
-import './component-set/message/message.css';
-import './component-set/modal/modal.css';
+import Modal from "./component-set/modal/Modal.js";
+import PostSearch from "./component-set/postSearch/PostSearch.js";
 
-import "./polyfill.js";
-import Modal from "./component-set/modal/Modal";
-import PostSearch from "./component-set/postSearch/PostSearch";
-import InputPassword from "./form-component/input/InputPassword";
-import Loading from "./ui-component/loading/Loading";
+// Style
+import './basic/common.css'
+import './form-component/form_style.css';
+import './ui-component/ui_style.css';
+import './component-set/set_style.css';
+import Button from "./ui-component/button/Button";
 
 export function setRootColor(nameOrObj="", color="") {
     if(color === "") {
@@ -70,7 +37,7 @@ export function setRootColor(nameOrObj="", color="") {
 }
 
 export const returnComponent = (component) => {
-    return (selector, data) => {
+    return (selector, data=[]) => {
         if(!MYKL[selector]) {
             MYKL[selector] = new component(document.querySelector(selector), data);
         } else {
@@ -113,11 +80,10 @@ const MYKLBasic = {
         return new Time(el);
     },
     // ui --------------------------------------------------
+    Button: returnComponent(Button),
+    Progress: returnComponent(Progress),
     Accordion: function (el) {
         return new Accordion(el);
-    },
-    ButtonLink: function (el) {
-        return new ButtonLink(el);
     },
     // Dropdown: function (el) {
     //     return new Dropdown(el);
@@ -131,9 +97,7 @@ const MYKLBasic = {
     Process: function (el) {
         return new Process(el);
     },
-    Progress: function (el) {
-        return new Progress(el);
-    },
+
     Star: function (el) {
         return new Star(el);
     },
@@ -166,7 +130,6 @@ document.querySelectorAll('.mykl-time').forEach(el => MYKL.Time(el));
 
 document.querySelectorAll('.mykl-accordion').forEach(el => MYKL.Accordion(el));
 document.querySelectorAll('.mykl-auto-complete').forEach(el => MYKL.AutoComplete(el));
-document.querySelectorAll('.mykl-btn[data-href]').forEach(el => MYKL.ButtonLink(el));
 // document.querySelectorAll('.mykl-dropdown').forEach(el => MYKL.Dropdown(el));
 document.querySelectorAll('.mykl-emotion').forEach(el => MYKL.Emotion(el));
 document.querySelectorAll('.mykl-navbar').forEach(el => MYKL.Navigation(el));

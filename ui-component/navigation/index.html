@@ -8,105 +8,91 @@
     <link rel="stylesheet" href="../dropdown/dropdown.css">
 </head>
 <body>
-<nav class="navbar">
-    <a href="#" class="nav-brand">
+<nav class="mykl-nav">
+    <a href="#" class="nav-logo-cover">
         <img src="https://via.placeholder.com/100x60">
-        <span>Component</span>
+        <span class="nav-logo">Component</span>
     </a>
-    <button class="nav-toggle">
-        <span class="nav-hamburger"></span>
-    </button>
-    <ul class="nav">
+    <ul class="nav-item">
         <li>
             <a href="#">Home</a>
-            <!--                <ul class="nav-menu">-->
-            <!--                    <li>Home</li>-->
-            <!--                    <li>Home2</li>-->
-            <!--                    <li>Home3</li>-->
-            <!--                    <li>Home4</li>-->
-            <!--                    <li>Home5</li>-->
-            <!--                </ul>-->
+            <div class="nav-list-outer">
+                <ul class="nav-list">
+                    <li><a href="#">123</a></li>
+                    <li><a href="#">23424</a></li>
+                    <li><a href="#">dfgfgd</a></li>
+                    <li><a href="#">asdfasfd</a></li>
+                </ul>
+            </div>
         </li>
         <li>
             <a href="#">AAA</a>
-            <!--                <ul class="nav-menu">-->
-            <!--                    <li>AAA1</li>-->
-            <!--                    <li>AAA2</li>-->
-            <!--                    <li>AAA3</li>-->
-            <!--                    <li>AAA4</li>-->
-            <!--                </ul>-->
         </li>
         <li>
             <a href="#">BBB</a>
-            <!--                <ul class="nav-menu">-->
-            <!--                    <li>BBB1</li>-->
-            <!--                    <li>BBB2</li>-->
-            <!--                    <li>BBB3</li>-->
-            <!--                    <li>BBB4</li>-->
-            <!--                </ul>-->
         </li>
         <li>
             <a href="#">CCC</a>
-            <!--                <ul class="nav-menu">-->
-            <!--                    <li>CCC1</li>-->
-            <!--                    <li>CCC2</li>-->
-            <!--                    <li>CCC3</li>-->
-            <!--                    <li>CCC4</li>-->
-            <!--                </ul>-->
         </li>
         <li>
             <a href="#">DDD</a>
-            <!--                <ul class="nav-menu">-->
-            <!--                    <li>DDD1</li>-->
-            <!--                    <li>DDD2</li>-->
-            <!--                    <li>DDD3</li>-->
-            <!--                    <li>DDD4</li>-->
-            <!--                </ul>-->
+        </li>
+    </ul>
+    <ul class="nav-item">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">AAA</a>
+        </li>
+        <li>
+            <a href="#">BBB</a>
+        </li>
+        <li>
+            <a href="#">CCC</a>
+        </li>
+        <li>
+            <a href="#">DDD</a>
         </li>
     </ul>
 </nav>
 
-<nav class="navbar">
-    <a href="../dropdown/index.html" class="nav-brand">
+<nav class="mykl-nav">
+    <a href="../dropdown/index.html" class="nav-logo-cover">
         <img src="https://via.placeholder.com/50x30" alt="">
-        Navbar
+        <span class="nav-logo">Navbar</span>
     </a>
-    <button class="nav-toggle">
-        <span class="nav-hamburger"></span>
-    </button>
-    <ul class="nav">
-        <li class="nav-item">
+    <ul class="nav-item">
+        <li>
             <a class="nav-link active" aria-current="page" href="#">Active</a>
         </li>
-        <li class="nav-item">
+        <li>
             <a class="nav-link" href="#">Link</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="mykl-dropdown">
             <a href="#"  class="dropdown-toggle">정보검색</a>
-            <ul class="dropdown-menu">
-                <li  class="dropdown-item">
-                    <a href="#">학교/학과 정보</a>
-                </li>
-                <li  class="dropdown-item">
-                    <a href="#">자격증 정보</a>
-                </li>
-                <li  class="dropdown-item">
-                    <a href="#">직업 정보</a>
-                </li>
-                <li  class="dropdown-item">
-                    <a href="#">전문가 정보</a>
-                </li>
-            </ul>
+            <div class="dropdown-menu-outer">
+                <ul class="dropdown-menu">
+                    <li  class="dropdown-item">
+                        <a href="#" class="dropdown-text">학교/학과 정보</a>
+                    </li>
+                    <li  class="dropdown-item">
+                        <a href="#" class="dropdown-text">자격증 정보</a>
+                    </li>
+                    <li  class="dropdown-item">
+                        <a href="#" class="dropdown-text">직업 정보</a>
+                    </li>
+                    <li  class="dropdown-item">
+                        <a href="#" class="dropdown-text">전문가 정보</a>
+                    </li>
+                </ul>
+            </div>
         </li>
-        <li class="nav-item">
+        <li>
             <a class="nav-link disabled">Disabled</a>
         </li>
     </ul>
 </nav>
-<script src="./Navigation.js" type="module"></script>
-<script type="module">
-    import Dropdown from'../dropdown/Dropdown.js';
-    new Dropdown(document.querySelector('.dropdown'));
-</script>
+
 </body>
 </html>

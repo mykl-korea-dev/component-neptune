@@ -20,10 +20,10 @@
     opacity: 0;
 }
 
-.mykl-tooltip:hover .tooltip-icon::after, .mykl-tooltip:hover  .tooltip-content,
-.mykl-tooltip:hover .tooltip-icon::after, .mykl-tooltip:focus  .tooltip-content,
-.mykl-tooltip:focus .tooltip-icon::after, .mykl-tooltip:hover  .tooltip-content
-.mykl-tooltip:focus .tooltip-icon::after, .mykl-tooltip:focus  .tooltip-content{
+.mykl-tooltip:hover .tooltip-icon::after,
+.mykl-tooltip:hover  .tooltip-content,
+.mykl-tooltip:focus .tooltip-icon::after,
+.mykl-tooltip:focus  .tooltip-content ß{
     display: block;
     opacity: 1;
 }
@@ -36,20 +36,21 @@
     z-index: 2;
 }
 
-.tooltip-right .tooltip-icon::after {
+.mykl-tooltip.tooltip-right .tooltip-icon::after {
     border-color:  transparent #fff transparent transparent;
     top: 50%;
     right: -10px;
     transform: translateY(-50%);
 }
 
-.tooltip-right .tooltip-content {
+.mykl-tooltip.tooltip-right .tooltip-content {
     top: 0;
     left: 100%;
     transform: translateX(10px) translateY(-10px);
+    height: max-content;
 }
 
-.tooltip-left .tooltip-icon::after {
+.mykl-tooltip.tooltip-left .tooltip-icon::after {
     border: 5px solid;
     border-color:  transparent transparent transparent #fff;
     top: 50%;
@@ -57,33 +58,33 @@
     transform: translateY(-50%);
 }
 
-.tooltip-left .tooltip-content {
+.mykl-tooltip.tooltip-left .tooltip-content {
     top: 0%;
     right: 100%;
     transform: translateX(-10px) translateY(-10px);
 }
 
-.tooltip-top .tooltip-icon::after {
+.mykl-tooltip.tooltip-top .tooltip-icon::after {
     border-color:  #fff transparent transparent transparent;
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.tooltip-top .tooltip-content {
+.mykl-tooltip.tooltip-top .tooltip-content {
     top: -10px;
     left: 50%;
     transform: translateX(-20px) translateY(-100%);
 }
 
-.tooltip-bottom .tooltip-icon::after {
+.mykl-tooltip.tooltip-bottom .tooltip-icon::after {
     border-color:  transparent transparent #fff transparent;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.tooltip-bottom .tooltip-content {
+.mykl-tooltip.tooltip-bottom .tooltip-content {
     bottom: -10px;
     left: 50%;
     transform: translateX(-20px) translateY(100%);

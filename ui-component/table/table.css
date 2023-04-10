@@ -47,63 +47,63 @@
 }
 
 /* 상태 */
-.table-primary thead {
+.mykl-table.table-primary thead {
     background: var(--primary);
     color: #fff;
 }
 
-.table-primary tbody tr {
+.mykl-table.table-primary tbody tr {
     border-top: 1px solid var(--primary);
 }
 
-.table-secondary thead {
+.mykl-table.table-secondary thead {
     background: var(--secondary);
     color: #fff;
 }
 
-.table-secondary tbody tr {
+.mykl-table.table-secondary tbody tr {
     border-top: 1px solid var(--secondary);
 }
 
-.table-success thead {
+.mykl-table.table-success thead {
     background: var(--success);
 }
 
-.table-success tbody tr {
+.mykl-table.table-success tbody tr {
     border-top: 1px solid var(--success);
 }
 
-.table-danger thead {
+.mykl-table.table-danger thead {
     background: var(--danger);
     color: #fff;
 }
 
-.table-danger tbody tr {
+.mykl-table.table-danger tbody tr {
     border-top: 1px solid var(--danger);
 }
 
-.table-warning thead {
+.mykl-table.table-warning thead {
     background: var(--warning);
 }
 
-.table-warning tbody tr {
+.mykl-table.table-warning tbody tr {
     border-top: 1px solid var(--warning);
 }
 
-.table-info thead {
+.mykl-table.table-info thead {
     background: var(--info);
 }
 
-.table-info tbody tr {
+.mykl-table.table-info tbody tr {
     border-top: 1px solid var(--info);
 }
 
-.table-dark thead {
+.mykl-table.table-dark thead {
     background: var(--dark);
     color: #fff;
 }
 
-.table-dark tbody tr {
+.mykl-table.table-dark tbody tr {
     border-top: 1px solid var(--dark);
 }
 

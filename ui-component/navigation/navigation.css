@@ -1,105 +1,138 @@
-.mykl-navbar {
+.mykl-nav {
     display: flex;
     align-items: center;
 }
 
-.mykl-navbar .nav-logo-cover {
+.mykl-nav .nav-logo-cover {
     display: flex;
     align-items: center;
     margin-right: 50px;
 }
 
-.mykl-navbar .nav-logo-cover .nav-logo {
+.mykl-nav .nav-logo-cover .nav-logo {
     margin-left: 10px;
+    margin-right: 0;
 }
 
-.mykl-navbar .nav-logo {
+.mykl-nav .nav-logo {
     margin-right: 50px;
 }
 
-.mykl-navbar .nav-logo {
-    margin-right: 0px;
-}
-
-.mykl-navbar .nav {
-    vertical-align: middle;
-}
-
-.nav {
+.mykl-nav .nav-item {
     display: flex;
+    position: relative;
     margin: 0;
     padding: 0;
-    flex-shrink: 0;
+    align-content: center;
 }
 
-.nav > li {
-    vertical-align: top;
-    padding: 0 25px;
+.mykl-nav .nav-item + .nav-item {
+    padding-left: 50px;
 }
 
-.nav > li:first-child {
-    padding-left: 0;
+.mykl-nav .nav-item > li + li {
+    padding-left: 25px;
 }
 
-.nav-end {
+.mykl-nav .nav-item.nav-end {
     margin-left: auto;
 }
 
-/*.nav-menu {*/
-/*    border-top: 1px solid #000;*/
-/*    display: none;*/
-/*}*/
-
-/*.nav-menu > li {*/
-/*    padding: 5px 10px;*/
-/*    border-bottom: 1px solid #ccc;*/
-/*}*/
-
-.nav-toggle {
-    display: none;
+.mykl-nav .nav-item li {
+    position: relative;
 }
 
-@media all and (max-width: 938px) {
-    .mykl-navbar {
-        justify-content: space-between;
-    }
+.mykl-nav .nav-list-outer {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    box-sizing:border-box;
+    padding-top: 8px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
 
-    .nav-toggle {
-        display: block;
-        padding: 5px;
-    }
+.mykl-nav .nav-list {
+    border-radius:5px;
+    background: #fff;
+    height: auto;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    overflow: hidden;
+    transform: matrix(1,0,0,1,0,0);
+}
 
-    .nav-hamburger {
-        position: relative;
-        display: block;
-        width: 10px;
-        height: 2px;
-        background: #000;
-    }
+.mykl-nav .nav-item li:hover .nav-list-outer,
+.mykl-nav .nav-list-outer:hover {
+    overflow: visible;
+    height: auto;
+    opacity: 1;
+    z-index: 10;
+}
 
-    .nav-hamburger::before {
-        content: "";
-        display: block;
-        width: 10px;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        top: -4px;
-        left: 0;
-    }
+.mykl-nav .nav-list li {
+    display: block;
+    padding: 20px 32px 20px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #505050;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
 
-    .nav-hamburger::after {
-        content: "";
-        display: block;
-        width: 10px;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-    }
+.mykl-nav .nav-list a:hover {
+    font-weight: 600;
+    color: var(--primary);
+}
 
-    /*.mykl-navbar .nav {*/
+
+
+/*@media all and (max-width: 938px) {*/
+/*    .mykl-nav {*/
+/*        justify-content: space-between;*/
+/*    }*/
+
+/*    .nav-toggle {*/
+/*        display: block;*/
+/*        padding: 5px;*/
+/*    }*/
+
+/*    .nav-hamburger {*/
+/*        position: relative;*/
+/*        display: block;*/
+/*        width: 10px;*/
+/*        height: 2px;*/
+/*        background: #000;*/
+/*    }*/
+
+/*    .nav-hamburger::before {*/
+/*        content: "";*/
+/*        display: block;*/
+/*        width: 10px;*/
+/*        height: 2px;*/
+/*        background: #000;*/
+/*        position: absolute;*/
+/*        top: -4px;*/
+/*        left: 0;*/
+/*    }*/
+
+/*    .nav-hamburger::after {*/
+/*        content: "";*/
+/*        display: block;*/
+/*        width: 10px;*/
+/*        height: 2px;*/
+/*        background: #000;*/
+/*        position: absolute;*/
+/*        bottom: -4px;*/
+/*        left: 0;*/
+/*    }*/
+
+    /*.mykl-nav .nav {*/
     /*    display: none;*/
     /*    flex-basis: 100%;*/
     /*    flex-grow: 1;*/
@@ -107,7 +140,7 @@
     /*    flex-direction: column;*/
     /*}*/
 
-    /*.mykl-navbar .nav.show {*/
+    /*.mykl-nav .nav.show {*/
     /*    display: block;*/
     /*}*/
-}
+/*}*/

@@ -203,12 +203,12 @@
     remove(selector)
     toggle(selector)
     submit({
-    url="",
-    method = "GET",
-    headers = {},
-    type = "json",
-    body = null,
-    callback = (data) => {},
+        url="",
+        method = "GET",
+        headers = {},
+        type = "json",
+        body = null,
+        callback = (data) => {},
     })
 </div>
                 </section>
@@ -251,30 +251,36 @@
                 <section>
                     <h4>상태</h4>
 <div class="static-code">
-    <div class="mykl-progress" data-min="0" data-max="100" data-value="30">
+    <div class="mykl-progress">
         <input type="number" min="0" max="100" value="30">
-        <div class="progress-bar"></div>
     </div>
-    <div class="mykl-progress progress-secondary" data-min="0" data-max="100" data-value="40">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-secondary">
+        <input type="number" min="0" max="100" value="40">
     </div>
-    <div class="mykl-progress progress-success" data-min="0" data-max="100" data-value="50">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-success">
+        <input type="number" min="0" max="100" value="50">
     </div>
-    <div class="mykl-progress progress-danger" data-min="0" data-max="100" data-value="60">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-danger">
+        <input type="number" min="0" max="100" value="60">
     </div>
-    <div class="mykl-progress progress-warning" data-min="0" data-max="10" data-value="7">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-warning">
+        <input type="number" min="0" max="100" value="70">
     </div>
-    <div class="mykl-progress progress-info" data-min="0" data-max="10" data-value="8">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-info">
+        <input type="number" min="0" max="10" value="8">
     </div>
-    <div class="mykl-progress progress-light" data-min="0" data-max="10" data-value="9">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-light">
+        <input type="number" min="0" max="10" value="9">
     </div>
-    <div class="mykl-progress progress-dark" data-min="0" data-max="5" data-value="3.4">
-        <div class="progress-bar"></div>
+
+    <div class="mykl-progress progress-dark">
+        <input type="number" min="0" max="5" value="5">
     </div>
 </div>
                 </section>
@@ -287,46 +293,10 @@
 <div class="static-code">
     <table class="mykl-table">
         <colgroup>
-            <col width=10%>
-            <col width="30%">
-            <col width="30%">
-            <col width="30%">
-        </colgroup>
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="">
-            <th scope="row">1</th>
-            <td>MarkLarry the BirdLarry the Bird</td>
-            <td>OttoLarry the BirdLarry the Bird</td>
-            <td>@mdoLarry the BirdLarry the Bird</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>JacobLarry the BirdLarry the Bird</td>
-            <td>ThorntonLarry the BirdLarry the Bird</td>
-            <td>@fatLarry the BirdLarry the Bird</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="mykl-table table-primary">
-        <colgroup>
-            <col width=10%>
-            <col width="30%">
-            <col width="30%">
-            <col width="30%">
+            <col style="width:10%">
+            <col style="width:30%">
+            <col style="width:30%">
+            <col style="width:30%">
         </colgroup>
         <thead>
         <tr>
@@ -390,13 +360,12 @@
 <!--                        </button>-->
                 <h3 id="Navigation-Component">Navigation Component</h3>
 <div class="static-code">
-    <nav class="mykl-navbar">
+    <nav class="mykl-nav">
         <a href="#" class="nav-logo-cover">
             <img src="https://via.placeholder.com/100x60">
             <span class="nav-logo">Component</span>
         </a>
-
-        <ul class="nav">
+        <ul class="nav-item">
             <li>
                 <a href="#">Home</a>
             </li>
@@ -404,7 +373,7 @@
                 <a href="#">AAA</a>
             </li>
         </ul>
-        <ul class="nav nav-end">
+        <ul class="nav-item nav-end">
             <li>
                 <a href="#">BBB</a>
             </li>
@@ -494,19 +463,23 @@
                 <h3 id="Tooltip-Component">Tooltip Component</h3>
 <div class="static-code">
     <div class="mykl-tooltip tooltip-right">
-        <span class="tooltip-icon"><img src="./images/star-fill.svg"></span>
-        <div class="tooltip-content">이것은 툴팁을 나타냅니다ㅏ아아아아아아아아아아아</div>
+        <span class="tooltip-icon">
+            <img src="./images/star-fill.svg">
+        </span>
+        <div class="tooltip-content">
+            툴팁입니다.
+        </div>
     </div>
 </div>
             </section>
             <section>
                 <h3 id="Tag-Component">Tag Component</h3>
 <div class="static-code">
-    <div class="mykl-tag" data-name="name">
+    <div class="mykl-tag">
         <div class="tag-inner">
-            <strong class="blind">태그입력</strong>
             <div class="tag-input-box">
-                <input type="text" class="tag-input"  placeholder="태그를 입력해주세요 (최대 10개)">
+                <input type="text" class="tag-input" name="name"  placeholder="태그를 입력해주세요 (최대 10개)">
+                <input type="number" max="10">
             </div>
         </div>
     </div>
@@ -515,7 +488,13 @@
             <section>
                 <h3 id="Star-Component">Star Component</h3>
 <div class="static-code">
-    <div class="mykl-star" data-value="3">
+    <div class="mykl-star">
+        <input type="number" value="3">
+    </div>
+
+    <div class="mykl-star">
+        <input type="number" value="2.5">
+        <input type="radio" checked>
     </div>
 </div>
             </section>
@@ -527,7 +506,7 @@
             </section>
         </section>
         <section class="component-wrapper">
-            <h2>component set</h2>
+            <h2>Component Set</h2>
             <section>
                 <h3 id="Card-Component">Card Component</h3>
 <div class="static-code">
@@ -613,6 +592,20 @@
         </section>
     </article>
 </div>
+<script>
+    // html 코드 넣기
+    document.querySelectorAll('div.static-code').forEach(el => {
+        const div = document.createElement('div');
+        div.classList.add('static-code-copy');
+        div.innerHTML = `
+        <pre>
+            <code class="html html-wrapper"></code>
+        </pre>
+    `;
+        el.parentElement.appendChild(div);
+        div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
+    });
+</script>
 <script src="./dist/js/mykl_ui.js"></script>
 <script>
 // aside 메뉴 이동
@@ -634,19 +627,7 @@ asideNav.innerHTML = [...document.querySelectorAll('.component-wrapper')].map(el
     </div>
 `).join("");
 
-// html 코드 넣기
-document.querySelectorAll('div.static-code').forEach(el => {
-    const div = document.createElement('div');
-    div.classList.add('static-code-copy');
-    div.innerHTML = `
-        <pre>
-            <code class="html html-wrapper"></code>
-        </pre>
-    `;
-    el.parentElement.appendChild(div);
-    div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
-});
-
+// script 코드 넣기
 document.querySelectorAll('.script-code').forEach(el => {
     const div = document.createElement('div');
     div.classList.add('static-code-copy');

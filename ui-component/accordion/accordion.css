@@ -1,4 +1,4 @@
-.accordion-item {
+.mykl-accordion .accordion-item {
     font-size: 15px;
     color: #000000;
     font-weight: 500;
@@ -8,15 +8,15 @@
     /*margin-bottom: 12px;*/
 }
 
-.accordion-item a {
+.mykl-accordion .accordion-item a {
     color: inherit;
 }
 
-.accordion-header {
+.mykl-accordion .accordion-header {
     padding: 16px 0px;
 }
 
-.accordion-toggle {
+.mykl-accordion .accordion-toggle {
     padding: 0;
     font-size: 15px;
     color: #000000;
@@ -30,16 +30,7 @@
     -webkit-transition: all 0.3s ease;
 }
 
-/*.accordion-toggle:focus, .accordion-toggle:active {*/
-/*    padding: 8px;*/
-/*}*/
-
-.accordion-toggle.show {
-    color: #004CFF;
-    font-weight: 600;
-}
-
-.accordion-toggle:before {
+.mykl-accordion .accordion-toggle:before {
     content:"";
     position: absolute;
     right:16px;
@@ -54,7 +45,7 @@
     -ms-transition: all 0.3s ease;
 }
 
-.accordion-toggle:after {
+.mykl-accordion .accordion-toggle:after {
     content:"";
     position: absolute;
     right: 11px;
@@ -69,21 +60,30 @@
     -ms-transition: all 0.3s ease;
 }
 
-.accordion-toggle.show:before {
+.mykl-accordion .accordion-item.show .accordion-toggle {
+    color: #004CFF;
+    font-weight: 600;
+}
+/*.accordion-toggle:focus, .accordion-toggle:active {*/
+/*    padding: 8px;*/
+/*}*/
+
+
+.mykl-accordion .accordion-item.show .accordion-toggle:before {
     transform: translateY(-50%) rotateZ(-225deg);
     background: #004CFF;
 }
 
-.accordion-toggle.show:after {
+.mykl-accordion .accordion-item.show .accordion-toggle:after {
     transform: translateY(-50%) rotateZ(225deg);
     background: #004CFF;
 }
 
-.accordion-toggle * {
+.mykl-accordion .accordion-toggle * {
     pointer-events: none;
 }
 
-.accordion-body {
+.mykl-accordion .accordion-body {
     overflow: hidden;
     height: 0;
     padding: 0 10px;
@@ -94,18 +94,18 @@
     -ms-transition: all 0.3s ease;
 }
 
-.accordion-body.show {
+.mykl-accordion.show .accordion-body {
     padding: 10px;
     box-sizing: content-box;
     /*border: 10px solid transparent;*/
 }
 
-.accordion-body-item {
+.mykl-accordion .accordion-body-item {
     border-radius: 5px;
     padding-bottom: 15px;
 }
 
-.accordion-body-item + .accordion-body-item {
+.mykl-accordion .accordion-body-item + .accordion-body-item {
     border-radius: 5px;
     padding: 15px 0;
 }

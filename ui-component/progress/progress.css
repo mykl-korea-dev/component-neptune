@@ -9,7 +9,7 @@
     display: none;
 }
 
-.progress-bar {
+.mykl-progress .progress-bar {
     position: relative;
     color: var(--primary);
     border: 3px solid currentColor;
@@ -19,7 +19,7 @@
     max-height: inherit;
 }
 
-.progress-value {
+.mykl-progress .progress-value {
     position: absolute;
     top: 50%;
     left: 100%;
@@ -27,34 +27,34 @@
     padding: 0 10px;
 }
 
-.progress-primary .progress-bar {
+.mykl-progress.progress-primary .progress-bar {
     color: var(--primary);
 }
 
-.progress-secondary .progress-bar {
+.mykl-progress.progress-secondary .progress-bar {
     color: var(--secondary);
 }
 
-.progress-success .progress-bar {
+.mykl-progress.progress-success .progress-bar {
     color: var(--success);
 }
 
-.progress-danger .progress-bar {
+.mykl-progress.progress-danger .progress-bar {
     color: var(--danger);
 }
 
-.progress-warning .progress-bar {
+.mykl-progress.progress-warning .progress-bar {
     color: var(--warning);
 }
 
-.progress-info .progress-bar {
+.mykl-progress.progress-info .progress-bar {
     color: var(--info);
 }
 
-.progress-light .progress-bar {
+.mykl-progress.progress-light .progress-bar {
     color: var(--light);
 }
 
-.progress-dark .progress-bar {
+.mykl-progress.progress-dark .progress-bar {
     color: var(--dark);
 }

@@ -31,21 +31,21 @@
     background-color: #bdbdbd;
 }
 
-.emotion-good {
+.mykl-emotion .emotion-good {
     background: url("../../images/emoji-smile.svg") no-repeat center;
 }
-.emotion-sad {
+.mykl-emotion .emotion-sad {
     background: url("../../images/emoji-frown.svg") no-repeat center;
 }
-.emotion-like {
+.mykl-emotion .emotion-like {
     background: url("../../images/emoji-heart-eyes.svg") no-repeat center;
 }
-.emotion-bad {
+.mykl-emotion .emotion-bad {
     background: url("../../images/emoji-angry.svg") no-repeat center;
 }
-.emotion-thumbsUp {
+.mykl-emotion .emotion-thumbsUp {
     background: url("../../images/hand-thumbs-up.svg") no-repeat center;
 }
-.emotion-thumbsDown {
+.mykl-emotion .emotion-thumbsDown {
     background: url("../../images/hand-thumbs-down.svg") no-repeat center;
 }

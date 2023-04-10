@@ -1,17 +1,16 @@
-.process .process-item {
+.mykl-process .process-item {
     background: var(--secondary);
     padding: 10px;
-
 }
 
-.process-item.active {
+.mykl-process .process-item.active {
     background: var(--primary);
 }
 
-.process-item.disabled {
+.mykl-process .process-item.disabled {
     background: var(--light);
 }
 
-.process-item.done {
+.mykl-process .process-item.done {
     background: var(--success);
 }

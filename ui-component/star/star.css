@@ -1,6 +1,12 @@
+.mykl-star input,
+.mykl-star label {
+    display: none;
+}
+
 .mykl-star .star-group {
     display: inline-block;
 }
+
 .mykl-star .star-item {
     vertical-align: middle;
     display: inline-block;
@@ -8,12 +14,12 @@
     height: 20px;
 }
 
-.star-fill {
+.mykl-star .star-fill {
     background: url("../../images/star-fill.svg") no-repeat;
 }
-.star-half {
+.mykl-star .star-half {
     background: url("../../images/star-half.svg") no-repeat;
 }
-.star-empty {
+.mykl-star .star-empty {
     background: url("../../images/star.svg") no-repeat;
 }

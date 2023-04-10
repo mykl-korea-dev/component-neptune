@@ -3,25 +3,24 @@ import {getDataset} from "../../basic/utils.js";
 
 export default class Star extends Component {
     setElements() {
-        const strMin = getDataset(this.$element, "min") || 0;
-        const strMax = getDataset(this.$element, "max") || 5;
-        const strValue = getDataset(this.$element, "value") || 0;
-        this.isRate = getDataset(this.$element, "rate") === 'true';
+        const inputEl = this.$element.querySelector('input[type=number]');
+        this.min = parseFloat(inputEl.getAttribute('min')) || 0;
+        this.max = parseFloat(inputEl.getAttribute('max')) || 5;
+        this.value = parseFloat(inputEl.getAttribute('value')) || 0;
 
-        const [min, max] = [strMin, strMax].map(v => parseFloat(v));
-        let value = parseFloat(strValue);
+        this.isRate = this.$element.querySelector('input[type=radio]');
 
         const starGroupEl = document.createElement('div');
         starGroupEl.classList.add('star-group');
-        for (let i = parseInt(min, 10); i < parseInt(max, 10); i++) {
+        for (let i = parseInt(this.min, 10); i < parseInt(this.max, 10); i++) {
             const div = document.createElement('div');
             div.innerHTML = `
-                ${value >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
-                ${value >= 0.5 && value < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
-                ${value < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
+                ${this.value >= 1 ? `<div class="star-item star-fill" data-point="${i+1}"></div>` : ''}
+                ${this.value >= 0.5 && this.value < 1 ? `<div class="star-item star-half" data-point="${i+1}"></div>` : ''}
+                ${this.value < 0.5? `<div class="star-item star-empty" data-point="${i+1}"></div>` : ''}
             `
             starGroupEl.innerHTML += div.innerHTML;
-            value -= 1;
+            this.value -= 1;
         }
         this.$element.appendChild(starGroupEl);
         this.lockedStar = false;

@@ -64,26 +64,7 @@
         MYKL.TextareaAjax("#textareaId", data)
     })</script></section></section><section class="component-wrapper"><h2>UI Component</h2><section><h3 id="Progress-Component">Progress Component</h3><div class="static-code"><div id="progressId"><input type="number" min="$minimum" max="$maximum" value="$value"></div></div><script class="script-code">MYKL.SetComponents(url + '/progress', (data) => {
         MYKL.ProgressAjax('#progressId', data);
-    })</script></section><section><h3 id="Table-Component">Table Component</h3><div class="static-code"><table id="tableId"><colgroup><col style="width:20%"><col style="width:60%"><col style="width:20%"></colgroup><thead><tr><th>순번</th><th>제목</th><th>날짜</th></tr></thead><tbody></tbody></table></div><script class="script-code">MYKL.SetComponents(url + '/table', (data) => {
-        const options = {
-            colOrder: ["sn", "title", "create_date"],
-            link: {
-                title: {
-                    pathname: url + "/post",
-                    variable: "sn",
-                }
-            },
-            class: {
-                title: ["text-start"]
-            }
-        }
-        MYKL.TableAjax("#tableId", {data, options})
-    })</script></section><section><h3 id="Pagination-Component">Pagination Component</h3><div class="static-code"><div id="paginationId"></div></div><script class="script-code">const options = {
-        start: "start",
-        total: "total",
-        limit: "limit"
-    }
-    // MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})</script></section><section><h3 id="Navigcalation-Component">Navigation Component</h3><div class="static-code">--</div></section><section><h3 id="Tab-Component">Tab Component</h3><div class="static-code">--</div></section><section><h3 id="Dropdown-Component">Dropdown Component</h3><div class="static-code">--</div></section><section><h3 id="Accordion-Component">Accordion Component</h3><div class="static-code">--</div></section><section><h3 id="Tooltip-Component">Tooltip Component</h3><div class="static-code">--</div></section><section><h3 id="Tag-Component">Tag Component</h3><div class="static-code">--</div></section><section><h3 id="Star-Component">Star Component</h3><div class="static-code">--</div></section><section><h3 id="Emotion-Component">Emotion Component</h3><div class="static-code">--</div></section></section></article></div><script src="./dist/js/mykl_ui.js"></script><script>// aside 메뉴 이동
+    })</script></section><section><h3 id="Table-Component">Table Component</h3><div class="static-code">--</div></section><section><h3 id="Pagination-Component">Pagination Component</h3><div class="static-code">--</div></section><section><h3 id="Navigcalation-Component">Navigation Component</h3><div class="static-code">--</div></section><section><h3 id="Tab-Component">Tab Component</h3><div class="static-code">--</div></section><section><h3 id="Dropdown-Component">Dropdown Component</h3><div class="static-code">--</div></section><section><h3 id="Accordion-Component">Accordion Component</h3><div class="static-code">--</div></section><section><h3 id="Tooltip-Component">Tooltip Component</h3><div class="static-code">--</div></section><section><h3 id="Tag-Component">Tag Component</h3><div class="static-code">--</div></section><section><h3 id="Star-Component">Star Component</h3><div class="static-code">--</div></section><section><h3 id="Emotion-Component">Emotion Component</h3><div class="static-code">--</div></section></section></article></div><script src="./dist/js/mykl_ui.js"></script><script>// aside 메뉴 이동
     const asideNav = document.querySelector('#aside-nav');
     asideNav.innerHTML = [...document.querySelectorAll('.component-wrapper')].map(el => `
     <div class="accordion-item">

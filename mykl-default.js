@@ -15,20 +15,20 @@ import Tag from "./ui-component/tag/Tag.js";
 import Emotion from "./ui-component/emotion/emotion.js";
 import Star from "./ui-component/star/Star.js";
 import Loading from "./ui-component/loading/Loading.js";
-import Navigation from "./ui-component/navigation/Navigation.js";
-import Process from "./ui-component/process/Process.js";
+// import Navigation from "./ui-component/navigation/Navigation.js";
+// import Process from "./ui-component/process/Process.js";
 
 // Set
-import ContextMessage from "./component-set/message/ContextMessage.js";
+// import ContextMessage from "./component-set/message/ContextMessage.js";
 import Modal from "./component-set/modal/Modal.js";
-import PostSearch from "./component-set/postSearch/PostSearch.js";
+import PostSearch from "./component-set/PostSearch/PostSearch.js";
 
 // Style
 import './basic/common.css'
 import './form-component/form_style.css';
 import './ui-component/ui_style.css';
 import './component-set/set_style.css';
-import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
+// import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
 
 export function setRootColor(nameOrObj="", color="") {
     if(color === "") {

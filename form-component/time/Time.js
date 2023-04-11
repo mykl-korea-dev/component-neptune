@@ -62,7 +62,7 @@ export default class Time extends Component {
                 target.classList.add('time-mark');
                 const [selectedHour, selectedMinute] = target.textContent.split(':');
                 const twelveHour = this.setInTwenty(this.$element.querySelector('.day-night .time-mark').textContent, selectedHour);
-                this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`.trim();
+                this.$element.querySelector('input').value = `${twelveHour}:${selectedMinute}`.trim();
                 this.$element.querySelector('.selected-time').textContent = `${this.$element.querySelector('.day-night .time-mark').textContent} ${target.textContent}`
             }
         })
@@ -75,7 +75,7 @@ export default class Time extends Component {
             target.classList.add('time-mark');
             const [selectedHour, selectedMinute] = this.$element.querySelector('.time-box .time-mark').textContent.split(':');
             const twelveHour = this.setInTwenty(this.$element.querySelector('.day-night .time-mark').textContent, selectedHour);
-            this.$element.querySelector('.time-input').value = `${twelveHour}:${selectedMinute}`.trim();
+            this.$element.querySelector('input').value = `${twelveHour}:${selectedMinute}`.trim();
             this.$element.querySelector('.selected-time').textContent = `${target.textContent} ${this.$element.querySelector('.time-box .time-mark').textContent} `
         })
 

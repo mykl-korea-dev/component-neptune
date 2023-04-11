@@ -3,42 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Radio</title>
+    <link rel="stylesheet" href="../../../basic/common.css">
     <link rel="stylesheet" href="../../radio/radio.css">
 </head>
 <body>
-<!-- [{ id: value }, { id: value }, { id: value }]-->
-<div id="radio" style="background: lightblue">
-    <input type="radio" name="radio">
+
+<div id="radio1">
+    <input type="radio" name="radio2" id="$radio_id" value="$radio_name">
 </div>
 
-<!-- [{ id: 0, value: 123, checked: true }, { id: 2, value: 4, checked: true }] -->
-<div id="radio2" style="background: #DFDFDF; margin: 20px 0">
-    <input type="radio" name="radio2" id="id" value="value" checked="checked__true">
+<div id="radio2">
+    <input type="radio" name="radio2">
 </div>
-
-<!-- [{ id0: value0, id1: value1, id2: value2 }, { id1-0: value1-0, id1-2: value1-1, id1-3: value1-3 } ] -->
-<!--<div id="radio3" style="background: #d7a8f5" class="radio-col">-->
-<!--    <input type="radio" name="radio3, audio3">-->
-<!--</div>-->
 
 <script type="module">
     import {getData} from "../../../basic/utils.js";
     import RadioAjax from "./RadioAjax.js";
 
-    getData('http://localhost:8080/radio', (data) => {
-        console.log(data);
-        new RadioAjax(document.querySelector('#radio'), data);
-    })
+    const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io" + "/radio";
 
-    fetch('http://localhost:8080/radioList2').then(res => res.json()).then((data) => {
-        console.log(data);
-        new RadioAjax(document.querySelector('#radio2'), data);
+    getData(url, (data) => {
+        new RadioAjax(document.querySelector('#radio1'), data);
+        new RadioAjax(document.querySelector('#radio2'), {
+            data,
+            options: {
+                id: "radio_id",
+                value: "radio_name"
+            }
+        });
     })
-
-    // fetch('http://localhost:8080/radioList3').then(res => res.json()).then((data) => {
-    //     console.log(data);
-    //     new RadioAjax(document.querySelector('#radio3'), data);
-    // })
 </script>
 </body>
 </html>

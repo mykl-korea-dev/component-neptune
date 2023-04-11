@@ -12,7 +12,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="./dist/css/mykl_ui_style.css">
-    <script src="./dist/js/mykl_ui.js"></script>
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -51,6 +50,8 @@
     <script>
         const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io";
     </script>
+
+    <script src="./dist/js/mykl_ui.js"></script>
 </head>
 <body>
 <div style="display: flex">
@@ -88,12 +89,12 @@
         <div class="form-group">
             <span class="form-label">Label</span>
             <div class="mykl-radio">
-                <input class="radio-input" type="radio" name="name" id="one">
-                <label class="radio-label" for="one">one</label>
+                <input type="radio" name="name" id="one">
+                <label for="one">one</label>
             </div>
             <div class="mykl-radio">
-                <input class="radio-input" type="radio" name="name" id="two" checked>
-                <label class="radio-label" for="two">two</label>
+                <input type="radio" name="name" id="two" checked>
+                <label for="two">two</label>
             </div>
         </div>
 
@@ -127,11 +128,11 @@
             <section>
                 <h3 id="Input-Ajax">InputAjax</h3>
                 <div class="static-code">
-    <input type="text" name="name" id="inputId">
+    <input type="text" name="name" value="$text" id="inputId">
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/input', (data) => {
-        MYKL.InputAjax('#inputId', {data, key: "text"});
+        MYKL.InputAjax('#inputId', data);
     })
                 </script>
             </section>
@@ -139,35 +140,25 @@
                 <h3 id="Radio-Ajax">RadioAjax</h3>
                 <div class="static-code">
     <div id="radioId">
-        <input class="radio-input" type="radio" name="radio">
+        <input type="radio" name="radio" id="$radio_id" value="$radio_name">
     </div>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/radio', (data) => {
-        const options = {
-            id: "radio_id",
-            value: "radio_name"
-        }
-        MYKL.RadioAjax("#radioId", {data, options})
+        MYKL.RadioAjax("#radioId", data)
     })
                 </script>
             </section>
             <section>
                 <h3 id="Checkbox-Ajax">CheckboxAjax</h3>
                 <div class="static-code">
-                    <div id="checkboxId">
-                        <input class="check-input" type="checkbox" name="checkbox">
-                    </div>
+    <div id="checkboxId">
+        <input type="checkbox" name="checkbox" id="$checkbox_id" value="$checkbox_name">
+    </div>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/checkbox', (data) => {
-        const options = {
-            id: "checkbox_id",
-            value: "checkbox_name",
-            checked: "completed",
-            trueChecked: "Y"
-        }
-        MYKL.CheckboxAjax("#checkboxId", {data, options})
+        MYKL.CheckboxAjax("#checkboxId", data)
     })
                 </script>
             </section>
@@ -175,12 +166,12 @@
                 <h3 id="Calendar-Ajax">CalendarAjax</h3>
                 <div class="static-code">
     <div id="calendarId">
-        <input type="date" name="calendar" class="calendar-input">
+        <input type="date" name="calendar" value="$date">
     </div>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/calendar', (data) => {
-        MYKL.CalendarAjax("#calendarId", {date: data.date});
+        MYKL.CalendarAjax("#calendarId", data);
     })
                 </script>
             </section>
@@ -188,12 +179,12 @@
                 <h3 id="Time-Ajax">TimeAjax</h3>
                 <div class="static-code">
     <div id="timeId" data-step="20">
-        <input type="time" name="time" class="time-input">
+        <input type="time" name="time" value="$time">
     </div>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/time', (data) => {
-        MYKL.TimeAjax("#timeId", {time: data.time})
+        MYKL.TimeAjax("#timeId", data)
     })
                 </script>
             </section>
@@ -201,8 +192,8 @@
                 <h3 id="Range-Ajax">RangeAjax</h3>
                 <div class="static-code">
     <div id="rangeId">
-        <input type="range" name="min" class="input-left" min="minimum" max="maximum" step="step" value="minValue">
-        <input type="range" name="max" class="input-right" value="maxValue">
+        <input type="range" name="min" class="input-left" min="$minimum" max="$maximum" step="$step" value="$minValue">
+        <input type="range" name="max" class="input-right" value="$maxValue">
     </div>
                 </div>
                 <script class="script-code">
@@ -216,113 +207,106 @@
                 <div class="static-code">
     <div id="selectId">
         <select>
-            <option value="">Select:</option>
+            <option value="$select_id">$select_value</option>
         </select>
     </div>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/select', (data) => {
-        const options = {
-            id: "select_id",
-            value: "select_value"
-        }
-        MYKL.SelectAjax("#selectId", {data, options})
+        MYKL.SelectAjax("#selectId", data)
     })
                 </script>
             </section>
             <section>
                 <h3 id="Textarea-Ajax">TextareaAjax</h3>
                 <div class="static-code">
-    <div id="textareaId">
-    </div>
+    <textarea id="textareaId" value="$content">
+    </textarea>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/textarea', (data) => {
-        MYKL.TextareaAjax("#textareaId", {data, key: "content"})
+        MYKL.TextareaAjax("#textareaId", data)
     })
                 </script>
             </section>
         </section>
         <section class="component-wrapper">
             <h2>UI Component</h2>
-            <section>
-                <h3 id="Button-Component">Button Component</h3>
-                <div class="static-code">
-    <button type="button" id="btnId" class="mykl-btn btn-primary">제출</button>
-                </div>
+<!--            <section>-->
+<!--                <h3 id="Button-Component">Button Component</h3>-->
+<!--                <div class="static-code">-->
+<!--    <button type="button" id="btnId" class="mykl-btn btn-primary">제출</button>-->
+<!--                </div>-->
 
-            </section>
+<!--            </section>-->
 
             <section>
                 <h3 id="Progress-Component">Progress Component</h3>
                 <div class="static-code">
     <div id="progressId">
-        <div class="progress-bar"></div>
+        <input type="number" min="$minimum" max="$maximum" value="$value">
     </div>
                 </div>
                 <script class="script-code">
     MYKL.SetComponents(url + '/progress', (data) => {
-        const options = {
-            min: "minimum",
-            max: "maximum",
-            value: "value"
-        }
-        MYKL.ProgressAjax('#progressId', {data, options});
+        MYKL.ProgressAjax('#progressId', data);
     })
                 </script>
             </section>
             <section>
                 <h3 id="Table-Component">Table Component</h3>
                 <div class="static-code">
-    <table id="tableId">
-        <colgroup>
-            <col width="20%">
-            <col width="60%">
-            <col width="20%">
-        </colgroup>
-        <thead>
-            <tr>
-                <th>순번</th>
-                <th>제목</th>
-                <th>날짜</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+                    --
                 </div>
-                <script class="script-code">
-    MYKL.SetComponents(url + '/table', (data) => {
-        const options = {
-            colOrder: ["sn", "title", "create_date"],
-            link: {
-                title: {
-                    pathname: url + "/post",
-                    variable: "sn",
-                }
-            },
-            class: {
-                title: ["text-start"]
-            }
-        }
-        MYKL.TableAjax("#tableId", {data, options})
-    })
-                </script>
+                <!--    <table id="tableId">-->
+                <!--        <colgroup>-->
+                <!--            <col style="width:20%">-->
+                <!--            <col style="width:60%">-->
+                <!--            <col style="width:20%">-->
+                <!--        </colgroup>-->
+                <!--        <thead>-->
+                <!--            <tr>-->
+                <!--                <th>순번</th>-->
+                <!--                <th>제목</th>-->
+                <!--                <th>날짜</th>-->
+                <!--            </tr>-->
+                <!--        </thead>-->
+                <!--        <tbody>-->
+                <!--        </tbody>-->
+                <!--    </table>-->
+<!--                <script class="script-code">-->
+<!--    MYKL.SetComponents(url + '/table', (data) => {-->
+<!--        const options = {-->
+<!--            colOrder: ["sn", "title", "create_date"],-->
+<!--            link: {-->
+<!--                title: {-->
+<!--                    pathname: url + "/post",-->
+<!--                    variable: "sn",-->
+<!--                }-->
+<!--            },-->
+<!--            class: {-->
+<!--                title: ["text-start"]-->
+<!--            }-->
+<!--        }-->
+<!--        MYKL.TableAjax("#tableId", {data, options})-->
+<!--    })-->
+<!--                </script>-->
             </section>
             <section>
                 <h3 id="Pagination-Component">Pagination Component</h3>
                 <div class="static-code">
-    <div id="paginationId">
-    </div>
+                    --
                 </div>
-                <script class="script-code">
-    const options = {
-        start: "start",
-        total: "total",
-        limit: "limit"
-    }
-    // MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})
-                </script>
+                <!--    <div id="paginationId">-->
+                <!--    </div>-->
+<!--                <script class="script-code">-->
+<!--    const options = {-->
+<!--        start: "start",-->
+<!--        total: "total",-->
+<!--        limit: "limit"-->
+<!--    }-->
+<!--    // MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})-->
+<!--                </script>-->
             </section>
             <section>
                 <h3 id="Navigcalation-Component">Navigation Component</h3>
@@ -375,6 +359,8 @@
         </section>
     </article>
 </div>
+
+<script src="./dist/js/mykl_ui.js"></script>
 <script>
     // aside 메뉴 이동
     const asideNav = document.querySelector('#aside-nav');
@@ -406,6 +392,7 @@ document.querySelectorAll('div.static-code').forEach(el => {
     el.parentElement.appendChild(div);
     div.querySelector('.html-wrapper').innerHTML = el.innerHTML.replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("  &lt", "&lt");
 });
+
 document.querySelectorAll('.script-code').forEach(el => {
     const div = document.createElement('div');
     div.classList.add('static-code-copy');

@@ -8,7 +8,7 @@
 <body>
 <div id="form">
     <div id="calendar">
-        <input type="date" name="calendar" class="calendar-input">
+        <input type="date" name="calendar" class="calendar-input" value="$date">
     </div>
     <button type="button" class="form-submit-btn">제출</button>
 </div>
@@ -16,9 +16,16 @@
   import CalendarAjax from "./CalendarAjax.js";
   import {getData} from "../../../basic/utils.js";
   import FormAjax from "../formAjax.js";
-  console.log(document.querySelector("#calendar"));
+
+  const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io";
+
   getData('http://localhost:8080/calendar', (date) => {
-      new CalendarAjax(document.querySelector("#calendar"), {date: date["date"]});
+      new CalendarAjax(document.querySelector("#calendar"), {
+          data,
+          options: {
+              separator: "-",
+          }
+      });
   })
 
   new FormAjax(document.querySelector('#form'), {url: 'http://localhost:8080/calendar'})

@@ -3,7 +3,7 @@
     vertical-align: top;
 }
 
-.mykl-radio .radio-input {
+.mykl-radio input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -14,7 +14,7 @@
     border: 0;
 }
 
-.mykl-radio .radio-label {
+.mykl-radio label {
     display: inline-block;
     position: relative;
     left: 0;
@@ -26,7 +26,7 @@
     padding-left: 1.5rem;
 }
 
-.mykl-radio .radio-label:after {
+.mykl-radio label:after {
     content: "";
     position: absolute;
     top: 50%;
@@ -39,7 +39,7 @@
     box-sizing: border-box;
 }
 
-.mykl-radio .radio-input:checked + .radio-label:before {
+.mykl-radio input:checked + label:before {
     content: "";
     position: absolute;
     top: 50%;
@@ -54,13 +54,13 @@
 }
 
 /* 상태 */
-.mykl-radio .radio-input:disabled + .radio-label {
+.mykl-radio input:disabled + label {
     pointer-events: none;
     filter: none;
     opacity: .5;
 }
 
-.mykl-radio .radio-input[readonly] + .radio-label {
+.mykl-radio input[readonly] + label {
     pointer-events: none;
     cursor: default;
 }

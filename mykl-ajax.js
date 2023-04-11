@@ -25,40 +25,23 @@ import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
 import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
 
 import {returnComponent} from "./mykl-default.js";
+import Time from "./form-component/time/Time";
 
 
 let MYKLAjax = {
     // setComponents
     SetComponents: getData,
     // form -----------------------------
+    InputAjax: returnComponent(InputAjax),
+    RadioAjax: returnComponent(RadioAjax),
+    CheckboxAjax: returnComponent(CheckboxAjax),
+    TextareaAjax: returnComponent(TextareaAjax),
+    SelectAjax: returnComponent(SelectAjax),
+    RangeAjax: returnComponent(RangeAjax),
+    CalendarAjax: returnComponent(CalendarAjax),
+    TimeAjax: returnComponent(TimeAjax),
     FormAjax: returnComponent(FormAjax),
-    CalendarAjax: function (selector, data) {
-        return new CalendarAjax(document.querySelector(selector), data)
-    },
-    CheckboxAjax: function (selector, data) {
-        return new CheckboxAjax(document.querySelector(selector), data)
-    },
-    InputAjax: function (selector, data) {
-        return new InputAjax(document.querySelector(selector), data)
-    },
-    RadioAjax: function (selector, data) {
-        return new RadioAjax(document.querySelector(selector), data)
-    },
-    RangeAjax: function (selector, data) {
-        return new RangeAjax(document.querySelector(selector), data)
-    },
-    SelectAjax: function (selector, data) {
-        return new SelectAjax(document.querySelector(selector), data)
-    },
-    TextareaAjax: function (selector, data) {
-        return new TextareaAjax(document.querySelector(selector), data)
-    },
-    TimeAjax: function (selector, data) {
-        return new TimeAjax(document.querySelector(selector), data)
-    },
-    FileAjax: function (selector, data) {
-        return new FileAjax(document.querySelector(selector), data)
-    },
+    // FileAjax: returnComponent(FileAjax),
     // ui -----------------------------
     AutoComplete: function (selector, data) {
         return new AutoComplete(document.querySelector(selector), data)

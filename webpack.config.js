@@ -10,7 +10,7 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: { mykl_ui: [ "./mykl-default", "./mykl-ajax"] },
+    entry: { mykl_ui: [ "./mykl-default", "./mykl-ajax"]},
     output: {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[name][ext]',

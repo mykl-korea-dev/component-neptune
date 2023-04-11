@@ -256,60 +256,40 @@
             <section>
                 <h3 id="Table-Component">Table Component</h3>
                 <div class="static-code">
-                    --
+    <table id="table">
+        <thead>
+        <tr>
+            <th>순번</th>
+            <th>이름</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$sn</td>
+            <td><a href="$href">$title</a></td>
+            <td>$content</td>
+            <td>$create_date</td>
+        </tr>
+        </tbody>
+    </table>
                 </div>
-                <!--    <table id="tableId">-->
-                <!--        <colgroup>-->
-                <!--            <col style="width:20%">-->
-                <!--            <col style="width:60%">-->
-                <!--            <col style="width:20%">-->
-                <!--        </colgroup>-->
-                <!--        <thead>-->
-                <!--            <tr>-->
-                <!--                <th>순번</th>-->
-                <!--                <th>제목</th>-->
-                <!--                <th>날짜</th>-->
-                <!--            </tr>-->
-                <!--        </thead>-->
-                <!--        <tbody>-->
-                <!--        </tbody>-->
-                <!--    </table>-->
-<!--                <script class="script-code">-->
-<!--    MYKL.SetComponents(url + '/table', (data) => {-->
-<!--        const options = {-->
-<!--            colOrder: ["sn", "title", "create_date"],-->
-<!--            link: {-->
-<!--                title: {-->
-<!--                    pathname: url + "/post",-->
-<!--                    variable: "sn",-->
-<!--                }-->
-<!--            },-->
-<!--            class: {-->
-<!--                title: ["text-start"]-->
-<!--            }-->
-<!--        }-->
-<!--        MYKL.TableAjax("#tableId", {data, options})-->
-<!--    })-->
-<!--                </script>-->
+
+                <script class="script-code">
+    MYKL.SetComponents(url + '/table', (data) => {
+        MYKL.TableAjax('#table', {
+            data,
+            replace: {
+                href: ({sn}) => url + '/post/' + sn
+            },
+            other: ['href']
+        })
+    })
+                </script>
             </section>
             <section>
-                <h3 id="Pagination-Component">Pagination Component</h3>
-                <div class="static-code">
-                    --
-                </div>
-                <!--    <div id="paginationId">-->
-                <!--    </div>-->
-<!--                <script class="script-code">-->
-<!--    const options = {-->
-<!--        start: "start",-->
-<!--        total: "total",-->
-<!--        limit: "limit"-->
-<!--    }-->
-<!--    // MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})-->
-<!--                </script>-->
-            </section>
-            <section>
-                <h3 id="Navigcalation-Component">Navigation Component</h3>
+                <h3 id="Accordion-Component">Accordion Component</h3>
                 <div class="static-code">
     --
                 </div>
@@ -317,19 +297,7 @@
             <section>
                 <h3 id="Tab-Component">Tab Component</h3>
                 <div class="static-code">
-    --
-                </div>
-            </section>
-            <section>
-                <h3 id="Dropdown-Component">Dropdown Component</h3>
-                <div class="static-code">
-    --
-                </div>
-            </section>
-            <section>
-                <h3 id="Accordion-Component">Accordion Component</h3>
-                <div class="static-code">
-    --
+                    --
                 </div>
             </section>
             <section>
@@ -347,15 +315,43 @@
             <section>
                 <h3 id="Star-Component">Star Component</h3>
                 <div class="static-code">
-    --
+                    --
                 </div>
             </section>
             <section>
                 <h3 id="Emotion-Component">Emotion Component</h3>
                 <div class="static-code">
-    --
+                    --
                 </div>
             </section>
+<!--            <section>-->
+<!--                <h3 id="Navigation-Component">Navigation Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    &#45;&#45;-->
+<!--                </div>-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <h3 id="Pagination-Component">Pagination Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    &#45;&#45;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;    <div id="paginationId">&ndash;&gt;-->
+<!--                &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--                &lt;!&ndash;                <script class="script-code">&ndash;&gt;-->
+<!--                &lt;!&ndash;    const options = {&ndash;&gt;-->
+<!--                &lt;!&ndash;        start: "start",&ndash;&gt;-->
+<!--                &lt;!&ndash;        total: "total",&ndash;&gt;-->
+<!--                &lt;!&ndash;        limit: "limit"&ndash;&gt;-->
+<!--                &lt;!&ndash;    }&ndash;&gt;-->
+<!--                &lt;!&ndash;    // MYKL.PaginationAjax("#paginationId", {options, paginationUrl: url + "/pagination"})&ndash;&gt;-->
+<!--                &lt;!&ndash;                </script>&ndash;&gt;-->
+<!--            </section>-->
+            <!--            <section>-->
+            <!--                <h3 id="Dropdown-Component">Dropdown Component</h3>-->
+            <!--                <div class="static-code">-->
+            <!--                    &#45;&#45;-->
+            <!--                </div>-->
+            <!--            </section>-->
         </section>
     </article>
 </div>

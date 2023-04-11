@@ -1,10 +1,8 @@
 import Component from "../../basic/Component.js";
 import errorMessage from "../../basic/Error";
 export default class Button extends Component {
-    setElements() {
-        this.$element.classList.add('mykl-btn');
-        this.$element.classList.add('btn-primary');
-    }
+    // setElements() {
+    // }
 
     setEvents() {
         this.$element.addEventListener('click', (e) => {

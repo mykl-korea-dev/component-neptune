@@ -1,10 +1,11 @@
-import Component from "../../../basic/Component.js";
+import Component from "../../basic/Component.js";
 
-export default class MediaAjax extends Component {
+export default class CardAjax extends Component {
     setElements() {
-        this.$element.classList.add("mykl-media");
+        this.$element.classList.add("mykl-card");
         this.template = this.$element.innerHTML;
     }
+
     setTemplate() {
         if(this.template) {
             const { data = {}, replace = {}, other = [] } = this.$data;
@@ -21,5 +22,10 @@ export default class MediaAjax extends Component {
 
     render() {
         this.$element.innerHTML = this.setTemplate();
+    }
+
+    setData(data) {
+        this.$data = { ...this.$data, ...data};
+        this.render();
     }
 }

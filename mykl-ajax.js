@@ -26,6 +26,8 @@ import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
 
 import {returnComponent} from "./mykl-default.js";
 import Time from "./form-component/time/Time";
+import CardAjax from "./component-set/ajax/CardAjax";
+import ModalAjax from "./component-set/ajax/ModalAjax";
 
 
 let MYKLAjax = {
@@ -43,32 +45,20 @@ let MYKLAjax = {
     FormAjax: returnComponent(FormAjax),
     // FileAjax: returnComponent(FileAjax),
     // ui -----------------------------
-    AutoComplete: function (selector, data) {
-        return new AutoComplete(document.querySelector(selector), data)
-    },
-    AccordionAjax: function (selector, data) {
-        return new AccordionAjax(document.querySelector(selector), data)
-    },
-    DropdownAjax: function (selector, data) {
-        return new DropdownAjax(document.querySelector(selector), data)
-    },
-    PaginationAjax: returnComponent(PaginationAjax),
-    ProcessAjax: function (selector, data) {
-        return new ProcessAjax(document.querySelector(selector), data)
-    },
+    AccordionAjax: returnComponent(AccordionAjax),
     ProgressAjax: returnComponent(ProgressAjax),
-    StarAjax: function (selector, data) {
-        return new StarAjax(document.querySelector(selector), data)
-    },
+    StarAjax: returnComponent(StarAjax),
     TabAjax: returnComponent(TabAjax),
-    TagAjax: function (selector, data) {
-        return new TagAjax(document.querySelector(selector), data);
-    },
-    TableAjax: function (selector, data) {
-        return new TableAjax(document.querySelector(selector), data);
-    },
+    TagAjax: returnComponent(TagAjax),
+    TableAjax: returnComponent(TableAjax),
+    // AutoComplete: returnComponent(AutoComplete),
+    // DropdownAjax: returnComponent(DropdownAjax),
+    // ProcessAjax: returnComponent(ProcessAjax),
+    // PaginationAjax: returnComponent(PaginationAjax),
     // set -----------------------------
     MediaAjax: returnComponent(MediaAjax),
+    CardAjax: returnComponent(CardAjax),
+    ModalAjax: returnComponent(ModalAjax),
 }
 
 window.MYKL = {...window.MYKL, ...MYKLAjax};

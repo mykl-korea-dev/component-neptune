@@ -18,7 +18,6 @@ export default class Accordion extends Component {
                     });
                     return;
                 }
-
                 if(el.classList.contains('show')) {
                     el.classList.remove('show');
                     el.querySelector('.accordion-body').style.height = '0';
@@ -40,5 +39,5 @@ export default class Accordion extends Component {
 
 // if(!this.$element.classList.contains('show-always')) {
 //     el?.querySelector('.accordion-body.show') !== this.$element.querySelector('.accordion-body.show')
-//     && this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
+//     && }this.$element.querySelector('.accordion-body.show')?.classList.remove('show');
 // }

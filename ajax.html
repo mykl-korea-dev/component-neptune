@@ -232,14 +232,6 @@
         </section>
         <section class="component-wrapper">
             <h2>UI Component</h2>
-<!--            <section>-->
-<!--                <h3 id="Button-Component">Button Component</h3>-->
-<!--                <div class="static-code">-->
-<!--    <button type="button" id="btnId" class="mykl-btn btn-primary">제출</button>-->
-<!--                </div>-->
-
-<!--            </section>-->
-
             <section>
                 <h3 id="Progress-Component">Progress Component</h3>
                 <div class="static-code">
@@ -291,39 +283,104 @@
             <section>
                 <h3 id="Accordion-Component">Accordion Component</h3>
                 <div class="static-code">
-    --
+    <div id="accordion" class="mykl-accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <div class= "accordion-toggle">
+                    $name
                 </div>
-            </section>
-            <section>
-                <h3 id="Tab-Component">Tab Component</h3>
-                <div class="static-code">
-                    --
+            </h2>
+            <div class="accordion-body">
+                <table class="accordion-body-item">
+                    <thead>
+                    <tr>
+                        <th scope="col">순번</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">날짜</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">$sn</th>
+                        <td><a href="">$title</a></td>
+                        <td>$content</td>
+                        <td>$create_date</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
                 </div>
-            </section>
-            <section>
-                <h3 id="Tooltip-Component">Tooltip Component</h3>
-                <div class="static-code">
-    --
-                </div>
+                <script class="script-code">
+    MYKL.SetComponents(url + "/table", (data) => {
+        MYKL.AccordionAjax('#accordion', {
+            data,
+            body: {
+                data: data, // accordion_body에 넣을 데이터
+                target: "tbody"
+            },
+            replace: {
+                "href": ({sn}) => url + "/post/" + sn,
+                "name": ({sn}) => "accordion" + sn
+            },
+            other: ["href", "name"]
+        })
+    });
+                </script>
             </section>
             <section>
                 <h3 id="Tag-Component">Tag Component</h3>
                 <div class="static-code">
-    --
+<!--  수정가능 -->
+    <div id="tag">
+        <div class="tag-inner">
+            <div class="tag-input-box">
+                <input type="text" class="tag-input" value="$tag" placeholder="태그를 입력해주세요 (최대 10개)">
+            </div>
+        </div>
+    </div>
+<!--  input - disabled => 수정불가능 -->
+    <div id="tag2">
+        <div class="tag-inner">
+            <div class="tag-input-box">
+                <input type="text" class="tag-input" value="$tag" placeholder="태그를 입력해주세요 (최대 10개)" disabled>
+            </div>
+        </div>
+    </div>
                 </div>
+                <script class="script-code">
+    MYKL.SetComponents(url + '/tag', (data) => {
+        MYKL.TagAjax('#tag', data);
+        MYKL.TagAjax('#tag2', data);
+    })
+                </script>
             </section>
             <section>
                 <h3 id="Star-Component">Star Component</h3>
                 <div class="static-code">
-                    --
+    <div id="star">
+        <input type="number" min="$min" max="$max" value="$value">
+    </div>
+    <div id="star2">
+        <input type="number" min="$min" max="$max" value="$value">
+        <input type="radio" checked>
+    </div>
                 </div>
+                <script class="script-code">
+    MYKL.SetComponents(url + '/star', (data) => {
+        MYKL.StarAjax('#star', data);
+        MYKL.StarAjax('#star2', data);
+    })
+                </script>
             </section>
-            <section>
-                <h3 id="Emotion-Component">Emotion Component</h3>
-                <div class="static-code">
-                    --
-                </div>
-            </section>
+<!--            <section>-->
+<!--                <h3 id="Emotion-Component">Emotion Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    &#45;&#45;-->
+<!--                </div>-->
+<!--            </section>-->
 <!--            <section>-->
 <!--                <h3 id="Navigation-Component">Navigation Component</h3>-->
 <!--                <div class="static-code">-->
@@ -352,11 +409,126 @@
             <!--                    &#45;&#45;-->
             <!--                </div>-->
             <!--            </section>-->
+<!--            <section>-->
+<!--                <h3 id="Tab-Component">Tab Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    &#45;&#45;-->
+<!--                </div>-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <h3 id="Tooltip-Component">Tooltip Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    &#45;&#45;-->
+<!--                </div>-->
+<!--            </section>-->
+        </section>
+        <section class="component-wrapper">
+            <h2>Component Set</h2>
+            <section>
+                <h3 id="Card-Component">Card Component</h3>
+                <div class="static-code">
+    <div id="card" class="bg-light">
+        <div class="card-header">$name</div>
+        <div class="card-body">
+            <h5 class="card-title">$title</h5>
+            <p>$content</p>
+            <a href="#Card-Component" class="mykl-btn btn-primary">바로가기</a>
+        </div>
+    </div>
+                </div>
+                <script class="script-code">
+    MYKL.SetComponents(url + "/common", (data) => {
+        MYKL.CardAjax("#card", {
+            data
+        })
+    })
+                </script>
+            </section>
+            <section>
+                <h3 id="Media-Component">Media Component</h3>
+                <div class="static-code">
+    <div id="media">
+        <div class="media-cover">
+            <img src="https://via.placeholder.com/200" alt="">
+            <span class="media-cover-text">$name</span>
+        </div>
+        <div class="media-body">
+            $content
+        </div>
+    </div>
+                </div>
+                <script class="script-code">
+    MYKL.SetComponents(url + "/common", (data) => {
+        MYKL.MediaAjax("#media", {
+            data
+        })
+    })
+                </script>
+            </section>
+            <section>
+                <h3 id="Modal-Component">Modal Component</h3>
+                <div class="static-code">
+    <div id="modal">
+        <button class="modal-btn mykl-btn btn-secondary-rev">Modal Open</button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">$title</h5>
+                    <button type="button" class="btn-close" data-func="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>$content</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="mykl-btn btn-secondary" data-func="modal">Close</button>
+                    <button type="button" class="mykl-btn btn-primary">Go</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+                <script class="script-code">
+    MYKL.SetComponents(url + "/common", (data) => {
+        MYKL.ModalAjax("#modal", {
+            data
+        })
+    })
+                </script>
+            </section>
+<!--            <section>-->
+<!--                <h3 id="Message-Component">Message Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    &lt;!&ndash; message bar &ndash;&gt;-->
+<!--                    <div class="message-bar">-->
+<!--        <span class="message-icon">-->
+<!--            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">-->
+<!--              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+<!--              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>-->
+<!--            </svg>-->
+<!--        </span>-->
+<!--                        <span class="message">Input Message Context Here.</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
+<!--            <section>-->
+<!--                <h3 id="PostSearch-Component">PostSearch Component</h3>-->
+<!--                <div class="static-code">-->
+<!--                    <div class="mykl-postSearch" data-startDate="start-date" data-endDate="start-end">-->
+<!--                        <div class="mykl-select">-->
+<!--                            <select name="">-->
+<!--                                <option value="0">작성자</option>-->
+<!--                                <option value="1">제목</option>-->
+<!--                                <option value="2">내용</option>-->
+<!--                                <option value="3">답글</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <input type="text" name="value" class="mykl-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
         </section>
     </article>
 </div>
-
-<script src="./dist/js/mykl_ui.js"></script>
 <script>
     // aside 메뉴 이동
     const asideNav = document.querySelector('#aside-nav');
@@ -376,6 +548,7 @@
         </ul>
     </div>
 `).join("");
+    MYKL.Accordion('#aside-nav');
 
 document.querySelectorAll('div.static-code').forEach(el => {
     const div = document.createElement('div');

@@ -72,7 +72,38 @@
             },
             other: ['href']
         })
-    })</script></section><section><h3 id="Accordion-Component">Accordion Component</h3><div class="static-code">--</div></section><section><h3 id="Tab-Component">Tab Component</h3><div class="static-code">--</div></section><section><h3 id="Tooltip-Component">Tooltip Component</h3><div class="static-code">--</div></section><section><h3 id="Tag-Component">Tag Component</h3><div class="static-code">--</div></section><section><h3 id="Star-Component">Star Component</h3><div class="static-code">--</div></section><section><h3 id="Emotion-Component">Emotion Component</h3><div class="static-code">--</div></section></section></article></div><script src="./dist/js/mykl_ui.js"></script><script>// aside 메뉴 이동
+    })</script></section><section><h3 id="Accordion-Component">Accordion Component</h3><div class="static-code"><div id="accordion" class="mykl-accordion"><div class="accordion-item"><h2 class="accordion-header"><div class="accordion-toggle">$name</div></h2><div class="accordion-body"><table class="accordion-body-item"><thead><tr><th scope="col">순번</th><th scope="col">이름</th><th scope="col">제목</th><th scope="col">날짜</th></tr></thead><tbody><tr><th scope="row">$sn</th><td><a href="">$title</a></td><td>$content</td><td>$create_date</td></tr></tbody></table></div></div></div></div><script class="script-code">MYKL.SetComponents(url + "/table", (data) => {
+        MYKL.AccordionAjax('#accordion', {
+            data,
+            body: {
+                data: data, // accordion_body에 넣을 데이터
+                target: "tbody"
+            },
+            replace: {
+                "href": ({sn}) => url + "/post/" + sn,
+                "name": ({sn}) => "accordion" + sn
+            },
+            other: ["href", "name"]
+        })
+    });</script></section><section><h3 id="Tag-Component">Tag Component</h3><div class="static-code"><div id="tag"><div class="tag-inner"><div class="tag-input-box"><input class="tag-input" value="$tag" placeholder="태그를 입력해주세요 (최대 10개)"></div></div></div><div id="tag2"><div class="tag-inner"><div class="tag-input-box"><input class="tag-input" value="$tag" placeholder="태그를 입력해주세요 (최대 10개)" disabled="disabled"></div></div></div></div><script class="script-code">MYKL.SetComponents(url + '/tag', (data) => {
+        MYKL.TagAjax('#tag', data);
+        MYKL.TagAjax('#tag2', data);
+    })</script></section><section><h3 id="Star-Component">Star Component</h3><div class="static-code"><div id="star"><input type="number" min="$min" max="$max" value="$value"></div><div id="star2"><input type="number" min="$min" max="$max" value="$value"> <input type="radio" checked="checked"></div></div><script class="script-code">MYKL.SetComponents(url + '/star', (data) => {
+        MYKL.StarAjax('#star', data);
+        MYKL.StarAjax('#star2', data);
+    })</script></section></section><section class="component-wrapper"><h2>Component Set</h2><section><h3 id="Card-Component">Card Component</h3><div class="static-code"><div id="card" class="bg-light"><div class="card-header">$name</div><div class="card-body"><h5 class="card-title">$title</h5><p>$content</p><a href="#Card-Component" class="mykl-btn btn-primary">바로가기</a></div></div></div><script class="script-code">MYKL.SetComponents(url + "/common", (data) => {
+        MYKL.CardAjax("#card", {
+            data
+        })
+    })</script></section><section><h3 id="Media-Component">Media Component</h3><div class="static-code"><div id="media"><div class="media-cover"><img src="https://via.placeholder.com/200" alt=""> <span class="media-cover-text">$name</span></div><div class="media-body">$content</div></div></div><script class="script-code">MYKL.SetComponents(url + "/common", (data) => {
+        MYKL.MediaAjax("#media", {
+            data
+        })
+    })</script></section><section><h3 id="Modal-Component">Modal Component</h3><div class="static-code"><div id="modal"><button class="modal-btn mykl-btn btn-secondary-rev">Modal Open</button><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">$title</h5><button type="button" class="btn-close" data-func="modal" aria-label="Close"></button></div><div class="modal-body"><p>$content</p></div><div class="modal-footer"><button type="button" class="mykl-btn btn-secondary" data-func="modal">Close</button> <button type="button" class="mykl-btn btn-primary">Go</button></div></div></div></div></div><script class="script-code">MYKL.SetComponents(url + "/common", (data) => {
+        MYKL.ModalAjax("#modal", {
+            data
+        })
+    })</script></section></section></article></div><script>// aside 메뉴 이동
     const asideNav = document.querySelector('#aside-nav');
     asideNav.innerHTML = [...document.querySelectorAll('.component-wrapper')].map(el => `
     <div class="accordion-item">
@@ -90,6 +121,7 @@
         </ul>
     </div>
 `).join("");
+    MYKL.Accordion('#aside-nav');
 
 document.querySelectorAll('div.static-code').forEach(el => {
     const div = document.createElement('div');

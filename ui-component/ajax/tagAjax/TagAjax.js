@@ -4,7 +4,9 @@ export default class TagAjax extends Tag {
     setElements() {
         super.setElements();
         this.$element.classList.add("mykl-tag");
-        this.uploadedTags = this.$data[this.name] || [];
+        const value = this.$element.querySelector('.tag-input').getAttribute('value').replace('$', "")
+        this.$element.querySelector('.tag-input').setAttribute("value", "");
+        this.uploadedTags = this.$data[value] || null;
 
         const tagInputBoxEl = this.$element.querySelector('.tag-input-box');
         const div = document.createElement("div");
@@ -30,8 +32,7 @@ export default class TagAjax extends Tag {
             this.$element.querySelector('.tag-input').setAttribute('placeholder', '');
             this.setInputWidth();
         }
-
-        (this.$data["isShow"]) && (this.$element.querySelector('.tag-input-box').style.display = 'none');
+        ((this.$element.querySelector('.tag-input')).getAttribute("disabled") === "") && (this.$element.querySelector('.tag-input-box').style.display = 'none');
     }
 }
 

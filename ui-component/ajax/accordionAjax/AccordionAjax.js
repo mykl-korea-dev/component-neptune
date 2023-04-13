@@ -1,77 +1,103 @@
-import Component from "../../../basic/Component.js";
 import Accordion from "../../accordion/Accordion.js";
+import Component from "../../../basic/Component.js";
 
 export default class AccordionAjax extends Accordion {
     setElements() {
-        this.$element.classList.add("mykl-accordion");
-        [this.headerTemplate, this.bodyTemplate] = [...this.$element.querySelector('.accordion-item').children];
+        this.item = this.$element.querySelector('.accordion-item');
+        [this.head, this.body] = [...this.item.children];
     }
 
     setTemplate() {
-        const div = document.createElement('div');
-        div.innerHTML = this.$element.innerHTML;
-        return new AccordionItemAjax(div, this.$data).template;
+        return this.$data.header.data.map(data => {
+            const item = this.$element.cloneNode(true);
+            const header = this.head.cloneNode(true);
+            const headerItem = new AccordionAjaxHeader(header, {
+                ...this.$data,
+                data,
+            });
+
+            const body = this.body.cloneNode(true);
+            const bodyItem = new AccordionAjaxBody(body, {
+                ...this.$data,
+                body: {
+                    data: this.$data.body.data.filter(v => v[this.$data.body.key] === data[this.$data.body.key])
+                },
+            });
+
+            item.querySelector('.accordion-item').innerHTML = headerItem.template + bodyItem.template;
+            return item.innerHTML;
+        }).join("");
     }
 
     render() {
         this.$element.innerHTML = this.setTemplate();
     }
 
-    // addItem(data) {
-    //     this.$element.querySelector('.accordion-item').innerHTML = new AccordionItemAjax(this.$element.querySelector('.accordion-item'), data).template;
-    // }
+    setData(data) {
+        super.setData(data);
+    }
 }
 
-export class AccordionItemAjax extends Component {
+class AccordionAjaxHeader extends Component {
     setElements() {
-        this.wrapper = document.createElement('div');
-        this.wrapper.appendChild(this.$element.cloneNode(true));
-        this.template = this.wrapper.innerHTML;
+        const div = document.createElement('div');
+        div.appendChild(this.$element);
+        this.template = div.innerHTML;
     }
 
     setTemplate() {
-        if(this.template) {
-            const { data = [], replace = {}, other = [] } = this.$data;
-            return data.map(item => {
-                const headerEl = document.createElement('div');
-                headerEl.appendChild(this.$element.querySelector('.accordion-header').cloneNode(true));
-                let originHTML = headerEl.innerHTML;
-                [...Object.keys(item), ...other].map(key => {
-                    if (replace[key]) {
-                        originHTML = originHTML.replaceAll('$' + key, replace[key](item));
-                    } else {
-                        originHTML = originHTML.replaceAll('$' + key, item[key]);
-                    }
-                });
-                const bodyEl = document.createElement('div');
-                bodyEl.appendChild(this.$element.querySelector('.accordion-body').cloneNode(true));
-                bodyEl.querySelector(this.$data.body.target).innerHTML = this.setBodyTemplate();
-
-                this.wrapper.querySelector('.accordion-item').innerHTML = originHTML + bodyEl.innerHTML;
-
-                return this.wrapper.innerHTML;
-            }).join('');
-        }
-    }
-    setBodyTemplate() {
-        if(this.template) {
-            const { data, replace, other, body } = this.$data;
-            const mapData = body.data || data;
-            return mapData.map(item => {
-                let originHTML = this.$element.querySelector(body.target).innerHTML;
-                [...Object.keys(item), ...other].map(key => {
-                    if (replace[key]) {
-                        return originHTML = originHTML.replaceAll('$' + key, replace[key](item));
-                    }
-                    return originHTML = originHTML.replaceAll('$' + key, item[key])
-                });
-                return originHTML;
-            }).join('');
-        }
+        const { data = {}, replace = {}, other = [] } = this.$data;
+        let originHTML = this.template;
+        [...Object.keys(data), ...other].map(key => {
+            if (replace[key]) {
+                return originHTML = originHTML.replaceAll('$' + key, replace[key](data));
+            }
+            return originHTML = originHTML.replaceAll('$' + key, data[key])
+        });
+        return originHTML;
     }
 
     render() {
-        this.template = this.setTemplate();
+        this.$element.innerHTML = this.setTemplate();
+        this.template = this.$element.innerHTML;
+    }
+
+    setData(data) {
+        super.setData(data);
     }
 }
 
+class AccordionAjaxBody extends Component {
+    setElements() {
+        // const div = document.createElement('div');
+        // div.appendChild(this.$element);
+        // this.template = div.innerHTML;
+        // console.log(this.template, this.$element)
+    }
+
+    setTemplate() {
+        const { data = [], replace = {}, other = [], body = {} } = this.$data;
+        return this.$data.body.data.map(item => {
+            let originHTML = this.$element.querySelector('.accordion-body-item').innerHTML;
+            [...Object.keys(item), ...other].map(key => {
+                if (replace[key]) {
+                    return originHTML = originHTML.replaceAll('$' + key, replace[key](item));
+                }
+                return originHTML = originHTML.replaceAll('$' + key, item[key])
+            });
+            return originHTML;
+        }).join('');
+    }
+
+    render() {
+        this.$element.querySelector(".accordion-body-item").innerHTML = this.setTemplate();
+        const div = document.createElement('div');
+        div.appendChild(this.$element);
+
+        this.template = div.innerHTML;
+    }
+
+    setData(data) {
+        super.setData(data);
+    }
+}

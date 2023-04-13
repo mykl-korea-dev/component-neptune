@@ -1,90 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>select</title>
-    <link rel="stylesheet" href="../../basic/common.css">
-    <link rel="stylesheet" href="../form-group/form-group.css">
+    <link rel="stylesheet" href="../../basic/common.css" />
+    <link rel="stylesheet" href="../form-group/form-group.css" />
     <script src="./Select-multi-check.js" type="module"></script>
-    <link rel="stylesheet" href="./select-multi-check.css">
-    <link rel="stylesheet" href="../checkbox/checkbox.css">
-</head>
+    <link rel="stylesheet" href="./select-multi-check.css" />
+    <link rel="stylesheet" href="../checkbox/checkbox.css" />
+  </head>
 
-<body>
-<h2>select-multi-check</h2>
+  <body>
+    <h2>select-multi-check</h2>
 
-<div>
     <div class="mykl-select-multi-check">
-        <select name="UN-SDGs" id="category">
-            <option value="pool">빈곤증식</option>
-            <option value="hungry">기아증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-        </select>
+      <select name="UN-SDGs" id="category">
+        <option value="pool">빈곤증식</option>
+        <option value="hungry">기아증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+      </select>
 
-        <select name="산업별" id="depart">
-            <option value="mechanic">기계과</option>
-            <option value="aviation">항공과</option>
-            <option value="driver">운항과</option>
-        </select>
+      <select name="산업별" id="depart">
+        <option value="mechanic">기계과</option>
+        <option value="aviation">항공과</option>
+        <option value="driver">운항과</option>
+      </select>
 
-        <select name="협업 학과(전공)" id="college">
-            <option value="hanyang">한양대</option>
-            <option value="seojung">서정대</option>
-            <option value="seoul">서울대</option>
-        </select>
+      <select name="협업 학과(전공)" id="college">
+        <option value="hanyang">한양대</option>
+        <option value="seojung">서정대</option>
+        <option value="seoul">서울대</option>
+      </select>
     </div>
-</div>
 
-<br />
-<br />
-<br />
-<br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-<div>
     <div class="mykl-select-multi-check">
-        <select multiple="multiple" name="hi" id="hi">
-            <option value="pool">빈곤증식</option>
-            <option value="hungry">기아증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-        </select>
+      <select multiple="multiple" name="hi" id="hi">
+        <option value="pool">빈곤증식</option>
+        <option value="hungry">기아증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+      </select>
 
-        <select multiple="multiple" name="hello" id="hello">
-            <option value="mechanic">기계과</option>
-            <option value="aviation">항공과</option>
-            <option value="driver">운항과</option>
-        </select>
+      <select multiple="multiple" name="hello" id="hello">
+        <option value="mechanic">기계과</option>
+        <option value="aviation">항공과</option>
+        <option value="driver">운항과</option>
+      </select>
     </div>
-</div>
 
-<br />
-<br />
-<br />
-<br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-<div>
     <div class="mykl-select-multi-check">
-        <select multiple="multiple" name="me" id="me">
-            <option value="pool">빈곤증식</option>
-            <option value="hungry">기아증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-            <option value="water">증발증식</option>
-        </select>
+      <select multiple="multiple" name="me" id="me">
+        <option value="pool">빈곤증식</option>
+        <option value="hungry">기아증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+        <option value="water">증발증식</option>
+      </select>
     </div>
-</div>
 
-<script type="module">
-    import SelectMultiCheck from "./Select-multi-check.js";
+    <script type="module">
+      import SelectMultiCheck from "./Select-multi-check.js";
 
-    document.querySelectorAll('.mykl-select-multi-check').forEach(el => new SelectMultiCheck(el));
-</script>
-</body>
+      document
+        .querySelectorAll(".mykl-select-multi-check")
+        .forEach((el) => new SelectMultiCheck(el));
+    </script>
+  </body>
 </html>

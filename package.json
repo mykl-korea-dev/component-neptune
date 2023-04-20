@@ -1,8 +1,8 @@
 {
-  "name": "component-neptune",
+  "name": "component-neptune-matchall",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/mykl_ui.js",
+  "main": "dist/js/mykl_ui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "data": "json-server data.json --port 3000 --routes routes.json",
@@ -10,12 +10,12 @@
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "files": [
     "dist/**"
   ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.9",

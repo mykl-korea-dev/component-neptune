@@ -15,7 +15,7 @@ export default class TableAjax extends Component {
     }
 
     setTemplate() {
-        if(this.template) {
+        if(this.$data.template) {
             const { data = [], replace = {}, other = [] } = this.$data;
             return data.map(item => {
                 let originHTML = this.template;

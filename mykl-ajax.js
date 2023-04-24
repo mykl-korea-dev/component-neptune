@@ -16,6 +16,7 @@ import ProcessAjax from "./ui-component/ajax/processAjax/ProcessAjax.js";
 import ProgressAjax from "./ui-component/ajax/progressAjax/ProgressAjax.js";
 import StarAjax from "./ui-component/ajax/starAjax/StarAjax.js";
 import PaginationAjax from "./ui-component/ajax/paginationAjax/PaginationAjax.js";
+import PaginationAjax2 from "./ui-component/ajax/paginationAjax/PaginationAjax2.js";
 import TabAjax from "./ui-component/ajax/tabAjax/TabAjax.js";
 import TagAjax from "./ui-component/ajax/tagAjax/TagAjax.js";
 import TableAjax from "./ui-component/ajax/tableAjax/TableAjax.js";
@@ -54,7 +55,8 @@ let MYKLAjax = {
     // AutoComplete: returnComponent(AutoComplete),
     // DropdownAjax: returnComponent(DropdownAjax),
     // ProcessAjax: returnComponent(ProcessAjax),
-    // PaginationAjax: returnComponent(PaginationAjax),
+    PaginationUIAjax: returnComponent(PaginationAjax2),
+    PaginationAjax: returnComponent(PaginationAjax),
     // set -----------------------------
     MediaAjax: returnComponent(MediaAjax),
     CardAjax: returnComponent(CardAjax),

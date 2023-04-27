@@ -6,13 +6,19 @@
     <link rel="stylesheet" href="./star.css">
 </head>
 <body>
-    <div class="mykl-star" data-value="3">
+    <div class="mykl-star">
+        <input type="number" value="3">
+        <input type="radio" checked>
     </div>
 
     <div class="mykl-star" data-rate="true">
     </div>
 
-    <script src="./Star.js" type="module"></script>
+    <script type="module">
+        import Star from "./Star.js";
+
+        new Star(document.querySelector(".mykl-star"));
+    </script>
 </body>
 </html>
 

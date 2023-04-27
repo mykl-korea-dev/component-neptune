@@ -124,7 +124,7 @@ export default class Calendar extends Component {
                 this.$element.querySelector('.selected-year').textContent = year;
                 this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
                 this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(day);
-                this.$element.querySelector('.calendar-input').value = `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`;
+                this.$element.querySelector('input').setAttribute("value", `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`);
             }
         })
     }

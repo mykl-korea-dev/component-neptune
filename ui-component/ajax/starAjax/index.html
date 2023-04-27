@@ -10,9 +10,18 @@
 
 <!--</div>-->
 
-<div class="star-ajax" data-rate="true">
-
+<div id="star">
+    <input type="number" min="$min" max="$max" value="$value">
+    <input type="radio" checked>
 </div>
-<script src="./StarAjax.js" type="module"></script>
+<script type="module">
+    import StarAjax from "./StarAjax.js";
+    import {getData} from "../../../basic/utils.js";
+
+    const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io" + "/star";
+    getData(url, (data) => {
+        new StarAjax(document.querySelector('#star'), data)
+    })
+</script>
 </body>
 </html>

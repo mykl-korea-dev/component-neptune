@@ -22,6 +22,18 @@
     <button type="button" class="mykl-btn btn-info btn-lg" data-href="https://naver.com/" data-history="true">긴글넣어보려고하는버튼</button>
     <button type="button" class="mykl-btn btn-success" data-href="https://naver.com/" >writetoEnglish</button>
     <button type="button" class="mykl-btn" onclick={window.history.back()}>history.back</button>
-    <script src="./Button.js" type="module"></script>
+    <button type="button" id="mykl"></button>
+    <button type="button" id="mykl2"></button>
+    <script type="module">
+        import Button from "./Button.js";
+        const url = "https://55cd23df-29b6-42a8-9e6b-39c371568a01.mock.pstmn.io";
+
+        new Button(document.querySelector('#mykl'));
+        new Button(document.querySelector('#mykl2')).submit({
+                url: url + "/button",
+                callback: (data) => {
+                    console.log(data)
+                }})
+    </script>
 </body>
 </html>

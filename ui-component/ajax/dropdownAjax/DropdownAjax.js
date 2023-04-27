@@ -1,6 +1,4 @@
 import Component from "../../../basic/Component.js";
-import {getData} from "../../../basic/utils.js";
-import Dropdown from "../../dropdown/Dropdown.js";
 
 export default class DropdownAjax extends Component {
     setElements() {

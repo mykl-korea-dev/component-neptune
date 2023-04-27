@@ -3,26 +3,39 @@ import {getData, getDataset} from "../../../basic/utils.js";
 
 export default class CheckboxAjax extends Component{
     setElements() {
-        this.name = this.$element.querySelector('input').getAttribute('name');
+        const inputEl = this.$element.querySelector('input');
+        this.name = inputEl.getAttribute('name') || "";
+
+        this.id = inputEl.getAttribute('id')?.replace("$", "") || null;
+        this.value = inputEl.getAttribute("value")?.replace("$", "") || null;
     }
 
     setTemplate() {
-        if(Array.isArray(this.$data) || this.$data.data) {
+        if(this.id || this.value) {
+            return this.$data.map(data => {
+                return `
+                <div class="mykl-check">
+                    <input type="checkbox" name="${this.name || data[name]}" id="${this.name || data[name]}-${data[this.id]}" value="${data[this.id]}">
+                    <label for="${this.name || data[name]}-${data[this.id]}">${data[this.value]}</label>
+                </div>
+            `
+            }).join('');
+        } else if(Array.isArray(this.$data) || this.$data.data) {
             const { data: $data = this.$data, options={} } = this.$data;
             return $data.map(data => {
                 const {id="id", value="value", checked="checked", trueChecked = 'Y' } = options;
                 return `
                 <div class="mykl-check">
-                    <input class="check-input" type="checkbox" name="${this.name || data[name]}" id="${this.name || data[name]}-${data[id]}" value="${data[id]}"  ${data[checked] === trueChecked ? "checked" : ''}>
-                    <label class="check-label" for="${this.name || data[name]}-${data[id]}">${data[value]}</label>
+                    <input type="checkbox" name="${this.name || data[name]}" id="${this.name || data[name]}-${data[id]}" value="${data[id]}"  ${data[checked] === trueChecked ? "checked" : ''}>
+                    <label for="${this.name || data[name]}-${data[id]}">${data[value]}</label>
                 </div>
             `
             }).join('');
         } else {
             return Object.keys(this.$data).map((data) => `
                 <div class="mykl-check">
-                    <input class="check-input" type="checkbox" name="${this.name}" id="check-${data}" value="${data}">
-                    <label class="check-label" for="check-${data}">${this.$data[data]}</label>
+                    <input type="checkbox" name="${this.name}" id="check-${data}" value="${data}">
+                    <label for="check-${data}">${this.$data[data]}</label>
                 </div>
             `).join('');
         }

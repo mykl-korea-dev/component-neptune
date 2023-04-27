@@ -19,55 +19,55 @@
     opacity: 0.8;
 }
 
+.mykl-btn:focus {
+
+}
+
 /* 크기 */
-.btn-sm {
+.mykl-btn.btn-sm {
     min-width: 50px;
 }
 
-.btn-lg {
+.mykl-btn.btn-lg {
     min-width: 140px;
 }
 
-.btn-round {
+.mykl-btn.btn-round {
     border-radius: 28px;
 }
 
-.btn-full {
+.mykl-btn.btn-full {
     width: 100%;
     max-width: initial;
 }
 
 /* 상태 */
-.btn-primary {
+.mykl-btn.btn-primary {
     background: var(--primary);
     color: #fff;
 }
 
-.btn-primary-rev {
+.mykl-btn.btn-primary-rev {
     border: 1px solid currentColor;
     color: #004CFF;
 }
 
-.btn-secondary {
+.mykl-btn.btn-secondary {
     border: 1px solid transparent;
     background: var(--secondary);
     color: #505050;
 }
 
-.btn-secondary-rev {
+.mykl-btn.btn-secondary-rev {
     color: #505050;
     border: 1px solid var(--secondary);
     background: #fff;
 }
 
-.btn-dark {
+.mykl-btn.btn-dark {
     border: 1px solid #101010;
     background: #101010;
     color: #fff;
-}
-
-.btn-hide {
-    display: none !important;
 }
 
 

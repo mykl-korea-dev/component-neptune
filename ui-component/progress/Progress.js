@@ -1,33 +1,71 @@
 import Component from "../../basic/Component.js";
-import {getDataset} from "../../basic/utils.js";
+import errorMessage from "../../basic/Error.js";
 
 export default class Progress extends Component {
     setElements() {
-        const [strMin, strMax, strValue] = ['min', 'max', 'value'].map(v => getDataset(this.$element, v));
-        const min = parseFloat(strMin) || 0;
-        const max = parseFloat(strMax) || 100;
-        const value = parseFloat(strValue) >= 0 ? parseFloat(strValue) : null;
+        const inputEl = this.$element.querySelector('input');
+        this.min = parseFloat(inputEl.getAttribute('min')) || 0;
+        this.max = parseFloat(inputEl.getAttribute('max')) || 100;
 
-        if(value !== 0 && !value) {
-            throw new Error('data-value is not defined');
+        try {
+            this.value = parseFloat(inputEl.getAttribute('value'));
+        } catch (e) {
+            errorMessage({
+                message: "invalid progress value",
+                component: "Progress",
+                element: this.$element.id
+            })
+        }
+
+        if(this.value !== 0 && !this.value) {
+            errorMessage({
+                message: "missing progress value",
+                component: "Progress",
+                element: this.$element.id
+            });
+            return;
         }
 
         this.$element.style.width = `100%`;
-        this.$element.querySelector('.progress-bar').style.width = `${(value / (max-min))* 100}%`;
     }
 
     setTemplate() {
-        const value = parseFloat(getDataset(this.$element, 'value')).toFixed(1);
+        // TODO : if) min = 5, max = 10, value = 6인 경우 progress value 정하기
+        const value = (this.value).toFixed(1);
         const [intValue, checkFirstFloat] = value.split('.');
-        return `<span class="progress-value">${checkFirstFloat == 0 ? intValue : value}</span>`
+
+        return `
+            <div class="progress-bar">
+                <span class="progress-value">${+checkFirstFloat === 0 ? intValue : value}</span>    
+            </div>
+        `
     }
 
     render() {
-        this.$element.querySelector('.progress-bar').innerHTML = this.setTemplate();
+        this.$element.innerHTML += this.setTemplate();
+        this.init();
+    }
+
+    change({min=this.min, max=this.max, value = this.value}) {
+        const inputEl = this.$element.querySelector('input')
+        inputEl.setAttribute('min', min);
+        inputEl.setAttribute('max', max);
+        inputEl.setAttribute('value', value);
+        this.min = min;
+        this.max = max;
+        this.value = value;
+        this.init();
+    }
+
+    init() {
+        this.$element.querySelector('.progress-bar').style.width = `${((this.value - this.min) / (this.max - this.min)) * 100}%`;
+        const value = this.value.toFixed(1);
+        const [intValue, checkFirstFloat] = value.split('.');
+        this.$element.querySelector('.progress-value').textContent = +checkFirstFloat === 0 ? intValue : value;
         const [progressWidth, barWidth, valueWidth] = [this.$element, this.$element.querySelector('.progress-bar'), this.$element.querySelector('.progress-value')].map((el) => Math.round(el.getBoundingClientRect().width));
         if(barWidth + valueWidth >= progressWidth) {
             this.$element.querySelector('.progress-value').style.left = 'auto';
-            this.$element.querySelector('.progress-value').style.right = 0;
+            this.$element.querySelector('.progress-value').style.right = '0';
         }
     }
 }

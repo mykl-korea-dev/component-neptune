@@ -2,7 +2,9 @@ import Component from "../../basic/Component.js";
 
 export default class Tag extends Component {
     setElements() {
-        const inputEl = this.$element.querySelector(".tag-input");
+        const inputEl = this.$element.querySelector("input");
+        this.maxCount = this.$element.querySelector("input[type=number]")?.getAttribute("max") || 10;
+        inputEl.classList.add("tag-input");
         this.name = inputEl.getAttribute("name");
         inputEl.setAttribute("autocomplete", "off");
         inputEl.removeAttribute("name");
@@ -14,7 +16,7 @@ export default class Tag extends Component {
             <span class="tag-hidden-text"></span>
             <div class="tagLength mykl-tooltip">
                 <div class="tooltip-icon"></div>
-                <div class="tooltip-content">태그는 10개까지 입력할 수 있습니다.</div>
+                <div class="tooltip-content">태그는 ${this.maxCount}개까지 입력할 수 있습니다.</div>
             </div>
             <div class="textLength mykl-tooltip">
                 <div class="tooltip-icon"></div>
@@ -54,7 +56,7 @@ export default class Tag extends Component {
 
             // 태그 수 제한
             const inputItemLength = this.$element.querySelectorAll('.tag-item').length;
-            if (inputItemLength >= 10) {
+            if (inputItemLength >= this.maxCount) {
                 this.$element.querySelector('.tag-input').value = '';
                 const tooltipBox = this.$element.querySelector('.mykl-tooltip.tagLength');
 

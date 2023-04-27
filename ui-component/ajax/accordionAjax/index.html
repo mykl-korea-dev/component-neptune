@@ -6,9 +6,66 @@
     <link rel="stylesheet" href="../../accordion/accordion.css">
 </head>
 <body>
-<div class="accordion-ajax">
+
+<div id="accordion" class="mykl-accordion">
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <h2 class= "accordion-toggle">
+                <span>123</span>
+                <span>$name</span>
+            </h2>
+        </div>
+        <div class="accordion-body">
+            <table class="accordion-body-item">
+                <thead>
+                <tr>
+                    <th scope="col">순번</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">날짜</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">$sn</th>
+                    <td><a href="">$title</a></td>
+                    <td>$content</td>
+                    <td>$create_date</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
-<script src="./AccordionAjax.js" type="module"></script>
+<script type="module">
+    import AccordionAjax from "./AccordionAjax.js";
+
+    const url = "https://64628ee7-199b-48fb-be0a-32e5c3cce1f5.mock.pstmn.io";
+    const temp = {
+        1: "폼 컴포넌트",
+        2: "유아이 컴포넌트",
+    };
+
+    (async function() {
+        const headerRes = await fetch(url + "/header");
+        const footerRes = await fetch(url + "/footer");
+
+        const headerData = await headerRes.json();
+        const footerData = await  footerRes.json();
+
+        new AccordionAjax(document.querySelector('#accordion'), {
+            header: {
+                data: headerData,
+                key: "id"
+            },
+            body: {
+                target: "tbody",
+                data: footerData,
+                key: "id",
+            },
+        })
+    })()
+</script>
 </body>
 </html>

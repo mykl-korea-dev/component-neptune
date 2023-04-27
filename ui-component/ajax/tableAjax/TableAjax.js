@@ -9,51 +9,69 @@ import Component from "../../../basic/Component.js";
 //   순번         날짜     상태 (열)
 
 export default class TableAjax extends Component {
-    setTemplate() {
+    setElements() {
         this.$element.classList.add("mykl-table");
-        const options = {
-            index: {use: false, indexStart: 1, head: false, ...this.$data.options.index || {} },
-            colOrder: [...this.$data.options.colOrder],
-            link: {...this.$data.options.link || {}},
-            class: {...this.$data.options.class || {}},
-        }
-        const { data } = this.$data;
-        const { index, colOrder, link: links, class: className } = options;
-        return data.map((v, i) => `
+        this.template = this.$element.querySelector('tbody').innerHTML;
+    }
+
+    setTemplate() {
+        if(this.$data.template) {
+            const { data = [], replace = {}, other = [] } = this.$data;
+            return data.map(item => {
+                let originHTML = this.template;
+                [...Object.keys(item), ...other].map(key => {
+                    if (replace[key]) {
+                        return originHTML = originHTML.replaceAll('$' + key, replace[key](item));
+                    }
+                    return originHTML = originHTML.replaceAll('$' + key, item[key])
+                });
+                return originHTML;
+            }).join('');
+        } else {
+            const options = {
+                index: {use: false, indexStart: 1, head: false, ...this.$data.options.index || {} },
+                colOrder: [...this.$data.options.colOrder],
+                link: {...this.$data.options.link || {}},
+                class: {...this.$data.options.class || {}},
+            }
+            const { data } = this.$data;
+            const { index, colOrder, link: links, class: className } = options;
+            return data.map((v, i) => `
             <tr>
                 ${index.use ? index.head ? `<th>${index.indexStart + i}</th>` : `<td>${index.indexStart + i}</td>`: ""}
                 ${colOrder.map(key => {
-                    const classType = className[key];
-                    let style;
-                    if(classType) {
-                        if(typeof classType === "function") {
-                            style = classType(v[key]);
-                            style = Array.isArray(style) ? style.join(" ") : style;
-                        } else if(Array.isArray(classType)) {
-                            style = classType.join(" ");
-                        } else if(typeof classType === "string") {
-                            style = classType;
-                        } 
-                    } else {
-                        style = "";
-                    }
-                    
-                    const linkType = links[key];
-                    let link;
-                    if(linkType) {
-                        if(typeof linkType === "function") {
-                            link = linkType(v[key]);
-                            link = Array.isArray(link) ? link.join(" ") : link;
-                        } else if(typeof linkType === "string") {
-                            link = linkType;
-                        } else {
-                            link = (linkType["pathname"] || "") + (linkType["variable"] ? "/" + v[linkType["variable"]] : "");
-                        }
-                    } else {
-                        link = "";
-                    }
 
-                    return `
+                const classType = className[key];
+                let style;
+                if(classType) {
+                    if(typeof classType === "function") {
+                        style = classType(v);
+                        style = Array.isArray(style) ? style.join(" ") : style;
+                    } else if(Array.isArray(classType)) {
+                        style = classType.join(" ");
+                    } else if(typeof classType === "string") {
+                        style = classType;
+                    }
+                } else {
+                    style = "";
+                }
+
+                const linkType = links[key];
+                let link;
+                if(linkType) {
+                    if(typeof linkType === "function") {
+                        link = linkType(v);
+                        // link = Array.isArray(link) ? link.join(" ") : link;
+                    } else if(typeof linkType === "string") {
+                        link = linkType;
+                    } else {
+                        link = (linkType["pathname"] || "") + (linkType["variable"] ? "/" + v[linkType["variable"]] : "");
+                    }
+                } else {
+                    link = "";
+                }
+
+                return `
                         <td class="${style}">
                             ${links[key] ? `<a href="${link}">${v[key]}</a>` : v[key]}
                         </td>
@@ -61,9 +79,15 @@ export default class TableAjax extends Component {
                 .join("")}
             </tr>
         `).join("");
+        }
     }
 
     render() {
         this.$element.querySelector('tbody').innerHTML = this.setTemplate();
+    }
+
+    setData(data) {
+        this.$data = { ...this.$data, ...data};
+        this.render();
     }
 }

@@ -27,7 +27,7 @@ export default class Select extends Component {
             let textLength = 0;
             [...el.textContent].forEach(text => {
                 textLength += (text.match(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/)?.length || 0) * 2.5;
-                textLength += (text.match(/[A-Z|0-9]/)?.length || 0) * 2;
+                textLength += (text.match(/[A-Z|a-z|0-9]/)?.length || 0) * 2;
                 textLength += (text.match(/^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|A-Z|0-9]/)?.length || 0) * 1.5;
             })
             return f < textLength ? textLength : f;

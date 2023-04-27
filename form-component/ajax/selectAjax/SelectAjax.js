@@ -6,8 +6,11 @@ import {getData} from "../../../basic/utils.js";
 export default class SelectAjax extends Select {
     setElements() {
         this.$element.classList.add("mykl-select");
+
         this.select = this.$element.querySelector('select');
         const optionEl = this.select.querySelector('option');
+        this.id = optionEl.getAttribute('value')?.replace("$", "");
+        this.value = optionEl.textContent?.replace("$", "");
 
         if(optionEl.getAttribute('value') === '' && optionEl.textContent !== "") {
             this.select.innerHTML = '';
@@ -15,7 +18,14 @@ export default class SelectAjax extends Select {
         } else {
             this.select.innerHTML = '';
         }
-        if(this.$data.data) {
+
+        if(this.id) {
+            this.select.innerHTML += this.$data.map((data) => {
+                return `
+                <option value="${data[this.id]}">${data[this.value]}</option>
+            `
+            }).join('');
+        } else if(this.$data.data) {
             const {data: $data = this.$data, options = {}} = this.$data;
             const {id = "id", value = "value", selected = "selected", trueSelected = 'Y'} = options;
             this.select.innerHTML += $data.map((data) => {

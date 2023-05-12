@@ -1,6 +1,6 @@
-import Component from "../../../basic/Component.js";
-import Select from "../../select/Select.js";
-import {getData} from "../../../basic/utils.js";
+import Component from "../../../basic/js/Component.js";
+import Select from "../../js/Select.js";
+import {getData} from "../../../basic/js/utils.js";
 
 
 export default class SelectAjax extends Select {

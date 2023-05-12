@@ -1,34 +1,30 @@
 // Form
-import InputPassword from "./form-component/input/InputPassword.js";
-import Calendar from './form-component/calendar/Calendar.js';
-import Range from './form-component/range/Range.js';
-import Select from './form-component/select/Select.js';
-import Textarea from './form-component/textarea/Textarea.js';
-import Time from './form-component/time/Time.js';
+import InputPassword from "./form-component/js/InputPassword.js";
+import Calendar from './form-component/js/Calendar.js';
+import Range from './form-component/js/Range.js';
+import Select from './form-component/js/Select.js';
+import Textarea from './form-component/js/Textarea.js';
+import Time from './form-component/js/Time.js';
 
 // UI
-import Button from "./ui-component/button/Button.js";
-import Progress from "./ui-component/progress/Progress.js";
-import Accordion from "./ui-component/accordion/Accordion.js";
-import Tab from "./ui-component/tab/tab.js";
-import Tag from "./ui-component/tag/Tag.js";
-import Emotion from "./ui-component/emotion/emotion.js";
-import Star from "./ui-component/star/Star.js";
-import Loading from "./ui-component/loading/Loading.js";
-import Navigation from "./ui-component/navigation/Navigation.js";
-import Process from "./ui-component/process/Process.js";
+// import Button from "./ui-component/button/Button.js";
+// import Progress from "./ui-component/progress/Progress.js";
+// import Accordion from "./ui-component/accordion/Accordion.js";
+// import Tab from "./ui-component/tab/tab.js";
+// import Tag from "./ui-component/tag/Tag.js";
+// import Emotion from "./ui-component/emotion/emotion.js";
+// import Star from "./ui-component/star/Star.js";
+// import Loading from "./ui-component/loading/Loading.js";
+// import Navigation from "./ui-component/navigation/Navigation.js";
+// import Process from "./ui-component/process/Process.js";
 
 // Set
 import ContextMessage from "./component-set/message/ContextMessage.js";
-import Modal from "./component-set/modal/Modal.js";
-import PostSearch from "./component-set/postSearch/PostSearch.js";
+// import Modal from "./component-set/modal/Modal.js";
+// import PostSearch from "./component-set/postSearch/PostSearch.js";
 
 // Style
-import './basic/common.css'
-import './form-component/form_style.css';
-import './ui-component/ui_style.css';
-import './component-set/set_style.css';
-import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
+import './style.scss';
 
 export function setRootColor(nameOrObj="", color="") {
     if(color === "") {
@@ -56,9 +52,9 @@ const MYKLBasic = {
     stopAllLoading: function() {
         document.querySelectorAll('.mykl-loading').forEach(el => el.classList.add('loading-stop'));
     },
-    Loading: function (el, data) {
-        return new Loading(document.querySelector(el), data);
-    },
+    // Loading: function (el, data) {
+    //     return new Loading(document.querySelector(el), data);
+    // },
     // form -----------------------------------------------------
     InputPassword: returnComponent(InputPassword),
     Calender: returnComponent(Calendar),
@@ -70,19 +66,19 @@ const MYKLBasic = {
     Textarea: returnComponent(Textarea),
     Time: returnComponent(Time),
     // ui --------------------------------------------------
-    Button: returnComponent(Button),
-    Progress: returnComponent(Progress),
-    Accordion: returnComponent(Accordion),
-    Tab: returnComponent(Tab),
-    Tag: returnComponent(Tag),
-    Emotion: returnComponent(Emotion),
-    Star: returnComponent(Star),
-    // Navigation: returnComponent(Navigation),
-    // Process: returnComponent(Process),
-    // set -------------------------------------------------
-    Modal: returnComponent(Modal),
-    // ContextMessage: returnComponent(ContextMessage),
-    PostSearch: returnComponent(PostSearch),
+    // Button: returnComponent(Button),
+    // Progress: returnComponent(Progress),
+    // Accordion: returnComponent(Accordion),
+    // Tab: returnComponent(Tab),
+    // Tag: returnComponent(Tag),
+    // Emotion: returnComponent(Emotion),
+    // Star: returnComponent(Star),
+    // // Navigation: returnComponent(Navigation),
+    // // Process: returnComponent(Process),
+    // // set -------------------------------------------------
+    // Modal: returnComponent(Modal),
+    // // ContextMessage: returnComponent(ContextMessage),
+    // PostSearch: returnComponent(PostSearch),
 }
 
 window.MYKL = {...window.MYKL, ...MYKLBasic};
@@ -95,14 +91,14 @@ document.querySelectorAll('.mykl-textarea.textarea-smart').forEach(el =>  new Te
 document.querySelectorAll('.mykl-time').forEach(el =>  new Time(el));
 // document.querySelectorAll('.mykl-file').forEach(el => MYKL.File(el));
 
-document.querySelectorAll('.mykl-progress').forEach(el =>  new Progress(el));
-document.querySelectorAll('.mykl-accordion').forEach(el =>  new Accordion(el));
-document.querySelectorAll('.mykl-tab').forEach(el =>  new Tab(el));
-document.querySelectorAll('.mykl-tag').forEach(el =>  new Tag(el));
-document.querySelectorAll('.mykl-emotion').forEach(el =>  new Emotion(el));
-document.querySelectorAll('.mykl-star').forEach(el =>  new Star(el));
+// document.querySelectorAll('.mykl-progress').forEach(el =>  new Progress(el));
+// document.querySelectorAll('.mykl-accordion').forEach(el =>  new Accordion(el));
+// document.querySelectorAll('.mykl-tab').forEach(el =>  new Tab(el));
+// document.querySelectorAll('.mykl-tag').forEach(el =>  new Tag(el));
+// document.querySelectorAll('.mykl-emotion').forEach(el =>  new Emotion(el));
+// document.querySelectorAll('.mykl-star').forEach(el =>  new Star(el));
 // document.querySelectorAll('.mykl-navbar').forEach(el =>  new Navigation(el));
 // document.querySelectorAll('.mykl-process').forEach(el =>  new Process(el));
 
-document.querySelectorAll('.mykl-modal').forEach(el =>  new Modal(el));
-document.querySelectorAll('.mykl-postSearch').forEach(el => new PostSearch(el));
+// document.querySelectorAll('.mykl-modal').forEach(el =>  new Modal(el));
+// document.querySelectorAll('.mykl-postSearch').forEach(el => new PostSearch(el));

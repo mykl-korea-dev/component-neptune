@@ -1,7 +1,7 @@
-import Component from "../../basic/Component.js";
-import Select from "../../form-component/select/Select.js";
+import Component from "../../basic/js/Component.js";
+import Select from "../../form-component/js/Select.js";
 import Calendar from "../../form-component/calendar/Calendar.js";
-import {getDataset} from "../../basic/utils.js";
+import {getDataset} from "../../basic/js/utils.js";
 
 export default class PostSearch extends Component {
     setElements() {

@@ -1,5 +1,5 @@
 import ImageSlide from "../../imageSlide/ImageSlide.js";
-import {throttle} from "../../../basic/utils.js";
+import {throttle} from "../../../basic/js/utils.js";
 
 /*
 채우는 방법

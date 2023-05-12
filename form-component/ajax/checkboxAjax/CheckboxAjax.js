@@ -1,5 +1,5 @@
-import Component from "../../../basic/Component.js";
-import {getData, getDataset} from "../../../basic/utils.js";
+import Component from "../../../basic/js/Component.js";
+import {getData, getDataset} from "../../../basic/js/utils.js";
 
 export default class CheckboxAjax extends Component{
     setElements() {

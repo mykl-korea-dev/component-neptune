@@ -15,6 +15,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
         html {
             font-size: 16px;
         }
@@ -48,6 +53,10 @@
 
         .script-code {
             display: none;
+        }
+
+        pre code.hljs {
+            padding: 0 1em 1em 0;
         }
     </style>
 </head>
@@ -93,11 +102,31 @@
             </section>
             <section>
                 <h3 id="Input-Component">Input Component</h3>
+                <div>
+                    <div>
 <div class="static-code">
     <input class="mykl-input" type="text" placeholder="Default input">
 
     <input class="mykl-input" type="password" placeholder="Input Password">
 </div>
+                    </div>
+                    <div style="display: flex">
+                        <div style="display: ">
+<h4>상태</h4>
+<div class="static-code">
+    <input class="mykl-input input-error" type="text" placeholder="Default input">
+    <input class="mykl-input input-active" type="text" placeholder="Default input">
+</div>
+                        </div>
+                        <div>
+<h4>상태</h4>
+<div class="static-code">
+    <input class="mykl-input" type="text" placeholder="Default input" disabled>
+    <input class="mykl-input" type="text" placeholder="Default input" readonly>
+</div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section>
                 <h3 id="Radio-Component">Radio Component</h3>
@@ -464,7 +493,7 @@
 <div class="static-code">
     <div class="mykl-tooltip tooltip-right">
         <span class="tooltip-icon">
-            <img src="./images/star-fill.svg">
+<!--            <img src="./images/star-fill.svg">-->
         </span>
         <div class="tooltip-content">
             툴팁입니다.

@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
@@ -10,7 +9,7 @@ module.exports = {
     resolve: {
         extensions: [".js"],
     },
-    entry: { mykl_ui: [ "./mykl-default", "./mykl-ajax"]},
+    entry: { mykl_ui: [ "./mykl-default"]},
     output: {
         filename: 'js/[name].js',
         assetModuleFilename: 'images/[name][ext]',
@@ -55,13 +54,19 @@ module.exports = {
                             publicPath: '../'
                         },
                     },
-                    // 'style-loader',
                     'css-loader',
                     'postcss-loader',
-                    // 'sass-loader'
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                outputStyle: 'expanded'
+                            }
+                        }
+                    }
                 ],
 
-                exclude: /node_modules\/(?!(axios|@redux-saga|redux-logger))/
+                exclude: /node_modules/
             },
         ]
     },

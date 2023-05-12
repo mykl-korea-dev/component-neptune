@@ -1,4 +1,4 @@
-import Component from "../../../basic/Component.js";
+import Component from "../../../basic/js/Component.js";
 
 // 열마다 스타일 지정
 // th, td 지정

@@ -1,0 +1,67 @@
+@use "../../basic/scss/variables";
+
+.mykl-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    font-size: variables.$base-fs;
+    line-height: 1;
+    box-sizing: border-box;
+
+//    size
+//    .input-sm {
+//        font-size: 0.875rem;
+//    }
+//
+//    .input-lg {
+//        font-size: 1.25rem;
+//    }
+
+//    state
+    &.input-active {
+        border: 1px solid variables.$active-color;
+    }
+
+    &.input-error {
+        outline: transparent;
+        @include variables.themeBorder(variables.$error-color);
+    }
+
+    &:disabled {
+        background: variables.$disabled-color;
+        border: 1px solid variables.$disabled-color;
+    }
+    &:read-only {
+        pointer-events: none;
+    }
+}
+
+/* password */
+.mykl-input-password {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+.mykl-input-password .mykl-input {
+    padding-right: 46px;
+}
+
+.mykl-input-password .input-password-icon {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    /*background: url("../../images/pass_eye.png");*/
+    text-indent: -9999px;
+}
+
+.mykl-postSearch .mykl-input {
+    flex: 1;
+}

@@ -1,5 +1,5 @@
 import Accordion from "../../accordion/Accordion.js";
-import Component from "../../../basic/Component.js";
+import Component from "../../../basic/js/Component.js";
 
 export default class AccordionAjax extends Accordion {
     setElements() {

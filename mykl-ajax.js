@@ -1,4 +1,4 @@
-import {getData} from "./basic/utils.js";
+import {getData} from "./basic/js/utils.js";
 import CheckboxAjax from "./form-component/ajax/checkboxAjax/CheckboxAjax.js";
 import RadioAjax from "./form-component/ajax/radioAjax/RadioAjax.js";
 import RangeAjax from "./form-component/ajax/rangeAjax/RangeAjax.js";
@@ -26,7 +26,7 @@ import AutoComplete from "./ui-component/ajax/autoCompleteAjax/AutoComplete.js";
 import './ui-component/ajax/autoCompleteAjax/autoComplete.css';
 
 import {returnComponent} from "./mykl-default.js";
-import Time from "./form-component/time/Time";
+import Time from "./form-component/js/Time";
 import CardAjax from "./component-set/ajax/CardAjax";
 import ModalAjax from "./component-set/ajax/ModalAjax";
 

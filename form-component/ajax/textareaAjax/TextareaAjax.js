@@ -1,5 +1,5 @@
-import Component from "../../../basic/Component.js";
-import Textarea from "../../textarea/Textarea.js";
+import Component from "../../../basic/js/Component.js";
+import Textarea from "../../js/Textarea.js";
 
 export default class TextareaAjax extends Component {
     setElements() {

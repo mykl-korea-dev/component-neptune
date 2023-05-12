@@ -15,11 +15,11 @@
 }
 
 .mykl-star .star-fill {
-    background: url("../../images/star-fill.svg") no-repeat;
+    /*background: url("../../images/star-fill.svg") no-repeat;*/
 }
 .mykl-star .star-half {
-    background: url("../../images/star-half.svg") no-repeat;
+    /*background: url("../../images/star-half.svg") no-repeat;*/
 }
 .mykl-star .star-empty {
-    background: url("../../images/star.svg") no-repeat;
+    /*background: url("../../images/star.svg") no-repeat;*/
 }

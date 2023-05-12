@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../../form-component/select/select.css">
-    <link rel="stylesheet" href="../../form-component/calendar/calendar.css">
+    <link rel="stylesheet" href="../../form-component/scss/select.css">
+    <link rel="stylesheet" href="../../form-component/scss/calendar.css">
 
 </head>
 <body>
@@ -28,9 +28,9 @@
 
         document.querySelectorAll('.mykl-select').forEach(el => new Select(el));
 
-        import Select from "../../form-component/select/Select.js";
+        import Select from "../../form-component/js/Select.js";
         import PostSearch from "./PostSearch.js";
-        import {getData} from "../../basic/utils.js";
+        import {getData} from "../../basic/js/utils.js";
         getData('http://localhost:3000/select', (data) => new SelectAjax(document.querySelector('#mykl-postSearch-range'), data))
         new PostSearch(document.querySelector('.mykl-postSearch'));
         // new Select(document.querySelector('#mykl-postSearch-range'));

@@ -1,5 +1,5 @@
-import Component from "../../../basic/Component.js";
-import {getDataset} from "../../../basic/utils.js";
+import Component from "../../../basic/js/Component.js";
+import {getDataset} from "../../../basic/js/utils.js";
 // 1. keydown 이벤트 발생 시 API 목록 가져오기
 // 2. ArrowDown 누르면 목록 리스트 중 아래로 이동
 // 2-1. 최하단 목록 시 누르면 기본 입력 값

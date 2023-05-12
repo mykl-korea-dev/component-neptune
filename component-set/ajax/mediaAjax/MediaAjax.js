@@ -1,4 +1,4 @@
-import Component from "../../../basic/Component.js";
+import Component from "../../../basic/js/Component.js";
 
 export default class MediaAjax extends Component {
     setElements() {

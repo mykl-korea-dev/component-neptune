@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>select 동적생성</title>
-    <link rel="stylesheet" href="../../../basic/common.css">
-    <link rel="stylesheet" href="../../select/select.css">
+    <link rel="stylesheet" href="../../../basic/scss/common.css">
+    <link rel="stylesheet" href="../../scss/select.css">
     <script src="./SelectAjax.js" type="module"></script>
 </head>
 
@@ -51,7 +51,7 @@
 
 <script type="module">
     import SelectAjax from './SelectAjax.js';
-    import {getData} from "../../../basic/utils.js";
+    import {getData} from "../../../basic/js/utils.js";
     import FormAjax from "../formAjax.js";
     getData('http://localhost:8080/select', (data) => {
         new SelectAjax(document.querySelector('#select1'), data)

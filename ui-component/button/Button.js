@@ -1,5 +1,5 @@
-import Component from "../../basic/Component.js";
-import errorMessage from "../../basic/Error";
+import Component from "../../basic/js/Component.js";
+import errorMessage from "../../basic/js/Error";
 export default class Button extends Component {
     // setElements() {
     // }

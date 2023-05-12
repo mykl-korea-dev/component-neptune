@@ -1,0 +1,19 @@
+$primary-color: #4242f5;
+$secondary-color: #b169db;
+
+$info-color: #dbaf48;
+$error-color: #9e001d;
+$active-color: #4242f5;
+$disabled-color: #b0b0b0;
+
+$base-fs: 14px;
+
+@mixin themeBg($theme: $primary-color) {
+  background: $theme;
+  border: 1px solid $theme;
+}
+
+@mixin themeBorder($theme: $primary-color) {
+  color: $theme;
+  border: 1px solid $theme;
+}

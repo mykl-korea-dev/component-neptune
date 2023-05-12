@@ -1,8 +1,7 @@
-import Component from "../../../basic/js/Component.js";
+import Component from "../../basic/js/Component.js";
 
 export default class Calendar extends Component {
     setElements() {
-        this.$element.classList.add("mykl-calendarList");
         this.year = new Date().getFullYear();
         this.month =  this.setTwoDigits(new Date().getMonth() + 1);
         this.date = this.setTwoDigits(new Date().getDate());
@@ -11,6 +10,7 @@ export default class Calendar extends Component {
         const div = document.createElement('div');
         div.classList.add('calendar-wrapper');
         this.$element.appendChild(div);
+        this.$element.querySelector('input').value = `${this.year}-${this.month}-${this.date}`;
         this.isShow = false;
     }
 
@@ -19,21 +19,20 @@ export default class Calendar extends Component {
         let lastDate = new Date(this.year, this.month, 0, 0, 0, 0).getDate();
         let weekSeq = Math.floor((lastDate + firstDay - 1) / 7 + 1);
         return `
-        <div class="calendar-container">
+        <div class="clicked-date">
+            <span>
+                <span class="selected-year">${this.year}</span>-<span class="selected-month">${this.setTwoDigits(this.month)}</span>-<span class="selected-day">${this.setTwoDigits(this.date)}</span>
+            </span>
+            <button type="button" class="calendar-btn">기간</button>
+        </div>    
+        <div class="calendar-container ${this.isShow ? 'show' : ''}">
             <div class="year-month">
-                <div class="year">${this.year} <button type="button" class=""></button></div>
+                <div class="year">${this.year}</div>
+                <div class="month">${this.month}</div>
                 <div class="calendar-button-group">
-                    <button class="prev" type="button">&lt;</button>
-                    <button class="next" type="button">&gt;</button>
+                    <button class="prev" type="button">Prev</button>
+                    <button class="next" type="button">Next</button>
                 </div>
-                <button type="button" class="today">
-                    오늘
-                </button>
-            </div>
-            <div class="month-group">
-                ${[...Array(12)].map((_, i) => `
-                    <div class="month ${+this.month === (i + 1) ? 'active' : ''}">${i + 1}</div>
-                `).join("")}            
             </div>
             <div class="weekday">
               <div>일</div>
@@ -47,14 +46,9 @@ export default class Calendar extends Component {
             ${[...Array(weekSeq)].map((_, i) =>`
                 <div class="week${i}">
                     ${[...Array(7)].map((_, j) => {
-                        const date = i * 7 + j - firstDay + 1;
-                        if(date < 1 || date > lastDate) return `<div></div>`
-                        return `
-                            <div class="day ${date == this.mark ? 'mark' : ''}">
-                                <span class="date">${date}</span>
-                                <div class="content"></div>
-                            </div>
-                        `}).join('')}
+            const date = i * 7 + j - firstDay + 1;
+            if(date < 1 || date > lastDate) return `<div></div>`
+            return `<div class="day ${date == this.mark ? 'mark' : ''}">${date}</div>`}).join('')}
                 </div>
             `).join('')}
         </div>
@@ -62,6 +56,8 @@ export default class Calendar extends Component {
     }
 
     render() {
+        this.$element.querySelector('input').value = `${this.year}-${this.setTwoDigits(this.month)}-${this.setTwoDigits(this.date)}`;
+
         if(this.state[`${this.year}-${this.month}`]) {
             this.holiArr = [...this.state[`${this.year}-${this.month}`]];
             this.$element.querySelector('.calendar-wrapper').innerHTML = this.setTemplate();
@@ -95,45 +91,43 @@ export default class Calendar extends Component {
         })
         this.$element?.addEventListener('click', ({target}) => {
             if(target.classList.contains('prev')) {
-                --this.year;
+                --this.month;
+                if(this.month === 0) {
+                    this.month = 12;
+                    --this.year;
+                }
                 this.render();
             }
 
             if(target.classList.contains('next')) {
-                ++this.year;
+                ++this.month;
+                if(this.month === 13) {
+                    this.month = 1
+                    ++this.year
+                }
                 this.render();
             }
 
-            if(target.classList.contains('month')) {
-                this.month = +target.textContent;
-                this.render();
+            if(target.classList.contains('calendar-btn')) {
+                this.isShow = !this.isShow;
+                this.$element.querySelector('.calendar-container')?.classList.toggle('show');
             }
 
-            if(target.classList.contains('today')) {
-                const todayDate = new Date()
-                this.year = todayDate.getFullYear();
-                this.month = todayDate.getMonth() + 1;
-                this.date = todayDate.getDate();
-                this.render();
+            if(target.classList.contains('day')) {
+                this.$element.querySelector('.mark')?.classList.remove('mark');
+                const year = this.$element.querySelector('.year').textContent;
+                const month = this.$element.querySelector('.month').textContent;
+                target.classList.add('mark');
+                this.mark = target.textContent;
+                this.date = this.mark;
+                const day = target.textContent;
+                this.$element.querySelector('.selected-year').textContent = year;
+                this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
+                this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(day);
+                this.$element.querySelector('input').setAttribute("value", `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`);
             }
-
-            // if(target.classList.contains('day')) {
-            //     this.$element.querySelector('.mark')?.classList.remove('mark');
-            //     const year = this.$element.querySelector('.year').textContent;
-            //     const month = this.$element.querySelector('.month').textContent;
-            //     target.classList.add('mark');
-            //     this.mark = target.textContent;
-            //     this.date = this.mark;
-            //     const day = target.textContent;
-            //     this.$element.querySelector('.selected-year').textContent = year;
-            //     this.$element.querySelector('.selected-month').textContent = this.setTwoDigits(month);
-            //     this.$element.querySelector('.selected-day').textContent = this.setTwoDigits(day);
-            //     this.$element.querySelector('.calendar-input').value = `${year}-${this.setTwoDigits(month)}-${this.setTwoDigits(day)}`;
-            // }
         })
     }
-
-
 
     setTwoDigits(value) {
         return +value < 10 ? `0${+value}` : +value;

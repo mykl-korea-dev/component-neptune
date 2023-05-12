@@ -1,6 +1,6 @@
-import Component from "../../../basic/Component.js";
-import {getData, getDataset} from "../../../basic/utils.js";
-import Range from "../../range/Range.js";
+import Component from "../../../basic/js/Component.js";
+import {getData, getDataset} from "../../../basic/js/utils.js";
+import Range from "../../js/Range.js";
 
 export default class RangeAjax extends Range {
     setElements() {

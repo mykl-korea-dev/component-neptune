@@ -1,5 +1,5 @@
-import Component from "../../basic/Component.js";
-import {throttle} from "../../basic/utils.js";
+import Component from "../../basic/js/Component.js";
+import {throttle} from "../../basic/js/utils.js";
 
 export default class ImageSlide extends Component {
     render() {

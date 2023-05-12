@@ -1,5 +1,5 @@
-import Component from "../../basic/Component.js";
-import errorMessage from "../../basic/Error.js";
+import Component from "../../basic/js/Component.js";
+import errorMessage from "../../basic/js/Error.js";
 
 export default class Accordion extends Component {
     setEvents() {

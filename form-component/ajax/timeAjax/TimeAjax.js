@@ -1,4 +1,4 @@
-import Time from "../../time/Time.js";
+import Time from "../../js/Time.js";
 
 export default class TimeAjax extends Time {
     setElements() {

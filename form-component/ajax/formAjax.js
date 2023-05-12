@@ -1,4 +1,4 @@
-import Component from "../../basic/Component.js";
+import Component from "../../basic/js/Component.js";
 
 // 기본값
 // 값이 여러개 전달 될 경우 전달 방법 선

@@ -29,7 +29,7 @@ import {returnComponent} from "./mykl-default.js";
 import Time from "./form-component/time/Time";
 import CardAjax from "./component-set/ajax/CardAjax";
 import ModalAjax from "./component-set/ajax/ModalAjax";
-
+import TemplateAjax from "./component-set/ajax/TemplateAjax";
 
 let MYKLAjax = {
     // setComponents
@@ -61,6 +61,7 @@ let MYKLAjax = {
     MediaAjax: returnComponent(MediaAjax),
     CardAjax: returnComponent(CardAjax),
     ModalAjax: returnComponent(ModalAjax),
+    TemplateAjax: returnComponent(TemplateAjax),
 }
 
 window.MYKL = {...window.MYKL, ...MYKLAjax};

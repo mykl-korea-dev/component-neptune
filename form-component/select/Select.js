@@ -48,7 +48,7 @@ export default class Select extends Component {
 
         selectDiv?.addEventListener('click', (e) => {
             const select = this.$element.querySelector('select');
-            this.$element.querySelector('.same-as-selected')?.removeAttribute('class');
+            this.$element.querySelector('.same-as-selected')?.classList.remove('same-as-selected');
             const target = e.target;
             for (let i = 0; i < this.options.length; i++) {
                 if(select.options[i].innerHTML === target?.textContent) {
@@ -62,6 +62,7 @@ export default class Select extends Component {
                 }
             }
             this.select.click();
+            select.dispatchEvent(new Event("change"));
         })
     }
 
